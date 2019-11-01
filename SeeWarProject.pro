@@ -34,4 +34,8 @@ DISTFILES += \
 	NetWork \
 	SeeWarQML_old.7z \
 	UseCase \
-	model.qmodel
+	model.qmodel \
+	qml/BaseElements/qmldir \
+	qml/Elements/qmldir \
+	qml/ModeWindow/qmldir \
+	qmlcpp.qmodel
