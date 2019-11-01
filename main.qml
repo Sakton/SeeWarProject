@@ -3,7 +3,12 @@ import QtQuick.Window 2.12
 
 Window {
 	visible: true
-	width: 640
-	height: 480
-	title: qsTr("SeeWar")
+	width: 1200 / 2.6
+	height: 600 / 2.6
+	//title: qsTr("SeeWar")
+	title: ("mobWindow")
+	Rectangle {
+		anchors.fill: parent
+		color: "red"
+	}
 }
