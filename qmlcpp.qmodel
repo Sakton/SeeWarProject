@@ -48,9 +48,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{f9e20356-66dd-4424-b413-0e300fbb81df}</object>
-                         <name>Qml</name>
-                         <pos>x:190;y:445</pos>
-                         <rect>x:-90;y:-60;w:180;h:120</rect>
+                         <name>Gui Qml</name>
+                         <pos>x:200;y:700</pos>
+                         <rect>x:-120;y:-70;w:240;h:140</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -69,9 +69,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{55838e3b-902c-4528-9da4-b7b5c088a57d}</object>
-                         <name>Cpp</name>
-                         <pos>x:455;y:440</pos>
-                         <rect>x:-85;y:-60;w:170;h:120</rect>
+                         <name>Busness Logik</name>
+                         <pos>x:200;y:165</pos>
+                         <rect>x:-120;y:-65;w:240;h:130</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -80,83 +80,50 @@
                      </instance>
                     </item>
                     <item>
-                     <instance type="DClass">
-                      <DClass>
+                     <instance type="DComponent">
+                      <DComponent>
                        <base-DObject>
                         <DObject>
                          <base-DElement>
                           <DElement>
-                           <uid>{b4aab89d-67e8-4fdb-a8ad-e6a867f98d75}</uid>
+                           <uid>{5c08b5ac-de7c-4bba-a1c0-bd2ebaf948ae}</uid>
                           </DElement>
                          </base-DElement>
-                         <object>{c22edfe9-281c-4e6c-8f13-681b41ce3e6b}</object>
-                         <name>GlobalSettings</name>
-                         <pos>x:320;y:260</pos>
-                         <rect>x:-55;y:-40;w:110;h:80</rect>
+                         <object>{1d291d73-1b95-4aac-a2e6-3c7bc0687daf}</object>
+                         <name>Взаимодействие с пользователем</name>
+                         <pos>x:200;y:525</pos>
+                         <rect>x:-120;y:-70;w:240;h:140</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
-                      </DClass>
+                      </DComponent>
                      </instance>
                     </item>
                     <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
                          <base-DElement>
                           <DElement>
-                           <uid>{755a0cc5-f9a5-4af2-aa27-71323431b789}</uid>
+                           <uid>{6aa206e4-ec75-44cc-bb9e-90a9a0a014b8}</uid>
                           </DElement>
                          </base-DElement>
-                         <object>{5264604c-03d2-4dcc-b35e-2408bc02644d}</object>
-                         <a>{3a02ca77-3fb1-493c-a8b6-6eab53315f44}</a>
-                         <b>{b4aab89d-67e8-4fdb-a8ad-e6a867f98d75}</b>
-                         <points>
-                          <qlist>
-                           <item>
-                            <DRelation--IntermediatePoint>
-                             <pos>x:180;y:270</pos>
-                            </DRelation--IntermediatePoint>
-                           </item>
-                          </qlist>
-                         </points>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{c18e7f27-c886-4252-a4f9-7a96b077114a}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{b42a46ba-2df6-4cce-9bbb-c472e3a3a76a}</object>
-                         <a>{2d59b19c-ed7b-46d3-90f5-688b222848e5}</a>
-                         <b>{b4aab89d-67e8-4fdb-a8ad-e6a867f98d75}</b>
-                         <points>
-                          <qlist>
-                           <item>
-                            <DRelation--IntermediatePoint>
-                             <pos>x:470;y:265</pos>
-                            </DRelation--IntermediatePoint>
-                           </item>
-                          </qlist>
-                         </points>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
+                         <object>{6bd8fc36-5398-4955-a539-2fe39df202c0}</object>
+                         <name>GlobalSettings</name>
+                         <pos>x:200;y:345</pos>
+                         <rect>x:-120;y:-75;w:240;h:150</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
                      </instance>
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1572609942739</last-modified>
+                  <last-modified>1572878910600</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -178,7 +145,7 @@
                     <uid>{f9e20356-66dd-4424-b413-0e300fbb81df}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Qml</name>
+                  <name>Gui Qml</name>
                   <relations>
                    <handles>
                     <handles>
@@ -251,7 +218,7 @@
                     <uid>{55838e3b-902c-4528-9da4-b7b5c088a57d}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Cpp</name>
+                  <name>Busness Logik</name>
                   <relations>
                    <handles>
                     <handles>
@@ -306,6 +273,48 @@
                  </MObject>
                 </base-MObject>
                </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{1d291d73-1b95-4aac-a2e6-3c7bc0687daf}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{1d291d73-1b95-4aac-a2e6-3c7bc0687daf}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Взаимодействие с пользователем</name>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{6bd8fc36-5398-4955-a539-2fe39df202c0}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{6bd8fc36-5398-4955-a539-2fe39df202c0}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>GlobalSettings</name>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
               </instance>
              </target>
             </handle>
