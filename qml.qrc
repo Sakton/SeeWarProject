@@ -8,6 +8,5 @@
         <file>QmlModule/qml/DefaultGui/ModeWindow/qmldir</file>
         <file>QmlModule/qml/DefaultGui/ModeWindow/SelectionMenuMode.qml</file>
         <file>QmlModule/qml/DefaultGui/main.qml</file>
-        <file>QmlModule/qml/TestOtherGui/main.qml</file>
     </qresource>
 </RCC>
