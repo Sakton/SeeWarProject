@@ -1,7 +1,7 @@
 #include <QtCore/qglobal.h>
 #if QT_VERSION >= 0x050000
 #include <QtGui/QGuiApplication>
-#include "cpp/GuiModule/guiloader.h"
+#include <QtQml/QQmlApplicationEngine>
 #else
 #endif
 
@@ -11,9 +11,14 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    QUrl baseUrl = QUrl(QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/qml/TestOtherGui/main.qml"));
-    QUrl defaultUrl = QUrl(QStringLiteral("qrc:/qml/DefaultGui/main.qml"));
-    GuiLoader::init(defaultUrl, &app);
+    QQmlApplicationEngine engine;
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+        &app, [url](QObject *obj, const QUrl &objUrl) {
+            if (!obj && url == objUrl)
+                QCoreApplication::exit(-1);
+        }, Qt::QueuedConnection);
+    engine.load(url);
 
     return app.exec();
 }

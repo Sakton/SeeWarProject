@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qml/DefaultGui/Elements/Field.qml</file>
-        <file>qml/DefaultGui/ModeWindow/PlacementMode.qml</file>
-        <file>qml/DefaultGui/ModeWindow/SelectionMenuMode.qml</file>
-        <file>qml/DefaultGui/main.qml</file>
-    </qresource>
-</RCC>
