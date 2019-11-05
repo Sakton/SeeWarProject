@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
     QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };
 
-    GuiLoader::init(testGui, &app);
+    GuiLoader::init(defaultGui, &app);
 
     return app.exec();
 }

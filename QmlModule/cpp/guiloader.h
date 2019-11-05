@@ -11,10 +11,6 @@ class GuiLoader : public QObject
     Q_OBJECT
 public:
     static GuiLoader& init(QUrl& url ,QGuiApplication* app, QObject* parent = nullptr);
-    //GuiLoader();
-    QUrl getUrl() const;
-    Q_INVOKABLE void setUrl(const QUrl& url);
-    void registerSelf();
 
 private:
     explicit GuiLoader(QUrl& url, QGuiApplication* app = nullptr, QObject* parent = nullptr);

@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/qmldir</file>
         <file>QmlModule/qml/DefaultGui/Elements/Field.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/qmldir</file>
