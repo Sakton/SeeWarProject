@@ -1,0 +1,3 @@
+module ModeWindow
+PlacementMode 1.0 PlacementMode.qml
+SelectionMenuMode 1.0 SelectionMenuMode.qml

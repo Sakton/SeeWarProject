@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/qmldir</file>
+        <file>QmlModule/qml/DefaultGui/Elements/Field.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/qmldir</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/PlacementMode.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/qmldir</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/SelectionMenuMode.qml</file>
+        <file>QmlModule/qml/DefaultGui/main.qml</file>
+        <file>QmlModule/qml/TestOtherGui/main.qml</file>
     </qresource>
 </RCC>
