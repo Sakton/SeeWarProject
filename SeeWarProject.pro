@@ -14,9 +14,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+		cpp/GuiModule/guiloader.cpp \
 		main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += oter/qml.qrc
+
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -30,12 +32,25 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-	GameDescription \
-	NetWork \
-	SeeWarQML_old.7z \
-	UseCase \
-	model.qmodel \
+	oter/GameDescription \
+	oter/GuiLoader.qmodel \
+	oter/NetWork \
+	oter/SeeWarQML_old.7z \
+	oter/UseCase \
+	oter/model.qmodel \
+	oter/qmlcpp.qmodel \
 	qml/BaseElements/qmldir \
+	qml/DefaultGui/BaseElements/qmldir \
+	qml/DefaultGui/Elements/Field.qml \
+	qml/DefaultGui/Elements/qmldir \
+	qml/DefaultGui/ModeWindow/PlacementMode.qml \
+	qml/DefaultGui/ModeWindow/SelectionMenuMode.qml \
+	qml/DefaultGui/ModeWindow/qmldir \
+	qml/DefaultGui/main.qml \
 	qml/Elements/qmldir \
 	qml/ModeWindow/qmldir \
+	qml/TestOtherGui/main.qml \
 	qmlcpp.qmodel
+
+HEADERS += \
+	cpp/GuiModule/guiloader.h

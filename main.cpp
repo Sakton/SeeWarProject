@@ -1,7 +1,7 @@
 #include <QtCore/qglobal.h>
 #if QT_VERSION >= 0x050000
 #include <QtGui/QGuiApplication>
-#include <QtQml/QQmlApplicationEngine>
+#include "cpp/GuiModule/guiloader.h"
 #else
 #endif
 
@@ -10,15 +10,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-    // home git test
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-        &app, [url](QObject *obj, const QUrl &objUrl) {
-            if (!obj && url == objUrl)
-                QCoreApplication::exit(-1);
-        }, Qt::QueuedConnection);
-    engine.load(url);
+
+    QUrl baseUrl = QUrl(QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/qml/TestOtherGui/main.qml"));
+    QUrl defaultUrl = QUrl(QStringLiteral("qrc:/qml/DefaultGui/main.qml"));
+    GuiLoader::init(defaultUrl, &app);
 
     return app.exec();
 }

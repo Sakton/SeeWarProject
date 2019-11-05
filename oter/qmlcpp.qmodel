@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{f9e20356-66dd-4424-b413-0e300fbb81df}</object>
                          <name>Gui Qml</name>
-                         <pos>x:200;y:700</pos>
+                         <pos>x:190;y:630</pos>
                          <rect>x:-120;y:-70;w:240;h:140</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -70,7 +70,7 @@
                          </base-DElement>
                          <object>{55838e3b-902c-4528-9da4-b7b5c088a57d}</object>
                          <name>Busness Logik</name>
-                         <pos>x:200;y:165</pos>
+                         <pos>x:190;y:100</pos>
                          <rect>x:-120;y:-65;w:240;h:130</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -91,7 +91,7 @@
                          </base-DElement>
                          <object>{1d291d73-1b95-4aac-a2e6-3c7bc0687daf}</object>
                          <name>Взаимодействие с пользователем</name>
-                         <pos>x:200;y:525</pos>
+                         <pos>x:190;y:460</pos>
                          <rect>x:-120;y:-70;w:240;h:140</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -112,8 +112,29 @@
                          </base-DElement>
                          <object>{6bd8fc36-5398-4955-a539-2fe39df202c0}</object>
                          <name>GlobalSettings</name>
-                         <pos>x:200;y:345</pos>
+                         <pos>x:190;y:280</pos>
                          <rect>x:-120;y:-75;w:240;h:150</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{b219fe52-394b-4f4c-b2fe-9f9fe8454bc5}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{d7eb47bb-0aa3-4826-985f-4ec0d094c360}</object>
+                         <name>NetComponent</name>
+                         <pos>x:510;y:100</pos>
+                         <rect>x:-110;y:-65;w:220;h:130</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -123,7 +144,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1572878910600</last-modified>
+                  <last-modified>1572949190016</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -312,6 +333,27 @@
                    </MElement>
                   </base-MElement>
                   <name>GlobalSettings</name>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{d7eb47bb-0aa3-4826-985f-4ec0d094c360}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{d7eb47bb-0aa3-4826-985f-4ec0d094c360}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>NetComponent</name>
                  </MObject>
                 </base-MObject>
                </MComponent>
