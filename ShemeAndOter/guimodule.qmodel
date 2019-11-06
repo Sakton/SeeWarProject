@@ -286,8 +286,8 @@
                          </base-DElement>
                          <object>{58a53d45-5316-4f92-b2f4-29e6f8b5b9b8}</object>
                          <name>Правые элементы</name>
-                         <pos>x:495;y:695</pos>
-                         <rect>x:-80;y:-110;w:160;h:220</rect>
+                         <pos>x:500;y:695</pos>
+                         <rect>x:-75;y:-110;w:150;h:220</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>8</visual-role>
                         </DObject>
@@ -511,7 +511,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1573025284392</last-modified>
+                  <last-modified>1573028150853</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
