@@ -33,7 +33,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
 	ShemeAndOter/NetWork \
 	ShemeAndOter/bigstructure.qmodel \
+	ShemeAndOter/guimodule.qmodel \
+	ShemeAndOter/networkmodel.qmodel \
 	ShemeAndOter/old.7z \
+	ShemeAndOter/qmlloadermodel.qmodel \
+	ShemeAndOter/shipmodel.qmodel \
 	ShemeAndOter/useCase
 
 HEADERS += \
