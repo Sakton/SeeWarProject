@@ -1,3 +1,4 @@
 module ModeWindow
-PlacementMode 1.0 PlacementMode.qml
-SelectionMenuMode 1.0 SelectionMenuMode.qml
+StartMenu 1.0 StartMenu.qml
+Arragement 1.0 Arragement.qml
+GameMode 1.0 GameMode.qml

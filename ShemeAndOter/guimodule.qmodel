@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{c7504abb-33a4-4a73-90dd-685e5cae5184}</object>
                          <pos>x:425;y:145</pos>
-                         <rect>x:-150;y:-80;w:300;h:160</rect>
+                         <rect>x:-155;y:-80;w:310;h:160</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>8</visual-role>
                          <stereotype-display>2</stereotype-display>
@@ -71,8 +71,8 @@
                          </base-DElement>
                          <object>{f78f8861-1f54-4670-96f2-6159da070c8d}</object>
                          <name>Игра по сети(Btn анимация при нажатии)</name>
-                         <pos>x:425;y:145</pos>
-                         <rect>x:-125;y:-20;w:250;h:40</rect>
+                         <pos>x:465;y:110</pos>
+                         <rect>x:-110;y:-35;w:220;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -93,8 +93,8 @@
                          </base-DElement>
                          <object>{6a168ac2-1948-453d-9b87-f031d894a1cb}</object>
                          <name>Игра с кмп(Btn анимация)</name>
-                         <pos>x:425;y:195</pos>
-                         <rect>x:-125;y:-20;w:250;h:40</rect>
+                         <pos>x:465;y:185</pos>
+                         <rect>x:-110;y:-35;w:220;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -115,8 +115,9 @@
                          </base-DElement>
                          <object>{7e7e7ab3-003e-411e-a213-04e6c18e9607}</object>
                          <name>настройки</name>
-                         <pos>x:535;y:95</pos>
-                         <rect>x:-35;y:-20;w:70;h:40</rect>
+                         <pos>x:315;y:145</pos>
+                         <rect>x:-35;y:-70;w:70;h:140</rect>
+                         <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -511,7 +512,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1573028150853</last-modified>
+                  <last-modified>1573103713681</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>

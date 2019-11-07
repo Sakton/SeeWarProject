@@ -16,6 +16,9 @@ private:
     explicit GuiLoader(QUrl& url, QGuiApplication* app = nullptr, QObject* parent = nullptr);
 
 private:
+    void addImportStyleModuleGui(QUrl &url);
+
+private:
     QGuiApplication* m_app;
     QQmlApplicationEngine* m_engine;
     QUrl m_url;

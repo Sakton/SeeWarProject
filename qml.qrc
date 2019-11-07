@@ -3,9 +3,15 @@
         <file>QmlModule/qml/DefaultGui/BaseElements/qmldir</file>
         <file>QmlModule/qml/DefaultGui/Elements/Field.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/qmldir</file>
-        <file>QmlModule/qml/DefaultGui/ModeWindow/PlacementMode.qml</file>
         <file>QmlModule/qml/DefaultGui/ModeWindow/qmldir</file>
-        <file>QmlModule/qml/DefaultGui/ModeWindow/SelectionMenuMode.qml</file>
         <file>QmlModule/qml/DefaultGui/main.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/StartMenu.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/TestModelGridView.qml</file>
+        <file>QmlModule/qml/DefaultGui/ModeWindow/TestModelShipView.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/DelegateField.qml</file>
+        <file>QmlModule/qml/DefaultGui/Settings/Setting.qml</file>
+        <file>QmlModule/qml/DefaultGui/Settings/qmldir</file>
     </qresource>
 </RCC>

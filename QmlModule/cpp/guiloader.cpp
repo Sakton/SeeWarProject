@@ -1,5 +1,6 @@
 #include "guiloader.h"
 #include <QDebug>
+#include <algorithm>
 
 GuiLoader* GuiLoader::m_self { nullptr };
 
@@ -16,7 +17,14 @@ GuiLoader::GuiLoader(QUrl &url,QGuiApplication* app, QObject *parent) : QObject(
         },
         Qt::QueuedConnection);
     qmlRegisterType<GuiLoader>();
+    //добавлять путь для модулей настроек перед загрузкой qml
+    addImportStyleModuleGui(m_url);
     m_engine->load(m_url);
+}
+
+void GuiLoader::addImportStyleModuleGui(QUrl& url)
+{
+    m_engine->addImportPath(url.toString().remove("main.qml"));
 }
 
 GuiLoader &GuiLoader::init(QUrl& url, QGuiApplication* app, QObject* parent)
