@@ -632,8 +632,8 @@
                          </base-DElement>
                          <object>{8a761e81-80cb-4e7b-b1f8-6ffc9e67a535}</object>
                          <name>Поле</name>
-                         <pos>x:1010;y:340</pos>
-                         <rect>x:-130;y:-85;w:260;h:170</rect>
+                         <pos>x:760;y:525</pos>
+                         <rect>x:-115;y:-90;w:230;h:180</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -653,7 +653,7 @@
                           </DElement>
                          </base-DElement>
                          <object>{f8b7545c-8db1-4f4e-993b-26d9efa6822f}</object>
-                         <pos>x:820;y:310</pos>
+                         <pos>x:820;y:390</pos>
                          <rect>x:-45;y:-30;w:90;h:60</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -674,7 +674,7 @@
                           </DElement>
                          </base-DElement>
                          <object>{32620ec6-d1aa-40ef-807d-952d003c543f}</object>
-                         <pos>x:820;y:385</pos>
+                         <pos>x:820;y:315</pos>
                          <rect>x:-55;y:-40;w:110;h:80</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -693,7 +693,7 @@
                         </DElement>
                        </base-DElement>
                        <text>Отображение оставшихся</text>
-                       <pos>x:770;y:365</pos>
+                       <pos>x:770;y:295</pos>
                        <rect>x:0;y:0;w:86;h:42</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -721,7 +721,7 @@
                         </DElement>
                        </base-DElement>
                        <text>типа монетница</text>
-                       <pos>x:785;y:290</pos>
+                       <pos>x:785;y:370</pos>
                        <rect>x:0;y:0;w:70;h:42</rect>
                        <auto-sized>false</auto-sized>
                       </DAnnotation>
@@ -729,7 +729,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1573216280935</last-modified>
+                  <last-modified>1573217170705</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
