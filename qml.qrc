@@ -13,5 +13,9 @@
         <file>QmlModule/qml/DefaultGui/Elements/DelegateField.qml</file>
         <file>QmlModule/qml/DefaultGui/Settings/Setting.qml</file>
         <file>QmlModule/qml/DefaultGui/Settings/qmldir</file>
+        <file>QmlModule/qml/DefaultGui/Elements/Figures.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/DelegateFigure.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/ButtonBlockArragement.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/ButtonArragement.qml</file>
     </qresource>
 </RCC>

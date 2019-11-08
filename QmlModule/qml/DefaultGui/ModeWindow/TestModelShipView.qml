@@ -1,10 +1,15 @@
 import QtQuick 2.0
 
 ListModel {
-    Repeater {
-        model: 10
-        ListElement {
-            shipIndex: index
+    id: _root
+
+    Component.onCompleted: {
+        listAdd();
+    }
+
+    function listAdd() {
+        for(var i = 0; i < 10; ++i){
+            _root.append({"indexFigure" : i})
         }
     }
 }

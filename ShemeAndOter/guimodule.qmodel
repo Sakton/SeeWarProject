@@ -72,7 +72,7 @@
                          <object>{f78f8861-1f54-4670-96f2-6159da070c8d}</object>
                          <name>Игра по сети(Btn анимация при нажатии)</name>
                          <pos>x:465;y:110</pos>
-                         <rect>x:-110;y:-35;w:220;h:70</rect>
+                         <rect>x:-115;y:-35;w:230;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -510,34 +510,230 @@
                       </DDependency>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{351d9e25-f91f-4812-9f47-02bf2c48b87c}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{52de3965-fe74-44b0-a140-dc8b88485ecf}</object>
+                         <name>Играть</name>
+                         <pos>x:700;y:275</pos>
+                         <rect>x:-55;y:-20;w:110;h:40</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{046e3985-30a1-407b-9a99-43db89fcd0bd}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{844451c9-48ea-451e-a624-08ba44694001}</object>
+                         <name>Править</name>
+                         <pos>x:700;y:325</pos>
+                         <rect>x:-55;y:-20;w:110;h:40</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{2e6254d8-11fb-4214-b1ce-eac53f4ade08}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{e6f4d2a7-a169-42f3-b0a7-af687a98ab07}</object>
+                         <name>Сброс</name>
+                         <pos>x:700;y:370</pos>
+                         <rect>x:-55;y:-15;w:110;h:30</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{512143dc-36e9-4ea3-beb8-84ffdaadaa3c}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{76286bb7-6683-496c-b40f-359b09e74da2}</object>
+                         <name>Авто</name>
+                         <pos>x:700;y:410</pos>
+                         <rect>x:-55;y:-15;w:110;h:30</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{174517a4-61fb-4569-9747-75d0812b363d}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{16504bc0-ccbd-4d75-a981-632ee4c0bd05}</object>
+                         <name>Корабли</name>
+                         <pos>x:820;y:340</pos>
+                         <rect>x:-55;y:-85;w:110;h:170</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{4088d23d-4504-492f-bfcb-08e791434211}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{8a761e81-80cb-4e7b-b1f8-6ffc9e67a535}</object>
+                         <name>Поле</name>
+                         <pos>x:1010;y:340</pos>
+                         <rect>x:-130;y:-85;w:260;h:170</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{1a0ce9de-04a7-4145-801a-2021c7343cf0}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{f8b7545c-8db1-4f4e-993b-26d9efa6822f}</object>
+                         <pos>x:820;y:310</pos>
+                         <rect>x:-45;y:-30;w:90;h:60</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DItem">
+                      <DItem>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{39f57539-5b4e-4b5d-8f94-fcdd543611dd}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{32620ec6-d1aa-40ef-807d-952d003c543f}</object>
+                         <pos>x:820;y:385</pos>
+                         <rect>x:-55;y:-40;w:110;h:80</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <shape-editable>false</shape-editable>
+                      </DItem>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAnnotation">
+                      <DAnnotation>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{89f6e4b0-de43-461b-8b0f-5c3dea6b792d}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <text>Отображение оставшихся</text>
+                       <pos>x:770;y:365</pos>
+                       <rect>x:0;y:0;w:86;h:42</rect>
+                       <auto-sized>false</auto-sized>
+                      </DAnnotation>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DBoundary">
+                      <DBoundary>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{93b3f72a-2d54-4fd3-a4d6-232f053ae2eb}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <pos>x:800;y:300</pos>
+                       <rect>x:-15;y:-15;w:30;h:30</rect>
+                      </DBoundary>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DAnnotation">
+                      <DAnnotation>
+                       <base-DElement>
+                        <DElement>
+                         <uid>{806c9b68-74e2-43dc-85b3-0832d037bb66}</uid>
+                        </DElement>
+                       </base-DElement>
+                       <text>типа монетница</text>
+                       <pos>x:785;y:290</pos>
+                       <rect>x:0;y:0;w:70;h:42</rect>
+                       <auto-sized>false</auto-sized>
+                      </DAnnotation>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1573103713681</last-modified>
+                  <last-modified>1573216280935</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
                </MCanvasDiagram>
-              </instance>
-             </target>
-            </handle>
-           </item>
-           <item>
-            <handle>
-             <uid>{a260e660-4474-41e1-a250-0aa6dbc7c482}</uid>
-             <target>
-              <instance type="MItem">
-               <MItem>
-                <base-MObject>
-                 <MObject>
-                  <base-MElement>
-                   <MElement>
-                    <uid>{a260e660-4474-41e1-a250-0aa6dbc7c482}</uid>
-                   </MElement>
-                  </base-MElement>
-                  <name>Меню режимов</name>
-                 </MObject>
-                </base-MObject>
-               </MItem>
               </instance>
              </target>
             </handle>
@@ -980,6 +1176,172 @@
                    </MElement>
                   </base-MElement>
                   <name>Настройки для ГУИ</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{52de3965-fe74-44b0-a140-dc8b88485ecf}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{52de3965-fe74-44b0-a140-dc8b88485ecf}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Играть</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{844451c9-48ea-451e-a624-08ba44694001}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{844451c9-48ea-451e-a624-08ba44694001}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Править</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{e6f4d2a7-a169-42f3-b0a7-af687a98ab07}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{e6f4d2a7-a169-42f3-b0a7-af687a98ab07}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Сброс</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{76286bb7-6683-496c-b40f-359b09e74da2}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{76286bb7-6683-496c-b40f-359b09e74da2}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Авто</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{16504bc0-ccbd-4d75-a981-632ee4c0bd05}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{16504bc0-ccbd-4d75-a981-632ee4c0bd05}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Корабли</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{8a761e81-80cb-4e7b-b1f8-6ffc9e67a535}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{8a761e81-80cb-4e7b-b1f8-6ffc9e67a535}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>Поле</name>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{f8b7545c-8db1-4f4e-993b-26d9efa6822f}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{f8b7545c-8db1-4f4e-993b-26d9efa6822f}</uid>
+                   </MElement>
+                  </base-MElement>
+                 </MObject>
+                </base-MObject>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{32620ec6-d1aa-40ef-807d-952d003c543f}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{32620ec6-d1aa-40ef-807d-952d003c543f}</uid>
+                   </MElement>
+                  </base-MElement>
                  </MObject>
                 </base-MObject>
                </MItem>
