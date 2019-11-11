@@ -34,6 +34,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
 	QmlModule/qml/DefaultGui/Settings/Settings.qml \
 	QmlModule/qml/DefaultGui/Settings/qmldir \
+	QmlModule/qml/DefaultGui/img/1x.png \
+	QmlModule/qml/DefaultGui/img/2x.png \
+	QmlModule/qml/DefaultGui/img/3x.png \
+	QmlModule/qml/DefaultGui/img/4x.png \
 	QmlModule/qml/DefaultGui/qmldir \
 	ShemeAndOter/NetWork \
 	ShemeAndOter/bigstructure.qmodel \

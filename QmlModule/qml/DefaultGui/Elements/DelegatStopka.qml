@@ -10,10 +10,10 @@ Rectangle {
         width: parent.width
         height: parent.height - 1
 
-        color: "green"
+        color: "yellow"
 
         Text {
-            text: model.indexFigure
+ //           text: model.indexFigure
         }
     }
 }

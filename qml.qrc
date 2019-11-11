@@ -17,5 +17,12 @@
         <file>QmlModule/qml/DefaultGui/Elements/DelegateFigure.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/ButtonBlockArragement.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/ButtonArragement.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/Stopka.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/DelegatStopka.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml</file>
+        <file>QmlModule/qml/DefaultGui/img/1x.png</file>
+        <file>QmlModule/qml/DefaultGui/img/2x.png</file>
+        <file>QmlModule/qml/DefaultGui/img/3x.png</file>
+        <file>QmlModule/qml/DefaultGui/img/4x.png</file>
     </qresource>
 </RCC>
