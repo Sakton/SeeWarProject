@@ -1,87 +1,51 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.12
+import Settings 1.0
+import "../BaseElements"
 
 Rectangle {
     id: root
-    width: 460
-    height: 230
-    color: "yellow"
+    width: 230
+    height: 460
+    color: Setting.styleApplicationColor
+    signal buttonClicked(int indexButton)
 
-    RowLayout {
+    ColumnLayout {
         anchors.fill: parent
+        Layout.margins: 5
+        spacing: 40
 
-        Rectangle {
-            Layout.minimumWidth: parent.width / 4
-            Layout.fillHeight: parent
-
-            color: "red"
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-
-                font.pointSize: 14
-
-                text: qsTr("Настройки")
-            }
-
-            MouseArea {
-                anchors.fill: parent
-
-                onClicked: {
-                    console.debug("Настройки")
-                }
+        MyButton {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            name: "С андроид"
+            indexButton: 0
+            onButtonClicked: {
+                buttonClicked(indexButton)
             }
         }
 
-        ColumnLayout {
+        MyButton {
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                color: "blue"
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    font.pointSize: 14
-
-                    text: qsTr("По сети")
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        console.debug("По сети")
-                    }
-                }
+            name: "По сети"
+            indexButton: 1
+            onButtonClicked: {
+                buttonClicked(indexButton)
             }
+        }
 
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                color: "green"
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    font.pointSize: 14
-
-                    text: qsTr("С кмп")
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        console.debug("С кмп")
-                    }
-                }
+        MyButton {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            name: "Настройки"
+            indexButton: 2
+            onButtonClicked: {
+                buttonClicked(indexButton)
             }
         }
     }
 }
+
+
+

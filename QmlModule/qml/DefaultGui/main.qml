@@ -3,35 +3,37 @@ import QtQuick.Window 2.12
 import Settings 1.0
 import "ModeWindow"
 
-//Window {
-//    visible: true
-//    width: 460 //1200 / 2.6
-//    height: 230 //600 / 2.6
-//    title: ("mobWindow DefaultGui")
-//    color: Setting.styleApplicationColor
-
-////    StartMenu {
-////        anchors.fill: parent
-////    }
-
-//    Arragement {
-//        anchors.fill: parent
-//    }
-//}
-
-
 Window {
-    visible: true
-    width: 230 //1200 / 2.6
-    height: 460 //600 / 2.6
-    title: ("mobWindow DefaultGui")
+    id: _root
+    width: Setting.mainWidth //1200 / 2.6
+    height: Setting.mainHeight //600 / 2.6
+    title: Setting.mainTitle
     color: Setting.styleApplicationColor
+    visible: true
 
-//    StartMenu {
-//        anchors.fill: parent
-//    }
+    StartMenu {
+        id: _startMenu
+        width: parent.width / 2
+        height: parent.height / 2
+        x: parent.width / 4
+        y: parent.height / 4
+    }
 
-    Arragement {
-        anchors.fill: parent
+    function loaderWindow(indexWindow) {
+        var fileLoad = null;
+        switch(indexWindow) {
+        case 0:
+            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
+            break;
+        case 1:
+            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
+            break;
+        case 2:
+            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
+            break
+        }
+        var objWindow = fileLoad.createObject(_root);
+        _startMenu.visible = false
+        objWindow.visible = true
     }
 }

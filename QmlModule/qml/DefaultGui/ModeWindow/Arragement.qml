@@ -39,16 +39,19 @@ Rectangle {
         spacing: 1
 
         Field {
+            id: _fld
             Layout.minimumHeight: parent.width / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
-        }
 
-        //        Figures {
-        //            Layout.minimumHeight: parent.width / 4
-        //            Layout.fillWidth: true
-        //            Layout.fillHeight: true
-        //        }
+            DropArea {
+                id: _da
+                anchors.fill: parent
+                drag.onPositionChanged: {
+                    console.debug(_fld.indexAt(drag.x, drag.y))
+                }
+            }
+        }
 
         Stopka {
             Layout.minimumHeight: parent.width / 4

@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Settings 1.0
 
 Rectangle {
     id: _root
@@ -7,8 +8,7 @@ Rectangle {
     signal clicked(int idBtn)
 
     width: 100
-    height: 50
-    color: "gray"
+    height: Setting.styleByttonColor
 
     Text {
         id: _text

@@ -1,14 +1,43 @@
 import QtQuick 2.0
 
-Item {
+MouseArea {
     id: _root
     property int type: 0
-//    MouseArea {
-//        anchors.fill: parent
-//        onClicked: {
-//            console.debug(type)
-//        }
-//    }
+    property bool dragActive: _root.drag.active
+    signal elementType(var typeElement)
+
+    drag.target: parent
+    Drag.dragType: Drag.Automatic
+    Drag.hotSpot.x: parent.width / 2
+    Drag.hotSpot.y: parent.height / 2
+
+    onPositionChanged: {
+        if(dragActive)
+            Drag.start()
+    }
+
+    onDragActiveChanged: {
+        console.debug(dragActive)
+        if(dragActive) {
+            Drag.start()
+//            elementType(type)
+            drag.target.width *= 0.5
+            drag.target.height *= 0.5
+            drag.target.opacity = 0.5
+            cursorShape = Qt.DragMoveCursor
+
+        }
+        else {
+
+            drag.target.width *= 2
+            drag.target.height *= 2
+            drag.target.opacity = 1
+
+            cursorShape = Qt.ArrowCursor
+            Drag.drop()
+            elementType(type)
+        }
+    }
 
     Image {
         id: _img

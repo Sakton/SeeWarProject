@@ -24,5 +24,6 @@
         <file>QmlModule/qml/DefaultGui/img/2x.png</file>
         <file>QmlModule/qml/DefaultGui/img/3x.png</file>
         <file>QmlModule/qml/DefaultGui/img/4x.png</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/MyButton.qml</file>
     </qresource>
 </RCC>
