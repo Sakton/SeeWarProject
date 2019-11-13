@@ -25,7 +25,6 @@ Rectangle {
         anchors.fill: parent
         onClicked: {
             buttonClicked(indexButton)
-            console.debug("indexButton" + indexButton)
         }
     }
 }

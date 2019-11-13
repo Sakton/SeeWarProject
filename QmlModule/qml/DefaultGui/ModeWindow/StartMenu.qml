@@ -8,40 +8,23 @@ Rectangle {
     width: 230
     height: 460
     color: Setting.styleApplicationColor
-    signal buttonClicked(int indexButton)
+    signal buttonMenuClicked(int indexButton)
 
     ColumnLayout {
         anchors.fill: parent
         Layout.margins: 5
         spacing: 40
 
-        MyButton {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            name: "С андроид"
-            indexButton: 0
-            onButtonClicked: {
-                buttonClicked(indexButton)
-            }
-        }
-
-        MyButton {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            name: "По сети"
-            indexButton: 1
-            onButtonClicked: {
-                buttonClicked(indexButton)
-            }
-        }
-
-        MyButton {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            name: "Настройки"
-            indexButton: 2
-            onButtonClicked: {
-                buttonClicked(indexButton)
+        Repeater {
+            model: [ { name : "С андроид" },
+                     { name : "По сети" },
+                     { name : "Настройки" } ]
+            delegate: MyButton {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                indexButton: index
+                name: modelData.name
+                onButtonClicked: buttonMenuClicked(indexButton)
             }
         }
     }

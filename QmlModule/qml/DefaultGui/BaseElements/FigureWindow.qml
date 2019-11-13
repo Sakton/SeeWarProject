@@ -2,6 +2,8 @@ import QtQuick 2.0
 
 MouseArea {
     id: _root
+    width: 230
+    height: 460
     property int type: 0
     property bool dragActive: _root.drag.active
     signal elementType(var typeElement)

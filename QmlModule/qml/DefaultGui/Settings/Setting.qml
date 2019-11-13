@@ -1,12 +1,34 @@
 pragma Singleton
 
 import QtQuick 2.0
+import QtQuick.Window 2.13
 import "../ModeWindow"
 
 QtObject {
+    //не работает
+    readonly property real dpi: Screen.pixelDestiny * 25.4
+    function dp(x){
+        if(dpi < 120) {
+            return x; // Для обычного монитора компьютера
+        } else {
+            return x*(dpi/160);
+        }
+    }
+
     //main window
-    readonly property int mainWidth: 230
-    readonly property int mainHeight: 460
+    readonly property int mainWidth: {
+        if(Screen.width > 1000)
+        return 230
+        else
+        return Screen.width
+    }
+    readonly property int mainHeight: {
+        if(Screen.height > 1000)
+        return 460
+        else
+        return Screen.height
+    }
+
     readonly property string mainTitle: "SeeWarGame"
 
     //models
