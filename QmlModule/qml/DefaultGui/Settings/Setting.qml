@@ -5,7 +5,7 @@ import QtQuick.Window 2.13
 import "../ModeWindow"
 
 QtObject {
-    //не работает
+    //не работает ****
     readonly property real dpi: Screen.pixelDestiny * 25.4
     function dp(x){
         if(dpi < 120) {
@@ -14,6 +14,7 @@ QtObject {
             return x*(dpi/160);
         }
     }
+    //***** Screen.pixelDestiny = undefined ????
 
     //main window
     readonly property int mainWidth: {

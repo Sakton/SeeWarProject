@@ -9,12 +9,10 @@ GridView {
     id: _grid
     width: 230
     height: width
-
     cellWidth: cellHeight
     cellHeight: width / 9
 
     boundsBehavior: Flickable.StopAtBounds
-
     model: Setting.modelField
 
     delegate: DelegateField {

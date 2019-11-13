@@ -24,8 +24,6 @@ Window {
             console.debug("Screen.pixelDestiny = " + Screen.pixelDestiny)
             console.debug("Screen.serialNumber = " + Screen.serialNumber)
             console.debug("Screen.devicePixelRatio = " + Screen.devicePixelRatio)
-
-//            _startMenu.visible = false
             loaderWindow(indexButton)
         }
     }
@@ -67,8 +65,5 @@ Window {
     //        fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
             break
         }
-        var objWindow = fileLoad.createObject(_root);
-        _startMenu.visible = false
-        objWindow.visible = true
     }
 }

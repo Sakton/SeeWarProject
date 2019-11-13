@@ -3,15 +3,16 @@ import QtQuick 2.0
 MouseArea {
     id: _root
     width: 230
-    height: 460
+    height: 100
+//    anchors.fill: parent
     property int type: 0
     property bool dragActive: _root.drag.active
     signal elementType(var typeElement)
 
     drag.target: parent
     Drag.dragType: Drag.Automatic
-    Drag.hotSpot.x: parent.width / 2
-    Drag.hotSpot.y: parent.height / 2
+    Drag.hotSpot.x: _root.width / 2
+    Drag.hotSpot.y: _root.height / 2
 
     onPositionChanged: {
         if(dragActive)
@@ -22,19 +23,15 @@ MouseArea {
         console.debug(dragActive)
         if(dragActive) {
             Drag.start()
-//            elementType(type)
             drag.target.width *= 0.5
             drag.target.height *= 0.5
             drag.target.opacity = 0.5
             cursorShape = Qt.DragMoveCursor
 
-        }
-        else {
-
+        } else {
             drag.target.width *= 2
             drag.target.height *= 2
             drag.target.opacity = 1
-
             cursorShape = Qt.ArrowCursor
             Drag.drop()
             elementType(type)
@@ -62,13 +59,13 @@ MouseArea {
                 "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
             }
         }
+
         Text {
             id: _text
             font.pixelSize: _root.width / 4
             color: "yellow"
             text: type
         }
-
     }
 }
 

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.12
+import Settings 1.0
 import "../BaseElements"
 
 //Rectangle {
@@ -71,12 +72,15 @@ import "../BaseElements"
 Rectangle {
     width: 100
     height: 230
+    color: Setting.styleTextColor
 
-    color: "white"
-
+//Grid !???
     ColumnLayout {
         id: _container
         anchors.fill: parent
+
+//        width: 100
+//        height: 230
         spacing: 1
         //        Component.onCompleted: addBtn(_container, 4)
         //        onHeightChanged: correctHeight(_container, 4)
@@ -84,12 +88,12 @@ Rectangle {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing: 1
 
             ButtonArragement {
                 idBtn: 0
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-
                 text: "Играть"
             }
 
@@ -97,7 +101,6 @@ Rectangle {
                 idBtn: 1
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-
                 text: "Править"
             }
         }
@@ -105,6 +108,7 @@ Rectangle {
         RowLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing: 1
 
             ButtonArragement {
                 idBtn: 2

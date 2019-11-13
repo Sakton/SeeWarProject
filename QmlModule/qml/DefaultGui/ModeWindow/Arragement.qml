@@ -7,32 +7,8 @@ Rectangle {
     id: _root
     width: 460
     height: 230
-    //    anchors.margins: 2
 
     color: Setting.styleApplicationColor
-
-    //    RowLayout {
-    //        anchors.fill: parent
-    //        spacing: 1
-
-    //        ButtonBlockArragement {
-    //            Layout.minimumWidth: parent.width / 4
-    //            Layout.fillWidth: true
-    //            Layout.fillHeight: true
-    //        }
-
-    //        Figures {
-    //            Layout.minimumWidth: parent.width / 4
-    //            Layout.fillWidth: true
-    //            Layout.fillHeight: true
-    //        }
-
-    //        Field {
-    //            Layout.minimumWidth: parent.width / 2
-    //            Layout.fillWidth: true
-    //            Layout.fillHeight: true
-    //        }
-    //    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -40,7 +16,7 @@ Rectangle {
 
         Field {
             id: _fld
-            Layout.minimumHeight: parent.width / 2
+            Layout.minimumHeight: parent.height / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
 
@@ -54,16 +30,15 @@ Rectangle {
         }
 
         Stopka {
-            Layout.minimumHeight: parent.width / 4
+            Layout.minimumHeight: parent.height / 4
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
 
         ButtonBlockArragement {
-            Layout.minimumHeight: parent.width / 4
+            Layout.minimumHeight: parent.height / 4
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
-
     }
 }

@@ -8,13 +8,14 @@ Rectangle {
     signal clicked(int idBtn)
 
     width: 100
-    height: Setting.styleByttonColor
+    height: 50
+    color: Setting.styleByttonColor
 
     Text {
         id: _text
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-
+        color: Setting.styleTextColor
         text: _root.text
     }
 
