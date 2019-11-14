@@ -25,5 +25,6 @@
         <file>QmlModule/qml/DefaultGui/img/3x.png</file>
         <file>QmlModule/qml/DefaultGui/img/4x.png</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/MyButton.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/MyThemeButtonGradient.qml</file>
     </qresource>
 </RCC>

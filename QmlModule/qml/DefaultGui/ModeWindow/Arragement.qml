@@ -12,13 +12,14 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 1
+        spacing: 0
 
         Field {
             id: _fld
-            Layout.minimumHeight: parent.height / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.minimumHeight: _root.width
+
 
             DropArea {
                 id: _da
@@ -30,13 +31,13 @@ Rectangle {
         }
 
         Stopka {
-            Layout.minimumHeight: parent.height / 4
+            Layout.minimumHeight: (_root.height - _fld.height) / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
 
         ButtonBlockArragement {
-            Layout.minimumHeight: parent.height / 4
+            Layout.minimumHeight: (_root.height - _fld.height) / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
         }

@@ -2,3 +2,4 @@ module BaseElements
 ButtonArragement 1.0 ButtonArragement.qml
 FigureWindow 1.0 FigureWindow.qml
 MyButton 1.0 MyButton.qml
+MyThemeButtonGradient 1.0 MyThemeButtonGradient.qml

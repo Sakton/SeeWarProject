@@ -29,8 +29,10 @@ QtObject {
         else
         return Screen.height
     }
-
     readonly property string mainTitle: "SeeWarGame"
+
+    //counts
+    readonly property int countsCells: 9
 
     //models
     property var modelField: TestModelGridView {}

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <manifest package="org.seewar_rrv.example" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="-- %%INSERT_VERSION_NAME%% --" android:versionCode="-- %%INSERT_VERSION_CODE%% --" android:installLocation="auto">
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16"/>
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="26"/>
 
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.
 	 Remove the comment if you do not require these default permissions. -->
