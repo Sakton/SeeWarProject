@@ -18,14 +18,17 @@ QtObject {
 
     //main window
     readonly property int mainWidth: {
+//        console.debug(Screen.width)
+
         if(Screen.width > 1000)
-        return 230
+        return 360
         else
         return Screen.width
     }
     readonly property int mainHeight: {
+//        console.debug(Screen.height)
         if(Screen.height > 1000)
-        return 460
+        return 687
         else
         return Screen.height
     }

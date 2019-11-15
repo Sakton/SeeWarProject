@@ -5,6 +5,8 @@ import Settings 1.0
 
 Item {
     id: _root
+    //интерфейс элемента получается
+    //к ним идет обращение в аррагементе
     property int type: 0
     property bool horizontal: false
     property bool zerkalno: false
@@ -14,11 +16,10 @@ Item {
     property real deltaDragMaxX: 0
 
     signal elementType(var typeElement)
-
     width: 230
     height: 100
 
-    transform: Scale{
+    transform: Scale {
         id: _scale
         xScale: 1
     }
@@ -34,50 +35,59 @@ Item {
             _blockCountPalubs.rotation = 90
     }
 
-    Image {
-        id: _img
-        //fillMode: Image.Stretch
+    Rectangle {
         anchors.fill: parent
+        color: Setting.styleApplicationColor
+        border.width: 1
+        border.color: "red"
 
-        source: {
-            switch(type) {
-            case 1:
-                "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
-                break
-            case 2:
-                "qrc:/QmlModule/qml/DefaultGui/img/2x.png"
-                break
-            case 3:
-                "qrc:/QmlModule/qml/DefaultGui/img/3x.png"
-                break
-            case 4:
-                "qrc:/QmlModule/qml/DefaultGui/img/4x.png"
-                break
-            default:
-                "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
+        Image {
+            id: _img
+            //fillMode: Image.Stretch
+            anchors.fill: parent
+
+            source: {
+                switch(type) {
+                case 1:
+                    "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
+                    break
+                case 2:
+                    "qrc:/QmlModule/qml/DefaultGui/img/2x.png"
+                    break
+                case 3:
+                    "qrc:/QmlModule/qml/DefaultGui/img/3x.png"
+                    break
+                case 4:
+                    "qrc:/QmlModule/qml/DefaultGui/img/4x.png"
+                    break
+                default:
+                    "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
+                }
             }
-        }
 
-        Item {
-            id: _blockCountPalubs
-            width: (_root.width * type / 16)
-            height: _root.height / 8
+            Item {
+                id: _blockCountPalubs
+                width: (_root.width * type / 16)
+                height: _root.height / 8
 
-            RowLayout {
-                anchors.fill: parent
-                spacing: 1
-                //rotation: 90
-                Repeater {
-                    model: type
-                    delegate: Rectangle {
-                        width: parent.width / type
-                        height: parent.height
-                        color: Setting.styleTextColor
+                RowLayout {
+                    anchors.fill: parent
+                    spacing: 1
+                    //rotation: 90
+                    Repeater {
+                        model: type
+                        delegate: Rectangle {
+                            width: parent.width / type
+                            height: parent.height
+                            color: Setting.styleTextColor
+                        }
                     }
                 }
             }
         }
     }
+
+
 
     MouseArea {
         id: _mouseArea
@@ -95,22 +105,24 @@ Item {
         drag.maximumY: deltaDragMaxY
 
         onDragActiveChanged: {
-//            console.debug("deltaDragMinX" + deltaDragMinX)
-//            console.debug("deltaDragMinY" + deltaDragMinY)
-//            console.debug("deltaDragMaxX" + deltaDragMaxX)
-//            console.debug("deltaDragMaxY" + deltaDragMaxY)
-//            console.debug("dragActiv" + dragActive)
+            console.debug("deltaDragMinX" + deltaDragMinX)
+            console.debug("deltaDragMinY" + deltaDragMinY)
+            console.debug("deltaDragMaxX" + deltaDragMaxX)
+            console.debug("deltaDragMaxY" + deltaDragMaxY)
+            console.debug("FigureWindow.width = " + _root.width)
+            console.debug("FigureWindow.img = " + _img.width)
+
             if(dragActive) {
                 Drag.start()
-                //                    drag.target.width *= 0.5
-                //                    drag.target.height *= 0.5
-                //                    drag.target.opacity = 0.5
+                //                drag.target.width *= 0.5
+                //                drag.target.height *= 0.5
+                //                drag.target.opacity = 0.5
                 cursorShape = Qt.DragMoveCursor
 
             } else {
-                //                    drag.target.width *= 2
-                //                    drag.target.height *= 2
-                //                    drag.target.opacity = 1
+                //                drag.target.width *= 2
+                //                drag.target.height *= 2
+                //                drag.target.opacity = 1
                 cursorShape = Qt.ArrowCursor
                 Drag.drop()
                 elementType(type)
