@@ -7,6 +7,7 @@ Item {
     id: _root
     property int type: 0
     property bool horizontal: false
+    property bool zerkalno: false
     property real deltaDragMinY: 0
     property real deltaDragMinX: 0
     property real deltaDragMaxY: 0
@@ -16,6 +17,15 @@ Item {
 
     width: 230
     height: 100
+
+    transform: Scale{
+        id: _scale
+        xScale: 1
+    }
+
+    onZerkalnoChanged: {
+        _scale.xScale = (zerkalno === false) ? 1 : -1
+    }
 
     onHorizontalChanged: {
         if (horizontal)
@@ -85,12 +95,11 @@ Item {
         drag.maximumY: deltaDragMaxY
 
         onDragActiveChanged: {
-            console.debug("deltaDragMinX" + deltaDragMinX)
-            console.debug("deltaDragMinY" + deltaDragMinY)
-            console.debug("deltaDragMaxX" + deltaDragMaxX)
-            console.debug("deltaDragMaxY" + deltaDragMaxY)
-
-            console.debug("dragActiv" + dragActive)
+//            console.debug("deltaDragMinX" + deltaDragMinX)
+//            console.debug("deltaDragMinY" + deltaDragMinY)
+//            console.debug("deltaDragMaxX" + deltaDragMaxX)
+//            console.debug("deltaDragMaxY" + deltaDragMaxY)
+//            console.debug("dragActiv" + dragActive)
             if(dragActive) {
                 Drag.start()
                 //                    drag.target.width *= 0.5

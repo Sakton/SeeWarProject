@@ -25,7 +25,16 @@ Rectangle {
                 id: _da
                 anchors.fill: parent
                 drag.onPositionChanged: {
-                    console.debug(_fld.indexAt(drag.x, drag.y))
+                    var currentIndex = _fld.indexAt(drag.x, drag.y)
+                    var currentSource = _da.drag.source
+                    //                    console.debug("currentIndex = " + currentIndex)
+                    console.debug("_da.drag.source = " + _da.drag.source)
+                    if(currentIndex % Setting.countsCells > 4) {
+                        console.debug("currentIndex = " + currentIndex)
+                        currentSource.parent.zerkalno = true
+                    } else {
+                        currentSource.parent.zerkalno = false
+                    }
                 }
             }
         }
