@@ -7,13 +7,18 @@ Item {
     id: _root
     property int type: 0
     property bool horizontal: false
+    property real deltaDragMinY: 0
+    property real deltaDragMinX: 0
+    property real deltaDragMaxY: 0
+    property real deltaDragMaxX: 0
+
     signal elementType(var typeElement)
 
     width: 230
     height: 100
 
     onHorizontalChanged: {
-        if( horizontal )
+        if (horizontal)
             _blockCountPalubs.rotation = 0
         else
             _blockCountPalubs.rotation = 90
@@ -72,14 +77,19 @@ Item {
         anchors.fill: parent
         drag.target: parent
         Drag.dragType: Drag.Automatic
-        Drag.hotSpot.x: 0//_root.width / 2
-        Drag.hotSpot.y: 0//_root.height / 2
-        drag.minimumX: 0
-        drag.maximumX: parent.width //????
-        drag.minimumY: 0
-        drag.maximumY: parent.height * 2
+        Drag.hotSpot.x: 0 //_root.width / 2
+        Drag.hotSpot.y: 0 //_root.height / 2
+        drag.minimumX: deltaDragMinX
+        drag.maximumX: deltaDragMaxX
+        drag.minimumY: deltaDragMinY
+        drag.maximumY: deltaDragMaxY
 
         onDragActiveChanged: {
+            console.debug("deltaDragMinX" + deltaDragMinX)
+            console.debug("deltaDragMinY" + deltaDragMinY)
+            console.debug("deltaDragMaxX" + deltaDragMaxX)
+            console.debug("deltaDragMaxY" + deltaDragMaxY)
+
             console.debug("dragActiv" + dragActive)
             if(dragActive) {
                 Drag.start()

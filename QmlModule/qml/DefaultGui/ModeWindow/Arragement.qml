@@ -5,8 +5,8 @@ import Settings 1.0
 
 Rectangle {
     id: _root
-    width: 460
-    height: 230
+    width: 230
+    height: 460
 
     color: Setting.styleApplicationColor
 
@@ -34,6 +34,8 @@ Rectangle {
             Layout.minimumHeight: (_root.height - _fld.height) / 2
             Layout.fillWidth: true
             Layout.fillHeight: true
+            dragSizeX: parent.width
+            dragSizeY: _fld.height
         }
 
         ButtonBlockArragement {

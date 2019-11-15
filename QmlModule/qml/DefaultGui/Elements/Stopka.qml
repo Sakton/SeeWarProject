@@ -6,8 +6,12 @@ import Settings 1.0
 
 StackView  {
     id: _root
+
+    property real dragSizeX: 0
+    property real dragSizeY: 0
+
     width: 230
-   height: 100
+    height: 100
 
     Component.onCompleted: create()
 
@@ -24,8 +28,11 @@ StackView  {
                 var component = Qt.createComponent(Setting.urlElementFigureWindow)
                 if(component.status === Component.Ready) {
                     var obj = component.createObject(_root,
-                                                     {"type": j})
-
+                                                     {"type" : j,
+                                                      "deltaDragMinX" : 0,
+                                                      "deltaDragMinY" : -dragSizeY,
+                                                      "deltaDragMaxX" : dragSizeX,
+                                                      "deltaDragMaxY" : 0} )
                     obj.elementType.connect(selectElementType) //связи сигналов
                     _root.push(obj)
                 }
