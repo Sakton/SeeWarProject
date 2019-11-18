@@ -66,21 +66,34 @@ Item {
                 }
             }
 
-            Item {
+
+            //TODO что-то тут происходит
+            Rectangle {
                 id: _blockCountPalubs
-                width: (_root.width * type / 16)
-                height: _root.height / 8
+                width: (parent.width * type / 16) + 10
+                height: (parent.height / 8) + 10
+                color: Setting.styleApplicationColor
+                border.color: "white"
 
                 RowLayout {
                     anchors.fill: parent
-                    spacing: 1
+//                    spacing: 1
                     //rotation: 90
+
                     Repeater {
                         model: type
                         delegate: Rectangle {
-                            width: parent.width / type
+                            width: {
+                            //    console.debug()
+                                parent.height
+                            }
                             height: parent.height
                             color: Setting.styleTextColor
+
+                            Text {
+
+                                text: index
+                            }
                         }
                     }
                 }
@@ -106,12 +119,12 @@ Item {
         drag.maximumY: deltaDragMaxY
 
         onDragActiveChanged: {
-//            console.debug("deltaDragMinX" + deltaDragMinX)
-//            console.debug("deltaDragMinY" + deltaDragMinY)
-//            console.debug("deltaDragMaxX" + deltaDragMaxX)
-//            console.debug("deltaDragMaxY" + deltaDragMaxY)
-//            console.debug("FigureWindow.width = " + _root.width)
-//            console.debug("FigureWindow.img = " + _img.width)
+            //            console.debug("deltaDragMinX" + deltaDragMinX)
+            //            console.debug("deltaDragMinY" + deltaDragMinY)
+            //            console.debug("deltaDragMaxX" + deltaDragMaxX)
+            //            console.debug("deltaDragMaxY" + deltaDragMaxY)
+            //            console.debug("FigureWindow.width = " + _root.width)
+            //            console.debug("FigureWindow.img = " + _img.width)
 
             if(dragActive) {
                 Drag.start()
