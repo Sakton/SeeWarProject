@@ -14,10 +14,11 @@ Item {
     property real deltaDragMinX: 0
     property real deltaDragMaxY: 0
     property real deltaDragMaxX: 0
+    property var bindingTarget: null
 
     signal elementType(var typeElement)
-    width: 230
-    height: 100
+    implicitWidth: _img.width
+    implicitHeight: _img.height
 
     transform: Scale {
         id: _scale
@@ -105,12 +106,12 @@ Item {
         drag.maximumY: deltaDragMaxY
 
         onDragActiveChanged: {
-            console.debug("deltaDragMinX" + deltaDragMinX)
-            console.debug("deltaDragMinY" + deltaDragMinY)
-            console.debug("deltaDragMaxX" + deltaDragMaxX)
-            console.debug("deltaDragMaxY" + deltaDragMaxY)
-            console.debug("FigureWindow.width = " + _root.width)
-            console.debug("FigureWindow.img = " + _img.width)
+//            console.debug("deltaDragMinX" + deltaDragMinX)
+//            console.debug("deltaDragMinY" + deltaDragMinY)
+//            console.debug("deltaDragMaxX" + deltaDragMaxX)
+//            console.debug("deltaDragMaxY" + deltaDragMaxY)
+//            console.debug("FigureWindow.width = " + _root.width)
+//            console.debug("FigureWindow.img = " + _img.width)
 
             if(dragActive) {
                 Drag.start()

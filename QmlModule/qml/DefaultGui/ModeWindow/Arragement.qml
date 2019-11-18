@@ -5,13 +5,13 @@ import Settings 1.0
 
 Rectangle {
     id: _root
-    width: 230
-    height: 460
+    width: Setting.mainWidth
+    height: Setting.mainHeight
 
     color: Setting.styleApplicationColor
 
     Component.onCompleted: {
-        console.debug("Что в стопку parent.width = " + parent.width)
+        console.debug("Что в стопку parent.width = " + _root.width)
         console.debug("Что в стопку _fld.height = " + _fld.height)
 
         _stopka.dragSizeX = parent.width
@@ -64,6 +64,7 @@ Rectangle {
         }
 
         ButtonBlockArragement {
+            id: _blockButton
             Layout.minimumHeight: (_root.height - _fld.height) / 2
             Layout.fillWidth: true
             Layout.fillHeight: true

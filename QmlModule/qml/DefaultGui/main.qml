@@ -19,11 +19,11 @@ Window {
         y: parent.height / 4
 
         onButtonMenuClicked: {
-            console.debug("Screen.width = " + Screen.width)
-            console.debug("Screen.height = " + Screen.height)
-            console.debug("Screen.pixelDestiny = " + Screen.pixelDestiny)
-            console.debug("Screen.serialNumber = " + Screen.serialNumber)
-            console.debug("Screen.devicePixelRatio = " + Screen.devicePixelRatio)
+//            console.debug("Screen.width = " + Screen.width)
+//            console.debug("Screen.height = " + Screen.height)
+//            console.debug("Screen.pixelDestiny = " + Screen.pixelDestiny)
+//            console.debug("Screen.serialNumber = " + Screen.serialNumber)
+//            console.debug("Screen.devicePixelRatio = " + Screen.devicePixelRatio)
             loaderWindow(indexButton)
         }
     }
