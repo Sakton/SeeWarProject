@@ -1,14 +1,14 @@
 import QtQuick 2.0
 import Settings 1.0
 
-Rectangle {
+Item {
     width: height
     height: 30
     //color: Setting.styleTextColor
-    color: Setting.styleApplicationColor
+//    color: Setting.styleApplicationColor
 
-    border.color: "red"
-    border.width: 1
+//    border.color: "red"
+//    border.width: 1
 
     //тут должны быть пропертиес для подключения извне
 //    Rectangle {

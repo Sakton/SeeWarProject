@@ -1,6 +1,13 @@
 QT += quick
 
 CONFIG += c++17
+CONFIG += resources_big
+
+VERSION = 1.0
+QMAKE_TARGET_COMPANY = Razumov_Roman
+QMAKE_TARGET_PRODUCT = SeeWar
+QMAKE_TARGET_DESCRIPTION = SeeWar
+QMAKE_TARGET_COPYRIGHT = Razumov_Roman
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings

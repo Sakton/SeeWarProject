@@ -26,5 +26,8 @@
         <file>QmlModule/qml/DefaultGui/img/4x.png</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/MyButton.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/MyThemeButtonGradient.qml</file>
+        <file>QmlModule/qml/DefaultGui/img/storm.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/blackWater.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/blackWater1.gif</file>
     </qresource>
 </RCC>

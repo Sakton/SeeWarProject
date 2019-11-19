@@ -11,11 +11,16 @@ Rectangle {
     color: Setting.styleApplicationColor
 
     Component.onCompleted: {
-        console.debug("Что в стопку parent.width = " + _root.width)
-        console.debug("Что в стопку _fld.height = " + _fld.height)
-
         _stopka.dragSizeX = parent.width
         _stopka.dragSizeY = _fld.height
+    }
+
+    AnimatedImage {
+        anchors.fill: parent
+        source: "qrc:/QmlModule/qml/DefaultGui/img/blackWater1.gif"
+        onStatusChanged: {
+            playing = AnimatedImage.Ready
+        }
     }
 
     ColumnLayout {
@@ -33,23 +38,22 @@ Rectangle {
                 anchors.fill: parent
                 drag.onPositionChanged: {
                     var currentIndex = _fld.indexAt(drag.x, drag.y)
+                    console.debug("currentIndex = " + currentIndex)
                     var currentSource = _da.drag.source
-                    console.debug("Arragement.width" + _root.width)
-                    console.debug("currentSource.width" + currentSource.width)
-
-//                    console.debug("currentIndex = " + currentIndex)
-//                    console.debug("_da.drag.source = " + _da.drag.source)
-                    if (currentIndex % Setting.countsCells > 4) {
-//                        console.debug("currentIndex = " + currentIndex)
-                        currentSource.parent.zerkalno = true
-//                        currentSource.parent.deltaDragMinX = parent.width
-//                        currentSource.parent.deltaDragMaxX = 0
-//                        currentSource.parent.deltaDragMinY =
-                    } else {
+//                    console.debug("currentSource = " + currentSource)
+                    if(currentIndex > -1) {
+                        if (currentIndex % Setting.countsCells >= 4) {
+                            console.debug(currentSource.parent.zerkalno)
+                            currentSource.parent.zerkalno = true
+                        } else {
+                            console.debug(currentSource.parent.zerkalno)
+                            currentSource.parent.zerkalno = false
+                        }
+                    }/* else {
                         currentSource.parent.zerkalno = false
-//                        currentSource.parent.deltaDragMinX = 0
-//                        currentSource.parent.deltaDragMaxX = parent.width
-                    }
+                    }*/
+
+
                 }
             }
         }
