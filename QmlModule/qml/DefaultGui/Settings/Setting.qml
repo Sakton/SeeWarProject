@@ -48,4 +48,15 @@ QtObject {
 
     //urls
     readonly property string urlElementFigureWindow: "qrc:/QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml"
+    readonly property string  urlBackgroundBlackWater: "qrc:/QmlModule/qml/DefaultGui/img/blackWater1.gif"
+
+    //sprites
+    readonly property string ship1: "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png"
+    readonly property string ship2: "qrc:/QmlModule/qml/DefaultGui/img/2xb1.png"
+    readonly property string ship3: "qrc:/QmlModule/qml/DefaultGui/img/3xb1.png"
+    readonly property string ship4: "qrc:/QmlModule/qml/DefaultGui/img/4xb1.png"
+    //
+    readonly property int kRadius: 20
+
+
 }

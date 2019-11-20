@@ -28,9 +28,9 @@ StackView  {
 
 
 
-    onSelectElementType: {
+//    onSelectElementType: {
 //        _root.pop()
-    }
+//    }
 
     function create() {
         for(var j = 1; j <= 4; ++j) {

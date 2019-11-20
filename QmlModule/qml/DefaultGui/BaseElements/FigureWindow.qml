@@ -19,6 +19,7 @@ Item {
     signal elementType(var typeElement)
     implicitWidth: 360
     implicitHeight: 650
+    opacity: 0.8
 
 //    source: "qrc:/QmlModule/qml/DefaultGui/img/storm.gif"
 
@@ -48,19 +49,13 @@ Item {
             source: {
                 switch(type) {
                 case 1:
-                    "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
-                    break
+                    return Setting.ship1
                 case 2:
-                    "qrc:/QmlModule/qml/DefaultGui/img/2x.png"
-                    break
+                    return Setting.ship2
                 case 3:
-                    "qrc:/QmlModule/qml/DefaultGui/img/3x.png"
-                    break
+                    return Setting.ship3
                 case 4:
-                    "qrc:/QmlModule/qml/DefaultGui/img/4x.png"
-                    break
-                default:
-                    "qrc:/QmlModule/qml/DefaultGui/img/1x.png"
+                    return Setting.ship4
                 }
             }
 
@@ -97,9 +92,10 @@ Item {
             onZerkalnoChanged: {
                 _scale.xScale = (zerkalno === false) ? 1 : -1
                 if(_scale.xScale === -1) {
-//                    _mouseArea.drag.minimumX = parent.width / 2
                     _mouseArea.drag.maximumX = deltaDragMaxX - parent.width / 2
+                    _mouseArea.drag.minimumX = parent.width / 3
                 } else {
+                    _mouseArea.drag.minimumX = deltaDragMinX - parent.width / 2
                     _mouseArea.drag.maximumX = deltaDragMaxX - parent.width * 1.5
                 }
             }
@@ -139,11 +135,8 @@ Item {
                         Drag.start()
                     }
                 }
-            } //ma
-        } //_img
-
-
-
+            } //MouseArea
+        } //Image
     }
 }
 

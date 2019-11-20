@@ -7,13 +7,11 @@ Rectangle {
     property int idBtn: -1
     property string text: _text.text
     signal clicked(int idBtn)
-    radius: width / 20
+    radius: width / Setting.kRadius
 
     width: 100
     height: 50
     color: Setting.styleByttonColor
-
-
 
     Text {
         id: _text
@@ -35,8 +33,8 @@ Rectangle {
         id: _zakraska
         x: pointZakraska().x
         y: pointZakraska().y
-        width: parent.width / 20
-        height: parent.height / 10
+        width: parent.width / 10
+        height: parent.height / 5
         color: parent.color
     }
 

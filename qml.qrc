@@ -29,5 +29,10 @@
         <file>QmlModule/qml/DefaultGui/img/storm.gif</file>
         <file>QmlModule/qml/DefaultGui/img/blackWater.gif</file>
         <file>QmlModule/qml/DefaultGui/img/blackWater1.gif</file>
+        <file>QmlModule/qml/DefaultGui/Elements/PopupMenuArragement.qml</file>
+        <file>QmlModule/qml/DefaultGui/img/4xb1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/1xb1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/2xb1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/3xb1.png</file>
     </qresource>
 </RCC>
