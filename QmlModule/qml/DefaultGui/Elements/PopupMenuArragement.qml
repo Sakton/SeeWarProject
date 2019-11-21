@@ -11,6 +11,8 @@ Popup {
     width: 200
     height: 100
     padding: 1
+//    modal: true
+//    closePolicy: Popup.CloseOnEscape
 
     background: Rectangle {
         anchors.fill: parent
@@ -31,12 +33,36 @@ Popup {
             //border.color: Setting.
             radius: _root.width / Setting.kRadius
 
+            Image {
+                id: _iRot
+                width: height
+                height: parent.height / 2
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                source: Setting.rotateImg
+
+                transform:  Rotation {
+                    id: _rotation
+                    origin.x: _iRot.width / 2
+                    origin.y: _iRot.height / 2
+                    angle: 0
+
+                    SequentialAnimation  on angle {
+                        loops:  Animation.Infinite
+                        PropertyAnimation {
+                            duration: 2500
+                            to: 359 }
+                    }
+                }
+            }
+
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-
+                font.pixelSize: parent.width / 4
+                font.bold: true
                 color: Setting.styleTextColor
-                text: qsTr("Rotate")
+                text: qsTr("R")
             }
 
             MouseArea {
@@ -53,12 +79,32 @@ Popup {
             color: Setting.styleByttonColor
             radius: _root.width / Setting.kRadius
 
-            Text {
+            Image {
+                id: _iOk
+                width: height
+                height: parent.height / 2
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
+                source: Setting.okImg
 
-                color: Setting.styleTextColor
-                text: qsTr("OK")
+                transform:  Rotation {
+                    id: _rotationOk
+                    origin.x: _iOk.width / 2
+                    origin.y: _iOk.height / 2
+                    axis {
+                        x: 0
+                        y: 1
+                        z: 0
+                    }
+                    angle: 0
+
+                    SequentialAnimation on angle {
+                        loops:  Animation.Infinite
+                        PropertyAnimation {
+                            duration: 1500
+                            to: 359 }
+                    }
+                }
             }
 
             MouseArea {

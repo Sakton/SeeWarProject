@@ -48,7 +48,13 @@ QtObject {
 
     //urls
     readonly property string urlElementFigureWindow: "qrc:/QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml"
-    readonly property string  urlBackgroundBlackWater: "qrc:/QmlModule/qml/DefaultGui/img/blackWater1.gif"
+    readonly property string urlBackgroundBlackWater: "qrc:/QmlModule/qml/DefaultGui/img/blackWater1.gif"
+    readonly property string rotateImg: "qrc:/QmlModule/qml/DefaultGui/img/rtt1.png"
+    readonly property string okImg: "qrc:/QmlModule/qml/DefaultGui/img/ok.png"
+    readonly property string refreshImg: "qrc:/QmlModule/qml/DefaultGui/img/Symbols-Delete-icon.png"
+    readonly property string playImg: "qrc:/QmlModule/qml/DefaultGui/img/play2.png"
+    readonly property string editImg: "qrc:/QmlModule/qml/DefaultGui/img/Edit1.png"
+    readonly property string robotImg: "qrc:/QmlModule/qml/DefaultGui/img/robot.png"
 
     //sprites
     readonly property string ship1: "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png"
@@ -57,6 +63,4 @@ QtObject {
     readonly property string ship4: "qrc:/QmlModule/qml/DefaultGui/img/4xb1.png"
     //
     readonly property int kRadius: 20
-
-
 }

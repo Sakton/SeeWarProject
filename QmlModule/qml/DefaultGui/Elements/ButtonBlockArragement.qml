@@ -23,7 +23,8 @@ Rectangle {
                 idBtn: 0
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: "Играть"
+                urlImg: Setting.playImg
+//                text: "Играть"
             }
 
             ButtonArragement {
@@ -31,7 +32,8 @@ Rectangle {
                 idBtn: 1
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: "Править"
+                urlImg: Setting.editImg
+//                text: "Править"
             }
         }
 
@@ -45,7 +47,8 @@ Rectangle {
                 idBtn: 2
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: "Сброс"
+                urlImg: Setting.refreshImg
+                //text: "Сброс"
             }
 
             ButtonArragement {
@@ -53,7 +56,8 @@ Rectangle {
                 idBtn: 3
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                text: "Авто"
+                urlImg: Setting.robotImg
+//                text: "Авто"
             }
         }
     }

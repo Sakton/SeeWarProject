@@ -34,5 +34,13 @@
         <file>QmlModule/qml/DefaultGui/img/1xb1.png</file>
         <file>QmlModule/qml/DefaultGui/img/2xb1.png</file>
         <file>QmlModule/qml/DefaultGui/img/3xb1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/rotate1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/rtt1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Symbols-Delete-icon.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Play1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/play2.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Edit1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/robot.png</file>
+        <file>QmlModule/qml/DefaultGui/img/ok.png</file>
     </qresource>
 </RCC>
