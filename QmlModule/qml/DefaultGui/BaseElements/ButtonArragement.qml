@@ -23,18 +23,17 @@ Rectangle {
     }
 
     Text {
-        id: _text
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Setting.hintButtonBottomMargins
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
-        color: Setting.styleTextColor
         text: _root.text
+        color: Setting.styleTextColor
     }
 
     MouseArea {
         anchors.fill: parent
         onClicked: {
-//            clicked(idBtn)
-            console.debug(idBtn)
+            clicked(idBtn)
         }
     }
 

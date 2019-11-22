@@ -42,5 +42,9 @@
         <file>QmlModule/qml/DefaultGui/img/Edit1.png</file>
         <file>QmlModule/qml/DefaultGui/img/robot.png</file>
         <file>QmlModule/qml/DefaultGui/img/ok.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png</file>
     </qresource>
 </RCC>

@@ -4,19 +4,18 @@ import Settings 1.0
 Item {
     width: height
     height: 30
-    //color: Setting.styleTextColor
-//    color: Setting.styleApplicationColor
 
-//    border.color: "red"
-//    border.width: 1
-
-    //тут должны быть пропертиес для подключения извне
-//    Rectangle {
-//        width: parent.width - 1
-//        height: width
-//        anchors.centerIn: parent.Center
-
-//        color: Setting.styleByttonColor
+    Image {
+        anchors.fill: parent
+        source: {
+            switch(model.myIndex) {
+            case 0: return Setting.p1
+            case 1: return Setting.p2
+            case 2: return Setting.p3
+            case 3: return Setting.p4
+            default: return ""
+            }
+        }
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
@@ -24,7 +23,10 @@ Item {
             color: "red"
             font.pixelSize: parent.width / 3
 
-            text: model.muIndex //TODO убрать зависимость
+            text: model.myIndex //TODO убрать зависимость
         }
-//    }
+
+    }//Image
+
+
 }

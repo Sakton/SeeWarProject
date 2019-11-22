@@ -7,6 +7,10 @@ Rectangle {
     width: 100
     height: 230
     color: Setting.styleTextColor
+    signal clickedButtonOnBlock(int idBtn)
+
+    //TODO тут плохо много онкликедов
+    //и вообще повторов
 
     ColumnLayout {
         id: _container
@@ -24,7 +28,10 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.playImg
-//                text: "Играть"
+                text: "Играть"
+                onClicked: {
+                    clickedButtonOnBlock(idBtn)
+                }
             }
 
             ButtonArragement {
@@ -33,7 +40,10 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.editImg
-//                text: "Править"
+                text: "Править"
+                onClicked: {
+                    clickedButtonOnBlock(idBtn)
+                }
             }
         }
 
@@ -48,7 +58,10 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.refreshImg
-                //text: "Сброс"
+                text: "Сброс"
+                onClicked: {
+                    clickedButtonOnBlock(idBtn)
+                }
             }
 
             ButtonArragement {
@@ -57,7 +70,10 @@ Rectangle {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.robotImg
-//                text: "Авто"
+                text: "Авторасстановка"
+                onClicked: {
+                    clickedButtonOnBlock(idBtn)
+                }
             }
         }
     }

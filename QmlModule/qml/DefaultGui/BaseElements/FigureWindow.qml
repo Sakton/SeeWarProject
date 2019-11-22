@@ -7,8 +7,7 @@ Item {
     id: _root
     //интерфейс элемента получается
     //к ним идет обращение в аррагементе
-    property int type: 0
-    property bool horizontal: false
+    property int countPalubs: 0
 //    property bool zerkalno: false
     property real deltaDragMinY: 0
     property real deltaDragMinX: 0
@@ -20,17 +19,6 @@ Item {
     implicitWidth: 360
     implicitHeight: 650
     opacity: 0.8
-
-//    source: "qrc:/QmlModule/qml/DefaultGui/img/storm.gif"
-
-
-
-    onHorizontalChanged: {
-        if (horizontal)
-            _blockCountPalubs.rotation = 0
-        else
-            _blockCountPalubs.rotation = 90
-    }
 
     Item {
         id: _dragItem
@@ -47,7 +35,7 @@ Item {
             property bool zerkalno: false
 
             source: {
-                switch(type) {
+                switch(countPalubs) {
                 case 1:
                     return Setting.ship1
                 case 2:
@@ -56,31 +44,6 @@ Item {
                     return Setting.ship3
                 case 4:
                     return Setting.ship4
-                }
-            }
-
-            Item {
-                id: _blockCountPalubs
-                width: (parent.width * type / 16)
-                height: (parent.height / 8)
-
-                RowLayout {
-                    anchors.fill: parent
-                    spacing: 2
-                    //rotation: 90
-                    //                    Rotation {
-                    //                        angle: 0
-                    //                        origin.x:
-                    //                    }
-
-                    Repeater {
-                        model: type
-                        delegate: Rectangle {
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            color: Setting.styleTextColor
-                        }
-                    }
                 }
             }
 
@@ -99,6 +62,39 @@ Item {
                     _mouseArea.drag.maximumX = deltaDragMaxX - parent.width * 1.5
                 }
             }
+
+            Item {
+                id: _blockCountPalubs
+                property int rotateAngle: 0
+                width: (parent.width * countPalubs / 16)
+                height: (parent.height / 8)
+
+                onRotateAngleChanged: {
+                    _rotate.angle = rotateAngle
+                }
+
+                transform:  Rotation {
+                    id: _rotate
+                    origin.x: _blockCountPalubs.width/(2*countPalubs)
+                    origin.y: _blockCountPalubs.height/2
+                    angle: _blockCountPalubs.rotateAngle
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    spacing: 2
+
+                    Repeater {
+                        model: countPalubs
+                        delegate: Rectangle {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            color: Setting.styleTextColor
+                        }
+                    }
+                }
+            } //blockCountPalubs
+
 
             MouseArea {
                 id: _mouseArea
@@ -126,7 +122,7 @@ Item {
                     } else {
                         cursorShape = Qt.ArrowCursor
                         Drag.drop()
-                        elementType(type)
+                        elementType(countPalubs)
                     }
                 }
 

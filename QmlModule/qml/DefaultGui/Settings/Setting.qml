@@ -36,6 +36,7 @@ QtObject {
 
     //counts
     readonly property int countsCells: 9
+    readonly property real hintButtonBottomMargins: 3
 
     //models
     property var modelField: TestModelGridView {}
@@ -55,6 +56,13 @@ QtObject {
     readonly property string playImg: "qrc:/QmlModule/qml/DefaultGui/img/play2.png"
     readonly property string editImg: "qrc:/QmlModule/qml/DefaultGui/img/Edit1.png"
     readonly property string robotImg: "qrc:/QmlModule/qml/DefaultGui/img/robot.png"
+
+    //ship urls
+    readonly property string p1: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"
+    readonly property string p2: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.gif"
+    readonly property string p3: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.gif"
+    readonly property string p4: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"
+
 
     //sprites
     readonly property string ship1: "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png"

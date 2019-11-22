@@ -65,10 +65,18 @@ Popup {
                 text: qsTr("R")
             }
 
+            Text {
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: Setting.hintButtonBottomMargins
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Повернуть")
+                color: Setting.styleTextColor
+            }
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    console.debug("Rotate")
+                    buttonRotate()
                 }
             }
         }
@@ -105,6 +113,14 @@ Popup {
                             to: 359 }
                     }
                 }
+            }
+
+            Text {
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: Setting.hintButtonBottomMargins
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Установить")
+                color: Setting.styleTextColor
             }
 
             MouseArea {

@@ -35,17 +35,26 @@ Rectangle {
                 DropArea {
                     id: _da
                     anchors.fill: parent
+                    property var currentSourceDropElement: null
                     drag.onPositionChanged: {
                         var currentIndex = _fld.indexAt(drag.x, drag.y)
                         console.debug("currentIndex = " + currentIndex)
-                        var currentSource = _da.drag.source
+                        currentSourceDropElement = _da.drag.source
                         if(currentIndex >= 0) {
                             if (currentIndex % Setting.countsCells >= 4) {
-                                console.debug(currentSource.parent.zerkalno)
-                                currentSource.parent.zerkalno = true
+                                currentSourceDropElement.parent.zerkalno = true
                             } else {
-                                console.debug(currentSource.parent.zerkalno)
-                                currentSource.parent.zerkalno = false
+                                currentSourceDropElement.parent.zerkalno = false
+                            }
+                        }
+                    }
+
+                    Connections {
+                        target: _popup
+                        onButtonRotate: {
+                            var element = _da.currentSourceDropElement.parent.children[0]
+                            if(element.parent.parent.parent.countPalubs > 1) {
+                                element.rotateAngle = (element.rotateAngle === 90) ? 0 : 90
                             }
                         }
                     }
@@ -56,12 +65,7 @@ Rectangle {
                 }
             }
 
-//            PopupMenuArragement {
-//                id: _popup
-//                height: _stopka.height
-//                width: height / 2
-//                visible: false
-//            }
+
 
             Stopka {
                 id: _stopka
@@ -79,12 +83,10 @@ Rectangle {
                     visible: false
 
                     onButtonOK: {
-                        console.debug("OK")
                         _stopka.pop();
                         visible = false
                     }
                 }
-
             }
 
             ButtonBlockArragement {
@@ -92,10 +94,12 @@ Rectangle {
                 Layout.minimumHeight: (_root.height - _fld.height) / 2
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                onClickedButtonOnBlock: {
+                    console.debug("idBtn arragement = " + idBtn)
+                }
             }
         } //ColumnLayout
-
-
     } //AnimatedImage
 
 

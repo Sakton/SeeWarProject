@@ -38,7 +38,7 @@ StackView  {
                 var component = Qt.createComponent(Setting.urlElementFigureWindow)
                 if (component.status === Component.Ready) {
                     var obj = component.createObject(_root,
-                                                     {"type" : j,
+                                                     {"countPalubs" : j,
                                                          "deltaDragMinX" : 0,
                                                          "deltaDragMinY" : -dragSizeY,
                                                          "deltaDragMaxX" : dragSizeX,
