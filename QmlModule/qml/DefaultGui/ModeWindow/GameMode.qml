@@ -44,6 +44,7 @@ Rectangle {
                             id: _scrollLog
                             Layout.fillWidth: true
                             Layout.fillHeight: true
+                            ScrollBar.vertical.interactive: false
                             //clip: true
                             TextArea {
                                 id: _textLog
