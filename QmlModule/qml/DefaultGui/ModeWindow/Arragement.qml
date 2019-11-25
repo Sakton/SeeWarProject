@@ -29,7 +29,7 @@ Rectangle {
             Field {
                 id: _fld
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+//                Layout.fillHeight: true
                 Layout.minimumHeight: _root.width
 
                 DropArea {

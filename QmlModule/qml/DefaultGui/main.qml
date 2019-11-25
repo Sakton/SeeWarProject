@@ -19,11 +19,6 @@ Window {
         y: parent.height / 4
 
         onButtonMenuClicked: {
-//            console.debug("Screen.width = " + Screen.width)
-//            console.debug("Screen.height = " + Screen.height)
-//            console.debug("Screen.pixelDestiny = " + Screen.pixelDestiny)
-//            console.debug("Screen.serialNumber = " + Screen.serialNumber)
-//            console.debug("Screen.devicePixelRatio = " + Screen.devicePixelRatio)
             loaderWindow(indexButton)
         }
     }
@@ -33,33 +28,15 @@ Window {
         anchors.fill: parent
     }
 
-//    function loaderWindow(indexWindow) {
-//        var fileLoad = null;
-//        switch(indexWindow) {
-//        case 0:
-//            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
-//            break;
-//        case 1:
-//            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
-//            break;
-//        case 2:
-//            fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
-//            break
-//        }
-//        var objWindow = fileLoad.createObject(_root);
-//        _startMenu.visible = false
-//        objWindow.visible = true
-//    }
 
     function loaderWindow(indexWindow) {
         var fileLoad = null;
         switch(indexWindow) {
         case 0:
-            //fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
             _pageLoader.source = "qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml"
             break;
         case 1:
-    //        fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
+            _pageLoader.source = "qrc:/QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml"
             break;
         case 2:
     //        fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")

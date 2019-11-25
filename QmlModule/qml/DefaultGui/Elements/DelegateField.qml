@@ -25,8 +25,5 @@ Item {
 
             text: model.myIndex //TODO убрать зависимость
         }
-
     }//Image
-
-
 }

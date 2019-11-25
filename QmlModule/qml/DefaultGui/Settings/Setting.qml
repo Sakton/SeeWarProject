@@ -46,6 +46,8 @@ QtObject {
     readonly property color styleApplicationColor: "#1c1c1c"//"#0d1e49"//"#0b193c"
     readonly property color styleByttonColor: "#000000"//"#09183e"
     readonly property color styleTextColor: "#fffc00"
+    readonly property color styleLogYourColor: "#03ff5c"
+    readonly property color styleLogHiColor: "#0086f8"
 
     //urls
     readonly property string urlElementFigureWindow: "qrc:/QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml"
