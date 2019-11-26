@@ -21,47 +21,11 @@ Rectangle {
             RowLayout {
                 anchors.fill: parent
                 spacing: 0
-                Rectangle {
+
+                LogElement {
+                    id: _logElement
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    color: Setting.styleApplicationColor
-                    border.color: Setting.styleTextColor
-
-                    ColumnLayout {
-                        anchors.fill: parent
-
-                        Text {
-                            id: _textLogIgry
-                            horizontalAlignment: Text.Center
-                            Layout.fillWidth: true
-                            Layout.minimumHeight: height
-                            color: Setting.styleTextColor
-                            textFormat: Text.RichText
-                            text: qsTr("<h3><b><i>Лог игры</i></b></h3>")
-                        }
-
-                        ScrollView {
-                            id: _scrollLog
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            ScrollBar.vertical.interactive: false
-                            //clip: true
-                            TextArea {
-                                id: _textLog
-                                anchors.fill: parent
-                                //                                                            Layout.fillWidth: true
-                                //                                                            Layout.fillHeight: true
-                                color: Setting.styleTextColor
-                                textFormat: Text.RichText
-                                clip: true
-                                text: {
-                                    "<b><font color = " + Setting.styleLogYourColor + ">Ты: </b>" +
-                                            "<br>" +
-                                            "<b><font color = " + Setting.styleLogHiColor + ">Он: </br>"
-                                }
-                            } //TextArea
-                        }//ScrollView
-                    }
                 }
 
                 Item {
@@ -88,7 +52,6 @@ Rectangle {
                     }
                 }
             }
-
         }
 
         Field {
@@ -96,26 +59,11 @@ Rectangle {
             Layout.minimumHeight: _root.width
             Layout.fillWidth: true
 
-            delegate: Rectangle {
+            delegate: DelegatFieldGameMode {
                 width: _f.cellWidth
-                height: _f.cellHeight
-                color: Setting.styleApplicationColor
-                border.color: Setting.styleTextColor
-
-                Text {
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    text: model.myIndex
-                    color: Setting.styleTextColor
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        _textLog.insert(0, "<b><font color = " + Setting.styleLogYourColor + ">Ты: " + model.myIndex + " </b><br>")
-
-                    }
+                index: model.myIndex
+                onClicedIndex: {
+                    _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">Ты: " + model.myIndex + " </b><br>"
                 }
             }
         }

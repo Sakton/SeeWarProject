@@ -46,5 +46,7 @@
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.gif</file>
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.gif</file>
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png</file>
+        <file>QmlModule/qml/DefaultGui/Elements/DelegatFieldGameMode.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/LogElement.qml</file>
     </qresource>
 </RCC>
