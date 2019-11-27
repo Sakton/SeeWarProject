@@ -48,5 +48,8 @@
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png</file>
         <file>QmlModule/qml/DefaultGui/Elements/DelegatFieldGameMode.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/LogElement.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/TopElementGameMode.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/ChatElement.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/ChatTextArea.qml</file>
     </qresource>
 </RCC>

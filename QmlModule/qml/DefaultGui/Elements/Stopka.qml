@@ -17,21 +17,6 @@ StackView  {
 
     signal selectElementType(int typeElement)
 
-//    AnimatedImage {
-//        anchors.fill: parent
-//        //source: "e:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/DefaultGui/img/storm.gif"
-//        source: "qrc:/QmlModule/qml/DefaultGui/img/blackWater.gif"
-//        onStatusChanged: {
-//            playing = AnimatedImage.Ready
-//        }
-//    }
-
-
-
-//    onSelectElementType: {
-//        _root.pop()
-//    }
-
     function create() {
         for(var j = 1; j <= 4; ++j) {
             for(var i = j; i <= 4; ++i) {

@@ -6,6 +6,9 @@ import "../Elements"
 
 Rectangle {
     id: _root
+    property string txt: ""
+    signal ttttt(string txt)
+
     width: Setting.mainWidth
     height: Setting.mainHeight
     color: Setting.styleApplicationColor
@@ -17,40 +20,11 @@ Rectangle {
         Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            RowLayout {
+            //завернуто в Итем для правильной
+            //установки размеров в Лейауте
+            TopElementGameMode {
+                id: _topElement
                 anchors.fill: parent
-                spacing: 0
-
-                LogElement {
-                    id: _logElement
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                }
-
-                Item {
-                    Layout.minimumWidth: parent.height
-                    Layout.fillHeight: true
-                    Field {
-                        //завернуто в Item не случайно
-                        anchors.fill: parent
-                    }
-                }
-
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    color: Setting.styleApplicationColor
-                    border.color: Setting.styleTextColor
-
-                    TextArea {
-                        id: _textChat
-                        anchors.fill: parent
-                        color: Setting.styleTextColor
-                        text: "Чат"
-                    }
-                }
             }
         }
 
@@ -63,7 +37,7 @@ Rectangle {
                 width: _f.cellWidth
                 index: model.myIndex
                 onClicedIndex: {
-                    _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">Ты: " + model.myIndex + " </b><br>"
+                    _topElement.clickIndex = model.myIndex
                 }
             }
         }

@@ -10,13 +10,9 @@ Item {
     property string textLog:"<b><font color = " + Setting.styleLogYourColor + ">Ты: </b>" +
                          "<br>" +
                          "<b><font color = " + Setting.styleLogHiColor + ">Он: </br>"
-
-//    Layout.fillWidth: true
-//    Layout.fillHeight: true
-//    width: 10
-//    height: 20
-//    color: Setting.styleApplicationColor
-//    border.color: Setting.styleTextColor
+    property string nameLog: ""
+    width: 100
+    height: 200
 
     onTextLogChanged: {
         _textAreaLog.insert(0, textLog)
@@ -31,16 +27,13 @@ Item {
             Layout.minimumHeight: height
             color: Setting.styleTextColor
             textFormat: Text.RichText
-            text: qsTr("<h3><b><i>Лог игры</i></b></h3>")
+            text: qsTr("<h3><b><i>" + nameLog + "</i></b></h3>")
         }
 
         ScrollView  {
             id: _scrollLog
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            //ScrollBar.vertical.width: 5
-            //ScrollBar.vertical.style:
 
             ScrollBar.horizontal: ScrollBar {
                 active: false
@@ -49,16 +42,12 @@ Item {
             ScrollBar.vertical: ScrollBar {
                 parent: _scrollLog
                 x: 0
-                width: 5
+                width: _scrollLog.width / 15
                 active: true
-                height: parent.height
-                //contentItem: ScrollIndicator {
+                height: _scrollLog.height
                 contentItem: Rectangle {
-                    width: 10 //TODO magik
-                    height: 40 //TODO magik
                     color: Setting.styleTextColor
                 }
-                //}
             }
 
             TextArea {
