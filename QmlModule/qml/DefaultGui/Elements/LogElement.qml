@@ -14,9 +14,7 @@ Item {
     width: 100
     height: 200
 
-    onTextLogChanged: {
-        _textAreaLog.insert(0, textLog)
-    }
+    onTextLogChanged: _textAreaLog.insert(0, textLog)
 
     ColumnLayout {
         anchors.fill: parent
