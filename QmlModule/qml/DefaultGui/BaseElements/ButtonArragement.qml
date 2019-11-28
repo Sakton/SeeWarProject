@@ -48,13 +48,13 @@ Rectangle {
 
     function pointZakraska(){
         switch( idBtn ) {
-        case 0:
+        case Setting.MyEnumButton.BUTTON_GAME:
             return Qt.point(0,0)
-        case 1:
+        case Setting.MyEnumButton.BUTTON_EDITING:
             return Qt.point(_root.width - _zakraska.width, 0)
-        case 2:
+        case Setting.MyEnumButton.BUTTON_DISCHARGE:
             return Qt.point(0, _root.height - _zakraska.height)
-        case 3:
+        case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
             return Qt.point(_root.width - _zakraska.width, _root.height - _zakraska.height);
         }
     }

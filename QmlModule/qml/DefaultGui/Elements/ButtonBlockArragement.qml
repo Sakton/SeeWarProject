@@ -24,7 +24,7 @@ Rectangle {
 
             ButtonArragement {
                 id: _b0
-//                idBtn: Setting.MyEnumButton.BUTTON_GAME
+                idBtn: Setting.MyEnumButton.BUTTON_GAME
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.playImg
@@ -37,14 +37,14 @@ Rectangle {
 
             ButtonArragement {
                 id: _b1
-//                idBtn: 1
+                idBtn: Setting.MyEnumButton.BUTTON_EDITING
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.editImg
                 text: "Править"
-//                onClicked: {
-//                    clickedButtonOnBlock(_b1.idBtn)
-//                }
+                onClickedBtn: {
+                    clickedButtonOnBlock(_b1.idBtn)
+                }
             }
         }
 
@@ -55,26 +55,26 @@ Rectangle {
 
             ButtonArragement {
                 id: _b2
-//                idBtn: 2
+                idBtn: Setting.MyEnumButton.BUTTON_DISCHARGE
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.refreshImg
                 text: "Сброс"
-//                onClicked: {
-//                    clickedButtonOnBlock(_b2.idBtn)
-//                }
+                onClickedBtn: {
+                    clickedButtonOnBlock(_b2.idBtn)
+                }
             }
 
             ButtonArragement {
                 id: _b3
-//                idBtn: 3
+                idBtn: Setting.MyEnumButton.BUTTON_AUTOALIGMENT
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 urlImg: Setting.robotImg
                 text: "Авторасстановка"
-//                onClicked: {
-//                    clickedButtonOnBlock(_b3.idBtn)
-//                }
+                onClickedBtn: {
+                    clickedButtonOnBlock(_b3.idBtn)
+                }
             }
         }
     }

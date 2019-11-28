@@ -20,7 +20,12 @@ QtObject {
         //Стартовое меню
         BUTTON_ANDROID = 0,
         BUTTON_NETWORK,
-        BUTTON_CUSTOMIZATION
+        BUTTON_CUSTOMIZATION,
+        //Расстановка
+        BUTTON_GAME = 10,
+        BUTTON_EDITING,
+        BUTTON_DISCHARGE,
+        BUTTON_AUTOALIGMENT
 
     }
 
