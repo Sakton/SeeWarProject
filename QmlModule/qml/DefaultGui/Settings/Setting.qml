@@ -15,10 +15,18 @@ QtObject {
         }
     }
     //***** Screen.pixelDestiny = undefined ????
+    //перечисление
+    enum MyEnumButton {
+        //Стартовое меню
+        BUTTON_ANDROID = 0,
+        BUTTON_NETWORK,
+        BUTTON_CUSTOMIZATION
+
+    }
 
     //main window
     readonly property int mainWidth: {
-//        console.debug(Screen.width)
+        //        console.debug(Screen.width)
 
         if(Screen.width > 1000)
         return 360
@@ -26,7 +34,7 @@ QtObject {
         return Screen.width
     }
     readonly property int mainHeight: {
-//        console.debug(Screen.height)
+        //        console.debug(Screen.height)
         if(Screen.height > 1000)
         return 687
         else

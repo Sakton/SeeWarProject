@@ -1,14 +1,14 @@
 import QtQuick 2.0
 import Settings 1.0
 
-Rectangle {
+Item {
     signal clicedIndex(int indexClick)
     property int index: 0
     //***
     width: 30
     height: width
-    color: Setting.styleApplicationColor
-    border.color: Setting.styleTextColor
+//    color: Setting.styleApplicationColor
+//    border.color: Setting.styleTextColor
 
     Text {
         anchors.verticalCenter: parent.verticalCenter

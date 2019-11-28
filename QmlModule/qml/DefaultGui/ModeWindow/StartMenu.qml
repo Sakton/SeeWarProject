@@ -8,7 +8,7 @@ Rectangle {
     width: 230
     height: 460
     color: Setting.styleApplicationColor
-    signal buttonMenuClicked(int indexButton)
+    signal buttonMenuClicked(int enumTypeButton)
 
     ColumnLayout {
         anchors.fill: parent
@@ -16,15 +16,18 @@ Rectangle {
         spacing: 40
 
         Repeater {
-            model: [ { name : "С андроид" },
-                     { name : "По сети" },
-                     { name : "Настройки" } ]
+            model: [
+                     { typeButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
+                     { typeButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
+                     { typeButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
             delegate: MyButton {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                indexButton: index
+                typeButton: modelData.typeButton
                 name: modelData.name
-                onButtonClicked: buttonMenuClicked(indexButton)
+                onButtonClicked: {
+                    buttonMenuClicked(typeButton)
+                }
             }
         }
     }

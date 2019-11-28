@@ -5,8 +5,8 @@ Rectangle {
     width: 40
     height: 20
     property string name: ""
-    property int indexButton: 0
-    signal buttonClicked(int indexButton)
+    property int typeButton: 0
+    signal buttonClicked(int typeButton)
 
     border.width: 1
     border.color: Setting.styleTextColor
@@ -24,7 +24,7 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            buttonClicked(indexButton)
+            buttonClicked(typeButton)
         }
     }
 }

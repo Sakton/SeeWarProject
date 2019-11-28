@@ -51,5 +51,6 @@
         <file>QmlModule/qml/DefaultGui/Elements/TopElementGameMode.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/ChatElement.qml</file>
         <file>QmlModule/qml/DefaultGui/Elements/ChatTextArea.qml</file>
+        <file>QmlModule/qml/DefaultGui/Elements/ButtonBlockGameMode.qml</file>
     </qresource>
 </RCC>

@@ -7,48 +7,67 @@ import "../Elements"
 Rectangle {
     id: _root
     property string txt: ""
-    signal ttttt(string txt)
+    //    signal ttttt(string txt)
 
     width: Setting.mainWidth
     height: Setting.mainHeight
-    color: Setting.styleApplicationColor
+    //    color: Setting.styleApplicationColor
 
-    ColumnLayout {
+    AnimatedImage {
         anchors.fill: parent
-        spacing: 0
-
-        Item {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            //завернуто в Итем для правильной
-            //установки размеров в Лейауте
-            TopElementGameMode {
-                id: _topElement
-                anchors.fill: parent
-            }
+        source: Setting.urlBackgroundBlackWater
+        onStatusChanged: {
+            playing = AnimatedImage.Ready
         }
 
-        Field {
-            id: _f
-            Layout.minimumHeight: _root.width
-            Layout.fillWidth: true
+        ColumnLayout {
+            anchors.fill: parent
+            spacing: 0
 
-            delegate: DelegatFieldGameMode {
-                width: _f.cellWidth
-                index: model.myIndex
-                onClicedIndex: {
-                    _topElement.clickIndex = model.myIndex
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                //завернуто в Итем для правильной
+                //установки размеров в Лейауте
+                TopElementGameMode {
+                    id: _topElement
+                    anchors.fill: parent
                 }
             }
-        }
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+            Field {
+                id: _f
+                Layout.minimumHeight: _root.width
+                Layout.fillWidth: true
 
-            color: Setting.styleApplicationColor
-            border.color: Setting.styleTextColor
-        }
-    }
+                delegate: DelegatFieldGameMode {
+                    width: _f.cellWidth
+                    index: model.myIndex
+                    onClicedIndex: {
+                        _topElement.clickIndex = model.myIndex
+                    }
+                }
+            }
 
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ButtonBlockGameMode{
+                    anchors.fill: parent
+                }
+            }
+
+
+
+            //            Item {
+            //                Layout.fillWidth: true
+            //                Layout.fillHeight: true
+
+
+            ////                color: Setting.styleApplicationColor
+            ////                border.color: Setting.styleTextColor
+            //            }
+
+        }//ColumnLayout
+    }//AnimatedImage
 }

@@ -5,3 +5,11 @@ ButtonBlockArragement 1.0 ButtonBlockArragement.qml
 DelegateField 1.0 DelegateField.qml
 DelegateFigure 1.0 DelegateFigure.qml
 Stopka 1.0 Stopka.qml
+DelegatFieldGameMode 1.0 DelegatFieldGameMode.qml
+DelegatStopka 1.0 DelegatStopka.qml
+ChatElement 1.0 ChatElement.qml
+ChatTextArea 1.0 ChatTextArea.qml
+LogElement 1.0 LogElement.qml
+PopupMenuArragement 1.0 PopupMenuArragement.qml
+TopElementGameMode 1.0 TopElementGameMode.qml
+ButtonBlockGameMode 1.0 ButtonBlockGameMode.qml

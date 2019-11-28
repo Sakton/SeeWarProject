@@ -6,7 +6,7 @@ Rectangle {
     id: _root
     property int idBtn: -1
     property string text: _text.text
-    signal clicked(int idBtn)
+    signal clickedBtn(int idBtn)
     property string urlImg: ""
     radius: width / Setting.kRadius
 
@@ -33,7 +33,7 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            clicked(idBtn)
+            clickedBtn(idBtn)
         }
     }
 

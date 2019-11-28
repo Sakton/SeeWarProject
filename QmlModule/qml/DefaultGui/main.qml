@@ -19,7 +19,7 @@ Window {
         y: parent.height / 4
 
         onButtonMenuClicked: {
-            loaderWindow(indexButton)
+            loaderWindow(enumTypeButton)
         }
     }
 
@@ -28,17 +28,16 @@ Window {
         anchors.fill: parent
     }
 
-
     function loaderWindow(indexWindow) {
         var fileLoad = null;
         switch(indexWindow) {
-        case 0:
+        case Setting.MyEnumButton.BUTTON_ANDROID:
             _pageLoader.source = "qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml"
             break;
-        case 1:
+        case Setting.MyEnumButton.BUTTON_NETWORK:
             _pageLoader.source = "qrc:/QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml"
             break;
-        case 2:
+        case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
     //        fileLoad = Qt.createComponent("qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml")
             break
         }
