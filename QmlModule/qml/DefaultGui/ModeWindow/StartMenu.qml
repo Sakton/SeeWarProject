@@ -4,11 +4,15 @@ import Settings 1.0
 import "../BaseElements"
 
 Rectangle {
-    id: root
+    id: _root
     width: 230
     height: 460
     color: Setting.styleApplicationColor
     signal buttonMenuClicked(int enumTypeButton)
+
+    Component.onCompleted: console.debug(_root)
+    Component.onDestruction: console.debug(_root + " destruction()")
+
 
     ColumnLayout {
         anchors.fill: parent

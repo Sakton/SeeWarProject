@@ -1,9 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.12
+import Settings 1.0
 
 Item {
     width: 200
     height: 100
+    signal buttonId(int idBtn)
 
     RowLayout {
         anchors.fill: parent
@@ -21,7 +23,7 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-
+                    buttonId(Setting.MyEnumButton.BUTTON_BACK)
                 }
             }
         }
@@ -39,7 +41,7 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-
+                    buttonId(Setting.MyEnumButton.BUTTON_REPEAT)
                 }
             }
         }

@@ -25,8 +25,10 @@ QtObject {
         BUTTON_GAME = 10,
         BUTTON_EDITING,
         BUTTON_DISCHARGE,
-        BUTTON_AUTOALIGMENT
-
+        BUTTON_AUTOALIGMENT,
+        BUTTON_REPEAT,
+        //общая
+        BUTTON_BACK
     }
 
     //main window
@@ -61,6 +63,11 @@ QtObject {
     readonly property color styleTextColor: "#fffc00"
     readonly property color styleLogYourColor: "#03ff5c"
     readonly property color styleLogHiColor: "#0086f8"
+
+    //urls Window
+    readonly property string startMenuWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/StartMenu.qml"
+    readonly property string arragementWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml"
+    readonly property string gameModeWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml"
 
     //urls
     readonly property string urlElementFigureWindow: "qrc:/QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml"

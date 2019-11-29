@@ -54,20 +54,36 @@ Rectangle {
                 Layout.fillHeight: true
                 ButtonBlockGameMode{
                     anchors.fill: parent
+                    onButtonId: {
+                        loaderWindow(idBtn)
+                    }
                 }
             }
-
-
 
             //            Item {
             //                Layout.fillWidth: true
             //                Layout.fillHeight: true
-
-
             ////                color: Setting.styleApplicationColor
             ////                border.color: Setting.styleTextColor
             //            }
 
         }//ColumnLayout
     }//AnimatedImage
+
+    Loader {
+        id: _loader
+        anchors.fill: parent
+    }
+
+    function loaderWindow(idBtn) {
+        switch(idBtn) {
+        case Setting.MyEnumButton.BUTTON_REPEAT:
+            //_loader.source = Setting.gameModeWindow
+            console.log("Press Button Repeat")
+            break;
+        case Setting.MyEnumButton.BUTTON_BACK:
+            _loader.source = Setting.startMenuWindow
+            break;
+        }
+    }
 }

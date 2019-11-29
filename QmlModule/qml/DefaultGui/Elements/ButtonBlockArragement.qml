@@ -30,7 +30,6 @@ Rectangle {
                 urlImg: Setting.playImg
                 text: "Играть"
                 onClickedBtn: {
-                    console.debug(idBtn)
                     clickedButtonOnBlock(idBtn)
                 }
             }

@@ -29,7 +29,6 @@ Rectangle {
             Field {
                 id: _fld
                 Layout.fillWidth: true
-//                Layout.fillHeight: true
                 Layout.minimumHeight: _root.width
 
                 DropArea {
@@ -65,8 +64,6 @@ Rectangle {
                 }
             }
 
-
-
             Stopka {
                 id: _stopka
                 Layout.minimumHeight: (_root.height - _fld.height) / 2
@@ -96,11 +93,31 @@ Rectangle {
                 Layout.fillHeight: true
 
                 onClickedButtonOnBlock: {
-                    console.debug("idBtn arragement = " + idBtn)
+                    loaderWindow(idBtn)
                 }
             }
         } //ColumnLayout
     } //AnimatedImage
 
+    Loader {
+        id: _loader
+        anchors.fill: parent
+    }
 
+    function loaderWindow(idBtn) {
+        switch(idBtn) {
+        case Setting.MyEnumButton.BUTTON_GAME:
+            _loader.source = Setting.gameModeWindow
+            break;
+        case Setting.MyEnumButton.BUTTON_EDITING:
+            console.log("Load Editing_Window")
+            break;
+        case Setting.MyEnumButton.BUTTON_DISCHARGE:
+            console.log("Reload Arragement Window")
+            break;
+        case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
+            console.log("Call AoutoAligment Function")
+            break;
+        }
+    }
 }
