@@ -35,16 +35,16 @@ QtObject {
     readonly property int mainWidth: {
         //        console.debug(Screen.width)
 
-        if(Screen.width > 1000)
-        return 360
-        else
+        if(Screen.width > 1000) {
+            return 360
+        }
         return Screen.width
     }
     readonly property int mainHeight: {
         //        console.debug(Screen.height)
-        if(Screen.height > 1000)
-        return 687
-        else
+        if(Screen.height > 1000) {
+            return 687
+        }
         return Screen.height
     }
     readonly property string mainTitle: "SeeWarGame"

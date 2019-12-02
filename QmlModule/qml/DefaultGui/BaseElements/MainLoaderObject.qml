@@ -24,7 +24,6 @@ QtObject {
         case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
             break;
         case Setting.MyEnumButton.BUTTON_GAME:
-            console.log("Load Game_Window")
             createObject(Setting.gameModeWindow)
             break;
         case Setting.MyEnumButton.BUTTON_EDITING:
@@ -37,7 +36,6 @@ QtObject {
             console.log("Call AoutoAligment Function")
             break;
         case Setting.MyEnumButton.BUTTON_REPEAT:
-            //_loader.source = Setting.gameModeWindow
             console.log("Press Button Repeat")
             break;
         case Setting.MyEnumButton.BUTTON_BACK:
