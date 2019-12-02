@@ -3,39 +3,50 @@ import QtQuick.Layouts 1.12
 import Settings 1.0
 import "../BaseElements"
 
-Rectangle {
-    id: _root
-    width: 230
-    height: 460
-    color: Setting.styleApplicationColor
-    signal buttonMenuClicked(int enumTypeButton)
+InterfaceWindowSignals {
+    width: Setting.mainWidth
+    height: Setting.mainHeight
 
-    Component.onCompleted: console.debug(_root)
-    Component.onDestruction: console.debug(_root + " destruction()")
-
-
-    ColumnLayout {
+    Rectangle {
+        id: _root
         anchors.fill: parent
-        Layout.margins: 5
-        spacing: 40
+        color: Setting.styleApplicationColor
 
-        Repeater {
-            model: [
-                     { typeButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
-                     { typeButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
-                     { typeButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
-            delegate: MyButton {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                typeButton: modelData.typeButton
-                name: modelData.name
-                onButtonClicked: {
-                    buttonMenuClicked(typeButton)
+        InterfaceWindowSignals {
+            id: _signalInterface
+        }
+
+        Component.onCompleted: console.debug(_root)
+        Component.onDestruction: console.debug(_root + " destruction()")
+
+        ColumnLayout {
+            width: parent.width / 2
+            height: parent.height / 2
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            Layout.margins: 5
+            spacing: 40
+
+            Repeater {
+                model: [
+                         { typeButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
+                         { typeButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
+                         { typeButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
+                delegate: MyButton {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    typeButton: modelData.typeButton
+                    name: modelData.name
+                    onButtonClicked: {
+                        buttonMenuClicked(typeButton)
+                    }
                 }
             }
         }
     }
+
 }
+
 
 
 

@@ -3,87 +3,66 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import Settings 1.0
 import "../Elements"
+import "../BaseElements"
 
-Rectangle {
-    id: _root
-    property string txt: ""
-    //    signal ttttt(string txt)
-
+InterfaceWindowSignals {
     width: Setting.mainWidth
     height: Setting.mainHeight
-    //    color: Setting.styleApplicationColor
 
-    AnimatedImage {
+    Rectangle {
+        id: _root
         anchors.fill: parent
-        source: Setting.urlBackgroundBlackWater
-        onStatusChanged: {
-            playing = AnimatedImage.Ready
-        }
 
-        ColumnLayout {
+        property string txt: ""
+
+        AnimatedImage {
             anchors.fill: parent
-            spacing: 0
-
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                //завернуто в Итем для правильной
-                //установки размеров в Лейауте
-                TopElementGameMode {
-                    id: _topElement
-                    anchors.fill: parent
-                }
+            source: Setting.urlBackgroundBlackWater
+            onStatusChanged: {
+                playing = AnimatedImage.Ready
             }
 
-            Field {
-                id: _f
-                Layout.minimumHeight: _root.width
-                Layout.fillWidth: true
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: 0
 
-                delegate: DelegatFieldGameMode {
-                    width: _f.cellWidth
-                    index: model.myIndex
-                    onClicedIndex: {
-                        _topElement.clickIndex = model.myIndex
+                Item {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    //завернуто в Итем для правильной
+                    //установки размеров в Лейауте
+                    TopElementGameMode {
+                        id: _topElement
+                        anchors.fill: parent
                     }
                 }
-            }
 
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                ButtonBlockGameMode{
-                    anchors.fill: parent
-                    onButtonId: {
-                        loaderWindow(idBtn)
+                Field {
+                    id: _f
+                    Layout.minimumHeight: _root.width
+                    Layout.fillWidth: true
+
+                    delegate: DelegatFieldGameMode {
+                        width: _f.cellWidth
+                        index: model.myIndex
+                        onClicedIndex: {
+                            _topElement.clickIndex = model.myIndex
+                        }
                     }
                 }
-            }
 
-            //            Item {
-            //                Layout.fillWidth: true
-            //                Layout.fillHeight: true
-            ////                color: Setting.styleApplicationColor
-            ////                border.color: Setting.styleTextColor
-            //            }
-
-        }//ColumnLayout
-    }//AnimatedImage
-
-    Loader {
-        id: _loader
-        anchors.fill: parent
-    }
-
-    function loaderWindow(idBtn) {
-        switch(idBtn) {
-        case Setting.MyEnumButton.BUTTON_REPEAT:
-            //_loader.source = Setting.gameModeWindow
-            console.log("Press Button Repeat")
-            break;
-        case Setting.MyEnumButton.BUTTON_BACK:
-            _loader.source = Setting.startMenuWindow
-            break;
-        }
+                Item {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    ButtonBlockGameMode{
+                        anchors.fill: parent
+                        onButtonId: {
+                            buttonMenuClicked(idBtn)
+                        }
+                    }
+                }
+            }//ColumnLayout
+        }//AnimatedImage
     }
 }
+

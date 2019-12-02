@@ -15,6 +15,7 @@ Popup {
 
     ColumnLayout {
         anchors.fill: parent
+        spacing: 5
 
         Item {
             Layout.fillWidth: true
