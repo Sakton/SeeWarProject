@@ -23,7 +23,7 @@ Popup {
             TextEdit {
                 id: _textToChat
                 anchors.fill: parent
-                text: "TextEdit"
+                text: qsTr("Сообщение")
             }
         }
 

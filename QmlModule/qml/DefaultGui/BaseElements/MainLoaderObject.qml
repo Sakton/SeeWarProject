@@ -16,15 +16,15 @@ QtObject {
         var fileLoad = null;
         switch(indexWindow) {
         case Setting.MyEnumButton.BUTTON_ANDROID:
-            createObject(Setting.arragementWindow)
+            createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_NETWORK:
-            createObject(Setting.gameModeWindow)
+            createObject(Setting.window_GAME)
             break;
         case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
             break;
         case Setting.MyEnumButton.BUTTON_GAME:
-            createObject(Setting.gameModeWindow)
+            createObject(Setting.window_GAME)
             break;
         case Setting.MyEnumButton.BUTTON_EDITING:
             console.log("Load Editing_Window")
@@ -39,7 +39,7 @@ QtObject {
             console.log("Press Button Repeat")
             break;
         case Setting.MyEnumButton.BUTTON_BACK:
-            createObject(Setting.startMenuWindow)
+            createObject(Setting.window_STARTMENU)
             break;
         }
     }

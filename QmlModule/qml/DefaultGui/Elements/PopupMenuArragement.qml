@@ -11,16 +11,12 @@ Popup {
     width: 200
     height: 100
     padding: 1
-//    modal: true
-//    closePolicy: Popup.CloseOnEscape
 
     background: Rectangle {
         anchors.fill: parent
         color: Setting.styleTextColor
         radius: width / Setting.kRadius
     }
-
-//    opacity: 0.8
 
     RowLayout {
         anchors.fill: parent
@@ -30,7 +26,6 @@ Popup {
             Layout.fillWidth: true
             Layout.fillHeight: true
             color: Setting.styleByttonColor
-            //border.color: Setting.
             radius: _root.width / Setting.kRadius
 
             Image {
@@ -69,7 +64,7 @@ Popup {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: Setting.hintButtonBottomMargins
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Повернуть")
+                text: Setting.buttonName_ROTATE
                 color: Setting.styleTextColor
             }
 
@@ -119,7 +114,7 @@ Popup {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: Setting.hintButtonBottomMargins
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Установить")
+                text: Setting.buttonName_PLACING
                 color: Setting.styleTextColor
             }
 

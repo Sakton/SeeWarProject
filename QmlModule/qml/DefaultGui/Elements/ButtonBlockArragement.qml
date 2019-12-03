@@ -22,27 +22,24 @@ Rectangle {
             Layout.fillHeight: true
             spacing: 1
 
-            ButtonArragement {
-                id: _b0
-                idBtn: Setting.MyEnumButton.BUTTON_GAME
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                urlImg: Setting.playImg
-                text: "Играть"
-                onIdButtonClicked: {
-                    clickedButtonOnBlock(idBtn)
-                }
-            }
-
-            ButtonArragement {
-                id: _b1
-                idBtn: Setting.MyEnumButton.BUTTON_EDITING
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                urlImg: Setting.editImg
-                text: "Править"
-                onIdButtonClicked: {
-                    clickedButtonOnBlock(_b1.idBtn)
+            Repeater {
+                model: [
+                    {idBtn : Setting.MyEnumButton.BUTTON_GAME,
+                     name : Setting.buttonName_GAME,
+                     urlImg : Setting.img_PLAY},
+                    { idBtn : Setting.MyEnumButton.BUTTON_EDITING,
+                      name : Setting.buttonName_CORRECT,
+                      urlImg : Setting.img_CORRECT
+                    }]
+                delegate: ButtonArragement {
+                    idBtn: modelData.idBtn
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    urlImg: modelData.urlImg
+                    text: modelData.name
+                    onIdButtonClicked: {
+                        clickedButtonOnBlock(idBtn)
+                    }
                 }
             }
         }
@@ -52,27 +49,23 @@ Rectangle {
             Layout.fillHeight: true
             spacing: 1
 
-            ButtonArragement {
-                id: _b2
-                idBtn: Setting.MyEnumButton.BUTTON_DISCHARGE
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                urlImg: Setting.refreshImg
-                text: "Сброс"
-                onIdButtonClicked: {
-                    clickedButtonOnBlock(_b2.idBtn)
-                }
-            }
-
-            ButtonArragement {
-                id: _b3
-                idBtn: Setting.MyEnumButton.BUTTON_AUTOALIGMENT
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                urlImg: Setting.robotImg
-                text: "Авторасстановка"
-                onIdButtonClicked: {
-                    clickedButtonOnBlock(_b3.idBtn)
+            Repeater {
+                model: [
+                    {idBtn : Setting.MyEnumButton.BUTTON_DISCHARGE,
+                     name : Setting.buttonName_CLEAR,
+                     urlImg : Setting.img_CLEAR},
+                    {idBtn : Setting.MyEnumButton.BUTTON_AUTOALIGMENT,
+                     name : Setting.buttonName_AUTOALIGNMENT,
+                     urlImg : Setting.img_AUTOALIGMENT}]
+                delegate: ButtonArragement {
+                    idBtn: modelData.idBtn
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    urlImg: modelData.urlImg
+                    text: modelData.name
+                    onIdButtonClicked: {
+                        clickedButtonOnBlock(idBtn)
+                    }
                 }
             }
         }

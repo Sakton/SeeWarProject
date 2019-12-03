@@ -15,7 +15,7 @@ Window {
     MainLoaderObject {
         id: _mainLoader
         Component.onCompleted: {
-            createObject(Setting.startMenuWindow).buttonMenuClicked.connect(loaderWindow)
+            createObject(Setting.window_STARTMENU).buttonMenuClicked.connect(loaderWindow)
         }
     }
 }

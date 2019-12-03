@@ -29,9 +29,9 @@ InterfaceWindowSignals {
 
             Repeater {
                 model: [
-                         { idButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
-                         { idButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
-                         { idButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
+                         { idButton : Setting.MyEnumButton.BUTTON_ANDROID, name : Setting.buttonName_ANDROID },
+                         { idButton : Setting.MyEnumButton.BUTTON_NETWORK, name : Setting.buttonName_NETWORK },
+                         { idButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : Setting.buttonName_SETTINGS } ]
                 delegate: MyButton {
                     Layout.fillWidth: true
                     Layout.fillHeight: true

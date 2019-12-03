@@ -64,20 +64,22 @@ QtObject {
     readonly property color styleLogYourColor: "#03ff5c"
     readonly property color styleLogHiColor: "#0086f8"
 
-    //urls Window
-    readonly property string startMenuWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/StartMenu.qml"
-    readonly property string arragementWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml"
-    readonly property string gameModeWindow: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml"
+    //urls Loaded Application Window
+    readonly property string window_STARTMENU: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/StartMenu.qml"
+    readonly property string window_ARRAGEMENT: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/Arragement.qml"
+    readonly property string window_GAME: "qrc:/QmlModule/qml/DefaultGui/ModeWindow/GameMode.qml"
+    readonly property string window_CHATTEXTAREA: "qrc:/QmlModule/qml/DefaultGui/Elements/ChatTextArea.qml"
+    readonly property string window_POPUPMENUARRAGEMENT: "qrc:/QmlModule/qml/DefaultGui/Elements/PopupMenuArragement.qml"
 
     //urls
     readonly property string urlElementFigureWindow: "qrc:/QmlModule/qml/DefaultGui/BaseElements/FigureWindow.qml"
     readonly property string urlBackgroundBlackWater: "qrc:/QmlModule/qml/DefaultGui/img/blackWater1.gif"
     readonly property string rotateImg: "qrc:/QmlModule/qml/DefaultGui/img/rtt1.png"
     readonly property string okImg: "qrc:/QmlModule/qml/DefaultGui/img/ok.png"
-    readonly property string refreshImg: "qrc:/QmlModule/qml/DefaultGui/img/Symbols-Delete-icon.png"
-    readonly property string playImg: "qrc:/QmlModule/qml/DefaultGui/img/play2.png"
-    readonly property string editImg: "qrc:/QmlModule/qml/DefaultGui/img/Edit1.png"
-    readonly property string robotImg: "qrc:/QmlModule/qml/DefaultGui/img/robot.png"
+    readonly property string img_CLEAR: "qrc:/QmlModule/qml/DefaultGui/img/Symbols-Delete-icon.png"
+    readonly property string img_PLAY: "qrc:/QmlModule/qml/DefaultGui/img/play2.png"
+    readonly property string img_CORRECT: "qrc:/QmlModule/qml/DefaultGui/img/Edit1.png"
+    readonly property string img_AUTOALIGMENT: "qrc:/QmlModule/qml/DefaultGui/img/robot.png"
 
     //ship urls
     readonly property string p1: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"
@@ -91,6 +93,17 @@ QtObject {
     readonly property string ship2: "qrc:/QmlModule/qml/DefaultGui/img/2xb1.png"
     readonly property string ship3: "qrc:/QmlModule/qml/DefaultGui/img/3xb1.png"
     readonly property string ship4: "qrc:/QmlModule/qml/DefaultGui/img/4xb1.png"
-    //
+    //some constants
     readonly property int kRadius: 20
+
+    //names Buttons
+    readonly property string buttonName_ANDROID: qsTr("Андроид")
+    readonly property string buttonName_NETWORK: qsTr("По Сети")
+    readonly property string buttonName_SETTINGS: qsTr("Настройки")
+    readonly property string buttonName_GAME: qsTr("Играть")
+    readonly property string buttonName_CORRECT: qsTr("Править")
+    readonly property string buttonName_CLEAR: qsTr("Сброс")
+    readonly property string buttonName_AUTOALIGNMENT: qsTr("Авторасстановка")
+    readonly property string buttonName_ROTATE: qsTr("Повернуть")
+    readonly property string buttonName_PLACING: qsTr("Установить")
 }
