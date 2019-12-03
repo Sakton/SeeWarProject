@@ -29,7 +29,7 @@ Rectangle {
                 Layout.fillHeight: true
                 urlImg: Setting.playImg
                 text: "Играть"
-                onClickedBtn: {
+                onIdButtonClicked: {
                     clickedButtonOnBlock(idBtn)
                 }
             }
@@ -41,7 +41,7 @@ Rectangle {
                 Layout.fillHeight: true
                 urlImg: Setting.editImg
                 text: "Править"
-                onClickedBtn: {
+                onIdButtonClicked: {
                     clickedButtonOnBlock(_b1.idBtn)
                 }
             }
@@ -59,7 +59,7 @@ Rectangle {
                 Layout.fillHeight: true
                 urlImg: Setting.refreshImg
                 text: "Сброс"
-                onClickedBtn: {
+                onIdButtonClicked: {
                     clickedButtonOnBlock(_b2.idBtn)
                 }
             }
@@ -71,7 +71,7 @@ Rectangle {
                 Layout.fillHeight: true
                 urlImg: Setting.robotImg
                 text: "Авторасстановка"
-                onClickedBtn: {
+                onIdButtonClicked: {
                     clickedButtonOnBlock(_b3.idBtn)
                 }
             }

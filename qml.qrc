@@ -54,5 +54,6 @@
         <file>QmlModule/qml/DefaultGui/Elements/ButtonBlockGameMode.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/InterfaceWindowSignals.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/MainLoaderObject.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonClass.qml</file>
     </qresource>
 </RCC>

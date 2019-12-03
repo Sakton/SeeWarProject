@@ -2,18 +2,12 @@ import QtQuick 2.0
 import Settings 1.0
 import QtGraphicalEffects 1.12
 
-Rectangle {
+BasicButtonClass {
     id: _root
-    property int idBtn: -1
     property string text: _text.text
-    signal clickedBtn(int idBtn)
     property string urlImg: ""
+
     radius: width / Setting.kRadius
-
-    width: 100
-    height: 50
-    color: Setting.styleByttonColor
-
     Image {
         width: height
         height: parent.height / 2
@@ -28,13 +22,6 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         text: _root.text
         color: Setting.styleTextColor
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            clickedBtn(idBtn)
-        }
     }
 
     Rectangle {
@@ -58,5 +45,4 @@ Rectangle {
             return Qt.point(_root.width - _zakraska.width, _root.height - _zakraska.height);
         }
     }
-
 }

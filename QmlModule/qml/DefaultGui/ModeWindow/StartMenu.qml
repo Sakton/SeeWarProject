@@ -29,22 +29,21 @@ InterfaceWindowSignals {
 
             Repeater {
                 model: [
-                         { typeButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
-                         { typeButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
-                         { typeButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
+                         { idButton : Setting.MyEnumButton.BUTTON_ANDROID, name : "С андроид" },
+                         { idButton : Setting.MyEnumButton.BUTTON_NETWORK, name : "По сети" },
+                         { idButton : Setting.MyEnumButton.BUTTON_CUSTOMIZATION, name : "Настройки" } ]
                 delegate: MyButton {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    typeButton: modelData.typeButton
+                    idBtn: modelData.idButton
                     name: modelData.name
-                    onButtonClicked: {
-                        buttonMenuClicked(typeButton)
+                    onIdButtonClicked: {
+                        buttonMenuClicked(idBtn)
                     }
                 }
             }
         }
     }
-
 }
 
 
