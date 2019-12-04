@@ -13,18 +13,18 @@ LogElement {
 
     Connections {
         target: _loader.item
-        onTextOnChat : {
+        onTextOnChat : { //от попап окна ввода текста
              _root.textLog = txt + "<br>"
         }
     }
 
     MouseArea {
         anchors.fill: parent
-        onClicked: {_loader.setSource(Setting.window_CHATTEXTAREA,
-                                      {"width" : Setting.mainWidth,//_root.width * 3,
+        onDoubleClicked: {_loader.setSource(Setting.window_CHATTEXTAREA,
+                                      {"width" : Setting.mainWidth,
                                           "height":Setting.mainHeight / 3 ,
-                                          "x": -_root.width * 3,
-                                          "y" : _root.height * 2})
+                                          "x": -Setting.mainWidth,
+                                          "y" : Setting.mainWidth / 2})
         }
     }
 }

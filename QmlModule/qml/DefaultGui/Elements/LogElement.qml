@@ -7,9 +7,7 @@ import "../Elements"
 
 Item {
     id: _root
-    property string textLog:"<b><font color = " + Setting.styleLogYourColor + ">Ты: </b>" +
-                         "<br>" +
-                         "<b><font color = " + Setting.styleLogHiColor + ">Он: </br>"
+    property string textLog: ""
     property string nameLog: ""
     width: 100
     height: 200
@@ -50,9 +48,9 @@ Item {
 
             TextArea {
                 id: _textAreaLog
-                anchors.fill: parent
                 color: Setting.styleTextColor
                 textFormat: Text.RichText
+                wrapMode: Text.Wrap
                 clip: true
                 text: text
                 onTextChanged: {

@@ -106,4 +106,7 @@ QtObject {
     readonly property string buttonName_AUTOALIGNMENT: qsTr("Авторасстановка")
     readonly property string buttonName_ROTATE: qsTr("Повернуть")
     readonly property string buttonName_PLACING: qsTr("Установить")
+    readonly property string buttonName_SENDMESAGECHAT: qsTr("<<<<<<<<<MES>>>>>>>>>")
+
+    readonly property string defaultTextToTextAreaChat: qsTr("Писать тут")
 }
