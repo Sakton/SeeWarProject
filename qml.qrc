@@ -55,5 +55,6 @@
         <file>QmlModule/qml/DefaultGui/BaseElements/InterfaceWindowSignals.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/MainLoaderObject.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonClass.qml</file>
+        <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonBlockModes.qml</file>
     </qresource>
 </RCC>

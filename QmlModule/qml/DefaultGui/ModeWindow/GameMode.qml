@@ -56,7 +56,7 @@ InterfaceWindowSignals {
                     Layout.fillHeight: true
                     ButtonBlockGameMode{
                         anchors.fill: parent
-                        onButtonId: {
+                        onClickedButtonOnBlock: {
                             buttonMenuClicked(idBtn)
                         }
                     }

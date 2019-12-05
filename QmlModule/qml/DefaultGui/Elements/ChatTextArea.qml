@@ -35,7 +35,6 @@ Popup {
                 onFocusChanged: {
                     _textToChat.clear()
                     _ma.enabled = true
-
                 }
             }
         }
@@ -58,20 +57,19 @@ Popup {
                 Timer {
                     property int i: 0
                     property int lenth: Setting.buttonName_SENDMESAGECHAT.length - 1
-                    property int left: (lenth / 2) - 1
-                    property int right: (lenth / 2) + 1
-                    property string str: Setting.buttonName_SENDMESAGECHAT[lenth / 2]
-                    interval: 100
+                    property int left: 0
+                    property int right: 0
+                    property string str: Setting.buttonName_SENDMESAGECHAT
+                    interval: 150
                     repeat: true
                     running: true
                     onTriggered: {
-                        if(left === 0 || right ===lenth) {
-                            left = (lenth / 2) - 1
-                            right = (lenth / 2) + 1
-                            str = Setting.buttonName_SENDMESAGECHAT[lenth / 2]
+                        if(left === -lenth || right ===lenth) {
+                            left = 0
+                            right = 0
+                            str = Setting.buttonName_SENDMESAGECHAT
                         }
-                        str = Setting.buttonName_SENDMESAGECHAT[left] + str
-                        str += Setting.buttonName_SENDMESAGECHAT[right]
+                        str = Setting.buttonName_LEFTZABOI + str + Setting.buttonName_RIGHTZABOI
                         _texts.text = str
                         --left;
                         ++right;

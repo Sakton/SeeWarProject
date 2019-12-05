@@ -6,3 +6,4 @@ MyThemeButtonGradient 1.0 MyThemeButtonGradient.qml
 InterfaceWindowSignals 1.0 InterfaceWindowSignals.qml
 MainLoaderObject 1.0 MainLoaderObject.qml
 BasicButtonClass 1.0 BasicButtonClass.qml
+BasicButtonBlockModes 1.0 BasicButtonBlockModes.qml
