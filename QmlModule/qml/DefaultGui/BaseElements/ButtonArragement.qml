@@ -35,7 +35,6 @@ BasicButtonClass {
     }
 
     function pointZakraska(){
-        console.debug(idBtn)
         switch( idBtn ) {
         case Setting.MyEnumButton.BUTTON_GAME:
             return Qt.point(0,0)

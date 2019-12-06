@@ -20,6 +20,13 @@ LogElement {
 
     MouseArea {
         anchors.fill: parent
+
+        //TODO что с прокруткой!!! Поправить
+//        onClicked: {
+//            console.debug("onClicked")
+//            _root.focus = true
+//        }
+
         onDoubleClicked: {_loader.setSource(Setting.window_CHATTEXTAREA,
                                       {"width" : Setting.mainWidth,
                                           "height":Setting.mainHeight / 3 ,

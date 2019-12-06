@@ -37,7 +37,7 @@ Item {
 
             ScrollBar.vertical: ScrollBar {
                 parent: _scrollLog
-                x: 0
+//                x: 0
                 width: _scrollLog.width / 15
                 active: true
                 height: _scrollLog.height
@@ -48,11 +48,13 @@ Item {
 
             TextArea {
                 id: _textAreaLog
+                width: parent.width
                 color: Setting.styleTextColor
                 textFormat: Text.RichText
                 wrapMode: Text.Wrap
                 clip: true
                 text: text
+                readOnly: true
                 onTextChanged: {
                     //FIXME
                     //Это влияет на поведение скроллбара скроллвиева, чтоб курсор оставался в 0, тогда

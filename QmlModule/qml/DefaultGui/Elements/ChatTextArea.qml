@@ -31,6 +31,7 @@ Popup {
                 color: Setting.styleTextColor
                 text: Setting.defaultTextToTextAreaChat
                 focus: false
+                wrapMode: TextEdit.Wrap
                 font.pixelSize: parent.height / 8
                 onFocusChanged: {
                     _textToChat.clear()
@@ -82,7 +83,8 @@ Popup {
                 anchors.fill: parent
                 enabled: false
                 onClicked: {
-                    textOnChat(_textToChat.text)
+                    if(_textToChat.text !== "")
+                        textOnChat(_textToChat.text)
                     _textToChat.clear()
                 }
             }
