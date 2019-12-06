@@ -56,5 +56,7 @@
         <file>QmlModule/qml/DefaultGui/BaseElements/MainLoaderObject.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonClass.qml</file>
         <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonBlockModes.qml</file>
+        <file>QmlModule/qml/DefaultGui/img/menu.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Povtor.png</file>
     </qresource>
 </RCC>

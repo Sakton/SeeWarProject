@@ -17,8 +17,11 @@ QtObject {
     //***** Screen.pixelDestiny = undefined ????
     //перечисление
     enum MyEnumButton {
+        //никакая кнопка
+        BUTTON_RESERVE = 0,
         //Стартовое меню
-        BUTTON_ANDROID = 0,
+
+        BUTTON_ANDROID = 1,
         BUTTON_NETWORK,
         BUTTON_CUSTOMIZATION,
         //Расстановка
@@ -28,7 +31,8 @@ QtObject {
         BUTTON_AUTOALIGMENT,
         BUTTON_REPEAT,
         //общая
-        BUTTON_BACK
+        BUTTON_BACK = 20,
+        BUTTON_AGAIN
     }
 
     //main window
@@ -80,6 +84,8 @@ QtObject {
     readonly property string img_PLAY: "qrc:/QmlModule/qml/DefaultGui/img/play2.png"
     readonly property string img_CORRECT: "qrc:/QmlModule/qml/DefaultGui/img/Edit1.png"
     readonly property string img_AUTOALIGMENT: "qrc:/QmlModule/qml/DefaultGui/img/robot.png"
+    readonly property string img_MENU: "qrc:/QmlModule/qml/DefaultGui/img/menu.png"
+    readonly property string img_POVTOR: "qrc:/QmlModule/qml/DefaultGui/img/Povtor.png"
 
     //ship urls
     readonly property string p1: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"
@@ -106,6 +112,9 @@ QtObject {
     readonly property string buttonName_AUTOALIGNMENT: qsTr("Авторасстановка")
     readonly property string buttonName_ROTATE: qsTr("Повернуть")
     readonly property string buttonName_PLACING: qsTr("Установить")
+
+    readonly property string buttonName_MENU: qsTr("В Меню")
+    readonly property string buttonName_AGAIN: qsTr("Еще партейку?")
 
     readonly property string buttonName_SENDMESAGECHAT: qsTr("отправить")
     readonly property string buttonName_LEFTZABOI: qsTr("<")
