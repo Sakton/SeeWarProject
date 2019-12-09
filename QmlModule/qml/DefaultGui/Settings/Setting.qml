@@ -121,4 +121,8 @@ QtObject {
     readonly property string buttonName_RIGHTZABOI: qsTr(">")
 
     readonly property string defaultTextToTextAreaChat: qsTr("Писать тут")
+
+    readonly property string textAppealYou: qsTr("Ты")
+
+        readonly property string textAppealHi: qsTr("Он")
 }

@@ -83,8 +83,9 @@ Popup {
                 anchors.fill: parent
                 enabled: false
                 onClicked: {
-                    if(_textToChat.text !== "")
+                    if(_textToChat.text !== "") {
                         textOnChat(_textToChat.text)
+                    }
                     _textToChat.clear()
                 }
             }

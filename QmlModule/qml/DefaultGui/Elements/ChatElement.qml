@@ -13,20 +13,15 @@ LogElement {
 
     Connections {
         target: _loader.item
-        onTextOnChat : { //от попап окна ввода текста
-            _root.textLog = txt + "<br>"
+        onTextOnChat : {
+            _root.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + txt + "<br>"
         }
     }
 
     MouseArea {
+        id: _mouse
         anchors.fill: parent
-
-        //TODO что с прокруткой!!! Поправить
-        //        onClicked: {
-        //            console.debug("onClicked")
-        //            _root.focus = true
-        //        }
-
+        anchors.margins: parent.width / 10
         onDoubleClicked: { _loader.setSource(Setting.window_CHATTEXTAREA,
                                              {"width" : Setting.mainWidth,
                                                  "height":Setting.mainHeight / 3 ,

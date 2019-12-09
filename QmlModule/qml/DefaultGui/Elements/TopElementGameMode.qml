@@ -10,7 +10,7 @@ Item {
     height: 100
 
     onClickIndexChanged: {
-        _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">Ты: " + clickIndex + " </b><br>"
+        _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + clickIndex + "<br>"
     }
 
     RowLayout {

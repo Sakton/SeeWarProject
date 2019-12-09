@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.2, 2019-12-05T14:16:29. -->
+<!-- Written by QtCreator 4.10.2, 2019-12-06T14:59:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -557,8 +557,8 @@
     <valuelist type="QVariantList" key="Android.PreStartShellCmdListKey"/>
     <value type="int" key="PE.EnvironmentAspect.Base">0</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">SeeWarProject</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">SeeWarProject</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.AndroidRunConfiguration:E:/CPP/MyProects/SeeWarProject/SeeWarProject/SeeWarProject.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
