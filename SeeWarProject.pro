@@ -48,10 +48,10 @@ DISTFILES += \
 	QmlModule/qml/DefaultGui/qmldir \
 	ShemeAndOter/NetWork \
 	ShemeAndOter/bigstructure.qmodel \
-	ShemeAndOter/guimodule.qmodel \
 	ShemeAndOter/networkmodel.qmodel \
 	ShemeAndOter/old.7z \
 	ShemeAndOter/qmlloadermodel.qmodel \
+	ShemeAndOter/sheme1.qmodel \
 	ShemeAndOter/shipmodel.qmodel \
 	ShemeAndOter/useCase \
 	android/AndroidManifest.xml \
@@ -60,7 +60,8 @@ DISTFILES += \
 	android/gradle/wrapper/gradle-wrapper.properties \
 	android/gradlew \
 	android/gradlew.bat \
-	android/res/values/libs.xml
+	android/res/values/libs.xml \
+	trrttr
 
 HEADERS += \
 	QmlModule/cpp/guiloader.h
