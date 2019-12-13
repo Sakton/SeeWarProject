@@ -48,10 +48,10 @@ DISTFILES += \
 	QmlModule/qml/DefaultGui/qmldir \
 	ShemeAndOter/NetWork \
 	ShemeAndOter/bigstructure.qmodel \
+	ShemeAndOter/model1.qmodel \
 	ShemeAndOter/networkmodel.qmodel \
 	ShemeAndOter/old.7z \
 	ShemeAndOter/qmlloadermodel.qmodel \
-	ShemeAndOter/sheme1.qmodel \
 	ShemeAndOter/shipmodel.qmodel \
 	ShemeAndOter/useCase \
 	android/AndroidManifest.xml \
