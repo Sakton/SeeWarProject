@@ -48,9 +48,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{93091228-a7cb-4a5a-b1e4-a948336afb3d}</object>
-                         <name>AbstractListModel</name>
+                         <name>Qt_AbstractListModel</name>
                          <pos>x:185;y:410</pos>
-                         <rect>x:-55;y:-35;w:110;h:70</rect>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -71,7 +71,7 @@
                          <object>{a25b7bda-99f8-477c-ad46-6ae183965667}</object>
                          <name>Field</name>
                          <pos>x:185;y:545</pos>
-                         <rect>x:-55;y:-30;w:110;h:60</rect>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -81,6 +81,7 @@
                          <item>MVC</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -113,9 +114,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{538f7cd4-d205-4bab-88bf-68a9d105d2e1}</object>
-                         <name>Ship</name>
+                         <name>Ship(Node)</name>
                          <pos>x:565;y:545</pos>
-                         <rect>x:-55;y:-30;w:110;h:60</rect>
+                         <rect>x:-60;y:-40;w:120;h:80</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -125,6 +126,7 @@
                          <item>Composite</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -139,9 +141,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{8fb7d99b-396a-4d28-a68a-6050b9c5ee74}</object>
-                         <name>Palub</name>
-                         <pos>x:740;y:545</pos>
-                         <rect>x:-50;y:-30;w:100;h:60</rect>
+                         <name>Palub(Sheet)</name>
+                         <pos>x:750;y:550</pos>
+                         <rect>x:-50;y:-45;w:100;h:90</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -151,6 +153,7 @@
                          <item>Composite</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -166,12 +169,13 @@
                          </base-DElement>
                          <object>{a31cf9a3-6046-482f-8e2a-23d626a6eb4b}</object>
                          <name>VisualComponent</name>
-                         <pos>x:565;y:420</pos>
-                         <rect>x:-50;y:-30;w:100;h:60</rect>
+                         <pos>x:565;y:390</pos>
+                         <rect>x:-60;y:-70;w:120;h:140</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -257,8 +261,9 @@
                          </base-DElement>
                          <object>{a680ac13-9c8d-4b14-a12a-2d5644f8c119}</object>
                          <name>State</name>
-                         <pos>x:565;y:315</pos>
-                         <rect>x:-40;y:-30;w:80;h:60</rect>
+                         <pos>x:560;y:215</pos>
+                         <rect>x:-55;y:-35;w:110;h:70</rect>
+                         <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -267,6 +272,7 @@
                          <item>State</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -307,8 +313,8 @@
                          </base-DElement>
                          <object>{e22f3c1d-f709-41bb-9e6d-64d1da93c2f1}</object>
                          <name>NullState</name>
-                         <pos>x:455;y:215</pos>
-                         <rect>x:-40;y:-30;w:80;h:60</rect>
+                         <pos>x:390;y:75</pos>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -317,6 +323,7 @@
                          <item>State</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -331,9 +338,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{df62e9fe-3d4b-4203-8bca-6f51640413e6}</object>
-                         <name>Flot</name>
+                         <name>Flot(Root)</name>
                          <pos>x:370;y:545</pos>
-                         <rect>x:-40;y:-30;w:80;h:60</rect>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -342,6 +349,7 @@
                          <item>Composite</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -439,7 +447,7 @@
                           <qlist>
                            <item>
                             <DRelation--IntermediatePoint>
-                             <pos>x:460;y:320</pos>
+                             <pos>x:390;y:205</pos>
                             </DRelation--IntermediatePoint>
                            </item>
                           </qlist>
@@ -461,8 +469,8 @@
                          </base-DElement>
                          <object>{3b8b6d2b-811d-4de0-848c-984271ea8506}</object>
                          <name>DamageState</name>
-                         <pos>x:565;y:215</pos>
-                         <rect>x:-45;y:-30;w:90;h:60</rect>
+                         <pos>x:560;y:75</pos>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -471,6 +479,7 @@
                          <item>State</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -504,8 +513,8 @@
                          </base-DElement>
                          <object>{435c0756-ecaf-471f-ba5c-c9d093dd6682}</object>
                          <name>BanState</name>
-                         <pos>x:680;y:215</pos>
-                         <rect>x:-40;y:-30;w:80;h:60</rect>
+                         <pos>x:765;y:80</pos>
+                         <rect>x:-60;y:-35;w:120;h:70</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -514,6 +523,7 @@
                          <item>State</item>
                         </qlist>
                        </template>
+                       <show-all-members>true</show-all-members>
                       </DClass>
                      </instance>
                     </item>
@@ -534,7 +544,7 @@
                           <qlist>
                            <item>
                             <DRelation--IntermediatePoint>
-                             <pos>x:685;y:315</pos>
+                             <pos>x:780;y:215</pos>
                             </DRelation--IntermediatePoint>
                            </item>
                           </qlist>
@@ -556,7 +566,7 @@
                          </base-DElement>
                          <object>{022f2763-ab81-4e98-ad3c-174c4281475f}</object>
                          <name>FieldQML</name>
-                         <pos>x:185;y:685</pos>
+                         <pos>x:185;y:665</pos>
                          <rect>x:-55;y:-30;w:110;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -582,9 +592,105 @@
                       </DDependency>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{85bb0f65-993b-4468-8f12-a79766006873}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{60bd130e-9f02-477f-9f53-9e8d90d364d7}</object>
+                         <a>{2677e4cc-c498-439b-b569-4e5809a0294c}</a>
+                         <b>{f8a2fe06-fa40-467e-a0ca-c5610874aa05}</b>
+                         <points>
+                          <qlist>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:360;y:330</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:450;y:395</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                          </qlist>
+                         </points>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{fa6ddd21-e444-405c-b135-d45d3f0068d3}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{90e484fb-d30e-4279-b0b5-d9cac80ba3c6}</object>
+                         <a>{a1ba1cb8-bc46-46ff-8503-2f4c857a6af0}</a>
+                         <b>{f8a2fe06-fa40-467e-a0ca-c5610874aa05}</b>
+                         <points>
+                          <qlist>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:665;y:75</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:665;y:350</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                          </qlist>
+                         </points>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{07876331-915c-4502-b977-cce3c0ee33e5}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{29751f20-5e75-44b3-976f-0927e776db19}</object>
+                         <a>{5bd88207-79f5-4a84-97e8-26d832da252a}</a>
+                         <b>{f8a2fe06-fa40-467e-a0ca-c5610874aa05}</b>
+                         <points>
+                          <qlist>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:805;y:325</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                           <item>
+                            <DRelation--IntermediatePoint>
+                             <pos>x:755;y:390</pos>
+                            </DRelation--IntermediatePoint>
+                           </item>
+                          </qlist>
+                         </points>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1576221717143</last-modified>
+                  <last-modified>1576229874969</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -606,7 +712,7 @@
                     <uid>{93091228-a7cb-4a5a-b1e4-a948336afb3d}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>AbstractListModel</name>
+                  <name>Qt_AbstractListModel</name>
                  </MObject>
                 </base-MObject>
                </MClass>
@@ -745,6 +851,17 @@
                   <item>MVC</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{8be6d2f9-1efc-4711-ad8b-a0cf17e22aca}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *[]</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -848,7 +965,7 @@
                     <uid>{538f7cd4-d205-4bab-88bf-68a9d105d2e1}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Ship</name>
+                  <name>Ship(Node)</name>
                   <relations>
                    <handles>
                     <handles>
@@ -937,6 +1054,17 @@
                   <item>Composite</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{094cb7d7-0cad-4684-9a39-20592e6aa36c}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *[]</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1069,7 +1197,7 @@
                     <uid>{8fb7d99b-396a-4d28-a68a-6050b9c5ee74}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Palub</name>
+                  <name>Palub(Sheet)</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1107,6 +1235,17 @@
                   <item>Composite</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{3688aceb-3d09-457c-abb3-677ddc05ddf5}</uid>
+                    <type>1</type>
+                    <declaration>int index</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1165,6 +1304,45 @@
                   </relations>
                  </MObject>
                 </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{8add4140-8129-4390-96b5-7acb68ec2697}</uid>
+                    <type>1</type>
+                    <declaration>State *nullState</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b583471d-04f5-4e2b-88a9-620cd7b2a1e2}</uid>
+                    <type>1</type>
+                    <declaration>State *DamageState</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c1026192-c915-4236-849b-30c2d17df2a5}</uid>
+                    <type>1</type>
+                    <declaration>State *BanState</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a70f1bf2-8faa-4761-a66e-42eb61eb6fee}</uid>
+                    <type>2</type>
+                    <declaration>setState()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{93474067-3881-4fd7-8a1f-87c0c3373b98}</uid>
+                    <type>2</type>
+                    <declaration>takeDamage()</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1191,6 +1369,17 @@
                   <item>State</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{f1d71545-7ed5-482c-b9de-bd82f400efed}</uid>
+                    <type>2</type>
+                    <declaration>takeDamage()</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1278,6 +1467,28 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{60bd130e-9f02-477f-9f53-9e8d90d364d7}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{60bd130e-9f02-477f-9f53-9e8d90d364d7}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{e22f3c1d-f709-41bb-9e6d-64d1da93c2f1}</a>
+                             <b>{a31cf9a3-6046-482f-8e2a-23d626a6eb4b}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -1289,6 +1500,17 @@
                   <item>State</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{ad37c19b-1daf-4b6c-ad29-c9db5d9f31a2}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *c</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1307,7 +1529,7 @@
                     <uid>{df62e9fe-3d4b-4203-8bca-6f51640413e6}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Flot</name>
+                  <name>Flot(Root)</name>
                   <relations>
                    <handles>
                     <handles>
@@ -1374,6 +1596,17 @@
                   <item>Composite</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{96f6156f-b887-431c-bae8-7e1f88532565}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *[]</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1419,6 +1652,28 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{90e484fb-d30e-4279-b0b5-d9cac80ba3c6}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{90e484fb-d30e-4279-b0b5-d9cac80ba3c6}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{3b8b6d2b-811d-4de0-848c-984271ea8506}</a>
+                             <b>{a31cf9a3-6046-482f-8e2a-23d626a6eb4b}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -1430,6 +1685,17 @@
                   <item>State</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{33916e74-1bb0-4175-9d6d-b64320948990}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *c</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
@@ -1475,6 +1741,28 @@
                         </target>
                        </handle>
                       </item>
+                      <item>
+                       <handle>
+                        <uid>{29751f20-5e75-44b3-976f-0927e776db19}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{29751f20-5e75-44b3-976f-0927e776db19}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{435c0756-ecaf-471f-ba5c-c9d093dd6682}</a>
+                             <b>{a31cf9a3-6046-482f-8e2a-23d626a6eb4b}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
                      </qlist>
                     </handles>
                    </handles>
@@ -1486,6 +1774,17 @@
                   <item>State</item>
                  </qlist>
                 </template>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{4349bfd0-4ddf-4c41-acf3-017bc8fb1e25}</uid>
+                    <type>1</type>
+                    <declaration>VisualComponent *c</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>
