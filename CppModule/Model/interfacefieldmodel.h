@@ -6,7 +6,7 @@ class InterfaceFieldModel
 {
 public:
     virtual ~InterfaceFieldModel();
-    virtual void method() = 0; //пока не ясно какой тут метод
+    virtual void setElementInToModel(int index) = 0; //пока не ясно какой тут метод
 };
 
 #endif // INTERFACEFIELDMODEL_H

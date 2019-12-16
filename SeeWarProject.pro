@@ -1,6 +1,6 @@
 QT += quick
 
-CONFIG += c++17
+CONFIG += c++1z
 CONFIG += resources_big
 
 VERSION = 1.0
@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	CppModule/Model/field.cpp \
 	CppModule/Model/flot.cpp \
 	CppModule/Model/gamefieldelement.cpp \
 	CppModule/Model/interfacefieldmodel.cpp \
@@ -69,6 +70,7 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
+	CppModule/Model/field.h \
 	CppModule/Model/flot.h \
 	CppModule/Model/gamefieldelement.h \
 	CppModule/Model/interfacefieldmodel.h \
