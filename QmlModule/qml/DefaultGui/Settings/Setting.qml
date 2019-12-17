@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick 2.0
 import QtQuick.Window 2.13
 import "../ModeWindow"
+import CppClassesToQmlModules 1.0
 
 QtObject {
     //не работает ****
@@ -58,7 +59,8 @@ QtObject {
     readonly property real hintButtonBottomMargins: 3
 
     //models
-    property var modelField: TestModelGridView {}
+//    property var modelField: TestModelGridView {}
+    property var modelField: Field{}
     property var modelFlot: TestModelShipView {}
 
     //colors sheme

@@ -13,7 +13,6 @@ GridView {
     cellHeight: width / Setting.countsCells
 
     boundsBehavior: Flickable.StopAtBounds
-    model: Setting.modelField
 
     delegate: DelegateField {
         height: _grid.cellHeight

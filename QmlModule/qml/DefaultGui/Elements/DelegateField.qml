@@ -4,11 +4,12 @@ import Settings 1.0
 Item {
     width: height
     height: 30
+    property int indexModel: model.IndexView
 
     Image {
         anchors.fill: parent
         source: {
-            switch(model.myIndex) {
+            switch(model.Paluba) {
             case 0: return Setting.p1
             case 1: return Setting.p2
             case 2: return Setting.p3
@@ -23,7 +24,8 @@ Item {
             color: "red"
             font.pixelSize: parent.width / 3
 
-            text: model.myIndex //TODO убрать зависимость
+            //text: model.myIndex //TODO убрать зависимость
+            text: indexModel
         }
     }//Image
 }

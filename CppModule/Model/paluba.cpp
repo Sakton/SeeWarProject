@@ -13,13 +13,3 @@ void Paluba::setIsDead(bool value)
     if(isDead != value && value)
         isDead = value;
 }
-
-int Paluba::getIndex() const
-{
-    return index;
-}
-
-void Paluba::setIndex(int value)
-{
-    index = value;
-}

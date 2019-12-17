@@ -1,15 +1,12 @@
 #ifndef PALUBA_H
 #define PALUBA_H
+#include "fieldelement.h"
 
-
-class Paluba
+class Paluba : public FieldElement
 {
-    int index;
     bool isDead;
 public:
     Paluba(int ind = 0, bool dd = false);
-    int getIndex() const;
-    void setIndex(int value);
     bool getIsDead() const;
     void setIsDead(bool value);
 };

@@ -9,7 +9,8 @@ ListModel {
     function appnd() {
         for (var i = 0; i < 81; ++i) {
             root.append({
-                            "myIndex": i
+//                            "myIndex": i
+                            "IndexView" : i
                         })
         }
     }

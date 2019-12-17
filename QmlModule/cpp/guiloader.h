@@ -12,8 +12,14 @@ class GuiLoader : public QObject
 public:
     static GuiLoader& init(QUrl& url ,QGuiApplication* app, QObject* parent = nullptr);
 
+    template<typename T>
+    static void registerType(QByteArray name, int f, int s, QByteArray type) {
+         qmlRegisterType<T>(name, f, s, type);
+    }
+
 private:
     explicit GuiLoader(QUrl& url, QGuiApplication* app = nullptr, QObject* parent = nullptr);
+
 
 private:
     void addImportStyleModuleGui(QUrl &url);
