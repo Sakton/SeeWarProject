@@ -1,7 +1,7 @@
 #ifndef FIELDCELLELEMENT_H
 #define FIELDCELLELEMENT_H
 #include <QObject>
-
+//TODO для теста
 class FieldCellElement : public QObject
 {
     Q_OBJECT

@@ -4,7 +4,12 @@ import Settings 1.0
 Item {
     width: height
     height: 30
-    property var objectFieldCell: model.ObjectFieldCell
+    property var objectFieldCell: {
+        model.ObjectFieldCell
+//        var meta = model.ObjectFieldCell.metaObject().className()
+//        console.debug("meta = " + meta)
+//        console.log("nameObj = " + model.ObjectFieldCell.metaObject().className () )
+    }
 
     Image {
         anchors.fill: parent

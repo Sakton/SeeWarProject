@@ -1,19 +1,19 @@
 #ifndef FIELDELEMENT_H
 #define FIELDELEMENT_H
-#include <QObject>
+#include <QString>
 
-
-//??? удаилить если пройдет FieldCellElement
 class FieldElement
 {
-    int index;
+    QString img;
+    bool destroed;
 public:
-    FieldElement(int idx = 0);
-    int getIndex() const;
-    void setIndex(int value);
+    FieldElement(const QString &path = "");
+    virtual ~FieldElement();
+    virtual void getDamage() = 0;
+    QString getImg() const;
+    void setImg(const QString &value);
+    bool getDestroed() const;
+    void setDestroed(bool value);
 };
-
-Q_DECLARE_METATYPE(FieldElement)
-Q_DECLARE_OPAQUE_POINTER(FieldElement)
 
 #endif // FIELDELEMENT_H

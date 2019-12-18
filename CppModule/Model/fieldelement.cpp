@@ -1,17 +1,31 @@
 #include "fieldelement.h"
 
-int FieldElement::getIndex() const
+QString FieldElement::getImg() const
 {
-    return index;
+    return img;
 }
 
-void FieldElement::setIndex(int value)
+void FieldElement::setImg(const QString &value)
 {
-    index = value;
+    img = value;
 }
 
-FieldElement::FieldElement(int idx) : index{idx}
+bool FieldElement::getDestroed() const
+{
+    return destroed;
+}
+
+void FieldElement::setDestroed(bool value)
+{
+    destroed = value;
+}
+
+FieldElement::FieldElement(const QString &path) : img{path}
 {
 
 }
 
+FieldElement::~FieldElement()
+{
+    
+}
