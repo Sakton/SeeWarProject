@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
 	CppModule/Model/field.cpp \
+	CppModule/Model/fieldcellelement.cpp \
 	CppModule/Model/fieldelement.cpp \
 	CppModule/Model/flot.cpp \
 	CppModule/Model/gamefieldelement.cpp \
@@ -72,6 +73,7 @@ DISTFILES += \
 
 HEADERS += \
 	CppModule/Model/field.h \
+	CppModule/Model/fieldcellelement.h \
 	CppModule/Model/fieldelement.h \
 	CppModule/Model/flot.h \
 	CppModule/Model/gamefieldelement.h \

@@ -4,7 +4,14 @@
 void Field::datatest()
 {
     for(int i = 0; i < 81; ++i)
-        elements.push_back(new FieldElement(i));
+        elements.push_back(FieldElement(i));
+
+    for(int i = 0; i < 81; ++i) {
+        if(i%2)
+            cellElement.push_back(new FieldCellElement(i, this));
+        else
+            cellElement.push_back(new PalubaElement(i, i, this));
+    }
 
 //    elements.at(10)->setType(0);
 //    elements.at(11).setType(1);
@@ -20,7 +27,7 @@ Field::Field(QObject *parent):InterfaceFieldModel(parent)
     roleHash[CellRoles::EmptyRoles] = "Empty";
     roleHash[CellRoles::PalubaRole] = "Paluba";
     roleHash[CellRoles::BanRole] = "Ban";
-    roleHash[CellRoles::IdexViewRole] = "IndexView";
+    roleHash[CellRoles::ObjectRole] = "ObjectFieldCell";
 }
 
 int Field::rowCount(const QModelIndex &) const
@@ -34,22 +41,29 @@ QVariant Field::data(const QModelIndex &index, int role) const
     if(!index.isValid())
         return {};
     switch (role) {
-    case CellRoles::IdexViewRole:
+//    case CellRoles::IdexViewRole:
+//        try {
+//        qDebug() << "index.row() = " << index.row();
+//        return QVariant(elements.at(index.row()).getIndex());
+//    } catch (std::exception) {
+//            qDebug() << "OUT OF RANGE";
+//        }
+//    }
+    case CellRoles::ObjectRole:
     try {
-        qDebug() << "index.row() = " << index.row();
-        QVariant t = QVariant(elements.at(index.row())->getIndex());
+        QVariant t = QVariant::fromValue(cellElement.at(index.row()));
+//        return QVariant(cellElement.at(index.row()));
         return t;
-    } catch (std::out_of_range) {
-        qDebug() << "OUT OF RANGE";
+    } catch (std::exception) {
+            qDebug() << "OUT OF RANGE";
     }
-
-//    case CellRoles::PalubaRole:
-//        return QVariant(elements.at(index.row()).getType());
     }
+    return {};
 }
 
 bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+
     return true;
 
 }

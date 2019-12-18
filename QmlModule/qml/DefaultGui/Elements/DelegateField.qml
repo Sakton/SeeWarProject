@@ -4,7 +4,7 @@ import Settings 1.0
 Item {
     width: height
     height: 30
-    property int indexModel: model.IndexView
+    property var objectFieldCell: model.ObjectFieldCell
 
     Image {
         anchors.fill: parent
@@ -25,7 +25,7 @@ Item {
             font.pixelSize: parent.width / 3
 
             //text: model.myIndex //TODO убрать зависимость
-            text: indexModel
+            text: objectFieldCell.getIndex()
         }
     }//Image
 }

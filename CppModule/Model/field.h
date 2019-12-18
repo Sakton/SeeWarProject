@@ -2,6 +2,7 @@
 #define FIELD_H
 #include "interfacefieldmodel.h"
 #include "fieldelement.h"
+#include "fieldcellelement.h"
 #include <vector>
 
 class Field : public InterfaceFieldModel
@@ -9,14 +10,14 @@ class Field : public InterfaceFieldModel
     Q_OBJECT
     //????? клетка и палуба одно и то-же???
     QHash<int, QByteArray> roleHash;
-    std::vector<FieldElement *> elements;
-//    std::vector< std::pair<int, int> > elements;
+    std::vector<FieldElement> elements;
+    std::vector<FieldCellElement*> cellElement;
 
     void datatest();
 
 public:
     enum CellRoles {
-        IdexViewRole = Qt::UserRole,
+        ObjectRole = Qt::UserRole,
         EmptyRoles ,
         PalubaRole,
         BanRole
