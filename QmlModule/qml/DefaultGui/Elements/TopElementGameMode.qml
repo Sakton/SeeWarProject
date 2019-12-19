@@ -33,6 +33,7 @@ Item {
             Field {
                 //завернуто в Item не случайно
                 anchors.fill: parent
+                model: Setting.modelField
             }
         }
 

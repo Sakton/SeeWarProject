@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
 	CppModule/Model/cell.cpp \
+	CppModule/Model/elementfieldgame.cpp \
 	CppModule/Model/field.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
@@ -67,6 +68,8 @@ DISTFILES += \
 
 HEADERS += \
 	CppModule/Model/cell.h \
+	CppModule/Model/config.h \
+	CppModule/Model/elementfieldgame.h \
 	CppModule/Model/field.h \
 	QmlModule/cpp/guiloader.h
 

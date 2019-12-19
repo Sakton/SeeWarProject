@@ -1,30 +1,24 @@
 #include "field.h"
 #include <QDebug>
 
-void Field::datatest()
+void Field::createFieldCells()
 {
-    testNabor = std::vector<int>(81);
-    for(int i = 0; i < 81; ++i)
-        testNabor.at(i) = i;
-
-    int ttt = 0;
+    field.resize(Config::SIZE_CELL);
 }
 
 Field::Field(QObject *parent)
 {
-    qDebug() << "createField";
-    datatest();
+    createFieldCells();
 
     roleHash[CellRoles::EmptyRoles] = "Empty";
     roleHash[CellRoles::PalubaRole] = "Paluba";
     roleHash[CellRoles::BanRole] = "Ban";
-    roleHash[CellRoles::ObjectRole] = "ObjectFieldCell";
+    roleHash[CellRoles::IndexElementRole] = "IndexElement";
 }
 
 int Field::rowCount(const QModelIndex &) const
 {
-    //TODO !!!
-    return 81;
+    return Config::SIZE_CELL;
 }
 
 QVariant Field::data(const QModelIndex &index, int role) const
@@ -32,17 +26,16 @@ QVariant Field::data(const QModelIndex &index, int role) const
     if(!index.isValid())
         return {};
     switch (role) {
-    case CellRoles::ObjectRole:
-        try {
-    } catch (std::exception) {
-            qDebug() << "OUT OF RANGE";
-        }
+    case CellRoles::IndexElementRole:
+        return QVariant(field.at(index.row()).getIndex());
     }
+
     return {};
 }
 
 bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    qDebug() << "CPP Field::setData -> index = " << index.row() << " value = " << value;
     return true;
 }
 
@@ -50,3 +43,11 @@ QHash<int, QByteArray> Field::roleNames() const
 {
     return roleHash;
 }
+
+//Qt::ItemFlags Field::flags(const QModelIndex &index) const
+//{
+////    if (!index.isValid())
+////        return Qt::ItemIsEnabled;
+////    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
+//    return Qt::NoItemFlags;
+//}

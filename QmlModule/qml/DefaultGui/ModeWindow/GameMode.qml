@@ -41,10 +41,11 @@ InterfaceWindowSignals {
                     id: _f
                     Layout.minimumHeight: _root.width
                     Layout.fillWidth: true
+                    model: Setting.modelField
 
                     delegate: DelegatFieldGameMode {
                         width: _f.cellWidth
-                        index: model.myIndex
+                        index: model.IndexElement
                         onClicedIndex: {
                             _topElement.clickIndex = model.myIndex
                         }

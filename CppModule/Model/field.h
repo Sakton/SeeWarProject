@@ -2,18 +2,20 @@
 #define FIELD_H
 #include <vector>
 #include <QAbstractListModel>
+#include "cell.h"
 
 class Field : public QAbstractListModel
 {
     //????? клетка и палуба одно и то-же???
     QHash<int, QByteArray> roleHash;
-    std::vector<int> testNabor;
+    std::vector<Cell> field;
 
-    void datatest();
+private:
+    void createFieldCells();
 
 public:
     enum CellRoles {
-        ObjectRole = Qt::UserRole,
+        IndexElementRole = Qt::UserRole,
         EmptyRoles ,
         PalubaRole,
         BanRole
@@ -25,6 +27,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     QHash<int, QByteArray> roleNames() const override;
+//    Qt::ItemFlags flags(const QModelIndex &index) const override;
 };
 
 #endif // FIELD_H
