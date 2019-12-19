@@ -23,15 +23,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
 	CppModule/Model/cell.cpp \
 	CppModule/Model/field.cpp \
-	CppModule/Model/fieldcellelement.cpp \
-	CppModule/Model/fieldelement.cpp \
-	CppModule/Model/flot.cpp \
-	CppModule/Model/gamefieldelement.cpp \
-	CppModule/Model/interfacefieldmodel.cpp \
-	CppModule/Model/paluba.cpp \
-	CppModule/Model/palubfieldelement.cpp \
-	CppModule/Model/seafieldelement.cpp \
-	CppModule/Model/ship.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -77,15 +68,6 @@ DISTFILES += \
 HEADERS += \
 	CppModule/Model/cell.h \
 	CppModule/Model/field.h \
-	CppModule/Model/fieldcellelement.h \
-	CppModule/Model/fieldelement.h \
-	CppModule/Model/flot.h \
-	CppModule/Model/gamefieldelement.h \
-	CppModule/Model/interfacefieldmodel.h \
-	CppModule/Model/paluba.h \
-	CppModule/Model/palubfieldelement.h \
-	CppModule/Model/seafieldelement.h \
-	CppModule/Model/ship.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {

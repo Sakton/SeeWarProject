@@ -58,5 +58,6 @@
         <file>QmlModule/qml/DefaultGui/BaseElements/BasicButtonBlockModes.qml</file>
         <file>QmlModule/qml/DefaultGui/img/menu.png</file>
         <file>QmlModule/qml/DefaultGui/img/Povtor.png</file>
+        <file>QmlModule/qml/DefaultGui/Elements/DelegatesField/EmptyFieldDelegate.qml</file>
     </qresource>
 </RCC>

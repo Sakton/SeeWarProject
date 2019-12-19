@@ -1,17 +1,13 @@
 #ifndef FIELD_H
 #define FIELD_H
-#include "interfacefieldmodel.h"
-#include "fieldelement.h"
-#include "fieldcellelement.h"
 #include <vector>
+#include <QAbstractListModel>
 
-class Field : public InterfaceFieldModel
+class Field : public QAbstractListModel
 {
-    Q_OBJECT
     //????? клетка и палуба одно и то-же???
     QHash<int, QByteArray> roleHash;
-    std::vector<FieldElement> elements;
-    std::vector<FieldCellElement*> cellElement;
+    std::vector<int> testNabor;
 
     void datatest();
 
@@ -29,9 +25,6 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     QHash<int, QByteArray> roleNames() const override;
-
-    // InterfaceFieldModel interface
-    void setElementInToModel(int index) override;
 };
 
 #endif // FIELD_H
