@@ -14,10 +14,25 @@ GridView {
 
     boundsBehavior: Flickable.StopAtBounds
 
+    //TODO test
+    property int testIndex: 0
+    //TODO test
+
+
     delegate: DelegateField {
+        id: _d
         indexElement: model.IndexElement
-
-
         height: _grid.cellHeight
+
+        //TODO test
+//        Connections {
+//            target: _grid
+//            property int i: 0
+//            onTestIndexChanged : {
+//                if(indexElement === _grid.testIndex)
+//                    console.debug(++i + " testIndex = " + _grid.testIndex)
+//            }
+//        }
+        //TODO test
     }
 }

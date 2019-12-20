@@ -1,6 +1,12 @@
 #include "elementfieldgame.h"
 
-ElementFieldGame::ElementFieldGame()
+
+ElementFieldGame::ElementFieldGame(QObject *parent):QObject(parent)
+{
+
+}
+
+ElementFieldGame::~ElementFieldGame()
 {
 
 }

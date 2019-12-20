@@ -24,6 +24,9 @@ SOURCES += \
 	CppModule/Model/cell.cpp \
 	CppModule/Model/elementfieldgame.cpp \
 	CppModule/Model/field.cpp \
+	CppModule/Model/flot.cpp \
+	CppModule/Model/palub.cpp \
+	CppModule/Model/ship.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -71,6 +74,9 @@ HEADERS += \
 	CppModule/Model/config.h \
 	CppModule/Model/elementfieldgame.h \
 	CppModule/Model/field.h \
+	CppModule/Model/flot.h \
+	CppModule/Model/palub.h \
+	CppModule/Model/ship.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {

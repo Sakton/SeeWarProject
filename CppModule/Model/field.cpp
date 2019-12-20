@@ -47,10 +47,15 @@ QHash<int, QByteArray> Field::roleNames() const
     return roleHash;
 }
 
-Qt::ItemFlags Field::flags(const QModelIndex &index) const
+//Qt::ItemFlags Field::flags(const QModelIndex &index) const
+//{
+////    if (!index.isValid())
+////        return Qt::ItemIsEnabled;
+////    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
+//    return Qt::NoItemFlags;
+//}
+
+void Field::shipsArragement(int startIndex, int count)
 {
-//    if (!index.isValid())
-//        return Qt::ItemIsEnabled;
-//    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
-    return Qt::NoItemFlags;
+    qDebug() << "c++ startIndex = " << startIndex << " countPalubs = " << count;
 }
