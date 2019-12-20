@@ -4,6 +4,7 @@ import Settings 1.0
 Item {
     width: height
     height: 30
+    property int indexElement: 0
 
     Image {
         anchors.fill: parent
@@ -25,7 +26,12 @@ Item {
             font.pixelSize: parent.width / 3
 
             //text: model.myIndex //TODO убрать зависимость
-            text: { model.IndexElement = 100 }
+            text: indexElement
         }
     }//Image
+
+//    MouseArea {
+//        anchors.fill: parent
+//        onClicked: model.IndexElement += 10
+//    }
 }

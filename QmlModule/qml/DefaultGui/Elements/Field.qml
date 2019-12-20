@@ -15,6 +15,9 @@ GridView {
     boundsBehavior: Flickable.StopAtBounds
 
     delegate: DelegateField {
+        indexElement: model.IndexElement
+
+
         height: _grid.cellHeight
     }
 }

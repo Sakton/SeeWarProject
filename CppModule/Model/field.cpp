@@ -29,13 +29,16 @@ QVariant Field::data(const QModelIndex &index, int role) const
     case CellRoles::IndexElementRole:
         return QVariant(field.at(index.row()).getIndex());
     }
-
     return {};
 }
 
 bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    if(!index.isValid())
+        return false;
     qDebug() << "CPP Field::setData -> index = " << index.row() << " value = " << value;
+    field.at(index.row()).setIndex(value.toInt());
+    emit dataChanged(index, index);
     return true;
 }
 
@@ -44,10 +47,10 @@ QHash<int, QByteArray> Field::roleNames() const
     return roleHash;
 }
 
-//Qt::ItemFlags Field::flags(const QModelIndex &index) const
-//{
-////    if (!index.isValid())
-////        return Qt::ItemIsEnabled;
-////    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
-//    return Qt::NoItemFlags;
-//}
+Qt::ItemFlags Field::flags(const QModelIndex &index) const
+{
+//    if (!index.isValid())
+//        return Qt::ItemIsEnabled;
+//    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
+    return Qt::NoItemFlags;
+}

@@ -43,12 +43,12 @@ InterfaceWindowSignals {
                         property var currentSourceDropElement: null
                         drag.onPositionChanged: {
                             var currentIndex = _fld.indexAt(drag.x, drag.y)
-                            console.debug("currentIndex = " + currentIndex)
-                            console.debug("_fld.model.IndexElement = " + _fld.model.IndexElement)
-                            //_fld.model.IndexElement = 2
-                           // _fld.model.setData(+currentIndex, 0);
+                            //console.debug("currentIndex = " + currentIndex)
 
                             currentSourceDropElement = _da.drag.source
+
+                            console.debug("countPalubs = " + currentSourceDropElement.parent.parent.parent.countPalubs)
+
                             if(currentIndex >= 0) {
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true

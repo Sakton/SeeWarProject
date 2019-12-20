@@ -17,6 +17,7 @@ public:
     ElementFieldGame *getElement() const;
     void setElement(ElementFieldGame *value);
     int getIndex() const;
+    void setIndex(int value);
 };
 
 #endif // CELL_H

@@ -1,6 +1,11 @@
 #include "cell.h"
 int Cell::sIndex = 0;
 
+void Cell::setIndex(int value)
+{
+    index = value;
+}
+
 Cell::Cell(ElementFieldGame *el) : element{el}
 {
     index = sIndex++;
