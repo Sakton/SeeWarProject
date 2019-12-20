@@ -5,10 +5,10 @@ Ship::Ship(int countPalubs, int startIndex, Location location, QObject *parent) 
     for(int i = 0; i < countPalubs; ++i) {
         Palub *palub = new Palub(0, this);
         palubs.push_back(palub);
-//        connect(palub, static_cast<void(Palub::*)()>(&Palub::palubIsDead),
-//                this, [&](){ palubDamaged(); });
         connect(palub, static_cast<void(Palub::*)()>(&Palub::palubIsDead),
-                this, static_cast<void(Ship::*)()>(&Ship::palubDamaged));
+                this, [&](){ palubDamaged(); });
+//        connect(palub, static_cast<void(Palub::*)()>(&Palub::palubIsDead),
+//                this, static_cast<void(Ship::*)()>(&Ship::palubDamaged));
     }
 }
 
