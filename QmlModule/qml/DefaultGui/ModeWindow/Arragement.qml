@@ -48,7 +48,7 @@ InterfaceWindowSignals {
 
                             if(currentIndex >= 0) {
                                 //TODO test
-                                _fld.model.shipsArragement(currentIndex, countPalubs)
+                                Setting.modelField.shipsArragement(currentIndex, countPalubs)
                                 //TODO test
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true

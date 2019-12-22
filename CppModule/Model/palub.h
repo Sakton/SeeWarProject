@@ -10,11 +10,9 @@ class Palub : public ElementFieldGame
         // ElementFieldGame interface
         void getDamage(int index) override;
         //состояние жизни: ты жив? - да / нет
-        bool stateLife() const;
         int idx() const;
 
     public slots:
-        void setStateLife();
         void setIdx(int idx);
 
     signals:
@@ -22,7 +20,7 @@ class Palub : public ElementFieldGame
 
     private:
         //TODO Q_PROPERTY - нужно ли?
-        Q_PROPERTY(bool stateLife READ stateLife WRITE setStateLife NOTIFY palubIsDead)
+//        Q_PROPERTY(bool stateLife READ stateLife WRITE setStateLife NOTIFY palubIsDead)
         Q_PROPERTY(int idx READ idx WRITE setIdx)
         bool m_stateLife;
         int m_idx;

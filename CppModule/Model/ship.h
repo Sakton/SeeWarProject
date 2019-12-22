@@ -30,7 +30,7 @@ class Ship : public ElementFieldGame
     private:
         Q_PROPERTY(bool stateLife READ stateLife NOTIFY shipIsDead)
         Q_PROPERTY(int countLifePalub READ countLifePalub WRITE setCountLifePalub NOTIFY countLifePalubChanged)
-        Q_PROPERTY(bool location READ location WRITE setLocation NOTIFY locationChanged)
+//        Q_PROPERTY(bool location READ location WRITE setLocation NOTIFY locationChanged)
 
         bool m_stateLife;
         int m_countLifePalub;
