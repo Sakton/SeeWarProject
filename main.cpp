@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     BaseFlotInterface *flot = new Flot;
-    Field *field = new Field(flot, &app);
+    QAbstractListModel *field = new Field(flot, &app);
 
 //    GuiLoader::registerType<Field>("aaaaaa", 1,0, "Field");
 //    qmlRegisterType<Field>("CppClassesToQmlModules", 1,0, "Field");

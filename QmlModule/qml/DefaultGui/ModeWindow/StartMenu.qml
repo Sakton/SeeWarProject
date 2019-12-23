@@ -12,10 +12,6 @@ InterfaceWindowSignals {
         anchors.fill: parent
         color: Setting.styleApplicationColor
 
-        InterfaceWindowSignals {
-            id: _signalInterface
-        }
-
         Component.onCompleted: console.debug(_root)
         Component.onDestruction: console.debug(_root + " destruction()")
 

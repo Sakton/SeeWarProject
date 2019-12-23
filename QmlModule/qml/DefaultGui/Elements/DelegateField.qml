@@ -26,8 +26,6 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             color: "red"
             font.pixelSize: parent.width / 3
-
-            //text: model.myIndex //TODO убрать зависимость
             text: indexElement
         }
     }//Image

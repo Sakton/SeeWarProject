@@ -6,13 +6,12 @@ QtObject {
         var component = Qt.createComponent(resourceObject);
         if(component.status === Component.Ready){
             var object = component.createObject(_root, {"width":_root.width, "height":_root.height})
-            object.buttonMenuClicked.connect(loaderWindow)
         }
         return object
     }
 
     function loaderWindow(indexWindow) {
-        console.debug(indexWindow)
+        console.debug("indexWindow = " + indexWindow)
         var fileLoad = null;
         switch(indexWindow) {
         case Setting.MyEnumButton.BUTTON_ANDROID:

@@ -1,6 +1,16 @@
 #include "field.h"
 #include <QDebug>
 
+BaseFlotInterface *Field::getFlot() const
+{
+    return flot;
+}
+
+void Field::setFlot(BaseFlotInterface *value)
+{
+    flot = value;
+}
+
 Field::Field(BaseFlotInterface *flt, QObject *parent):QAbstractListModel(parent),flot{flt}
 {
     roleHash[CellRoles::EmptyRoles] = "empty";

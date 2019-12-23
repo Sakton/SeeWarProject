@@ -29,6 +29,8 @@ public:
 //    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     Q_INVOKABLE void shipsArragement(int startIndex, int count);
+    BaseFlotInterface *getFlot() const;
+    void setFlot(BaseFlotInterface *value);
 };
 
 #endif // FIELD_H

@@ -5,17 +5,17 @@ import "../BaseElements"
 import Settings 1.0
 
 InterfaceWindowSignals {
+    id: _root
     width: Setting.mainWidth
     height: Setting.mainHeight
 
     Rectangle {
-        id: _root
-        width: Setting.mainWidth
-        height: Setting.mainHeight
+        anchors.fill: parent
 
         color: Setting.styleApplicationColor
 
         Component.onCompleted: {
+            console.debug("Arragement created pointer = " + _root)
             _stopka.dragSizeX = parent.width
             _stopka.dragSizeY = _fld.height
         }
