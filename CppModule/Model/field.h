@@ -2,18 +2,13 @@
 #define FIELD_H
 #include <vector>
 #include <QAbstractListModel>
-#include "cell.h"
+#include "baseflotinterface.h"
 
 class Field : public QAbstractListModel
 {
         Q_OBJECT
-    //????? клетка и палуба одно и то-же???
     QHash<int, QByteArray> roleHash;
-    std::vector<Cell> field;
-
-
-private:
-    void createFieldCells();
+    BaseFlotInterface *flot;
 
 public:
     enum CellRoles {
@@ -23,7 +18,7 @@ public:
         BanRole
     };
 
-    explicit Field(QObject *parent = nullptr);
+    explicit Field(BaseFlotInterface *flt = nullptr, QObject *parent = nullptr);
     // QAbstractItemModel interface
     int rowCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &index, int role) const override;

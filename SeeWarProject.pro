@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	CppModule/Model/baseflotinterface.cpp \
 	CppModule/Model/cell.cpp \
 	CppModule/Model/elementfieldgame.cpp \
 	CppModule/Model/field.cpp \
@@ -70,6 +71,7 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
+	CppModule/Model/baseflotinterface.h \
 	CppModule/Model/cell.h \
 	CppModule/Model/config.h \
 	CppModule/Model/elementfieldgame.h \

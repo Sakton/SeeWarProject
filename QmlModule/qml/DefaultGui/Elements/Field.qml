@@ -21,7 +21,7 @@ GridView {
 
     delegate: DelegateField {
         id: _d
-        indexElement: model.IndexElement
+        indexElement: (model.IndexElement === undefined) ? -1 : model.IndexElement
         height: _grid.cellHeight
 
         //TODO test

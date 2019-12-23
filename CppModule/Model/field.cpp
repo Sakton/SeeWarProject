@@ -1,15 +1,8 @@
 #include "field.h"
 #include <QDebug>
 
-void Field::createFieldCells()
+Field::Field(BaseFlotInterface *flt, QObject *parent):QAbstractListModel(parent),flot{flt}
 {
-    field.resize(Config::SIZE_CELL);
-}
-
-Field::Field(QObject *parent)
-{
-    createFieldCells();
-
     roleHash[CellRoles::EmptyRoles] = "Empty";
     roleHash[CellRoles::PalubaRole] = "Paluba";
     roleHash[CellRoles::BanRole] = "Ban";
@@ -23,11 +16,11 @@ int Field::rowCount(const QModelIndex &) const
 
 QVariant Field::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid())
+    if(!index.isValid() || !flot)
         return {};
     switch (role) {
     case CellRoles::IndexElementRole:
-        return QVariant(field.at(index.row()).getIndex());
+        return QVariant(flot->getNumberElementFlot(index.row()));
     }
     return {};
 }
@@ -37,7 +30,7 @@ bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
     if(!index.isValid())
         return false;
     qDebug() << "CPP Field::setData -> index = " << index.row() << " value = " << value;
-    field.at(index.row()).setIndex(value.toInt());
+//    field.at(index.row()).setIndex(value.toInt());
     emit dataChanged(index, index);
     return true;
 }
