@@ -3,10 +3,10 @@
 
 Field::Field(BaseFlotInterface *flt, QObject *parent):QAbstractListModel(parent),flot{flt}
 {
-    roleHash[CellRoles::EmptyRoles] = "Empty";
-    roleHash[CellRoles::PalubaRole] = "Paluba";
-    roleHash[CellRoles::BanRole] = "Ban";
-    roleHash[CellRoles::IndexElementRole] = "IndexElement";
+    roleHash[CellRoles::EmptyRoles] = "empty";
+    roleHash[CellRoles::PalubaRole] = "paluba";
+    roleHash[CellRoles::BanRole] = "ban";
+    roleHash[CellRoles::IndexElementRole] = "indexElement";
 }
 
 int Field::rowCount(const QModelIndex &) const

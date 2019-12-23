@@ -4,6 +4,8 @@
 #include <QAbstractListModel>
 #include "baseflotinterface.h"
 
+//TODO может еще вынести интерфейс нашего поля ???
+
 class Field : public QAbstractListModel
 {
         Q_OBJECT

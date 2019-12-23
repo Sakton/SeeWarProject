@@ -21,7 +21,11 @@ GridView {
 
     delegate: DelegateField {
         id: _d
-        indexElement: (model.IndexElement === undefined) ? -1 : model.IndexElement
+        indexElement: {
+            //промежуточная переменная для предотвращения частых вызовов модели
+            var indexObject = model.indexElement
+            return (indexObject === undefined) ? -1 : indexObject
+        }
         height: _grid.cellHeight
 
         //TODO test

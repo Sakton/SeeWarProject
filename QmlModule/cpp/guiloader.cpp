@@ -20,7 +20,7 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QAbstractListModel *model,
         },
         Qt::QueuedConnection);
 //    qmlRegisterType<GuiLoader>();
-    //Дюбавляем обьект доска как контекст
+    //Дюбавляем обьект "доска" как контекст
     m_engine->rootContext()->setContextProperty("Field", model);
     //добавлять путь для модулей настроек перед загрузкой qml
     addImportStyleModuleGui(m_url);
