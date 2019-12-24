@@ -1,18 +1,11 @@
 #include "field.h"
+#include "config.h"
 #include <QDebug>
 
-BaseFlotInterface *Field::getFlot() const
-{
-    return flot;
-}
 
-void Field::setFlot(BaseFlotInterface *value)
+Field::Field(QObject *parent):QAbstractListModel(parent)
 {
-    flot = value;
-}
-
-Field::Field(BaseFlotInterface *flt, QObject *parent):QAbstractListModel(parent),flot{flt}
-{
+    field.resize(Config::COUNT_CELL);
     roleHash[CellRoles::EmptyRoles] = "empty";
     roleHash[CellRoles::PalubaRole] = "paluba";
     roleHash[CellRoles::BanRole] = "ban";
@@ -21,16 +14,16 @@ Field::Field(BaseFlotInterface *flt, QObject *parent):QAbstractListModel(parent)
 
 int Field::rowCount(const QModelIndex &) const
 {
-    return Config::SIZE_CELL;
+    return Config::COUNT_CELL;
 }
 
 QVariant Field::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid() || !flot)
+    if(!index.isValid())
         return {};
     switch (role) {
     case CellRoles::IndexElementRole:
-        return QVariant(flot->getNumberElementFlot(index.row()));
+        return QVariant(field.at(index.row()).index());
     }
     return {};
 }
@@ -50,6 +43,11 @@ QHash<int, QByteArray> Field::roleNames() const
     return roleHash;
 }
 
+void Field::shipsArragement(int currentIndex, int countPalubs)
+{
+    qDebug() << "currentIndex = " << currentIndex << " countPalubs " << countPalubs;
+}
+
 //Qt::ItemFlags Field::flags(const QModelIndex &index) const
 //{
 ////    if (!index.isValid())
@@ -58,7 +56,3 @@ QHash<int, QByteArray> Field::roleNames() const
 //    return Qt::NoItemFlags;
 //}
 
-void Field::shipsArragement(int startIndex, int count)
-{
-    qDebug() << "c++ startIndex = " << startIndex << " countPalubs = " << count;
-}

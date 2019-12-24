@@ -21,14 +21,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-	CppModule/Model/abstractfabriquegame.cpp \
-	CppModule/Model/baseflotinterface.cpp \
-	CppModule/Model/cell.cpp \
-	CppModule/Model/elementfieldgame.cpp \
+	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
-	CppModule/Model/flot.cpp \
-	CppModule/Model/palub.cpp \
-	CppModule/Model/ship.cpp \
+	CppModule/Model/fieldelement.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -72,15 +67,10 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
-	CppModule/Model/abstractfabriquegame.h \
-	CppModule/Model/baseflotinterface.h \
-	CppModule/Model/cell.h \
+	CppModule/Model/abstractgamefigure.h \
 	CppModule/Model/config.h \
-	CppModule/Model/elementfieldgame.h \
 	CppModule/Model/field.h \
-	CppModule/Model/flot.h \
-	CppModule/Model/palub.h \
-	CppModule/Model/ship.h \
+	CppModule/Model/fieldelement.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {

@@ -12,9 +12,7 @@ class GuiLoader : public QObject
     Q_OBJECT
 public:
     static GuiLoader& init(QUrl& url ,
-        QGuiApplication* app,
-        QAbstractListModel *model,
-        QObject* parent = nullptr);
+        QGuiApplication* app, QObject *parent = nullptr);
 
     template<typename T>
     static void registerType(QByteArray name, int f, int s, QByteArray type) {
@@ -22,7 +20,7 @@ public:
     }
 
 private:
-    explicit GuiLoader(QUrl& url, QGuiApplication* app = nullptr, QAbstractListModel *model = nullptr, QObject* parent = nullptr);
+    explicit GuiLoader(QUrl& url, QGuiApplication* app = nullptr, QObject* parent = nullptr);
 
 
 private:

@@ -5,9 +5,8 @@
 
 GuiLoader* GuiLoader::m_self { nullptr };
 
-GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QAbstractListModel *model, QObject *parent) : QObject(parent),
+GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject(parent),
     m_app { app },
-    m_model{model},
     m_url { url }
 {
     m_engine = new QQmlApplicationEngine;
@@ -20,8 +19,6 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QAbstractListModel *model,
         },
         Qt::QueuedConnection);
 //    qmlRegisterType<GuiLoader>();
-    //Дюбавляем обьект "доска" как контекст
-    m_engine->rootContext()->setContextProperty("Field", model);
     //добавлять путь для модулей настроек перед загрузкой qml
     addImportStyleModuleGui(m_url);
     m_engine->load(m_url);
@@ -33,9 +30,9 @@ void GuiLoader::addImportStyleModuleGui(QUrl& url)
     m_engine->addImportPath(url.toString().remove("main.qml"));
 }
 
-GuiLoader &GuiLoader::init(QUrl& url, QGuiApplication* app, QAbstractListModel *model, QObject* parent)
+GuiLoader &GuiLoader::init(QUrl& url, QGuiApplication* app, QObject *parent)
 {
     if (nullptr == m_self)
-        m_self = new GuiLoader(url,app, model, parent);
+        m_self = new GuiLoader(url,app, app);
     return *m_self;
 }

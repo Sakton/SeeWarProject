@@ -2,7 +2,7 @@
 #define FIELD_H
 #include <vector>
 #include <QAbstractListModel>
-#include "baseflotinterface.h"
+#include "fieldelement.h"
 
 //TODO может еще вынести интерфейс нашего поля ???
 
@@ -10,7 +10,7 @@ class Field : public QAbstractListModel
 {
         Q_OBJECT
     QHash<int, QByteArray> roleHash;
-    BaseFlotInterface *flot;
+    std::vector<FieldElement> field;
 
 public:
     enum CellRoles {
@@ -20,7 +20,7 @@ public:
         BanRole
     };
 
-    explicit Field(BaseFlotInterface *flt = nullptr, QObject *parent = nullptr);
+    explicit Field(QObject *parent = nullptr);
     // QAbstractItemModel interface
     int rowCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &index, int role) const override;
@@ -28,9 +28,8 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 //    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    Q_INVOKABLE void shipsArragement(int startIndex, int count);
-    BaseFlotInterface *getFlot() const;
-    void setFlot(BaseFlotInterface *value);
+    //MY
+    Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs);
 };
 
 #endif // FIELD_H

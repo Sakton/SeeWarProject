@@ -4,7 +4,7 @@
 namespace Config {
     constexpr int NUM_ROW = 9;
     constexpr int NUM_COL = 9;
-    constexpr int SIZE_CELL = NUM_ROW * NUM_COL;
+    constexpr int COUNT_CELL = NUM_ROW * NUM_COL;
 
     constexpr int MAX_COUNT_PALUBS = 4;
 }

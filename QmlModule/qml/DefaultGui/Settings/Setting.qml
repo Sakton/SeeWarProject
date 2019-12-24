@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick 2.0
 import QtQuick.Window 2.13
 import "../ModeWindow"
-//import CppClassesToQmlModules 1.0
+import CppClassesToQmlModules 1.0
 
 QtObject {
     //не работает ****
@@ -60,7 +60,7 @@ QtObject {
 
     //models
 //    property var modelField: TestModelGridView {}
-    property var modelField: Field
+    property var modelField: Field{}
     property var modelFlot: TestModelShipView {}
 
     //colors sheme
