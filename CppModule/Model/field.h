@@ -9,13 +9,10 @@
 class Field : public QAbstractListModel
 {
         Q_OBJECT
-    QHash<int, QByteArray> roleHash;
-    std::vector<FieldElement> field;
-
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
-        EmptyRoles ,
+        EmptyRoles,
         PalubaRole,
         BanRole
     };
@@ -30,6 +27,13 @@ public:
 
     //MY
     Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs);
+
+private:
+    void initField();
+
+private:
+    QHash<int, QByteArray> roleHash;
+    std::vector<FieldElement *> field;
 };
 
 #endif // FIELD_H

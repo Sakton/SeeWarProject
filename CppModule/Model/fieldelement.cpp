@@ -2,7 +2,7 @@
 
 int FieldElement::countFieldElements = 0;
 
-FieldElement::FieldElement() : m_index{ countFieldElements++ }
+FieldElement::FieldElement(AbstractGameFigure *figure, QObject *parent) : QObject(parent), m_figure{figure}, m_index{ countFieldElements++ }
 {
 
 }
@@ -10,4 +10,14 @@ FieldElement::FieldElement() : m_index{ countFieldElements++ }
 int FieldElement::index() const
 {
     return m_index;
+}
+
+AbstractGameFigure *FieldElement::figure() const
+{
+    return m_figure;
+}
+
+void FieldElement::setFigure(AbstractGameFigure *figure)
+{
+    m_figure = figure;
 }

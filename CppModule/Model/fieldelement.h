@@ -1,13 +1,19 @@
 #ifndef FIELDELEMENT_H
 #define FIELDELEMENT_H
+#include "abstractgamefigure.h"
+#include <QObject>
 
-class FieldElement
+class FieldElement : public QObject
 {
+    Q_OBJECT
 public:
-    FieldElement();
+    FieldElement(AbstractGameFigure *figure = nullptr, QObject *parent = nullptr);
     int index() const;
+    AbstractGameFigure *figure() const;
+    void setFigure(AbstractGameFigure *figure);
 
 private:
+    AbstractGameFigure *m_figure;
     static int countFieldElements;
     int m_index;
 };

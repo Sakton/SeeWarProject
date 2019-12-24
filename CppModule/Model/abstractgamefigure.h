@@ -5,7 +5,8 @@
 class AbstractGameFigure
 {
 public:
-    AbstractGameFigure();
+    virtual ~AbstractGameFigure();
+    virtual void testFunction() = 0;
 };
 
 #endif // ABSTRACTGAMEFIGURE_H

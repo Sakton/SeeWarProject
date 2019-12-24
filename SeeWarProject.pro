@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	CppModule/GameCore/emptycell.cpp \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
@@ -67,6 +68,7 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
+	CppModule/GameCore/emptycell.h \
 	CppModule/Model/abstractgamefigure.h \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \

@@ -5,7 +5,7 @@
 
 Field::Field(QObject *parent):QAbstractListModel(parent)
 {
-    field.resize(Config::COUNT_CELL);
+    initField();
     roleHash[CellRoles::EmptyRoles] = "empty";
     roleHash[CellRoles::PalubaRole] = "paluba";
     roleHash[CellRoles::BanRole] = "ban";
@@ -23,7 +23,7 @@ QVariant Field::data(const QModelIndex &index, int role) const
         return {};
     switch (role) {
     case CellRoles::IndexElementRole:
-        return QVariant(field.at(index.row()).index());
+        return QVariant(field.at(index.row())->index());
     }
     return {};
 }
@@ -46,6 +46,12 @@ QHash<int, QByteArray> Field::roleNames() const
 void Field::shipsArragement(int currentIndex, int countPalubs)
 {
     qDebug() << "currentIndex = " << currentIndex << " countPalubs " << countPalubs;
+}
+
+void Field::initField()
+{
+    for(int i = 0; i < Config::COUNT_CELL; ++i)
+        field.push_back(new FieldElement(nullptr, this));
 }
 
 //Qt::ItemFlags Field::flags(const QModelIndex &index) const
