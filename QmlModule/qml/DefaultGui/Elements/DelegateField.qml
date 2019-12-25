@@ -6,25 +6,18 @@ Item {
     height: 30
     //все роли модели
     property int indexElement: 0
+    property color colorCell: "red"
+    property var pointerToObjectCell : null
 
 
     Image {
         anchors.fill: parent
-//        source: {
-//            console.debug(model.Paluba)
-//            switch(model.Paluba) {
-//            case 0: return Setting.p1
-//            case 1: return Setting.p2
-//            case 2: return Setting.p3
-//            case 3: return Setting.p4
-//            default: return ""
-//            }
-//        }
+        source: pointerToObjectCell.img
 
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            color: "red"
+            color: pointerToObjectCell.color
             font.pixelSize: parent.width / 3
             text: indexElement
         }

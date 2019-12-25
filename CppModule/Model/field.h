@@ -4,17 +4,14 @@
 #include <QAbstractListModel>
 #include "fieldelement.h"
 
-//TODO может еще вынести интерфейс нашего поля ???
-
 class Field : public QAbstractListModel
 {
         Q_OBJECT
+        Q_PROPERTY(int state READ state WRITE setState NOTIFY stateChanged)
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
-        EmptyRoles,
-        PalubaRole,
-        BanRole
+        PointerObjectCell
     };
 
     explicit Field(QObject *parent = nullptr);
@@ -26,7 +23,13 @@ public:
 //    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
     //MY
-    Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs);
+    Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs, int position);
+    int state() const;
+
+public slots:
+    void setState(int state);
+signals:
+    void stateChanged(int state);
 
 private:
     void initField();
@@ -34,6 +37,7 @@ private:
 private:
     QHash<int, QByteArray> roleHash;
     std::vector<FieldElement *> field;
+    int m_state;
 };
 
 #endif // FIELD_H

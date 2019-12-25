@@ -4,8 +4,30 @@
 
 class EmptyCell : public AbstractGameFigure
 {
+    Q_OBJECT
+    Q_PROPERTY(QColor color READ getColor NOTIFY getColorChanged)
+    Q_PROPERTY(QString img READ getResourceImg WRITE setImg NOTIFY imgChanged)
+
 public:
-    EmptyCell();
+    explicit EmptyCell(QObject *parent = nullptr);
+    void setColor(const QColor &color);
+    // AbstractGameFigure interface
+    void testFunction() override;
+    QColor getColor() override;
+    QString getResourceImg() override;
+
+
+signals:
+    void getColorChanged(QColor getColor);
+    void imgChanged(QString img);
+
+public slots:
+    void setImg(QString img);
+
+private:
+    QColor m_color{"red"};
+    QString m_img;
+
 };
 
 #endif // EMPTYCELL_H

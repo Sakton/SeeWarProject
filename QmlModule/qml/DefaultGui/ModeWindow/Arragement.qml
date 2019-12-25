@@ -41,15 +41,19 @@ InterfaceWindowSignals {
                         id: _da
                         anchors.fill: parent
                         property var currentSourceDropElement: null
-                        drag.onPositionChanged: {
-                            var currentIndex = _fld.indexAt(drag.x, drag.y)
-                            currentSourceDropElement = _da.drag.source
-                            var countPalubs = currentSourceDropElement.parent.parent.parent.countPalubs
+                        property int angle: 0
+                        property int currentIndex: 0
+                        property int countPalubs: 0
 
+                        drag.onPositionChanged: {
+                            _da.currentIndex = _fld.indexAt(drag.x, drag.y)
+                            _da.currentSourceDropElement = _da.drag.source
+                            _da.countPalubs = currentSourceDropElement.parent.parent.parent.countPalubs
+                        }
+
+                        onCurrentIndexChanged: {
                             if(currentIndex >= 0) {
-                                //TODO test
-                                Setting.modelField.shipsArragement(currentIndex, countPalubs)
-                                //TODO test
+                                Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true
                                 } else {
@@ -58,12 +62,17 @@ InterfaceWindowSignals {
                             }
                         }
 
+                        onAngleChanged: {
+                            Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
+                        }
+
                         Connections {
                             target: _popup
                             onButtonRotate: {
                                 var element = _da.currentSourceDropElement.parent.children[0]
                                 if(element.parent.parent.parent.countPalubs > 1) {
                                     element.rotateAngle = (element.rotateAngle === 90) ? 0 : 90
+                                    _da.angle = element.rotateAngle
                                 }
                             }
                         }
@@ -71,8 +80,8 @@ InterfaceWindowSignals {
                         onDropped: {
                             _popup.visible = true
                         }
-                    }
-                }
+                    } //dropArea
+                } //field
 
                 Stopka {
                     id: _stopka
@@ -94,7 +103,7 @@ InterfaceWindowSignals {
                             visible = false
                         }
                     }
-                }
+                } //stopka
 
                 ButtonBlockArragement {
                     id: _blockButton
@@ -108,7 +117,7 @@ InterfaceWindowSignals {
                 }
             } //ColumnLayout
         } //AnimatedImage
-    }
-}
+    } //rect
+} //InterfaceWindowSignals
 
 

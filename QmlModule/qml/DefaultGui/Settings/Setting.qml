@@ -16,6 +16,7 @@ QtObject {
         }
     }
     //***** Screen.pixelDestiny = undefined ????
+
     //перечисление
     enum MyEnumButton {
         //никакая кнопка
@@ -62,6 +63,21 @@ QtObject {
 //    property var modelField: TestModelGridView {}
     property var modelField: Field{}
     property var modelFlot: TestModelShipView {}
+
+    //stateApp
+    enum StatesApplication {
+        NEYTRAL = 0,
+        ARRAGEMENT,
+        GAME
+    }
+
+    property int stateApplication: 0
+    onStateApplicationChanged: {
+        console.debug("stateApplication = " + stateApplication)
+        modelField.setState(stateApplication)
+    }
+    //stateApp
+
 
     //colors sheme
     readonly property color styleApplicationColor: "#1c1c1c"//"#0d1e49"//"#0b193c"

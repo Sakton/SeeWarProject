@@ -6,10 +6,8 @@
 Field::Field(QObject *parent):QAbstractListModel(parent)
 {
     initField();
-    roleHash[CellRoles::EmptyRoles] = "empty";
-    roleHash[CellRoles::PalubaRole] = "paluba";
-    roleHash[CellRoles::BanRole] = "ban";
     roleHash[CellRoles::IndexElementRole] = "indexElement";
+    roleHash[CellRoles::PointerObjectCell] = "pointerObjectCell";
 }
 
 int Field::rowCount(const QModelIndex &) const
@@ -21,9 +19,14 @@ QVariant Field::data(const QModelIndex &index, int role) const
 {
     if(!index.isValid())
         return {};
+    auto element = field.at(index.row());
     switch (role) {
     case CellRoles::IndexElementRole:
-        return QVariant(field.at(index.row())->index());
+        return QVariant(element->index());
+    case CellRoles::PointerObjectCell:
+//        qDebug() << "Запрос PointerObjectCell";
+        QVariant pointerToMyClass = QVariant::fromValue(element);
+        return pointerToMyClass;
     }
     return {};
 }
@@ -43,9 +46,23 @@ QHash<int, QByteArray> Field::roleNames() const
     return roleHash;
 }
 
-void Field::shipsArragement(int currentIndex, int countPalubs)
+void Field::shipsArragement(int currentIndex, int countPalubs, int position)
 {
-    qDebug() << "currentIndex = " << currentIndex << " countPalubs " << countPalubs;
+    qDebug() << "currentIndex = " << currentIndex << " countPalubs " << countPalubs << " angle = " << position;
+}
+
+int Field::state() const
+{
+    return m_state;
+}
+
+void Field::setState(int state)
+{
+    qDebug() << "state Field = " << state;
+    if (m_state == state)
+        return;
+    m_state = state;
+    emit stateChanged(m_state);
 }
 
 void Field::initField()

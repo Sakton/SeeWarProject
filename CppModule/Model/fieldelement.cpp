@@ -4,7 +4,7 @@ int FieldElement::countFieldElements = 0;
 
 FieldElement::FieldElement(AbstractGameFigure *figure, QObject *parent) : QObject(parent), m_figure{figure}, m_index{ countFieldElements++ }
 {
-
+    m_figure = new EmptyCell(this);
 }
 
 int FieldElement::index() const

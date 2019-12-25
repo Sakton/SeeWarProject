@@ -16,6 +16,7 @@ QtObject {
         var fileLoad = null;
         switch(indexWindow) {
         case Setting.MyEnumButton.BUTTON_ANDROID:
+            Setting.stateApplication = Setting.StatesApplication.ARRAGEMENT
             createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_NETWORK:
@@ -24,6 +25,7 @@ QtObject {
         case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
             break;
         case Setting.MyEnumButton.BUTTON_GAME:
+            Setting.stateApplication = Setting.StatesApplication.GAME
             createObject(Setting.window_GAME)
             break;
         case Setting.MyEnumButton.BUTTON_EDITING:
