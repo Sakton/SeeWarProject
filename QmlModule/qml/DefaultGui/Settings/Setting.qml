@@ -61,7 +61,8 @@ QtObject {
 
     //models
 //    property var modelField: TestModelGridView {}
-    property var modelField: Field{}
+//    property var modelField: Field{}
+    property var modelField: ArragementModel{}
     property var modelFlot: TestModelShipView {}
 
     //stateApp
@@ -74,10 +75,9 @@ QtObject {
     property int stateApplication: 0
     onStateApplicationChanged: {
         console.debug("stateApplication = " + stateApplication)
-        modelField.setState(stateApplication)
+        //modelField.setState(stateApplication)
     }
     //stateApp
-
 
     //colors sheme
     readonly property color styleApplicationColor: "#1c1c1c"//"#0d1e49"//"#0b193c"

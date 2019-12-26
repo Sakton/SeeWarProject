@@ -2,7 +2,7 @@
 
 int FieldElement::countFieldElements = 0;
 
-FieldElement::FieldElement(AbstractGameFigure *figure, QObject *parent) : QObject(parent), m_figure{figure}, m_index{ countFieldElements++ }
+FieldElement::FieldElement(AbstractGameFigure *figure, QObject *parent) : QObject(parent), m_figure{figure}, m_index{ countFieldElements++ }, stateCell{StateCellField::EMPTY}
 {
     m_figure = new EmptyCell(this);
 }
@@ -20,4 +20,14 @@ AbstractGameFigure *FieldElement::figure() const
 void FieldElement::setFigure(AbstractGameFigure *figure)
 {
     m_figure = figure;
+}
+
+FieldElement::StateCellField FieldElement::getStateCell() const
+{
+    return stateCell;
+}
+
+void FieldElement::setStateCell(const StateCellField &value)
+{
+    stateCell = value;
 }

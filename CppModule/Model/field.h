@@ -11,8 +11,10 @@ class Field : public QAbstractListModel
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
+        StateCellRole,
         PointerObjectCell
     };
+
 
     explicit Field(QObject *parent = nullptr);
     // QAbstractItemModel interface
@@ -37,6 +39,7 @@ private:
 private:
     QHash<int, QByteArray> roleHash;
     std::vector<FieldElement *> field;
+    std::vector<std::pair<QColor, int>> aragementTemplate;
     int m_state;
 };
 

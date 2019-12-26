@@ -53,7 +53,8 @@ InterfaceWindowSignals {
 
                         onCurrentIndexChanged: {
                             if(currentIndex >= 0) {
-                                Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
+                                //                                Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
+                                //Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true
                                 } else {

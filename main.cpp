@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QDebug>
 #include "CppModule/Model/field.h"
+#include "CppModule/Model/arragementmodel.h"
 
 #else
 #endif
@@ -18,9 +19,9 @@ int main(int argc, char *argv[])
 
 //    GuiLoader::registerType<Field>("aaaaaa", 1,0, "Field");
     qmlRegisterType<Field>("CppClassesToQmlModules", 1,0, "Field");
+    qmlRegisterType<ArragementModel>("CppClassesToQmlModules", 1,0, "ArragementModel");
     QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
     QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };
-
 
     GuiLoader::init(defaultGui, &app, &app);
     return app.exec();

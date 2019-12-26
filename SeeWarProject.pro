@@ -22,7 +22,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
 	CppModule/GameCore/emptycell.cpp \
+	CppModule/GameCore/modelflot.cpp \
+	CppModule/GameCore/paluba.cpp \
+	CppModule/GameCore/ship.cpp \
 	CppModule/Model/abstractgamefigure.cpp \
+	CppModule/Model/arragementmodel.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
 	QmlModule/cpp/guiloader.cpp \
@@ -69,7 +73,11 @@ DISTFILES += \
 
 HEADERS += \
 	CppModule/GameCore/emptycell.h \
+	CppModule/GameCore/modelflot.h \
+	CppModule/GameCore/paluba.h \
+	CppModule/GameCore/ship.h \
 	CppModule/Model/abstractgamefigure.h \
+	CppModule/Model/arragementmodel.h \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \

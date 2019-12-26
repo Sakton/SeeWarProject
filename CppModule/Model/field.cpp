@@ -8,6 +8,7 @@ Field::Field(QObject *parent):QAbstractListModel(parent)
     initField();
     roleHash[CellRoles::IndexElementRole] = "indexElement";
     roleHash[CellRoles::PointerObjectCell] = "pointerObjectCell";
+    roleHash[CellRoles::StateCellRole] = "stateCell";
 }
 
 int Field::rowCount(const QModelIndex &) const
@@ -23,8 +24,9 @@ QVariant Field::data(const QModelIndex &index, int role) const
     switch (role) {
     case CellRoles::IndexElementRole:
         return QVariant(element->index());
+    case CellRoles::StateCellRole:
+        return static_cast<int>(element->getStateCell());
     case CellRoles::PointerObjectCell:
-//        qDebug() << "Запрос PointerObjectCell";
         QVariant pointerToMyClass = QVariant::fromValue(element);
         return pointerToMyClass;
     }

@@ -22,6 +22,8 @@ public:
     int index() const;
     AbstractGameFigure *figure() const;
     void setFigure(AbstractGameFigure *figure);
+    StateCellField getStateCell() const;
+    void setStateCell(const StateCellField &value);
 
 signals:
     void figureChanged(AbstractGameFigure* figure);
@@ -30,6 +32,8 @@ private:
     AbstractGameFigure *m_figure;
     static int countFieldElements;
     int m_index;
+    StateCellField stateCell;
+    QColor m_color;
 };
 
 #endif // FIELDELEMENT_H
