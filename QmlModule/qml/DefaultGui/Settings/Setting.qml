@@ -63,7 +63,7 @@ QtObject {
 //    property var modelField: TestModelGridView {}
 //    property var modelField: Field{}
     property var modelField: ArragementModel{}
-    property var modelFlot: TestModelShipView {}
+    property var modelFlot: Flot{}//TestModelShipView {}
 
     //stateApp
     enum StatesApplication {

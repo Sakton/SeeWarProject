@@ -2,18 +2,18 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.12
 import Settings 1.0
 
-
 Item {
     id: _root
     //интерфейс элемента получается
     //к ним идет обращение в аррагементе
     property int countPalubs: 0
-//    property bool zerkalno: false
+    //    property bool zerkalno: false
     property real deltaDragMinY: 0
     property real deltaDragMinX: 0
     property real deltaDragMaxY: 0
     property real deltaDragMaxX: 0
     property var bindingTarget: null
+    property string imgSource: ""
 
     signal elementType(var typeElement)
     implicitWidth: 360
@@ -33,20 +33,20 @@ Item {
             id: _img
             anchors.fill: parent
             property bool zerkalno: false
+            source: imgSource
 
-            source: {
-                switch(countPalubs) {
-                case 1:
-                    return Setting.ship1
-                case 2:
-                    return Setting.ship2
-                case 3:
-                    return Setting.ship3
-                case 4:
-                    return Setting.ship4
-                }
-            }
-
+            //            source: {
+            //                switch (countPalubs) {
+            //                case 1:
+            //                    return Setting.ship1
+            //                case 2:
+            //                    return Setting.ship2
+            //                case 3:
+            //                    return Setting.ship3
+            //                case 4:
+            //                    return Setting.ship4
+            //                }
+            //            }
             transform: Scale {
                 id: _scale
                 xScale: 1
@@ -54,7 +54,7 @@ Item {
 
             onZerkalnoChanged: {
                 _scale.xScale = (zerkalno === false) ? 1 : -1
-                if(_scale.xScale === -1) {
+                if (_scale.xScale === -1) {
                     _mouseArea.drag.maximumX = deltaDragMaxX - parent.width / 2
                     _mouseArea.drag.minimumX = parent.width / 3
                 } else {
@@ -73,10 +73,10 @@ Item {
                     _rotate.angle = rotateAngle
                 }
 
-                transform:  Rotation {
+                transform: Rotation {
                     id: _rotate
-                    origin.x: _blockCountPalubs.width/(2*countPalubs)
-                    origin.y: _blockCountPalubs.height/2
+                    origin.x: _blockCountPalubs.width / (2 * countPalubs)
+                    origin.y: _blockCountPalubs.height / 2
                     angle: _blockCountPalubs.rotateAngle
                 }
 
@@ -94,7 +94,6 @@ Item {
                     }
                 }
             } //blockCountPalubs
-
 
             MouseArea {
                 id: _mouseArea
@@ -115,10 +114,9 @@ Item {
                 }
 
                 onDragActiveChanged: {
-                    if(dragActive) {
+                    if (dragActive) {
                         Drag.start()
                         cursorShape = Qt.DragMoveCursor
-
                     } else {
                         cursorShape = Qt.ArrowCursor
                         Drag.drop()
@@ -127,7 +125,7 @@ Item {
                 }
 
                 onPositionChanged: {
-                    if(dragActive) {
+                    if (dragActive) {
                         Drag.start()
                     }
                 }
@@ -135,5 +133,3 @@ Item {
         } //Image
     }
 }
-
-

@@ -22,6 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
 	CppModule/GameCore/emptycell.cpp \
+	CppModule/GameCore/flot.cpp \
 	CppModule/GameCore/modelflot.cpp \
 	CppModule/GameCore/paluba.cpp \
 	CppModule/GameCore/ship.cpp \
@@ -73,6 +74,7 @@ DISTFILES += \
 
 HEADERS += \
 	CppModule/GameCore/emptycell.h \
+	CppModule/GameCore/flot.h \
 	CppModule/GameCore/modelflot.h \
 	CppModule/GameCore/paluba.h \
 	CppModule/GameCore/ship.h \
