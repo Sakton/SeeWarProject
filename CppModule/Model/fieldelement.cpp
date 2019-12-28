@@ -2,9 +2,9 @@
 
 int FieldElement::countFieldElements = 0;
 
-FieldElement::FieldElement(AbstractGameFigure *figure, QObject *parent) : QObject(parent), m_figure{figure}, m_index{ countFieldElements++ }, stateCell{StateCellField::EMPTY}
+FieldElement::FieldElement(AbstractGameFigure *baseSelfEmptyFigure, QObject *parent) : AbstractFieldElement(parent), m_figure{baseSelfEmptyFigure}, m_BaseSelfEmptyFigure{new EmptyCell(this)}, m_index{ countFieldElements++ }, stateCell{StateCellField::EMPTY}
 {
-    m_figure = new EmptyCell(this);
+
 }
 
 int FieldElement::index() const
@@ -12,9 +12,16 @@ int FieldElement::index() const
     return m_index;
 }
 
+void FieldElement::resetToBaseState()
+{
+    m_figure = nullptr;
+}
+
 AbstractGameFigure *FieldElement::figure() const
 {
-    return m_figure;
+    if(!m_figure)
+        return m_figure;
+    return m_BaseSelfEmptyFigure;
 }
 
 void FieldElement::setFigure(AbstractGameFigure *figure)

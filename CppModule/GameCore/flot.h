@@ -4,14 +4,17 @@
 #include "../Model/field.h"
 #include "ship.h"
 #include <QAbstractListModel>
+#include "../Model/abstractgamefigure.h"
 
-class Flot : public QAbstractListModel
+class Flot : public QAbstractListModel, public AbstractGameFigure
 {
     Q_OBJECT
 public:
     enum FlotRole {
         CountPalubRole = Qt::UserRole,
-        ImgRole
+        ImgRole,
+        IndexRole,
+        AngleRole
     };
 
     explicit Flot(QAbstractListModel *field = nullptr, QObject *parent = nullptr);
@@ -19,11 +22,19 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    //некий общий интерфейс
+    void setSelfToField(Field *field);
+    // AbstractGameFigure interface
+public:
+    QColor getColor() override;
+    QString getResourceImg() override;
+    void setSelfToField(AbstractField *field) override;
 
 private:
-    std::vector<Ship *> ships;
+    std::vector<Ship *> m_ships;
     QAbstractListModel *m_field;
-    QHash<int, QByteArray> flotRoles;
+    QHash<int, QByteArray> m_flotRoles;
 };
 
 #endif // FLOT_H

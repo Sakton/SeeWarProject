@@ -48,13 +48,16 @@ InterfaceWindowSignals {
                         drag.onPositionChanged: {
                             _da.currentIndex = _fld.indexAt(drag.x, drag.y)
                             _da.currentSourceDropElement = _da.drag.source
-                            _da.countPalubs = currentSourceDropElement.parent.parent.parent.countPalubs
+                            _da.countPalubs
+                                    = currentSourceDropElement.parent.parent.parent.countPalubs
                         }
 
                         onCurrentIndexChanged: {
-                            if(currentIndex >= 0) {
+                            if (currentIndex >= 0) {
                                 //                                Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
                                 //Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
+                                currentSourceDropElement.parent.parent.parent.currentIndex
+                                        = _da.currentIndex
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true
                                 } else {
@@ -64,14 +67,16 @@ InterfaceWindowSignals {
                         }
 
                         onAngleChanged: {
-                            Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
+                            Setting.modelField.shipsArragement(currentIndex,
+                                                               countPalubs,
+                                                               angle)
                         }
 
                         Connections {
                             target: _popup
                             onButtonRotate: {
                                 var element = _da.currentSourceDropElement.parent.children[0]
-                                if(element.parent.parent.parent.countPalubs > 1) {
+                                if (element.parent.parent.parent.countPalubs > 1) {
                                     element.rotateAngle = (element.rotateAngle === 90) ? 0 : 90
                                     _da.angle = element.rotateAngle
                                 }
@@ -100,7 +105,7 @@ InterfaceWindowSignals {
                         visible: false
 
                         onButtonOK: {
-                            _stopka.pop();
+                            _stopka.pop()
                             visible = false
                         }
                     }
@@ -120,5 +125,3 @@ InterfaceWindowSignals {
         } //AnimatedImage
     } //rect
 } //InterfaceWindowSignals
-
-

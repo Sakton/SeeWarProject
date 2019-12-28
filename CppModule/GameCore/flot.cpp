@@ -2,17 +2,19 @@
 #include "../Model/config.h"
 #include <QDebug>
 
-Flot::Flot(QAbstractListModel *field, QObject *parent):QAbstractListModel(parent),  m_field{field}
+Flot::Flot(QAbstractListModel *field, QObject *parent):QAbstractListModel(parent), m_field{field}
 {
     for(int i = 1; i <= 4; i++) {
         for(int j = i; j <= 4; ++j) {
-            Ship *t = new Ship(i, 0);
+            Ship *t = new Ship(i, 0, this);
             t->setResourceImg(Config::imgShips.at(i - 1));
-            ships.push_back(t);
+            m_ships.push_back(t);
         }
     }
-    flotRoles[FlotRole::CountPalubRole] = "countPalub";
-    flotRoles[FlotRole::ImgRole] = "img";
+    m_flotRoles[FlotRole::CountPalubRole] = "countPalub";
+    m_flotRoles[FlotRole::ImgRole] = "img";
+    m_flotRoles[FlotRole::IndexRole] = "currentThisShipFirstIndex";
+    m_flotRoles[FlotRole::AngleRole] = "currentThisShipAngle";
 }
 
 int Flot::rowCount(const QModelIndex &parent) const
@@ -23,10 +25,10 @@ int Flot::rowCount(const QModelIndex &parent) const
 
 QVariant Flot::data(const QModelIndex &index, int role) const
 {
-    qDebug() << "Запрос Flot::data";
+//    qDebug() << "Запрос Flot::data";
     if(!index.isValid())
         return {};
-    auto currentShip = ships.at(index.row());
+    auto currentShip = m_ships.at(index.row());
     switch (role) {
     case FlotRole::CountPalubRole:
         return currentShip->getCountPalub();
@@ -38,5 +40,45 @@ QVariant Flot::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> Flot::roleNames() const
 {
-    return flotRoles;
+    return m_flotRoles;
+}
+
+bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if(!index.isValid())
+        return false;
+    auto elem = m_ships.at(index.row());
+    switch (role) {
+    case FlotRole::IndexRole: {
+        int index = value.toInt();
+        qDebug() << "Flot::setData FlotRole::IndexRole: = " << index;
+        elem->fillIndexes(index);
+        return true;
+    }
+    case FlotRole::AngleRole:
+        elem->setAngle(value.toInt());
+        return true;
+    }
+    return false;
+}
+
+void Flot::setSelfToField(Field *field)
+{
+
+}
+
+QColor Flot::getColor()
+{
+    return {};
+}
+
+QString Flot::getResourceImg()
+{
+    return {};
+}
+
+void Flot::setSelfToField(AbstractField *field)
+{
+    for(auto ship : m_ships)
+        ship->setSelfToField(field);
 }

@@ -26,6 +26,9 @@ SOURCES += \
 	CppModule/GameCore/modelflot.cpp \
 	CppModule/GameCore/paluba.cpp \
 	CppModule/GameCore/ship.cpp \
+	CppModule/Model/abstractfield.cpp \
+	CppModule/Model/abstractfieldelement.cpp \
+	CppModule/Model/abstractflot.cpp \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/arragementmodel.cpp \
 	CppModule/Model/field.cpp \
@@ -78,6 +81,9 @@ HEADERS += \
 	CppModule/GameCore/modelflot.h \
 	CppModule/GameCore/paluba.h \
 	CppModule/GameCore/ship.h \
+	CppModule/Model/abstractfield.h \
+	CppModule/Model/abstractfieldelement.h \
+	CppModule/Model/abstractflot.h \
 	CppModule/Model/abstractgamefigure.h \
 	CppModule/Model/arragementmodel.h \
 	CppModule/Model/config.h \

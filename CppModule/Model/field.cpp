@@ -3,7 +3,7 @@
 #include <QDebug>
 
 
-Field::Field(QObject *parent):QAbstractListModel(parent)
+Field::Field(QObject *parent):AbstractField(parent)
 {
     initField();
     roleHash[CellRoles::IndexElementRole] = "indexElement";
@@ -24,8 +24,8 @@ QVariant Field::data(const QModelIndex &index, int role) const
     switch (role) {
     case CellRoles::IndexElementRole:
         return QVariant(element->index());
-    case CellRoles::StateCellRole:
-        return static_cast<int>(element->getStateCell());
+//    case CellRoles::StateCellRole:
+//        return static_cast<int>(element->getStateCell());
     case CellRoles::PointerObjectCell:
         QVariant pointerToMyClass = QVariant::fromValue(element);
         return pointerToMyClass;
@@ -37,8 +37,6 @@ bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if(!index.isValid())
         return false;
-    qDebug() << "CPP Field::setData -> index = " << index.row() << " value = " << value;
-//    field.at(index.row()).setIndex(value.toInt());
     emit dataChanged(index, index);
     return true;
 }
@@ -47,6 +45,16 @@ QHash<int, QByteArray> Field::roleNames() const
 {
     return roleHash;
 }
+
+AbstractFieldElement *Field::getFieldElementCell(int index)
+{
+    return field.at(index);
+}
+
+//void Field::setFigureOnField(AbstractGameFigure *element)
+//{
+
+//}
 
 void Field::shipsArragement(int currentIndex, int countPalubs, int position)
 {
@@ -72,12 +80,4 @@ void Field::initField()
     for(int i = 0; i < Config::COUNT_CELL; ++i)
         field.push_back(new FieldElement(nullptr, this));
 }
-
-//Qt::ItemFlags Field::flags(const QModelIndex &index) const
-//{
-////    if (!index.isValid())
-////        return Qt::ItemIsEnabled;
-////    return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
-//    return Qt::NoItemFlags;
-//}
 

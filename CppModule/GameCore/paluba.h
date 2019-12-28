@@ -5,20 +5,22 @@
 
 class Ship;
 
-class Paluba : AbstractGameFigure
+class Paluba : public QObject, public AbstractGameFigure
 {
+    Q_OBJECT
 public:
-    explicit Paluba(Ship *ship, int numberPalub/*, QString resourceImg*/);
+    explicit Paluba(Ship *ship, int numberPalub, QObject *parent = nullptr);
     // AbstractGameFigure interface
-    void testFunction() override;
     QColor getColor() override;
     QString getResourceImg() override;
+    void setSelfToField(AbstractField *field) override;
 
 private:
     Ship *m_ship;
     int m_numberPalub;
-
+    QColor m_color{"green"};
     QString m_resourceImg;
+    int m_currentIndexOfModel;
 };
 
 #endif // PALUBA_H

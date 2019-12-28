@@ -1,17 +1,20 @@
 #ifndef ABSTRACTGAMEFIGURE_H
 #define ABSTRACTGAMEFIGURE_H
-#include <QObject>
 #include <QColor>
+#include "abstractfield.h"
 
-class AbstractGameFigure : public QObject
+class AbstractField;
+
+class AbstractGameFigure
 {
-    Q_OBJECT
 public:
-    explicit AbstractGameFigure(QObject *parent = nullptr);
     virtual ~AbstractGameFigure();
-    virtual void testFunction() = 0;
     virtual QColor getColor() = 0;
     virtual QString getResourceImg() = 0;
+    virtual void setSelfToField(AbstractField *field) = 0;
+//    virtual void printSelfToField(AbstractField *field) = 0;
+//    virtual int getCurreneIndex() = 0;
+//    virtual AbstractGameFigure *getSelf() = 0;
 };
 
 #endif // ABSTRACTGAMEFIGURE_H

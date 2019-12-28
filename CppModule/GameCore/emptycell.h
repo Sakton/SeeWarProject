@@ -2,7 +2,7 @@
 #define EMPTYCELL_H
 #include "../Model/abstractgamefigure.h"
 
-class EmptyCell : public AbstractGameFigure
+class EmptyCell : public QObject, public AbstractGameFigure
 {
     Q_OBJECT
     Q_PROPERTY(QColor color READ getColor NOTIFY getColorChanged)
@@ -12,10 +12,9 @@ public:
     explicit EmptyCell(QObject *parent = nullptr);
     void setColor(const QColor &color);
     // AbstractGameFigure interface
-    void testFunction() override;
     QColor getColor() override;
     QString getResourceImg() override;
-
+    void setSelfToField(AbstractField *field) override;
 
 signals:
     void getColorChanged(QColor getColor);
@@ -26,8 +25,7 @@ public slots:
 
 private:
     QColor m_color{"red"};
-    QString m_img;
-
+    QString m_img; 
 };
 
 #endif // EMPTYCELL_H

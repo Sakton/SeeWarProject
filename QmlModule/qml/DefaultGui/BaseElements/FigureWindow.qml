@@ -14,6 +14,13 @@ Item {
     property real deltaDragMaxX: 0
     property var bindingTarget: null
     property string imgSource: ""
+    property int currentIndex: 0
+
+    onCurrentIndexChanged: {
+        console.debug("delegateIndexChanged " + currentIndex)
+        //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
+        model.currentThisShipFirstIndex = currentIndex
+    }
 
     signal elementType(var typeElement)
     implicitWidth: 360
@@ -34,19 +41,6 @@ Item {
             anchors.fill: parent
             property bool zerkalno: false
             source: imgSource
-
-            //            source: {
-            //                switch (countPalubs) {
-            //                case 1:
-            //                    return Setting.ship1
-            //                case 2:
-            //                    return Setting.ship2
-            //                case 3:
-            //                    return Setting.ship3
-            //                case 4:
-            //                    return Setting.ship4
-            //                }
-            //            }
             transform: Scale {
                 id: _scale
                 xScale: 1
