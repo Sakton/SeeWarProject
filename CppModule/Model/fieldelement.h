@@ -10,19 +10,11 @@
 class FieldElement : public AbstractFieldElement
 {
     Q_OBJECT
+    Q_INTERFACES(AbstractFieldElement)
     Q_PROPERTY(AbstractGameFigure* figure READ figure WRITE setFigure NOTIFY figureChanged)
 public:
-    //уже наверно не надо
-    enum StateCellField{
-        EMPTY = 0,
-        CLOSE,
-        BAN
-    };
-    Q_ENUM(StateCellField)
 
     explicit FieldElement(AbstractGameFigure *baseSelfEmptyFigure, QObject *parent = nullptr);
-    StateCellField getStateCell() const;
-    void setStateCell(const StateCellField &value);
 
     //AbstractFieldElement interface
     AbstractGameFigure *figure() const override;
@@ -42,7 +34,6 @@ private:
     AbstractGameFigure *m_BaseSelfEmptyFigure;
     static int countFieldElements;
     int m_index;
-    StateCellField stateCell;
     QColor m_color;
 };
 

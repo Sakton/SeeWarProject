@@ -14,4 +14,6 @@ public:
     virtual AbstractFieldElement *getFieldElementCell(int index) = 0;
 };
 
+
+
 #endif // ABSTRACTFIELD_H

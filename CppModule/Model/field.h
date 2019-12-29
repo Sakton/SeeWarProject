@@ -12,8 +12,8 @@ class Field : public AbstractField
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
-        StateCellRole,
-        PointerObjectCell
+        ColorRole,
+        PointerObjectCellRole
     };
 
     explicit Field(QObject *parent = nullptr);
@@ -27,7 +27,7 @@ public:
     AbstractFieldElement *getFieldElementCell(int index) override;
 
     //MY
-
+    //???????????
     Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs, int position);
     int state() const;
 
@@ -37,11 +37,12 @@ signals:
     void stateChanged(int state);
 private:
     void initField();
+    //????????????????
+
 
 private:
     QHash<int, QByteArray> roleHash;
-    std::vector<AbstractFieldElement *> field;
-    std::vector<std::pair<QColor, int>> aragementTemplate;
+    std::vector<AbstractFieldElement *> m_field;
     int m_state;
 };
 

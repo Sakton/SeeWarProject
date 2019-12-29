@@ -7,9 +7,10 @@
 
 class Paluba;
 
-class Ship :public QObject, public AbstractGameFigure
+class Ship :/*public QObject, */public AbstractGameFigure
 {
     Q_OBJECT
+    Q_INTERFACES(AbstractGameFigure)
 public:
     explicit Ship(int countPalub, int angle, QObject *parent = nullptr);
     int getCountPalub() const;

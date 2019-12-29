@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <iostream>
 
-Ship::Ship(int countPalub, int angle, QObject *parent): QObject(parent), m_countLifePalub{countPalub}, m_countPalub{countPalub}, m_angle{angle}
+Ship::Ship(int countPalub, int angle, QObject *parent): AbstractGameFigure(parent), m_countLifePalub{countPalub}, m_countPalub{countPalub}, m_angle{angle}
 {
     for(int i = 1; i <= countPalub; ++i )
         m_palubs.push_back(new Paluba(this, i, this));

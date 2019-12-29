@@ -5,16 +5,17 @@
 
 class AbstractField;
 
-class AbstractGameFigure
+class AbstractGameFigure : public QObject
 {
 public:
+    AbstractGameFigure(QObject *parent = nullptr);
     virtual ~AbstractGameFigure();
     virtual QColor getColor() = 0;
     virtual QString getResourceImg() = 0;
     virtual void setSelfToField(AbstractField *field) = 0;
-//    virtual void printSelfToField(AbstractField *field) = 0;
-//    virtual int getCurreneIndex() = 0;
-//    virtual AbstractGameFigure *getSelf() = 0;
 };
+
+Q_DECLARE_OPAQUE_POINTER(AbstractGameFigure)
+Q_DECLARE_INTERFACE(AbstractGameFigure, "CppInterface_AbstractGameFigure")
 
 #endif // ABSTRACTGAMEFIGURE_H

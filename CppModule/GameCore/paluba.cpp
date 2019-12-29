@@ -1,6 +1,6 @@
 #include "paluba.h"
 
-Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent): QObject(parent), m_ship{ship}, m_numberPalub{numberPalub}, m_currentIndexOfModel{-1}
+Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent): AbstractGameFigure(parent), m_ship{ship}, m_numberPalub{numberPalub}, m_currentIndexOfModel{-1}
 {
 
 }
@@ -17,5 +17,16 @@ QString Paluba::getResourceImg()
 
 void Paluba::setSelfToField(AbstractField *field)
 {
-    //TODO ТУТ
+    auto elementField = field->getFieldElementCell(getCurrentIndexOfModel());
+    elementField->setFigure(this);
+}
+
+int Paluba::getCurrentIndexOfModel() const
+{
+    return m_currentIndexOfModel;
+}
+
+void Paluba::setCurrentIndexOfModel(int currentIndexOfModel)
+{
+    m_currentIndexOfModel = currentIndexOfModel;
 }

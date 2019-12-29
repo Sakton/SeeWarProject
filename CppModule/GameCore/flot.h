@@ -6,9 +6,10 @@
 #include <QAbstractListModel>
 #include "../Model/abstractgamefigure.h"
 
-class Flot : public QAbstractListModel, public AbstractGameFigure
+class Flot : public QAbstractListModel/*, public AbstractGameFigure*/
 {
     Q_OBJECT
+//    Q_INTERFACES(AbstractGameFigure)
 public:
     enum FlotRole {
         CountPalubRole = Qt::UserRole,
@@ -24,12 +25,12 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     //некий общий интерфейс
-    void setSelfToField(Field *field);
+//    void setSelfToField(Field *field);
     // AbstractGameFigure interface
 public:
-    QColor getColor() override;
-    QString getResourceImg() override;
-    void setSelfToField(AbstractField *field) override;
+//    QColor getColor() override;
+//    QString getResourceImg() override;
+    void setSelfToField(AbstractField *field)/* override*/;
 
 private:
     std::vector<Ship *> m_ships;

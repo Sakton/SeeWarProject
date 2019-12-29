@@ -7,8 +7,8 @@ Field::Field(QObject *parent):AbstractField(parent)
 {
     initField();
     roleHash[CellRoles::IndexElementRole] = "indexElement";
-    roleHash[CellRoles::PointerObjectCell] = "pointerObjectCell";
-    roleHash[CellRoles::StateCellRole] = "stateCell";
+    roleHash[CellRoles::ColorRole] = "colorElement";
+    roleHash[CellRoles::PointerObjectCellRole] = "pointerObjectCell";
 }
 
 int Field::rowCount(const QModelIndex &) const
@@ -18,17 +18,20 @@ int Field::rowCount(const QModelIndex &) const
 
 QVariant Field::data(const QModelIndex &index, int role) const
 {
+    //TODO ПРОГОНЯТЬ ЧЕРЕЗ РОЛИ, ОБЬЕКТ НЕ ПЕРЕДАВАТЬ
+    //ДЫРА - ПЕРЕДАЧА ОБЬЕКТА
     if(!index.isValid())
         return {};
-    auto element = field.at(index.row());
+    auto element = m_field.at(index.row());
     switch (role) {
     case CellRoles::IndexElementRole:
         return QVariant(element->index());
-//    case CellRoles::StateCellRole:
-//        return static_cast<int>(element->getStateCell());
-    case CellRoles::PointerObjectCell:
-        QVariant pointerToMyClass = QVariant::fromValue(element);
+    case CellRoles::ColorRole:
+        return element->figure()->getColor();
+    case CellRoles::PointerObjectCellRole: {
+QVariant pointerToMyClass = QVariant::fromValue((element));
         return pointerToMyClass;
+    }
     }
     return {};
 }
@@ -48,13 +51,8 @@ QHash<int, QByteArray> Field::roleNames() const
 
 AbstractFieldElement *Field::getFieldElementCell(int index)
 {
-    return field.at(index);
+    return m_field.at(index);
 }
-
-//void Field::setFigureOnField(AbstractGameFigure *element)
-//{
-
-//}
 
 void Field::shipsArragement(int currentIndex, int countPalubs, int position)
 {
@@ -78,6 +76,6 @@ void Field::setState(int state)
 void Field::initField()
 {
     for(int i = 0; i < Config::COUNT_CELL; ++i)
-        field.push_back(new FieldElement(nullptr, this));
+        m_field.push_back(new FieldElement(nullptr, this));
 }
 

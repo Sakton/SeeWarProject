@@ -8,16 +8,15 @@ Item {
     property int indexElement: 0
     property color colorCell: "red"
     property int stateCell: 0
-    property var pointerToObjectCell : null
-
+    property var pointerToObjectCell: null
 
     Canvas {
         id: mycanvas
         anchors.fill: parent
         onPaint: {
-            var ctx = getContext("2d");
-            ctx.strokeStyle = "red";
-            ctx.strokeRect(0, 0, width, height);
+            var ctx = getContext("2d")
+            ctx.strokeStyle = colorCell
+            ctx.strokeRect(0, 0, width, height)
         }
 
         Text {
@@ -29,7 +28,6 @@ Item {
             text: indexElement
         }
     }
-
 
     //    Rectangle {
     //        anchors.fill: parent
@@ -52,8 +50,6 @@ Item {
     //            text: indexElement
     //        }
     //    }//Rectangle
-
-
 
     //    Image {
     //        anchors.fill: parent

@@ -1,6 +1,6 @@
 #include "emptycell.h"
 
-EmptyCell::EmptyCell(QObject *parent) : QObject(parent)
+EmptyCell::EmptyCell(QObject *parent) : AbstractGameFigure(parent)
 {
 
 }

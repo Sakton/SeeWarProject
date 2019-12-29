@@ -21,17 +21,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    //****test****
-
-//    Flot *flot = new Flot(nullptr);
     qmlRegisterType<Flot>("CppClassesToQmlModules", 1,0, "Flot");
-
-    //****test****
-
-    //    GuiLoader::registerType<Field>("aaaaaa", 1,0, "Field");
-
     qmlRegisterType<Field>("CppClassesToQmlModules", 1,0, "Field");
-    qmlRegisterType<ArragementModel>("CppClassesToQmlModules", 1,0, "ArragementModel");
     QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
     QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };
 

@@ -2,9 +2,10 @@
 #define EMPTYCELL_H
 #include "../Model/abstractgamefigure.h"
 
-class EmptyCell : public QObject, public AbstractGameFigure
+class EmptyCell : /*public QObject, */public AbstractGameFigure
 {
     Q_OBJECT
+    Q_INTERFACES(AbstractGameFigure)
     Q_PROPERTY(QColor color READ getColor NOTIFY getColorChanged)
     Q_PROPERTY(QString img READ getResourceImg WRITE setImg NOTIFY imgChanged)
 
@@ -24,7 +25,7 @@ public slots:
     void setImg(QString img);
 
 private:
-    QColor m_color{"red"};
+    QColor m_color{"gray"};
     QString m_img; 
 };
 

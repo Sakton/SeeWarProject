@@ -62,20 +62,20 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
     return false;
 }
 
-void Flot::setSelfToField(Field *field)
-{
+//void Flot::setSelfToField(Field *field)
+//{
 
-}
+//}
 
-QColor Flot::getColor()
-{
-    return {};
-}
+//QColor Flot::getColor()
+//{
+//    return {};
+//}
 
-QString Flot::getResourceImg()
-{
-    return {};
-}
+//QString Flot::getResourceImg()
+//{
+//    return {};
+//}
 
 void Flot::setSelfToField(AbstractField *field)
 {

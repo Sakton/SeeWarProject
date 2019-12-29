@@ -8,11 +8,11 @@ import CppClassesToQmlModules 1.0
 QtObject {
     //не работает ****
     readonly property real dpi: Screen.pixelDestiny * 25.4
-    function dp(x){
-        if(dpi < 120) {
-            return x; // Для обычного монитора компьютера
+    function dp(x) {
+        if (dpi < 120) {
+            return x // Для обычного монитора компьютера
         } else {
-            return x*(dpi/160);
+            return x * (dpi / 160)
         }
     }
     //***** Screen.pixelDestiny = undefined ????
@@ -22,7 +22,6 @@ QtObject {
         //никакая кнопка
         BUTTON_RESERVE = 0,
         //Стартовое меню
-
         BUTTON_ANDROID = 1,
         BUTTON_NETWORK,
         BUTTON_CUSTOMIZATION,
@@ -39,16 +38,16 @@ QtObject {
 
     //main window
     readonly property int mainWidth: {
-        //        console.debug(Screen.width)
 
-        if(Screen.width > 1000) {
+        //        console.debug(Screen.width)
+        if (Screen.width > 1000) {
             return 360
         }
         return Screen.width
     }
     readonly property int mainHeight: {
         //        console.debug(Screen.height)
-        if(Screen.height > 1000) {
+        if (Screen.height > 1000) {
             return 687
         }
         return Screen.height
@@ -60,10 +59,10 @@ QtObject {
     readonly property real hintButtonBottomMargins: 3
 
     //models
-//    property var modelField: TestModelGridView {}
-//    property var modelField: Field{}
-    property var modelField: ArragementModel{}
-    property var modelFlot: Flot{}//TestModelShipView {}
+    //    property var modelField: TestModelGridView {}
+    property var modelField: Field {}
+    //    property var modelField: ArragementModel{}
+    property var modelFlot: Flot {} //TestModelShipView {}
 
     //stateApp
     enum StatesApplication {
@@ -80,8 +79,8 @@ QtObject {
     //stateApp
 
     //colors sheme
-    readonly property color styleApplicationColor: "#1c1c1c"//"#0d1e49"//"#0b193c"
-    readonly property color styleByttonColor: "#000000"//"#09183e"
+    readonly property color styleApplicationColor: "#1c1c1c" //"#0d1e49"//"#0b193c"
+    readonly property color styleByttonColor: "#000000" //"#09183e"
     readonly property color styleTextColor: "#fffc00"
     readonly property color styleLogYourColor: "#03ff5c"
     readonly property color styleLogHiColor: "#0086f8"
@@ -110,7 +109,6 @@ QtObject {
     readonly property string p2: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.gif"
     readonly property string p3: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.gif"
     readonly property string p4: "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"
-
 
     //sprites
     readonly property string ship1: "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png"
@@ -142,5 +140,5 @@ QtObject {
 
     readonly property string textAppealYou: qsTr("Ты")
 
-        readonly property string textAppealHi: qsTr("Он")
+    readonly property string textAppealHi: qsTr("Он")
 }

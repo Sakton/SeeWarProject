@@ -4,7 +4,6 @@ import "../ModeWindow"
 import "../Settings"
 import Settings 1.0
 
-
 GridView {
     id: _grid
     width: 230
@@ -21,7 +20,12 @@ GridView {
             var indexObject = model.indexElement
             return (indexObject === undefined) ? -1 : indexObject
         }
-        pointerToObjectCell: model.pointerObjectCell.figure
+        //        pointerToObjectCell: {
+        //            var element = model.pointerObjectCell.figure
+        //            console.debug("model.pointerObjectCell = " + element)
+        //            element
+        //        }
+        colorCell: model.colorElement
         height: _grid.cellHeight
     }
 }
