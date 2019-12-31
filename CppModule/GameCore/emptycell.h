@@ -17,6 +17,7 @@ public:
     QString getResourceImg() override;
     void setSelfToField(AbstractField *field) override;
 
+
 signals:
     void getColorChanged(QColor getColor);
     void imgChanged(QString img);
@@ -25,8 +26,8 @@ public slots:
     void setImg(QString img);
 
 private:
-    QColor m_color{"gray"};
-    QString m_img; 
+    QColor m_color{"magenta"};
+    QString m_img{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"};
 };
 
 #endif // EMPTYCELL_H

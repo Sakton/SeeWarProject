@@ -26,7 +26,7 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     //некий общий интерфейс
 //    void setSelfToField(Field *field);
-    // AbstractGameFigure interface
+    // AbstractGameFigure interface4
 public:
 //    QColor getColor() override;
 //    QString getResourceImg() override;

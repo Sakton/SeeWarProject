@@ -26,6 +26,7 @@ GridView {
         //            element
         //        }
         colorCell: model.colorElement
+        imageResource: model.imageResourceCell
         height: _grid.cellHeight
     }
 }

@@ -9,6 +9,7 @@ Item {
     property color colorCell: "red"
     property int stateCell: 0
     property var pointerToObjectCell: null
+    property string imageResource: ""
 
     Canvas {
         id: mycanvas
@@ -51,16 +52,16 @@ Item {
     //        }
     //    }//Rectangle
 
-    //    Image {
-    //        anchors.fill: parent
-    //        source: pointerToObjectCell.img
+    Image {
+        anchors.fill: parent
+        source: imageResource
 
-    //        Text {
-    //            anchors.horizontalCenter: parent.horizontalCenter
-    //            anchors.verticalCenter: parent.verticalCenter
-    //            color: pointerToObjectCell.color
-    //            font.pixelSize: parent.width / 3
-    //            text: indexElement
-    //        }
-    //    }//Image
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            color: colorCell
+            font.pixelSize: parent.width / 3
+            text: indexElement
+        }
+    } //Image
 }

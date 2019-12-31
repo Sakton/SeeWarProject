@@ -13,6 +13,7 @@ public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
         ColorRole,
+        ImageResourceRole,
         PointerObjectCellRole
     };
 
