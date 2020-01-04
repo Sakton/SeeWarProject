@@ -47,7 +47,7 @@ InterfaceWindowSignals {
                         width: _f.cellWidth
                         index: model.indexElement
                         onClicedIndex: {
-                            _topElement.clickIndex = model.myIndex
+                            _topElement.clickIndex = model.indexElement
                         }
                     }
                 }
@@ -55,15 +55,14 @@ InterfaceWindowSignals {
                 Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    ButtonBlockGameMode{
+                    ButtonBlockGameMode {
                         anchors.fill: parent
                         onClickedButtonOnBlock: {
                             buttonMenuClicked(idBtn)
                         }
                     }
                 }
-            }//ColumnLayout
-        }//AnimatedImage
+            } //ColumnLayout
+        } //AnimatedImage
     }
 }
-

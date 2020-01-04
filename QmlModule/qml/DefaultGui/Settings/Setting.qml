@@ -3,8 +3,8 @@ pragma Singleton
 import QtQuick 2.0
 import QtQuick.Window 2.13
 import "../ModeWindow"
-import CppClassesToQmlModules 1.0
 
+//import CppClassesToQmlModules 1.0
 QtObject {
     //не работает ****
     readonly property real dpi: Screen.pixelDestiny * 25.4
@@ -60,9 +60,9 @@ QtObject {
 
     //models
     //    property var modelField: TestModelGridView {}
-    property var modelField: Field {}
+    property var modelField: Field
     //    property var modelField: ArragementModel{}
-    property var modelFlot: Flot {} //TestModelShipView {}
+    property var modelFlot: Flot //TestModelShipView {}
 
     //stateApp
     enum StatesApplication {

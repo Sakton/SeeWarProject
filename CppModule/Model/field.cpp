@@ -25,16 +25,16 @@ QVariant Field::data(const QModelIndex &index, int role) const
         return {};
     auto element = m_field.at(index.row());
     switch (role) {
-    case CellRoles::IndexElementRole:
-        return QVariant(element->index());
-    case CellRoles::ColorRole:
-        return element->figure()->getColor();
-    case CellRoles::ImageResourceRole:
-        return element->figure()->getResourceImg();
-    case CellRoles::PointerObjectCellRole: {
-        QVariant pointerToMyClass = QVariant::fromValue((element));
-        return pointerToMyClass;
-    }
+        case CellRoles::IndexElementRole:
+            return QVariant(element->index());
+        case CellRoles::ColorRole:
+            return element->figure()->getColor();
+        case CellRoles::ImageResourceRole:
+            return element->figure()->getResourceImg();
+        case CellRoles::PointerObjectCellRole: {
+            QVariant pointerToMyClass = QVariant::fromValue((element));
+            return pointerToMyClass;
+        }
     }
     return {};
 }
@@ -57,28 +57,20 @@ AbstractFieldElement *Field::getFieldElementCell(int index)
     return m_field.at(index);
 }
 
-void Field::shipsArragement(int currentIndex, int countPalubs, int position)
+void Field::figureChangedSlot(int index)
 {
-    qDebug() << "currentIndex = " << currentIndex << " countPalubs " << countPalubs << " angle = " << position;
-}
-
-int Field::state() const
-{
-    return m_state;
-}
-
-void Field::setState(int state)
-{
-    qDebug() << "state Field = " << state;
-    if (m_state == state)
-        return;
-    m_state = state;
-    emit stateChanged(m_state);
+    qDebug() << "dataChanged index  = " << index;
+    auto ind = QAbstractItemModel::createIndex(index, 0);
+    emit dataChanged(ind, ind);
 }
 
 void Field::initField()
 {
-    for(int i = 0; i < Config::COUNT_CELL; ++i)
-        m_field.push_back(new FieldElement(nullptr, this));
+    for(int i = 0; i < Config::COUNT_CELL; ++i) {
+        auto el = new FieldElement(nullptr, this);
+        connect(el, static_cast<void (FieldElement::*)(int)>(&FieldElement::figureChanged),
+                this, static_cast<void(Field::*)(int)>(&Field::figureChangedSlot));
+        m_field.push_back(el);
+    }
 }
 

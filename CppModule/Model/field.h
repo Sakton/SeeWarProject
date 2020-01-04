@@ -8,7 +8,6 @@
 class Field : public AbstractField
 {
         Q_OBJECT
-        Q_PROPERTY(int state READ state WRITE setState NOTIFY stateChanged)
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
@@ -27,19 +26,10 @@ public:
     // AbstractField interface
     AbstractFieldElement *getFieldElementCell(int index) override;
 
-    //MY
-    //???????????
-    Q_INVOKABLE void shipsArragement(int currentIndex, int countPalubs, int position);
-    int state() const;
+    void initField();
 
 public slots:
-    void setState(int state);
-signals:
-    void stateChanged(int state);
-private:
-    void initField();
-    //????????????????
-
+        void figureChangedSlot(int index);
 
 private:
     QHash<int, QByteArray> roleHash;

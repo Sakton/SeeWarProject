@@ -11,7 +11,6 @@ InterfaceWindowSignals {
 
     Rectangle {
         anchors.fill: parent
-
         color: Setting.styleApplicationColor
 
         Component.onCompleted: {
@@ -44,20 +43,19 @@ InterfaceWindowSignals {
                         property int angle: 0
                         property int currentIndex: 0
                         property int countPalubs: 0
+                        property var objectFigure: null
 
                         drag.onPositionChanged: {
                             _da.currentIndex = _fld.indexAt(drag.x, drag.y)
                             _da.currentSourceDropElement = _da.drag.source
-                            _da.countPalubs
-                                    = currentSourceDropElement.parent.parent.parent.countPalubs
+                            _da.objectFigure = currentSourceDropElement.parent.parent.parent
+                            _da.countPalubs = objectFigure.countPalubs
                         }
 
                         onCurrentIndexChanged: {
-                            if (currentIndex >= 0) {
-                                //                                Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
-                                //Setting.modelField.shipsArragement(currentIndex, countPalubs, angle)
-                                currentSourceDropElement.parent.parent.parent.currentIndex
-                                        = _da.currentIndex
+                            if (currentIndex >= 0 && objectFigure !== null) {
+                                //отпраить индекс в модель
+                                objectFigure.currentIndex = _da.currentIndex
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true
                                 } else {
@@ -67,9 +65,7 @@ InterfaceWindowSignals {
                         }
 
                         onAngleChanged: {
-                            Setting.modelField.shipsArragement(currentIndex,
-                                                               countPalubs,
-                                                               angle)
+                            objectFigure.currentAngle = _da.angle
                         }
 
                         Connections {

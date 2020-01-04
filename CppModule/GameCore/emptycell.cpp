@@ -22,13 +22,13 @@ QString EmptyCell::getResourceImg()
 
 void EmptyCell::setSelfToField(AbstractField *field)
 {
-
+    Q_UNUSED(field)
 }
 
-//void EmptyCell::printSelfToField(AbstractField *field)
-//{
+void EmptyCell::resetSelfToField()
+{
 
-//}
+}
 
 void EmptyCell::setImg(QString img)
 {

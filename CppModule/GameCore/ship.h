@@ -7,16 +7,17 @@
 
 class Paluba;
 
-class Ship :/*public QObject, */public AbstractGameFigure
+class Ship : public AbstractGameFigure
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
+//    Q_PROPERTY(int angle READ angle WRITE setAngle NOTIFY angleChanged)
 public:
     explicit Ship(int countPalub, int angle, QObject *parent = nullptr);
     int getCountPalub() const;
     void setResourceImg(const QString &value);
     //***???
-    void fillIndexes(int firstIndex/*, int angleRotate*/);
+    void fillIndexes(int firstIndex);
     int getAngle() const;
     void setAngle(int angle);
 
@@ -25,6 +26,10 @@ public:
     QColor getColor() override;
     QString getResourceImg() override;
     void setSelfToField(AbstractField *field) override;
+    void resetSelfToField() override;
+
+    AbstractField *getField() const;
+    void setField(AbstractField *field);
 
 signals:
     void angleChanged();
@@ -37,8 +42,13 @@ private:
     int m_angle;
     std::vector<Paluba *> m_palubs;
     //вспомогатеольная структура, индексы
-    std::vector<int> m_idexesPalubs;
+    std::vector<int> m_indexesPalubs;
+    AbstractField *m_field;
+    int oldIndex;
+    int oldAngle;
 
+    // AbstractGameFigure interface
+public:
 };
 
 #endif // SHIP_H

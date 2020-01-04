@@ -2,10 +2,19 @@
 #include <QDebug>
 #include <iostream>
 
-Ship::Ship(int countPalub, int angle, QObject *parent): AbstractGameFigure(parent), m_countLifePalub{countPalub}, m_countPalub{countPalub}, m_angle{angle}
+Ship::Ship(int countPalub, int angle, QObject *parent)
+    : AbstractGameFigure(parent),
+      m_countLifePalub{countPalub},
+      m_countPalub{countPalub},
+      m_angle{angle},
+      oldIndex{-1},
+      oldAngle{-1}
 {
-    for(int i = 1; i <= countPalub; ++i )
-        m_palubs.push_back(new Paluba(this, i, this));
+    for(int i = 1; i <= countPalub; ++i ) {
+        auto el = new Paluba(this, i, this);
+        el->setField(m_field);
+        m_palubs.push_back(el);
+    }
 }
 
 int Ship::getCountPalub() const
@@ -20,14 +29,17 @@ void Ship::setResourceImg(const QString &value)
 
 void Ship::fillIndexes(int firstIndex)
 {
-    int k = (m_angle == 90) ? Config::NUM_ROW : 1;
-    m_idexesPalubs.clear();
-    for(int i = firstIndex, j = 0; i < firstIndex + m_countPalub * k, j < m_countPalub; i += k, ++j) {
-        m_idexesPalubs.push_back(i);
+    if(!m_palubs.empty()) {
+        qDebug() << "!m_palubs.empty()";
+        resetSelfToField();
+    }
+    int k = (m_angle == 90) ? Config::NUM_COL : 1;
+    m_indexesPalubs.clear();
+    for(int i = firstIndex, j = 0; (firstIndex + (m_countPalub - 1) * k < Config::COUNT_CELL) && (i <= firstIndex + (m_countPalub - 1) * k) && j < m_countPalub; i += k, ++j) {
+        m_indexesPalubs.push_back(i);
         m_palubs.at(j)->setCurrentIndexOfModel(i);
     }
-    for(auto x : m_idexesPalubs)
-        qDebug() << x << " ";
+    setSelfToField(m_field);
 }
 
 int Ship::getAngle() const
@@ -38,6 +50,7 @@ int Ship::getAngle() const
 void Ship::setAngle(int angle)
 {
     m_angle = angle;
+    fillIndexes(m_indexesPalubs.at(0));
 }
 
 QColor Ship::getColor()
@@ -54,6 +67,24 @@ void Ship::setSelfToField(AbstractField *field)
 {
     for(auto palub : m_palubs)
         palub->setSelfToField(field);
+}
+
+AbstractField *Ship::getField() const
+{
+    return m_field;
+}
+
+void Ship::setField(AbstractField *field)
+{
+    m_field = field;
+}
+
+void Ship::resetSelfToField()
+{
+    for(auto idx : m_indexesPalubs) {
+        auto elementField = m_field->getFieldElementCell(idx);
+        elementField->resetToBaseState();
+    }
 }
 
 

@@ -12,8 +12,8 @@ class FieldElement : public AbstractFieldElement
     Q_OBJECT
     Q_INTERFACES(AbstractFieldElement)
     Q_PROPERTY(AbstractGameFigure* figure READ figure WRITE setFigure NOTIFY figureChanged)
-public:
 
+public:
     explicit FieldElement(AbstractGameFigure *baseSelfEmptyFigure, QObject *parent = nullptr);
 
     //AbstractFieldElement interface
@@ -23,11 +23,11 @@ public:
     void resetToBaseState() override;
 
 signals:
-    void figureChanged(AbstractGameFigure* figure);
+    void figureChanged(int index);
 
 private:
-    //Указатель на отображение фигуры
-    //2 отображен6ие для того чтобы возвращать указатель на обьект-фигуру
+    // Указатель на отображение фигуры
+    // 2 отображен6ие для того чтобы возвращать указатель на обьект-фигуру
     // или свое отображение
     AbstractGameFigure *m_figure;
     //Свое родное отображение по умолчанию. (Состояние???)

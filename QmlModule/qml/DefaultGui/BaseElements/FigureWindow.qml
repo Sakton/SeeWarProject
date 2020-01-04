@@ -15,11 +15,17 @@ Item {
     property var bindingTarget: null
     property string imgSource: ""
     property int currentIndex: 0
+    property int currentAngle: 0
 
     onCurrentIndexChanged: {
         console.debug("delegateIndexChanged " + currentIndex)
         //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipFirstIndex = currentIndex
+    }
+
+    onCurrentAngleChanged: {
+        //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
+        model.currentThisShipAngle = currentAngle
     }
 
     signal elementType(var typeElement)

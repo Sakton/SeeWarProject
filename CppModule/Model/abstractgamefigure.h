@@ -13,6 +13,7 @@ public:
     virtual QColor getColor() = 0;
     virtual QString getResourceImg() = 0;
     virtual void setSelfToField(AbstractField *field) = 0;
+	virtual void resetSelfToField() = 0;
 };
 
 Q_DECLARE_OPAQUE_POINTER(AbstractGameFigure)

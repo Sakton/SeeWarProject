@@ -2,12 +2,13 @@
 #include "../Model/config.h"
 #include <QDebug>
 
-Flot::Flot(QAbstractListModel *field, QObject *parent):QAbstractListModel(parent), m_field{field}
+Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}
 {
     for(int i = 1; i <= 4; i++) {
         for(int j = i; j <= 4; ++j) {
             Ship *t = new Ship(i, 0, this);
             t->setResourceImg(Config::imgShips.at(i - 1));
+            t->setField(field);
             m_ships.push_back(t);
         }
     }
@@ -25,7 +26,6 @@ int Flot::rowCount(const QModelIndex &parent) const
 
 QVariant Flot::data(const QModelIndex &index, int role) const
 {
-//    qDebug() << "Запрос Flot::data";
     if(!index.isValid())
         return {};
     auto currentShip = m_ships.at(index.row());
@@ -51,7 +51,6 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
     switch (role) {
     case FlotRole::IndexRole: {
         int index = value.toInt();
-        qDebug() << "Flot::setData FlotRole::IndexRole: = " << index;
         elem->fillIndexes(index);
         return true;
     }
@@ -61,21 +60,6 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
     }
     return false;
 }
-
-//void Flot::setSelfToField(Field *field)
-//{
-
-//}
-
-//QColor Flot::getColor()
-//{
-//    return {};
-//}
-
-//QString Flot::getResourceImg()
-//{
-//    return {};
-//}
 
 void Flot::setSelfToField(AbstractField *field)
 {

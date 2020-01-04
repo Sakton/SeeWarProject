@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <algorithm>
 #include <QQmlContext>
+#include "CppModule/GameCore/flot.h"
+#include "CppModule/Model/field.h"
 
 GuiLoader* GuiLoader::m_self { nullptr };
 
@@ -10,6 +12,13 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject
     m_url { url }
 {
     m_engine = new QQmlApplicationEngine;
+    auto context = m_engine->rootContext();
+
+    Field *field = new Field(app);
+    Flot *flot = new Flot(field, field);
+
+    context->setContextProperty("Field", field);
+    context->setContextProperty("Flot", flot);
 
     QObject::connect(
         m_engine, &QQmlApplicationEngine::objectCreated,
