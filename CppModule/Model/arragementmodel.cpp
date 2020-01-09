@@ -31,8 +31,8 @@ QVariant ArragementModel::data(const QModelIndex &index, int role) const {
         return spaces.at(static_cast<std::size_t>(index.row()));
     case IndexRoles::IndexElementRole:
         return index.row();
-    case IndexRoles::PointerObjectCell:
-        return this;
+//    case IndexRoles::PointerObjectCell:
+//        return this;
     }
     return {};
 }
