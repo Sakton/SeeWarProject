@@ -1,4 +1,5 @@
 #include "fieldelement.h"
+#include "config.h"
 #include <QDebug>
 
 int FieldElement::countFieldElements = 0;
@@ -20,8 +21,17 @@ int FieldElement::index() const
 void FieldElement::resetToBaseState()
 {
     m_figure = nullptr;
-    qDebug() << "reset FieldElement Index" << m_index;
     emit figureChanged(m_index);
+}
+
+int FieldElement::getRow()
+{
+    return m_index / Config::NUM_ROW;
+}
+
+int FieldElement::getCol()
+{
+    return m_index % Config::NUM_COL;
 }
 
 AbstractGameFigure *FieldElement::figure() const

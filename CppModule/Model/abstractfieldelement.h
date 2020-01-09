@@ -15,6 +15,9 @@ public:
     virtual void setFigure(AbstractGameFigure *figure) = 0;
     virtual AbstractGameFigure *figure() const = 0;
     virtual void resetToBaseState() = 0;
+    //Любой эелемент поля должен уметь пересчитать свой индекс в строки и столбцы
+    virtual int getRow() = 0;
+    virtual int getCol() = 0;
 signals:
     void figureChanged(AbstractGameFigure* figure);
 };

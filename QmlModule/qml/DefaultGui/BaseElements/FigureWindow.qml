@@ -18,7 +18,7 @@ Item {
     property int currentAngle: 0
 
     onCurrentIndexChanged: {
-        console.debug("delegateIndexChanged " + currentIndex)
+//        console.debug("delegateIndexChanged " + currentIndex)
         //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipFirstIndex = currentIndex
     }

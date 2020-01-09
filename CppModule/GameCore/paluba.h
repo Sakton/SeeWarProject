@@ -29,7 +29,7 @@ public:
 private:
     Ship *m_ship;
     int m_numberPalub;
-    QColor m_color{"yellow"};
+    QColor m_color{"#fffc00"};
     QString m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"};
     int m_currentIndexOfModel;
     AbstractField *m_field;

@@ -1,6 +1,7 @@
 #include "ship.h"
 #include <QDebug>
 #include <iostream>
+#include "emptycell.h"
 
 Ship::Ship(int countPalub, int angle, QObject *parent)
     : AbstractGameFigure(parent),
@@ -27,19 +28,57 @@ void Ship::setResourceImg(const QString &value)
     resourceImg = value;
 }
 
-void Ship::fillIndexes(int firstIndex)
+bool Ship::controlVmestimostiInField(int firstIndex)
 {
-    if(!m_palubs.empty()) {
-        qDebug() << "!m_palubs.empty()";
-        resetSelfToField();
+    int row = firstIndex / Config::NUM_ROW;
+    int col = firstIndex % Config::NUM_COL;
+    int endRowCell = -1;
+    int endColCell = -1;
+    if(m_angle == 0) {
+        endRowCell = row;
+        endColCell = ( col + m_countPalub - 1 );
+    } else {
+        endRowCell = ( row + m_countPalub - 1 );
+        endColCell = col;
+    }
+    return (endRowCell < Config::NUM_ROW && endColCell < Config::NUM_COL);
+}
+
+bool Ship::isPossiblePutInCell(int firstIndex)
+{
+    if(firstIndex > Config::COUNT_CELL - m_countPalub) {
+        return false;
     }
     int k = (m_angle == 90) ? Config::NUM_COL : 1;
-    m_indexesPalubs.clear();
-    for(int i = firstIndex, j = 0; (firstIndex + (m_countPalub - 1) * k < Config::COUNT_CELL) && (i <= firstIndex + (m_countPalub - 1) * k) && j < m_countPalub; i += k, ++j) {
-        m_indexesPalubs.push_back(i);
-        m_palubs.at(j)->setCurrentIndexOfModel(i);
+    bool res = true;
+    for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
+        if( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr ) {
+            res = false;
+            break;
+        }
     }
-    setSelfToField(m_field);
+    return res;
+}
+
+void Ship::fillIndexes(int firstIndex)
+{
+    //Если палубы расставлены, то сбрасываем себя из занятых полей
+    if(!m_palubs.empty()) {
+        resetSelfToField();
+    }
+    //если клетки вмещаются и место сбободно
+    if( controlVmestimostiInField(firstIndex) ) {
+        if( isPossiblePutInCell(firstIndex) ) {
+            qDebug() << "cpp Ship::fillIndexes firstIndex = " << firstIndex;
+            m_indexesPalubs.clear();
+            int k = (m_angle == 90) ? Config::NUM_COL : 1;
+            for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
+                m_indexesPalubs.push_back(i);
+                m_palubs.at(j)->setCurrentIndexOfModel(i);
+            }
+            setSelfToField(m_field);
+        }
+    }
 }
 
 int Ship::getAngle() const
@@ -50,7 +89,8 @@ int Ship::getAngle() const
 void Ship::setAngle(int angle)
 {
     m_angle = angle;
-    fillIndexes(m_indexesPalubs.at(0));
+    if(!m_indexesPalubs.empty())
+        fillIndexes(m_indexesPalubs.at(0));
 }
 
 QColor Ship::getColor()

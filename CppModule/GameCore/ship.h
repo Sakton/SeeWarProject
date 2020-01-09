@@ -15,9 +15,10 @@ public:
     explicit Ship(int countPalub, int angle, QObject *parent = nullptr);
     int getCountPalub() const;
     void setResourceImg(const QString &value);
-    void fillIndexes(int firstIndex);
     int getAngle() const;
     void setAngle(int angle);
+    //главный метод размещения
+    void fillIndexes(int firstIndex);
 
     // AbstractGameFigure interface
 public:
@@ -28,6 +29,12 @@ public:
 
     AbstractField *getField() const;
     void setField(AbstractField *field);
+
+private:
+    //кораблик интересуется у поля можно ли ему занять на эти клетки
+    bool isPossiblePutInCell(int firstIndex);
+    //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу
+    bool controlVmestimostiInField(int firstIndex);
 
 signals:
     void angleChanged();

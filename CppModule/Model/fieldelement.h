@@ -21,6 +21,8 @@ public:
     void setFigure(AbstractGameFigure *figure) override;
     int index() const override;
     void resetToBaseState() override;
+    int getRow() override;
+    int getCol() override;
 
 signals:
     void figureChanged(int index);

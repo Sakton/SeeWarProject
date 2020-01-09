@@ -2,22 +2,29 @@ import QtQuick 2.0
 import Settings 1.0
 
 Item {
+    id: _root
     width: height
     height: 30
     //все роли модели
     property int indexElement: 0
-    property color colorCell: "red"
+    property color colorCell: "black"
     property int stateCell: 0
     property var pointerToObjectCell: null
     property string imageResource: ""
 
+    onColorCellChanged: {
+        //TODO баловство, но может потом
+        _mycanvas.requestPaint()
+    }
+
     Canvas {
-        id: mycanvas
+        id: _mycanvas
         anchors.fill: parent
         onPaint: {
             var ctx = getContext("2d")
+            ctx.setLineDash([1, 5]); //установка линии из точечек
             ctx.strokeStyle = colorCell
-            ctx.strokeRect(0, 0, width, height)
+            ctx.strokeRect( 0, 0, _root.width + 1, _root.height + 1)
         }
 
         Image {
@@ -29,42 +36,11 @@ Item {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: colorCell
+                //color: colorCell
+                color: Setting.styleTextColor
                 font.pixelSize: parent.width / 3
                 text: indexElement
             }
         } //Image
-
-//        Text {
-//            anchors.horizontalCenter: parent.horizontalCenter
-//            anchors.verticalCenter: parent.verticalCenter
-//            color: "red"
-//            font.pixelSize: parent.width / 3
-//            text: indexElement
-//        }
     }
-
-    //    Rectangle {
-    //        anchors.fill: parent
-    ////        source: pointerToObjectCell.img
-    //        color: {
-    //            console.debug("color = ") + model.color
-    //            switch(model.color) {
-    //            case 0: return "black"
-    //            case 1: return "blue"
-    //            case 2: return "gray"
-    //            }
-    //        }
-
-    //        Text {
-    //            anchors.horizontalCenter: parent.horizontalCenter
-    //            anchors.verticalCenter: parent.verticalCenter
-    //            //color: pointerToObjectCell.color
-    //            color: "red"
-    //            font.pixelSize: parent.width / 3
-    //            text: indexElement
-    //        }
-    //    }//Rectangle
-
-
 }
