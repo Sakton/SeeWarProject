@@ -20,14 +20,28 @@ Item {
             ctx.strokeRect(0, 0, width, height)
         }
 
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            //color: pointerToObjectCell.color
-            color: "red"
-            font.pixelSize: parent.width / 3
-            text: indexElement
-        }
+        Image {
+            //anchors.fill: parent
+            width: parent.width - parent.width / 10
+            height: parent.height - parent.height / 10
+            source: imageResource
+
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                color: colorCell
+                font.pixelSize: parent.width / 3
+                text: indexElement
+            }
+        } //Image
+
+//        Text {
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            anchors.verticalCenter: parent.verticalCenter
+//            color: "red"
+//            font.pixelSize: parent.width / 3
+//            text: indexElement
+//        }
     }
 
     //    Rectangle {
@@ -52,16 +66,5 @@ Item {
     //        }
     //    }//Rectangle
 
-    Image {
-        anchors.fill: parent
-        source: imageResource
 
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            color: colorCell
-            font.pixelSize: parent.width / 3
-            text: indexElement
-        }
-    } //Image
 }

@@ -59,7 +59,7 @@ AbstractFieldElement *Field::getFieldElementCell(int index)
 
 void Field::figureChangedSlot(int index)
 {
-    qDebug() << "dataChanged index  = " << index;
+//    qDebug() << "dataChanged index  = " << index;
     auto ind = QAbstractItemModel::createIndex(index, 0);
     emit dataChanged(ind, ind);
 }

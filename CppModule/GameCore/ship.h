@@ -11,12 +11,10 @@ class Ship : public AbstractGameFigure
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
-//    Q_PROPERTY(int angle READ angle WRITE setAngle NOTIFY angleChanged)
 public:
     explicit Ship(int countPalub, int angle, QObject *parent = nullptr);
     int getCountPalub() const;
     void setResourceImg(const QString &value);
-    //***???
     void fillIndexes(int firstIndex);
     int getAngle() const;
     void setAngle(int angle);
@@ -46,9 +44,6 @@ private:
     AbstractField *m_field;
     int oldIndex;
     int oldAngle;
-
-    // AbstractGameFigure interface
-public:
 };
 
 #endif // SHIP_H

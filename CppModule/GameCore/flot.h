@@ -1,7 +1,7 @@
 #ifndef FLOT_H
 #define FLOT_H
 #include "vector"
-#include "../Model/field.h"
+#include "../Model/abstractfield.h"
 #include "ship.h"
 #include <QAbstractListModel>
 #include "../Model/abstractgamefigure.h"
@@ -28,7 +28,7 @@ public:
 
 private:
     std::vector<Ship *> m_ships;
-    QAbstractListModel *m_field;
+    AbstractField *m_field;
     QHash<int, QByteArray> m_flotRoles;
 };
 

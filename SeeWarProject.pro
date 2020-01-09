@@ -23,12 +23,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
 	CppModule/GameCore/emptycell.cpp \
 	CppModule/GameCore/flot.cpp \
-	CppModule/GameCore/modelflot.cpp \
 	CppModule/GameCore/paluba.cpp \
 	CppModule/GameCore/ship.cpp \
 	CppModule/Model/abstractfield.cpp \
 	CppModule/Model/abstractfieldelement.cpp \
-	CppModule/Model/abstractflot.cpp \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/arragementmodel.cpp \
 	CppModule/Model/field.cpp \
@@ -59,12 +57,7 @@ DISTFILES += \
 	QmlModule/qml/DefaultGui/img/4x.png \
 	QmlModule/qml/DefaultGui/qmldir \
 	ShemeAndOter/NetWork \
-	ShemeAndOter/bigstructure.qmodel \
-	ShemeAndOter/model1.qmodel \
-	ShemeAndOter/networkmodel.qmodel \
-	ShemeAndOter/old.7z \
-	ShemeAndOter/qmlloadermodel.qmodel \
-	ShemeAndOter/shipmodel.qmodel \
+	ShemeAndOter/shemeapplication.qmodel \
 	ShemeAndOter/useCase \
 	android/AndroidManifest.xml \
 	android/build.gradle \
@@ -78,12 +71,10 @@ DISTFILES += \
 HEADERS += \
 	CppModule/GameCore/emptycell.h \
 	CppModule/GameCore/flot.h \
-	CppModule/GameCore/modelflot.h \
 	CppModule/GameCore/paluba.h \
 	CppModule/GameCore/ship.h \
 	CppModule/Model/abstractfield.h \
 	CppModule/Model/abstractfieldelement.h \
-	CppModule/Model/abstractflot.h \
 	CppModule/Model/abstractgamefigure.h \
 	CppModule/Model/arragementmodel.h \
 	CppModule/Model/config.h \

@@ -2,6 +2,8 @@
 #include "config.h"
 #include <QDebug>
 
+//ИЗ СТАРОЙ ВЕРСИИ
+
 ArragementModel::ArragementModel(QObject *parent) : QAbstractListModel(parent) {
     spaces = std::vector<ColorCell>(Config::COUNT_CELL, ColorCell::NeytralColor);
     roleHash[IndexRoles::ColorIdTypeRole] = "color";

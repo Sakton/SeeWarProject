@@ -20,18 +20,16 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject
     context->setContextProperty("Field", field);
     context->setContextProperty("Flot", flot);
 
-    QObject::connect(
+    QObject::connect (
         m_engine, &QQmlApplicationEngine::objectCreated,
         app, [url](QObject* obj, const QUrl& objUrl) {
             if (!obj && url == objUrl)
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
-//    qmlRegisterType<GuiLoader>();
     //добавлять путь для модулей настроек перед загрузкой qml
     addImportStyleModuleGui(m_url);
     m_engine->load(m_url);
-
 }
 
 void GuiLoader::addImportStyleModuleGui(QUrl& url)

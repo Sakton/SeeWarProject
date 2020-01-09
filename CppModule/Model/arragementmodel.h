@@ -5,6 +5,8 @@
 #include <vector>
 #include <set>
 
+//ИЗ СТАРОЙ ВЕРСИИ
+
 class ArragementModel : public QAbstractListModel {
     Q_OBJECT
     Q_ENUMS(IndexRoles)
