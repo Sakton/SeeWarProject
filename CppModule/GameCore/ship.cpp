@@ -69,7 +69,6 @@ void Ship::fillIndexes(int firstIndex)
     //если клетки вмещаются и место сбободно
     if( controlVmestimostiInField(firstIndex) ) {
         if( isPossiblePutInCell(firstIndex) ) {
-            qDebug() << "cpp Ship::fillIndexes firstIndex = " << firstIndex;
             m_indexesPalubs.clear();
             int k = (m_angle == 90) ? Config::NUM_COL : 1;
             for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {

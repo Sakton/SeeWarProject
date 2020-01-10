@@ -16,9 +16,9 @@ Item {
     property string imgSource: ""
     property int currentIndex: 0
     property int currentAngle: 0
+    property int selfIndex: 0
 
     onCurrentIndexChanged: {
-//        console.debug("delegateIndexChanged " + currentIndex)
         //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipFirstIndex = currentIndex
     }
@@ -26,6 +26,7 @@ Item {
     onCurrentAngleChanged: {
         //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipAngle = currentAngle
+        _rotate.angle = currentAngle
     }
 
     signal elementType(var typeElement)
@@ -65,19 +66,14 @@ Item {
 
             Item {
                 id: _blockCountPalubs
-                property int rotateAngle: 0
                 width: (parent.width * countPalubs / 16)
                 height: (parent.height / 8)
-
-                onRotateAngleChanged: {
-                    _rotate.angle = rotateAngle
-                }
 
                 transform: Rotation {
                     id: _rotate
                     origin.x: _blockCountPalubs.width / (2 * countPalubs)
                     origin.y: _blockCountPalubs.height / 2
-                    angle: _blockCountPalubs.rotateAngle
+                    angle: _root.currentAngle
                 }
 
                 RowLayout {

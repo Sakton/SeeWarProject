@@ -23,6 +23,7 @@ StackView {
             Component.onCompleted: _root.push(_delegate)
             countPalubs: model.countPalub
             imgSource: model.img
+            selfIndex: model.index
             deltaDragMinX: 0
             deltaDragMinY: -dragSizeX
             deltaDragMaxX: dragSizeX
@@ -48,4 +49,5 @@ StackView {
     //            }
     //        }
     //    }
+
 }

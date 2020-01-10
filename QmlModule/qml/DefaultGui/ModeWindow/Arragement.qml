@@ -14,7 +14,6 @@ InterfaceWindowSignals {
         color: Setting.styleApplicationColor
 
         Component.onCompleted: {
-            console.debug("Arragement created pointer = " + _root)
             _stopka.dragSizeX = parent.width
             _stopka.dragSizeY = _fld.height
         }
@@ -40,21 +39,18 @@ InterfaceWindowSignals {
                         id: _da
                         anchors.fill: parent
                         property var currentSourceDropElement: null
-                        property int angle: 0
                         property int currentIndex: 0
-                        property int countPalubs: 0
                         property var objectFigure: null
 
                         drag.onPositionChanged: {
                             _da.currentIndex = _fld.indexAt(drag.x, drag.y)
                             _da.currentSourceDropElement = _da.drag.source
                             _da.objectFigure = currentSourceDropElement.parent.parent.parent
-                            _da.countPalubs = objectFigure.countPalubs
                         }
 
                         onCurrentIndexChanged: {
                             if (currentIndex >= 0 && objectFigure !== null) {
-                                //отпраить индекс в модель
+                                //обновить текущий первый индекс у фигуры где находится на поле
                                 objectFigure.currentIndex = _da.currentIndex
                                 if (currentIndex % Setting.countsCells >= 4) {
                                     currentSourceDropElement.parent.zerkalno = true
@@ -64,17 +60,12 @@ InterfaceWindowSignals {
                             }
                         }
 
-                        onAngleChanged: {
-                            objectFigure.currentAngle = _da.angle
-                        }
-
                         Connections {
                             target: _popup
                             onButtonRotate: {
-                                var element = _da.currentSourceDropElement.parent.children[0]
-                                if (element.parent.parent.parent.countPalubs > 1) {
-                                    element.rotateAngle = (element.rotateAngle === 90) ? 0 : 90
-                                    _da.angle = element.rotateAngle
+                                var element = _da.currentSourceDropElement.parent.parent.parent
+                                if(element.countPalubs > 1) {
+                                    element.currentAngle = (element.currentAngle === 90) ? 0 : 90
                                 }
                             }
                         }
@@ -101,8 +92,10 @@ InterfaceWindowSignals {
                         visible: false
 
                         onButtonOK: {
+                            //TODO подтверждение выбора
                             _stopka.pop()
-                            visible = false
+                            _da.objectFigure = null
+                            _popup.visible = false
                         }
                     }
                 } //stopka

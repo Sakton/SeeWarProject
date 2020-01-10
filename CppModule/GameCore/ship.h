@@ -31,7 +31,7 @@ public:
     void setField(AbstractField *field);
 
 private:
-    //кораблик интересуется у поля можно ли ему занять на эти клетки
+    //кораблик интересуется у поля можно ли ему занять эти клетки
     bool isPossiblePutInCell(int firstIndex);
     //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу
     bool controlVmestimostiInField(int firstIndex);
