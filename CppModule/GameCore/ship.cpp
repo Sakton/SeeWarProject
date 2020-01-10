@@ -10,14 +10,14 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     m_angle{angle},
     m_field{nullptr},
     oldIndex{-1},
-    oldAngle{-1}
+    oldAngle{-1},
+    m_framing{nullptr}
 {
     for(int i = 1; i <= countPalub; ++i ) {
         auto el = new Paluba(this, i, this);
-        el->setField(m_field);
         m_palubs.push_back(el);
     }
-    // m_framing = new Framing();
+//    m_framing = new Framing(this, this);
 }
 
 int Ship::getCountPalub() const
@@ -118,6 +118,11 @@ AbstractField *Ship::getField() const
 void Ship::setField(AbstractField *field)
 {
     m_field = field;
+}
+
+void Ship::createFraming()
+{
+    //TODO ТУТ !!!!
 }
 
 void Ship::resetSelfToField()

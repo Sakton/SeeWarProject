@@ -14,11 +14,11 @@ class Ship : public AbstractGameFigure
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
 public:
-    explicit Ship(int countPalub, int angle, QObject *parent = nullptr);
+    explicit Ship( int countPalub, int angle, QObject *parent = nullptr );
     int getCountPalub() const;
-    void setResourceImg(const QString &value);
+    void setResourceImg( const QString &value );
     int getAngle() const;
-    void setAngle(int angle);
+    void setAngle( int angle );
     //главный метод размещения
     void fillIndexes(int firstIndex);
 
@@ -26,11 +26,14 @@ public:
 public:
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField(AbstractField *field) override;
+    void setSelfToField( AbstractField *field ) override;
     void resetSelfToField() override;
 
     AbstractField *getField() const;
-    void setField(AbstractField *field);
+    void setField( AbstractField *field );
+
+    //создает объект обрамления запрещенными клетками для запрета расположения других кораблей вплотную
+    void createFraming();
 
 private:
     //кораблик интересуется у поля можно ли ему занять эти клетки

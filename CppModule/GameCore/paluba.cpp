@@ -22,16 +22,11 @@ QString Paluba::getResourceImg()
 
 void Paluba::setSelfToField(AbstractField *field)
 {
-    auto elementField = field->getFieldElementCell(getCurrentIndexOfModel());
-    elementField->setFigure(this);
+    field->getFieldElementCell(getCurrentIndexOfModel())->setFigure(this);
 }
 
 void Paluba::resetSelfToField()
 {
-    if(m_field != nullptr) {
-        auto elementField = m_field->getFieldElementCell(getCurrentIndexOfModel());
-        elementField->resetToBaseState();
-    }
 }
 
 int Paluba::getCurrentIndexOfModel() const
@@ -44,12 +39,3 @@ void Paluba::setCurrentIndexOfModel(int currentIndexOfModel)
     m_currentIndexOfModel = currentIndexOfModel;
 }
 
-AbstractField *Paluba::getField() const
-{
-    return m_field;
-}
-
-void Paluba::setField(AbstractField *field)
-{
-    m_field = field;
-}

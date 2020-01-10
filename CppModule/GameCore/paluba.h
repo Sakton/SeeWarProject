@@ -23,8 +23,6 @@ public:
     void setCurrentIndexOfModel(int currentIndexOfModel);
     void setImage(const QImage &image);
 
-    AbstractField *getField() const;
-    void setField(AbstractField *field);
 
 private:
     Ship *m_ship;
@@ -32,7 +30,6 @@ private:
     QColor m_color{"#fffc00"};
     QString m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"};
     int m_currentIndexOfModel;
-    AbstractField *m_field;
 };
 
 #endif // PALUBA_H
