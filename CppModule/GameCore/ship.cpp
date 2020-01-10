@@ -5,17 +5,19 @@
 
 Ship::Ship(int countPalub, int angle, QObject *parent)
     : AbstractGameFigure(parent),
-      m_countLifePalub{countPalub},
-      m_countPalub{countPalub},
-      m_angle{angle},
-      oldIndex{-1},
-      oldAngle{-1}
+    m_countLifePalub{countPalub},
+    m_countPalub{countPalub},
+    m_angle{angle},
+    m_field{nullptr},
+    oldIndex{-1},
+    oldAngle{-1}
 {
     for(int i = 1; i <= countPalub; ++i ) {
         auto el = new Paluba(this, i, this);
         el->setField(m_field);
         m_palubs.push_back(el);
     }
+    // m_framing = new Framing();
 }
 
 int Ship::getCountPalub() const
@@ -120,10 +122,8 @@ void Ship::setField(AbstractField *field)
 
 void Ship::resetSelfToField()
 {
-    for(auto idx : m_indexesPalubs) {
-        auto elementField = m_field->getFieldElementCell(idx);
-        elementField->resetToBaseState();
-    }
+    for(auto idx : m_indexesPalubs)
+        m_field->getFieldElementCell(idx)->resetToBaseState();
 }
 
 

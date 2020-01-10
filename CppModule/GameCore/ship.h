@@ -4,8 +4,10 @@
 #include "../Model/config.h"
 #include <vector>
 #include "../Model/abstractfield.h"
+#include "framing.h"
 
 class Paluba;
+class Framing;
 
 class Ship : public AbstractGameFigure
 {
@@ -51,6 +53,7 @@ private:
     AbstractField *m_field;
     int oldIndex;
     int oldAngle;
+    Framing *m_framing;
 };
 
 #endif // SHIP_H

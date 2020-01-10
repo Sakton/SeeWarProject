@@ -93,11 +93,11 @@ InterfaceWindowSignals {
 
                         onButtonOK: {
                             //TODO подтверждение выбора
+                            if(_stopka.currentItem.selfIndex === 0)
+                                _stopka.clear()
                             _stopka.pop()
                             _da.objectFigure = null
                             _popup.visible = false
-                            if(_stopka.depth === 1)
-                                _stopka.clear()
                         }
                     }
                 } //stopka
