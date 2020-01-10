@@ -12,9 +12,6 @@ InterfaceWindowSignals {
         anchors.fill: parent
         color: Setting.styleApplicationColor
 
-        Component.onCompleted: console.debug(_root)
-        Component.onDestruction: console.debug(_root + " destruction()")
-
         ColumnLayout {
             width: parent.width / 2
             height: parent.height / 2

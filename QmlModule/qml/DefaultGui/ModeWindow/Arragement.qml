@@ -96,6 +96,8 @@ InterfaceWindowSignals {
                             _stopka.pop()
                             _da.objectFigure = null
                             _popup.visible = false
+                            if(_stopka.depth === 1)
+                                _stopka.clear()
                         }
                     }
                 } //stopka

@@ -58,11 +58,6 @@ Item {
                 text: text
                 readOnly: true
                 onTextChanged: {
-//                    console.debug("_scrollLog.width" + _scrollLog.width)
-//                    console.debug("_textAreaLog." + _textAreaLog.width)
-//                    console.debug("contentWidth " + _scrollLog.contentWidth)
-
-
                     //FIXME
                     //Это влияет на поведение скроллбара скроллвиева, чтоб курсор оставался в 0, тогда
                     //полоса прокрутки стоит на месте

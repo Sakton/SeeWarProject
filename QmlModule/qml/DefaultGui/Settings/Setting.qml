@@ -38,15 +38,12 @@ QtObject {
 
     //main window
     readonly property int mainWidth: {
-
-        //        console.debug(Screen.width)
         if (Screen.width > 1000) {
             return 360
         }
         return Screen.width
     }
     readonly property int mainHeight: {
-        //        console.debug(Screen.height)
         if (Screen.height > 1000) {
             return 687
         }
@@ -63,20 +60,6 @@ QtObject {
     property var modelField: Field
     //    property var modelField: ArragementModel{}
     property var modelFlot: Flot //TestModelShipView {}
-
-    //stateApp
-    enum StatesApplication {
-        NEYTRAL = 0,
-        ARRAGEMENT,
-        GAME
-    }
-
-    property int stateApplication: 0
-    onStateApplicationChanged: {
-        console.debug("stateApplication = " + stateApplication)
-        //modelField.setState(stateApplication)
-    }
-    //stateApp
 
     //colors sheme
     readonly property color styleApplicationColor: "#1c1c1c" //"#0d1e49"//"#0b193c"

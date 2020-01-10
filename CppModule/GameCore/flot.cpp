@@ -48,7 +48,6 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
     if(!index.isValid())
         return false;
     auto elem = m_ships.at(index.row());
-    qDebug() << "cpp Flot::setData selfIndex = " << index.row();
     switch (role) {
     case FlotRole::IndexRole: {
         int index = value.toInt();

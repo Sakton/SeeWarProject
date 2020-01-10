@@ -1,22 +1,26 @@
 import QtQuick 2.0
 import Settings 1.0
 
+
 QtObject {
+
+    property var currentObject: null
+
     function createObject(resourceObject) {
         var component = Qt.createComponent(resourceObject);
         if(component.status === Component.Ready){
-            var object = component.createObject(_root, {"width":_root.width, "height":_root.height})
-            object.buttonMenuClicked.connect(loaderWindow)
+            if(currentObject !== null)
+                currentObject.destroy()
+            currentObject = component.createObject(_root, {"width":_root.width, "height":_root.height})
+            currentObject.buttonMenuClicked.connect(loaderWindow)
         }
-        return object
+        return currentObject
     }
 
     function loaderWindow(indexWindow) {
-        console.debug("indexWindow = " + indexWindow)
         var fileLoad = null;
         switch(indexWindow) {
         case Setting.MyEnumButton.BUTTON_ANDROID:
-            Setting.stateApplication = Setting.StatesApplication.ARRAGEMENT
             createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_NETWORK:
@@ -25,7 +29,6 @@ QtObject {
         case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
             break;
         case Setting.MyEnumButton.BUTTON_GAME:
-            Setting.stateApplication = Setting.StatesApplication.GAME
             createObject(Setting.window_GAME)
             break;
         case Setting.MyEnumButton.BUTTON_EDITING:
