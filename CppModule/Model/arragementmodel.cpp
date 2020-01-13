@@ -134,7 +134,6 @@ void ArragementModel::refreshModel() {
 
 void ArragementModel::slotChangedState(int oldIndex, int newIndex, int len, bool oldHorizont, bool newHorizont)
 {
-
         if (oldIndex > 0) {
             //закрашивание
             backlightShipsToSpaces(oldIndex, len, oldHorizont, ColorCell::NeytralColor);

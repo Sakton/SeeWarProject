@@ -17,16 +17,31 @@ public:
 public:
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField(AbstractField *field) override;
+    void setSelfToField ( AbstractField *field ) override;
     void resetSelfToField() override;
 
     AbstractField *getField() const;
     void setField(AbstractField *field);
+    void createFraming();
 
-    private:
+//public slots:
+//    void reloadFraming();
+
+private:
+    bool emptyCellField (int index);
+    void appointIndexesToForbiddenCell();
+    void createForbiddemCellElements(int countpalubs);
+    void searchIndexesToSetFromField();
+    int row(int index); //индекс-строка
+    int col(int index); //индекс-клонка
+    int indexFromRowCol(int i_row, int i_col); //пересчет обратно
+    void setIndexesHorisontally(int index, int len); //установить себя на поле горизонталь
+    void setIndexesVertically(int index, int len); //установить себя на поле вертикаль
+
+private:
     Ship *m_ship;
-    std::vector<AbstractGameFigure *> m_forbiddenCell;
-    std::vector<int> m_oldForbiddenIndexes;
+    std::vector<ForbiddenCell *> m_forbiddenCell;
+    std::vector<int> m_forbiddenIndexes;
     AbstractField *m_field;
 };
 

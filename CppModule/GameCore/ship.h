@@ -19,6 +19,7 @@ public:
     void setResourceImg( const QString &value );
     int getAngle() const;
     void setAngle( int angle );
+    const std::vector<int> getIndexesPalubs() const;
     //главный метод размещения
     void fillIndexes(int firstIndex);
 
@@ -35,7 +36,7 @@ public:
     //создает объект обрамления запрещенными клетками для запрета расположения других кораблей вплотную
     void createFraming();
 
-private:
+    private:
     //кораблик интересуется у поля можно ли ему занять эти клетки
     bool isPossiblePutInCell(int firstIndex);
     //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу

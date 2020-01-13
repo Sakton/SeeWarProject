@@ -14,10 +14,9 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     m_framing{nullptr}
 {
     for(int i = 1; i <= countPalub; ++i ) {
-        auto el = new Paluba(this, i, this);
-        m_palubs.push_back(el);
+        m_palubs.push_back(new Paluba(this, i, this));
     }
-//    m_framing = new Framing(this, this);
+    m_framing = new Framing(this, this);
 }
 
 int Ship::getCountPalub() const
@@ -46,6 +45,11 @@ bool Ship::controlVmestimostiInField(int firstIndex)
     return (endRowCell < Config::NUM_ROW && endColCell < Config::NUM_COL);
 }
 
+const std::vector<int> Ship::getIndexesPalubs() const
+{
+    return m_indexesPalubs;
+}
+
 bool Ship::isPossiblePutInCell(int firstIndex)
 {
     if(firstIndex > Config::COUNT_CELL - m_countPalub) {
@@ -54,6 +58,7 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     int k = (m_angle == 90) ? Config::NUM_COL : 1;
     bool res = true;
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
+        //TODO сравнивать родителей ???
         if( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr ) {
             res = false;
             break;
@@ -78,6 +83,7 @@ void Ship::fillIndexes(int firstIndex)
                 m_palubs.at(j)->setCurrentIndexOfModel(i);
             }
             setSelfToField(m_field);
+            createFraming();
         }
     }
 }
@@ -118,11 +124,12 @@ AbstractField *Ship::getField() const
 void Ship::setField(AbstractField *field)
 {
     m_field = field;
+    m_framing->setField(field);
 }
 
 void Ship::createFraming()
 {
-    //TODO ТУТ !!!!
+    m_framing->createFraming();
 }
 
 void Ship::resetSelfToField()

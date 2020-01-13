@@ -9,7 +9,7 @@ Field::Field(QObject *parent):AbstractField(parent)
     roleHash[CellRoles::IndexElementRole] = "indexElement";
     roleHash[CellRoles::ColorRole] = "colorElement";
     roleHash[CellRoles::ImageResourceRole] = "imageResourceCell";
-    roleHash[CellRoles::PointerObjectCellRole] = "pointerObjectCell";
+//    roleHash[CellRoles::PointerObjectCellRole] = "pointerObjectCell";
 }
 
 int Field::rowCount(const QModelIndex &) const
@@ -19,8 +19,6 @@ int Field::rowCount(const QModelIndex &) const
 
 QVariant Field::data(const QModelIndex &index, int role) const
 {
-    //TODO ПРОГОНЯТЬ ЧЕРЕЗ РОЛИ, ОБЬЕКТ НЕ ПЕРЕДАВАТЬ
-    //ДЫРА - ПЕРЕДАЧА ОБЬЕКТА
     if(!index.isValid())
         return {};
     auto element = m_field.at(index.row());
@@ -31,10 +29,10 @@ QVariant Field::data(const QModelIndex &index, int role) const
             return element->figure()->getColor();
         case CellRoles::ImageResourceRole:
             return element->figure()->getResourceImg();
-        case CellRoles::PointerObjectCellRole: {
-            QVariant pointerToMyClass = QVariant::fromValue((element));
-            return pointerToMyClass;
-        }
+//        case CellRoles::PointerObjectCellRole: {
+//            QVariant pointerToMyClass = QVariant::fromValue((element));
+//            return pointerToMyClass;
+//        }
     }
     return {};
 }

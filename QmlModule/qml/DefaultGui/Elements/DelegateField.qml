@@ -27,20 +27,38 @@ Item {
             ctx.strokeRect( 0, 0, _root.width + 1, _root.height + 1)
         }
 
-        Image {
-            //anchors.fill: parent
-            width: parent.width - parent.width / 10
-            height: parent.height - parent.height / 10
-            source: imageResource
+        //***для теста
+        Rectangle {
+            anchors.fill: parent
+            color: colorCell
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
+                color: "black"
                 //color: colorCell
-                color: Setting.styleTextColor
+                //color: Setting.styleTextColor
                 font.pixelSize: parent.width / 3
                 text: indexElement
             }
-        } //Image
+        }
+
+        //*****
+//        Image {
+//            //anchors.fill: parent
+//            width: parent.width - parent.width / 10
+//            height: parent.height - parent.height / 10
+//            source: imageResource
+
+//            Text {
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                anchors.verticalCenter: parent.verticalCenter
+//                //color: colorCell
+//                color: Setting.styleTextColor
+//                font.pixelSize: parent.width / 3
+//                text: indexElement
+//            }
+//        } //Image
+        //*****
     }
 }

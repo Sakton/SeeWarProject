@@ -26,7 +26,7 @@ public slots:
     void setImg(QString img);
 
 private:
-    QColor m_color{"black"};
+    QColor m_color{"red"};
     QString m_img{""};
 };
 

@@ -19,12 +19,15 @@ public:
     QString getResourceImg() override;
     void setSelfToField( AbstractField *field ) override;
     void resetSelfToField() override;
+    void clear();
+    int getSelfIndex() const;
+    void setSelfIndex(int value);
 
 private:
-    int selfIndex;
+    int m_selfIndex;
     Framing *m_framing;
-    QColor m_color{"gray"};
-    QString m_img{""};
+    QColor m_color;
+    QString m_img;
 };
 
 #endif // FORBIDDENCELL_H
