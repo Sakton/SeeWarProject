@@ -59,7 +59,18 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     bool res = true;
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
         //TODO сравнивать родителей ???
-        if( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr ) {
+        bool p1 = dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr;
+//        bool p2 = dynamic_cast<ForbiddenCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr;
+//        bool p3 = m_field->getFieldElementCell(firstIndex)->figure()->parent() != m_framing;
+        bool p2 = dynamic_cast<ForbiddenCell*>( m_field->getFieldElementCell(i)->figure() ) != nullptr;
+        bool p3 = m_field->getFieldElementCell(i)->figure()->parent() == m_framing;
+        qDebug() << p1 << " " << p2 << " " << p3;
+        qDebug() << "index = " << i;
+        qDebug() << "m_field->getFieldElementCell(i)->figure()->parent = " << m_field->getFieldElementCell(i)->figure()->parent();
+        qDebug() << "m_field->getFieldElementCell(i)->figure() = " << m_field->getFieldElementCell(i)->figure();
+        qDebug() << "m_framing; = " << m_framing;
+        //TODO условия тут !!!
+        if(!p3 && p1) {
             res = false;
             break;
         }

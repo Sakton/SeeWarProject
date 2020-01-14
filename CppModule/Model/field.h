@@ -7,7 +7,7 @@
 
 class Field : public AbstractField
 {
-        Q_OBJECT
+    Q_OBJECT
 public:
     enum CellRoles {
         IndexElementRole = Qt::UserRole,
@@ -29,7 +29,7 @@ public:
     void initField();
 
 public slots:
-        void figureChangedSlot(int index);
+    void figureChangedSlot(int index);
 
 private:
     QHash<int, QByteArray> roleHash;
