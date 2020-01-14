@@ -59,18 +59,9 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     bool res = true;
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
         //TODO сравнивать родителей ???
-        bool p1 = dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr;
-//        bool p2 = dynamic_cast<ForbiddenCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr;
-//        bool p3 = m_field->getFieldElementCell(firstIndex)->figure()->parent() != m_framing;
-        bool p2 = dynamic_cast<ForbiddenCell*>( m_field->getFieldElementCell(i)->figure() ) != nullptr;
-        bool p3 = m_field->getFieldElementCell(i)->figure()->parent() == m_framing;
-        qDebug() << p1 << " " << p2 << " " << p3;
-        qDebug() << "index = " << i;
-        qDebug() << "m_field->getFieldElementCell(i)->figure()->parent = " << m_field->getFieldElementCell(i)->figure()->parent();
-        qDebug() << "m_field->getFieldElementCell(i)->figure() = " << m_field->getFieldElementCell(i)->figure();
-        qDebug() << "m_framing; = " << m_framing;
-        //TODO условия тут !!!
-        if(!p3 && p1) {
+        bool p1 = ( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr );
+        bool p2 = ( m_field->getFieldElementCell(i)->figure()->parent() == m_framing );
+        if( !p2 && p1 ) {
             res = false;
             break;
         }
@@ -78,24 +69,28 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     return res;
 }
 
-void Ship::fillIndexes(int firstIndex)
+void Ship::fillIndexes( int firstIndex )
 {
     //Если палубы расставлены, то сбрасываем себя из занятых полей
-    if(!m_palubs.empty()) {
+    if( !m_palubs.empty() ) {
         resetSelfToField();
     }
-    //если клетки вмещаются и место сбободно
-    if( controlVmestimostiInField(firstIndex) ) {
-        if( isPossiblePutInCell(firstIndex) ) {
+    //если клетки вмещаются
+    if( controlVmestimostiInField( firstIndex ) ) {
+        //и место свободно
+        if( isPossiblePutInCell( firstIndex ) ) {
             m_indexesPalubs.clear();
-            int k = (m_angle == 90) ? Config::NUM_COL : 1;
+            int k = ( m_angle == 90 ) ? Config::NUM_COL : 1;
             for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
                 m_indexesPalubs.push_back(i);
-                m_palubs.at(j)->setCurrentIndexOfModel(i);
+                m_palubs.at( j )->setCurrentIndexOfModel( i );
             }
-            setSelfToField(m_field);
             createFraming();
+            setSelfToField( m_field );
         }
+    } else {
+        //сброс обрамления
+        m_framing->resetSelfToField();
     }
 }
 

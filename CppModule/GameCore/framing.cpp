@@ -29,7 +29,7 @@ void Framing::resetSelfToField()
     for( auto obj : m_forbiddenCell )
         obj->clear();
     for( int idx : m_forbiddenIndexes )
-        m_field->getFieldElementCell(idx)->resetToBaseState();
+        m_field->getFieldElementCell( idx )->resetToBaseState();
     m_forbiddenIndexes.clear();
 }
 
@@ -81,26 +81,26 @@ void Framing::createFraming()
 bool Framing::emptyCellField(int index)
 {
     //TODO сравнивать родителей ???
-    if(index < 0) return false;
-    auto t = m_field->getFieldElementCell(index)->figure();
-    return ( dynamic_cast<EmptyCell *>(t) != nullptr );
+    if( index < 0 ) return false;
+    auto t = m_field->getFieldElementCell( index )->figure();
+    return ( dynamic_cast<EmptyCell *>( t ) != nullptr );
 }
 
 void Framing::appointIndexesToForbiddenCell()
 {
-    for(int i = 0; i < m_forbiddenIndexes.size(); ++i) {
-        if(emptyCellField(m_forbiddenIndexes.at(i)))
-            m_forbiddenCell.at(i)->setSelfIndex(m_forbiddenIndexes.at(i));
+    for( int i = 0; i < m_forbiddenIndexes.size(); ++i ) {
+        if( emptyCellField( m_forbiddenIndexes.at( i ) ) )
+            m_forbiddenCell.at( i )->setSelfIndex( m_forbiddenIndexes.at( i ) );
         else
-            m_forbiddenIndexes.at(i) = -1;
+            m_forbiddenIndexes.at( i ) = -1;
     }
 }
 
-void Framing::createForbiddemCellElements(int countpalubs)
+void Framing::createForbiddemCellElements( int countpalubs )
 {
     //Формирую всю обводку
-    for(int i = 0; i < (countpalubs * 2 + 6); ++i) {
-        m_forbiddenCell.push_back( new ForbiddenCell(this, this) );
+    for( int i = 0; i < ( countpalubs * 2 + 6 ); ++i ) {
+        m_forbiddenCell.push_back( new ForbiddenCell( this, this ) );
     }
 }
 
