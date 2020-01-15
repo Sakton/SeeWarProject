@@ -160,4 +160,11 @@ void Framing::searchIndexesToSetFromField() {
     std::sort(m_forbiddenIndexes.begin(), m_forbiddenIndexes.end());
     auto pos = std::unique(m_forbiddenIndexes.begin(), m_forbiddenIndexes.end());
     m_forbiddenIndexes.erase(pos, m_forbiddenIndexes.end());
+
+    QString s;
+    for(auto el : m_forbiddenIndexes) {
+//        s.push_back();
+        s.push_back(" ");
+    }
+    qDebug() << s;
 }
