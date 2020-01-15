@@ -82,6 +82,13 @@ void Framing::createFraming()
     this->setSelfToField( m_field );
 }
 
+void Framing::resetAll()
+{
+    resetSelfToField();
+    for(auto el : m_forbiddenIndexes)
+        el = -1;
+}
+
 //можно ли поставить в клетку при условиях для установки
 bool Framing::emptyCellField(int index)
 {

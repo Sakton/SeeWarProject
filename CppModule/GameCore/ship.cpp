@@ -134,6 +134,12 @@ void Ship::setField(AbstractField *field)
     m_framing->setField(field);
 }
 
+void Ship::resetAll()
+{
+    m_framing->resetAll();
+    resetSelfToField();
+}
+
 void Ship::createFraming()
 {
     m_framing->createFraming();

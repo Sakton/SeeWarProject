@@ -26,6 +26,11 @@ public:
 public:
     void setSelfToField(AbstractField *field);
 
+public slots:
+    //возврат к первоначальному состоянию
+    //TODO ПРИСОЕДИНИТЬ КНОПКУ К ЭТОМУ СИГНАЛУ
+    void resetAll();
+
 private:
     std::vector<Ship *> m_ships;
     AbstractField *m_field;

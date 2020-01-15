@@ -67,3 +67,9 @@ void Flot::setSelfToField(AbstractField *field)
         ship->setSelfToField(field);
 }
 
+void Flot::resetAll()
+{
+    for(auto el : m_ships)
+        el->resetAll();
+}
+

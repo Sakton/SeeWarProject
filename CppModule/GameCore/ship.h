@@ -33,6 +33,9 @@ public:
     AbstractField *getField() const;
     void setField( AbstractField *field );
 
+    //возврат к первоначальному состоянию
+    void resetAll();
+
     //создает объект обрамления запрещенными клетками для запрета расположения других кораблей вплотную
     void createFraming();
 

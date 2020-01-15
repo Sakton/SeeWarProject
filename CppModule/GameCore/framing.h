@@ -24,8 +24,8 @@ public:
     void setField(AbstractField *field);
     void createFraming();
 
-//public slots:
-//    void reloadFraming();
+    //возврат к первоначальному состоянию
+    void resetAll();
 
 private:
     //можно ли поставить в клетку при условиях для установки
