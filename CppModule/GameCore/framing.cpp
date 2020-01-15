@@ -29,7 +29,7 @@ void Framing::resetSelfToField()
     for( auto obj : m_forbiddenCell )
         obj->clear();
     for( int idx : m_forbiddenIndexes )
-        if(idx > 0)
+        if(idx > 0) // !!!!!!!!!!!!!!!!!
             m_field->getFieldElementCell( idx )->resetToBaseState();
     m_forbiddenIndexes.clear();
 }
@@ -104,12 +104,12 @@ void Framing::appointIndexesToForbiddenCell()
             m_forbiddenIndexes.at( i ) = -1;
     }
 
-    QString s;
-    for(auto el : m_forbiddenIndexes) {
-        s.push_back(QString::number(el));
-        s.push_back(" ");
-    }
-    qDebug() << "end string = " << s;
+//    QString s;
+//    for(auto el : m_forbiddenIndexes) {
+//        s.push_back(QString::number(el));
+//        s.push_back(" ");
+//    }
+//    qDebug() << "end string = " << s;
 }
 
 void Framing::createForbiddemCellElements( int countpalubs )
@@ -172,10 +172,10 @@ void Framing::searchIndexesToSetFromField() {
     auto pos = std::unique(m_forbiddenIndexes.begin(), m_forbiddenIndexes.end());
     m_forbiddenIndexes.erase(pos, m_forbiddenIndexes.end());
 
-    QString s;
-    for(auto el : m_forbiddenIndexes) {
-        s.push_back(QString::number(el));
-        s.push_back(" ");
-    }
-    qDebug() << s;
+//    QString s;
+//    for(auto el : m_forbiddenIndexes) {
+//        s.push_back(QString::number(el));
+//        s.push_back(" ");
+//    }
+//    qDebug() << s;
 }
