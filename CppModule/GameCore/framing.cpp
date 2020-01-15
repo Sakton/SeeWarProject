@@ -29,7 +29,8 @@ void Framing::resetSelfToField()
     for( auto obj : m_forbiddenCell )
         obj->clear();
     for( int idx : m_forbiddenIndexes )
-        m_field->getFieldElementCell( idx )->resetToBaseState();
+        if(idx > 0)
+            m_field->getFieldElementCell( idx )->resetToBaseState();
     m_forbiddenIndexes.clear();
 }
 
@@ -71,9 +72,12 @@ void Framing::setIndexesVertically(int index, int len)
 
 void Framing::createFraming()
 {
+    //если рамка была сброс
     if(!m_forbiddenIndexes.empty())
         resetSelfToField();
+    //ищем новые индексы
     searchIndexesToSetFromField();
+    //назначить индексы нужным клеткам
     appointIndexesToForbiddenCell();
     this->setSelfToField( m_field );
 }
@@ -99,6 +103,13 @@ void Framing::appointIndexesToForbiddenCell()
         else
             m_forbiddenIndexes.at( i ) = -1;
     }
+
+    QString s;
+    for(auto el : m_forbiddenIndexes) {
+        s.push_back(QString::number(el));
+        s.push_back(" ");
+    }
+    qDebug() << "end string = " << s;
 }
 
 void Framing::createForbiddemCellElements( int countpalubs )
@@ -163,7 +174,7 @@ void Framing::searchIndexesToSetFromField() {
 
     QString s;
     for(auto el : m_forbiddenIndexes) {
-//        s.push_back();
+        s.push_back(QString::number(el));
         s.push_back(" ");
     }
     qDebug() << s;
