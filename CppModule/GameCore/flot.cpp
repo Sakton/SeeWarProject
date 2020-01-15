@@ -66,3 +66,4 @@ void Flot::setSelfToField(AbstractField *field)
     for(auto ship : m_ships)
         ship->setSelfToField(field);
 }
+

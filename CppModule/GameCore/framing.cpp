@@ -78,12 +78,17 @@ void Framing::createFraming()
     this->setSelfToField( m_field );
 }
 
+//можно ли поставить в клетку при условиях для установки
 bool Framing::emptyCellField(int index)
 {
-    //TODO сравнивать родителей ???
+    //TODO изменения тут
     if( index < 0 ) return false;
     auto t = m_field->getFieldElementCell( index )->figure();
-    return ( dynamic_cast<EmptyCell *>( t ) != nullptr );
+    //Если фигура на клетке пустая клетка
+    bool p1 = dynamic_cast<EmptyCell *>( t ) != nullptr;
+    //Если родитель старой запрещенной клетки тот же
+    bool p2 = (t->parent() == this);
+    return ( p1 || p2 );
 }
 
 void Framing::appointIndexesToForbiddenCell()

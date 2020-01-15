@@ -30,7 +30,6 @@ SOURCES += \
 	CppModule/Model/abstractfield.cpp \
 	CppModule/Model/abstractfieldelement.cpp \
 	CppModule/Model/abstractgamefigure.cpp \
-	CppModule/Model/arragementmodel.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
 	QmlModule/cpp/guiloader.cpp \
@@ -80,7 +79,6 @@ HEADERS += \
 	CppModule/Model/abstractfield.h \
 	CppModule/Model/abstractfieldelement.h \
 	CppModule/Model/abstractgamefigure.h \
-	CppModule/Model/arragementmodel.h \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \

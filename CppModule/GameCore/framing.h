@@ -28,6 +28,7 @@ public:
 //    void reloadFraming();
 
 private:
+    //можно ли поставить в клетку при условиях для установки
     bool emptyCellField (int index);
     void appointIndexesToForbiddenCell();
     void createForbiddemCellElements(int countpalubs);

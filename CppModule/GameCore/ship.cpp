@@ -58,10 +58,11 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     int k = (m_angle == 90) ? Config::NUM_COL : 1;
     bool res = true;
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
-        //TODO сравнивать родителей ???
+        //фигура на клетке - не пустая клетка
         bool p1 = ( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr );
-        bool p2 = ( m_field->getFieldElementCell(i)->figure()->parent() == m_framing );
-        if( !p2 && p1 ) {
+        //родитель установленной фигуры - не своя обводка
+        bool p2 = ( m_field->getFieldElementCell(i)->figure()->parent() != m_framing );
+        if( p2 && p1 ) {
             res = false;
             break;
         }

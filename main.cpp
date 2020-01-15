@@ -6,7 +6,6 @@
 #include <QDir>
 #include <QDebug>
 #include "CppModule/Model/field.h"
-#include "CppModule/Model/arragementmodel.h"
 
 #else
 #endif
