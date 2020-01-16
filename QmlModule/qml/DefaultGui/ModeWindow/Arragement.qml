@@ -109,8 +109,12 @@ InterfaceWindowSignals {
                     Layout.fillHeight: true
 
                     onClickedButtonOnBlock: {
-                        buttonMenuClicked(idBtn )
-                        console.debug("idBtn = " << idBtn )
+                        //TODO что-то тут не так!!!
+                        Setting.modelFlot.resetAll();
+                        console.debug("click " )
+                        var ttt = idBtn
+                        console.debug("idBtn = " <<  idBtn)
+                        buttonMenuClicked(idBtn)
                     }
                 }
             } //ColumnLayout

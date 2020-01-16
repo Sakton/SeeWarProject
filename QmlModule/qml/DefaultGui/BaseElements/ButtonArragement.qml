@@ -34,7 +34,7 @@ BasicButtonClass {
         color: parent.color
     }
 
-    function pointZakraska(){
+    function pointZakraska() {
         switch( idBtn ) {
         case Setting.MyEnumButton.BUTTON_GAME:
             return Qt.point(0,0)
