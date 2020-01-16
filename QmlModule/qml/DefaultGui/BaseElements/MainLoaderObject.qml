@@ -35,7 +35,7 @@ QtObject {
             console.log("Load Editing_Window")
             break;
         case Setting.MyEnumButton.BUTTON_DISCHARGE:
-            console.log("Reload Arragement Window")
+            Setting.modelFlot.resetAll();
             break;
         case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
             console.log("Call AoutoAligment Function")

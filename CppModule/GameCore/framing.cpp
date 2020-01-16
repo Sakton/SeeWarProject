@@ -92,7 +92,6 @@ void Framing::resetAll()
 //можно ли поставить в клетку при условиях для установки
 bool Framing::emptyCellField(int index)
 {
-    //TODO изменения тут
     if( index < 0 ) return false;
     auto t = m_field->getFieldElementCell( index )->figure();
     //Если фигура на клетке пустая клетка

@@ -28,7 +28,6 @@ public:
 
 public slots:
     //возврат к первоначальному состоянию
-    //TODO ПРИСОЕДИНИТЬ КНОПКУ К ЭТОМУ СИГНАЛУ
     void resetAll();
 
 private:

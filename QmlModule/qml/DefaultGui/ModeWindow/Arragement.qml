@@ -109,7 +109,7 @@ InterfaceWindowSignals {
                     Layout.fillHeight: true
 
                     onClickedButtonOnBlock: {
-                        buttonMenuClicked(idBtn)
+                        buttonMenuClicked(idBtn )
                     }
                 }
             } //ColumnLayout
