@@ -110,11 +110,11 @@ InterfaceWindowSignals {
 
                     onClickedButtonOnBlock: {
                         //TODO что-то тут не так!!!
-                        Setting.modelFlot.resetAll();
-                        console.debug("click " )
-                        var ttt = idBtn
-                        console.debug("idBtn = " <<  idBtn)
+                        console.log("idbtn = " + idBtn)
                         buttonMenuClicked(idBtn)
+                        if(idBtn === Setting.MyEnumButton.BUTTON_DISCHARGE) {
+                            //TODO Воздействуем на стопку
+                        }
                     }
                 }
             } //ColumnLayout
