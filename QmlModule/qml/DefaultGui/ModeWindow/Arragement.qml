@@ -110,6 +110,7 @@ InterfaceWindowSignals {
 
                     onClickedButtonOnBlock: {
                         buttonMenuClicked(idBtn )
+                        console.debug("idBtn = " << idBtn )
                     }
                 }
             } //ColumnLayout

@@ -9,19 +9,21 @@ BasicButtonBlockModes {
     modelTopPodBlock: [
         {idBtn : Setting.MyEnumButton.BUTTON_GAME,
             name : Setting.buttonName_GAME,
-            urlImg : Setting.img_PLAY},
+            urlImg : Setting.img_PLAY}/*,
         { idBtn : Setting.MyEnumButton.BUTTON_EDITING,
             name : Setting.buttonName_CORRECT,
             urlImg : Setting.img_CORRECT
-        }]
+        }*/
+    ]
 
     modelBottomPodBlock:[
         {idBtn : Setting.MyEnumButton.BUTTON_DISCHARGE,
             name : Setting.buttonName_CLEAR,
-            urlImg : Setting.img_CLEAR},
+            urlImg : Setting.img_CLEAR}/*,
         {idBtn : Setting.MyEnumButton.BUTTON_AUTOALIGMENT,
             name : Setting.buttonName_AUTOALIGNMENT,
             urlImg : Setting.img_AUTOALIGMENT
-        }]
+        }*/
+    ]
 }
 

@@ -9,18 +9,20 @@ BasicButtonBlockModes {
     modelTopPodBlock: [
         {idBtn : Setting.MyEnumButton.BUTTON_RESERVE,
             name : ""/*Setting.buttonName_GAME*/,
-            urlImg : "" /*Setting.img_PLAY*/},
-        { idBtn : Setting.MyEnumButton.BUTTON_RESERVE,
-            name : ""/*Setting.buttonName_CORRECT*/,
-            urlImg : ""/*Setting.img_CORRECT*/
-        }]
+            urlImg : "" /*Setting.img_PLAY*/} //,
+//        { idBtn : Setting.MyEnumButton.BUTTON_RESERVE,
+//            name : ""/*Setting.buttonName_CORRECT*/,
+//            urlImg : ""/*Setting.img_CORRECT*/
+//        }
+    ]
 
-    modelBottomPodBlock:[
+    modelBottomPodBlock: [
         {idBtn : Setting.MyEnumButton.BUTTON_AGAIN,
             name : Setting.buttonName_AGAIN,
             urlImg : Setting.img_POVTOR},
         {idBtn : Setting.MyEnumButton.BUTTON_BACK,
             name : Setting.buttonName_MENU,
             urlImg : Setting.img_MENU
-        }]
+        }
+    ]
 }
