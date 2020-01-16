@@ -75,6 +75,7 @@ void Ship::fillIndexes( int firstIndex )
     //Если палубы расставлены, то сбрасываем себя из занятых полей
     if( !m_palubs.empty() ) {
         resetSelfToField();
+        m_framing->resetSelfToField();
     }
     //если клетки вмещаются
     if( controlVmestimostiInField( firstIndex ) ) {

@@ -36,6 +36,7 @@ QtObject {
             break;
         case Setting.MyEnumButton.BUTTON_DISCHARGE:
             Setting.modelFlot.resetAll();
+            createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
             console.log("Call AoutoAligment Function")

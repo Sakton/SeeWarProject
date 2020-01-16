@@ -110,11 +110,7 @@ InterfaceWindowSignals {
 
                     onClickedButtonOnBlock: {
                         //TODO что-то тут не так!!!
-                        console.log("idbtn = " + idBtn)
                         buttonMenuClicked(idBtn)
-                        if(idBtn === Setting.MyEnumButton.BUTTON_DISCHARGE) {
-                            //TODO Воздействуем на стопку
-                        }
                     }
                 }
             } //ColumnLayout

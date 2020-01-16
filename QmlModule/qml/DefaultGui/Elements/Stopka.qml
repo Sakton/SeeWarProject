@@ -15,6 +15,14 @@ StackView {
     //    Component.onCompleted: create()
     signal selectElementType(int typeElement)
 
+    //********
+    property var myModel: null
+    //********
+
+    onMyModelChanged: {
+        _repeater.model = myModel
+    }
+
     Repeater {
         id: _repeater
         model: Setting.modelFlot
