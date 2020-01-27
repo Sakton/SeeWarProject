@@ -1,4 +1,4 @@
-QT += quick
+QT += quick network
 
 CONFIG += c++1z
 CONFIG += resources_big
@@ -25,6 +25,7 @@ SOURCES += \
 	CppModule/GameCore/flot.cpp \
 	CppModule/GameCore/forbiddencell.cpp \
 	CppModule/GameCore/framing.cpp \
+	CppModule/GameCore/gamelogik.cpp \
 	CppModule/GameCore/paluba.cpp \
 	CppModule/GameCore/ship.cpp \
 	CppModule/Model/abstractfield.cpp \
@@ -32,6 +33,7 @@ SOURCES += \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
+	NetModule/gametcpclient.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -74,6 +76,7 @@ HEADERS += \
 	CppModule/GameCore/flot.h \
 	CppModule/GameCore/forbiddencell.h \
 	CppModule/GameCore/framing.h \
+	CppModule/GameCore/gamelogik.h \
 	CppModule/GameCore/paluba.h \
 	CppModule/GameCore/ship.h \
 	CppModule/Model/abstractfield.h \
@@ -82,6 +85,7 @@ HEADERS += \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \
+	NetModule/gametcpclient.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
