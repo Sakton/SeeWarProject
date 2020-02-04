@@ -3,6 +3,13 @@
 #include <iostream>
 #include "emptycell.h"
 
+const char* Ship::images[]{
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"
+};
+
 Ship::Ship(int countPalub, int angle, QObject *parent)
     : AbstractGameFigure(parent),
     m_countLifePalub{countPalub},
@@ -14,7 +21,9 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     m_framing{nullptr}
 {
     for(int i = 1; i <= countPalub; ++i ) {
-        m_palubs.push_back(new Paluba(this, i, this));
+        auto palub = new Paluba(this, i, this);
+        palub->setResourceImg(QString(images[i - 1]));
+        m_palubs.push_back(palub);
     }
     m_framing = new Framing(this, this);
 }

@@ -7,9 +7,10 @@ BasicButtonBlockModes {
     width: 100
     height: 230
     modelTopPodBlock: [
-//        {idBtn : Setting.MyEnumButton.BUTTON_RESERVE,
-//            name : ""/*Setting.buttonName_GAME*/,
-//            urlImg : "" /*Setting.img_PLAY*/}
+        {idBtn : Setting.MyEnumButton.BUTTON_AUTOALIGMENT,
+            name : Setting.buttonName_AUTOALIGNMENT,
+            urlImg : Setting.img_AUTOALIGMENT
+        }
         /*{idBtn : Setting.MyEnumButton.BUTTON_GAME,
             name : Setting.buttonName_GAME,
             urlImg : Setting.img_PLAY},

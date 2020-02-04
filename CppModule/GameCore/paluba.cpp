@@ -3,9 +3,11 @@
 
 Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
     : AbstractGameFigure(parent),
-      m_ship{ship},
-      m_numberPalub{numberPalub},
-      m_currentIndexOfModel{-1}
+    m_ship{ship},
+    m_numberPalub{numberPalub},
+    m_color{"#fffc00"},
+    m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"},
+    m_currentIndexOfModel{-1}
 {
 
 }
@@ -38,4 +40,10 @@ void Paluba::setCurrentIndexOfModel(int currentIndexOfModel)
 {
     m_currentIndexOfModel = currentIndexOfModel;
 }
+
+void Paluba::setResourceImg(const QString &image)
+{
+    m_resourceImg = image;
+}
+
 

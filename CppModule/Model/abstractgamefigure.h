@@ -12,6 +12,7 @@ public:
     virtual ~AbstractGameFigure();
     virtual QColor getColor() = 0;
     virtual QString getResourceImg() = 0;
+    virtual int getRotateAngleFigure() = 0;
     virtual void setSelfToField(AbstractField *field) = 0;
     virtual void resetSelfToField() = 0;
 };

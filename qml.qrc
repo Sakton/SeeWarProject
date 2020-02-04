@@ -59,5 +59,7 @@
         <file>QmlModule/qml/DefaultGui/img/menu.png</file>
         <file>QmlModule/qml/DefaultGui/img/Povtor.png</file>
         <file>QmlModule/qml/DefaultGui/Elements/DelegatesField/EmptyFieldDelegate.qml</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png</file>
+        <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png</file>
     </qresource>
 </RCC>

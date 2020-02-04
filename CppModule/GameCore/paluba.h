@@ -21,14 +21,14 @@ public:
 
     int getCurrentIndexOfModel() const;
     void setCurrentIndexOfModel(int currentIndexOfModel);
-    void setImage(const QImage &image);
+    void setResourceImg(const QString &image);
 
 
 private:
     Ship *m_ship;
     int m_numberPalub;
-    QColor m_color{"#fffc00"};
-    QString m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"};
+    QColor m_color;
+    QString m_resourceImg;
     int m_currentIndexOfModel;
 };
 

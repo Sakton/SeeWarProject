@@ -20,28 +20,28 @@ Item {
     Canvas {
         id: _mycanvas
         anchors.fill: parent
+        renderStrategy: Canvas.Threaded
+
         onPaint: {
             var ctx = getContext("2d")
-            ctx.setLineDash([1, 5]); //установка линии из точечек
+            ctx.setLineDash([1, 3]); //установка линии из точек
             ctx.strokeStyle = colorCell
             ctx.strokeRect( 0, 0, _root.width + 1, _root.height + 1)
         }
 
         //***для теста
-        Rectangle {
-            anchors.fill: parent
-            color: colorCell
+        //        Rectangle {
+        //            anchors.fill: parent
+        //            color: colorCell
 
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                color: "black"
-                //color: colorCell
-                //color: Setting.styleTextColor
-                font.pixelSize: parent.width / 3
-                text: indexElement
-            }
-        }
+        //            Text {
+        //                anchors.horizontalCenter: parent.horizontalCenter
+        //                anchors.verticalCenter: parent.verticalCenter
+        //                color: Setting.styleTextColor
+        //                font.pixelSize: parent.width / 3
+        //                text: indexElement
+        //            }
+        //        }
 
         //*****
 //        Image {
@@ -58,7 +58,47 @@ Item {
 //                font.pixelSize: parent.width / 3
 //                text: indexElement
 //            }
+
 //        } //Image
-        //*****
+//        //*****
     }
+
+//    Canvas {
+
+//        id: _mycanvas_1
+//        width: parent.width - 5
+//        height: parent.height - 5
+//        x: 5
+//        y: 5
+
+//        onPaint: {
+////            var ctx = getContext("2d")
+////            ctx.setLineDash([1, 1]); //установка линии из точек
+////            ctx.strokeStyle = colorCell
+////            ctx.strokeRect( 5, 5, _root.width / 2, _root.height / 2)
+//            ctx.drawImage(imageResource)
+
+//        }
+//    }
+
+    //*****
+    Image {
+        //anchors.fill: parent
+        width: parent.width - parent.width / 10
+        height: parent.height - parent.height / 10
+        source: imageResource
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
+        Text {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            //color: colorCell
+            color: Setting.styleTextColor
+            font.pixelSize: parent.width / 3
+            text: indexElement
+        }
+
+    } //Image
+    //*****
 }

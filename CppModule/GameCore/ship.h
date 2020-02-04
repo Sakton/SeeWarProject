@@ -50,6 +50,7 @@ signals:
     void indexesPalubsChanged();
 
 private:
+    static const char* images[];
     int m_countLifePalub;
     QString resourceImg;
     int m_countPalub;

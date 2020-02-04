@@ -13,8 +13,6 @@ Rectangle {
     property var modelBottomPodBlock: null
     signal clickedButtonOnBlock(int idBtn)
 
-
-
     ColumnLayout {
         id: _container
         anchors.fill: parent

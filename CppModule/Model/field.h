@@ -13,7 +13,8 @@ public:
         IndexElementRole = Qt::UserRole,
         ColorRole,
         ImageResourceRole,
-        PointerObjectCellRole
+        AngleRotationFigure
+
     };
 
     explicit Field(QObject *parent = nullptr);
