@@ -20,9 +20,12 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     oldAngle{-1},
     m_framing{nullptr}
 {
-    for(int i = 1; i <= countPalub; ++i ) {
+    for(int i = 1, j = 4 - countPalub; i <= countPalub; ++i, ++j ) {
         auto palub = new Paluba(this, i, this);
-        palub->setResourceImg(QString(images[i - 1]));
+        if(countPalub != 1)
+        palub->setResourceImg(QString(images[j]));
+        else
+        palub->setResourceImg(QString(images[0]));
         m_palubs.push_back(palub);
     }
     m_framing = new Framing(this, this);
@@ -69,7 +72,7 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
         //фигура на клетке - не пустая клетка
         bool p1 = ( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr );
-        //родитель установленной фигуры - не своя обводка
+        //родитель установленной фигуры - не своя обводка (обводка другого корабля)
         bool p2 = ( m_field->getFieldElementCell(i)->figure()->parent() != m_framing );
         if( p2 && p1 ) {
             res = false;
@@ -159,6 +162,11 @@ void Ship::resetSelfToField()
 {
     for(auto idx : m_indexesPalubs)
         m_field->getFieldElementCell(idx)->resetToBaseState();
+}
+
+int Ship::getRotateAngleFigure()
+{
+    return getAngle();
 }
 
 

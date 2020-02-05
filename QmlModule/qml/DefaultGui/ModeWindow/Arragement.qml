@@ -109,7 +109,6 @@ InterfaceWindowSignals {
                     Layout.fillHeight: true
 
                     onClickedButtonOnBlock: {
-                        //TODO что-то тут не так!!!
                         buttonMenuClicked(idBtn)
                     }
                 }

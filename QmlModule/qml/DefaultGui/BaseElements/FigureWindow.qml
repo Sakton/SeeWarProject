@@ -19,12 +19,12 @@ Item {
     property int selfIndex: 0
 
     onCurrentIndexChanged: {
-        //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
+        //NOTE ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipFirstIndex = currentIndex
     }
 
     onCurrentAngleChanged: {
-        //ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
+        //NOTE ВОТ ТУТ СЭТ ДАТА В МОДЕЛИ
         model.currentThisShipAngle = currentAngle
         _rotate.angle = currentAngle
     }

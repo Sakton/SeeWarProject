@@ -19,6 +19,7 @@ public:
     QString getResourceImg() override;
     void setSelfToField ( AbstractField *field ) override;
     void resetSelfToField() override;
+    int getRotateAngleFigure() override;
 
     AbstractField *getField() const;
     void setField(AbstractField *field);
@@ -44,6 +45,7 @@ private:
     std::vector<ForbiddenCell *> m_forbiddenCell;
     std::vector<int> m_forbiddenIndexes;
     AbstractField *m_field;
+
 };
 
 #endif // FRAMING_H

@@ -11,6 +11,7 @@ Item {
     property int stateCell: 0
     property var pointerToObjectCell: null
     property string imageResource: ""
+    property int rotateAngle: 0
 
     onColorCellChanged: {
         //TODO баловство, но может потом
@@ -28,60 +29,16 @@ Item {
             ctx.strokeStyle = colorCell
             ctx.strokeRect( 0, 0, _root.width + 1, _root.height + 1)
         }
-
-        //***для теста
-        //        Rectangle {
-        //            anchors.fill: parent
-        //            color: colorCell
-
-        //            Text {
-        //                anchors.horizontalCenter: parent.horizontalCenter
-        //                anchors.verticalCenter: parent.verticalCenter
-        //                color: Setting.styleTextColor
-        //                font.pixelSize: parent.width / 3
-        //                text: indexElement
-        //            }
-        //        }
-
-        //*****
-//        Image {
-//            //anchors.fill: parent
-//            width: parent.width - parent.width / 10
-//            height: parent.height - parent.height / 10
-//            source: imageResource
-
-//            Text {
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.verticalCenter: parent.verticalCenter
-//                //color: colorCell
-//                color: Setting.styleTextColor
-//                font.pixelSize: parent.width / 3
-//                text: indexElement
-//            }
-
-//        } //Image
-//        //*****
     }
 
-//    Canvas {
+    Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        color: Setting.styleTextColor
+        font.pixelSize: parent.width / 3
+        text: indexElement
+    }
 
-//        id: _mycanvas_1
-//        width: parent.width - 5
-//        height: parent.height - 5
-//        x: 5
-//        y: 5
-
-//        onPaint: {
-////            var ctx = getContext("2d")
-////            ctx.setLineDash([1, 1]); //установка линии из точек
-////            ctx.strokeStyle = colorCell
-////            ctx.strokeRect( 5, 5, _root.width / 2, _root.height / 2)
-//            ctx.drawImage(imageResource)
-
-//        }
-//    }
-
-    //*****
     Image {
         //anchors.fill: parent
         width: parent.width - parent.width / 10
@@ -89,16 +46,6 @@ Item {
         source: imageResource
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            //color: colorCell
-            color: Setting.styleTextColor
-            font.pixelSize: parent.width / 3
-            text: indexElement
-        }
-
-    } //Image
-    //*****
+        rotation: rotateAngle
+    }
 }

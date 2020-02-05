@@ -41,6 +41,8 @@ bool Field::setData(const QModelIndex &index, const QVariant &value, int role)
         return false;
     emit dataChanged(index, index);
     return true;
+    Q_UNUSED(value)
+    Q_UNUSED(role)
 }
 
 QHash<int, QByteArray> Field::roleNames() const

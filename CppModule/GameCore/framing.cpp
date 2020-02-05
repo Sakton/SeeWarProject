@@ -34,6 +34,11 @@ void Framing::resetSelfToField()
     m_forbiddenIndexes.clear();
 }
 
+int Framing::getRotateAngleFigure()
+{
+    return m_ship->getRotateAngleFigure();
+}
+
 AbstractField *Framing::getField() const
 {
     return m_field;

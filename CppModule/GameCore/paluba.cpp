@@ -6,7 +6,7 @@ Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
     m_ship{ship},
     m_numberPalub{numberPalub},
     m_color{"#fffc00"},
-    m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png"},
+    m_resourceImg{},
     m_currentIndexOfModel{-1}
 {
 
@@ -29,6 +29,11 @@ void Paluba::setSelfToField(AbstractField *field)
 
 void Paluba::resetSelfToField()
 {
+}
+
+int Paluba::getRotateAngleFigure()
+{
+    return m_ship->getRotateAngleFigure();
 }
 
 int Paluba::getCurrentIndexOfModel() const

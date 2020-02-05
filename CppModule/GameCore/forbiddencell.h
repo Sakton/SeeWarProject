@@ -19,6 +19,8 @@ public:
     QString getResourceImg() override;
     void setSelfToField( AbstractField *field ) override;
     void resetSelfToField() override;
+    int getRotateAngleFigure() override;
+
     void clear();
     int getSelfIndex() const;
     void setSelfIndex(int value);

@@ -29,6 +29,7 @@ public:
     QString getResourceImg() override;
     void setSelfToField( AbstractField *field ) override;
     void resetSelfToField() override;
+    int getRotateAngleFigure() override;
 
     AbstractField *getField() const;
     void setField( AbstractField *field );
@@ -62,6 +63,7 @@ private:
     int oldIndex;
     int oldAngle;
     Framing *m_framing;
+
 };
 
 #endif // SHIP_H

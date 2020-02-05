@@ -30,6 +30,11 @@ void ForbiddenCell::resetSelfToField()
 {
 }
 
+int ForbiddenCell::getRotateAngleFigure()
+{
+    return m_framing->getRotateAngleFigure();
+}
+
 void ForbiddenCell::clear()
 {
     m_selfIndex = -1;

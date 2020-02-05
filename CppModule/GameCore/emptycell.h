@@ -17,6 +17,7 @@ public:
     QString getResourceImg() override;
     void setSelfToField(AbstractField *field) override;
     void resetSelfToField() override;
+    int getRotateAngleFigure() override;
 
 signals:
     void getColorChanged(QColor getColor);
@@ -28,6 +29,8 @@ public slots:
 private:
     QColor m_color/*{"red"}*/;
     QString m_img/*{""}*/;
+
+
 };
 
 #endif // EMPTYCELL_H

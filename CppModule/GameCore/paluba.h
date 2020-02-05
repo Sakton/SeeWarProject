@@ -17,6 +17,7 @@ public:
     QString getResourceImg() override;
     void setSelfToField(AbstractField *field) override;
     void resetSelfToField() override;
+    int getRotateAngleFigure() override;
 
 
     int getCurrentIndexOfModel() const;
@@ -30,6 +31,7 @@ private:
     QColor m_color;
     QString m_resourceImg;
     int m_currentIndexOfModel;
+
 };
 
 #endif // PALUBA_H

@@ -17,6 +17,7 @@ GridView {
         id: _d
         colorCell: model.colorElement
         imageResource: model.imageResourceCell
+        rotateAngle: model.angleRotationFigure
         height: _grid.cellHeight
 
         indexElement: {

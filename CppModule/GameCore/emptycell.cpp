@@ -30,6 +30,11 @@ void EmptyCell::resetSelfToField()
 
 }
 
+int EmptyCell::getRotateAngleFigure()
+{
+    return {};
+}
+
 void EmptyCell::setImg(QString img)
 {
     if (m_img == img)
