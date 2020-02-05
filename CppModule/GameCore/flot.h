@@ -25,10 +25,12 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 public:
     void setSelfToField(AbstractField *field);
+    void setSelfToFieldAuto(AbstractField *field);
 
 public slots:
     //возврат к первоначальному состоянию
     void resetAll();
+    void autoArragement();
 
 private:
     std::vector<Ship *> m_ships;

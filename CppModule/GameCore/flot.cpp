@@ -1,6 +1,7 @@
 #include "flot.h"
 #include "../Model/config.h"
 #include <QDebug>
+#include <QRandomGenerator>
 
 Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}
 {
@@ -63,13 +64,46 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
 
 void Flot::setSelfToField(AbstractField *field)
 {
-    for(auto ship : m_ships)
-        ship->setSelfToField(field);
+    Q_UNUSED(field)
+}
+
+void Flot::setSelfToFieldAuto(AbstractField *field)
+{
+    Q_UNUSED(field)
 }
 
 void Flot::resetAll()
 {
     for(auto el : m_ships)
         el->resetAll();
+}
+
+void Flot::autoArragement()
+{
+//    resetAll();
+    //std::vector<int> probes(81, 0);
+    QVector<quint32> vector;
+    QRandomGenerator gen;
+    vector.resize(81);
+    gen.fillRange(vector.data(), vector.size());
+    for(auto a : vector)
+        qDebug() << a % 81;
+    //    QRandomGenerator *random = new QRandomGenerator;
+//    for(int i = Config::COUNT_SHIPS - 1; i >= 0; --i) {
+//        bool res = false;
+//        do {
+//            auto ind = QRandomGenerator::global()->generate() % 81;
+//            if(1 == probes[ind]) continue;
+//            else {
+//                res = m_ships[i]->fillIndexes(ind);
+//                if(!res) {
+//                    m_ships[i]->setAngle(90);
+//                    res = m_ships[i]->fillIndexes(ind);
+//                }
+//                probes[ind] = 1;
+//            }
+//        } while (!res);
+//    }
+    //delete random;
 }
 

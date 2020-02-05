@@ -23,9 +23,9 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     for(int i = 1, j = 4 - countPalub; i <= countPalub; ++i, ++j ) {
         auto palub = new Paluba(this, i, this);
         if(countPalub != 1)
-        palub->setResourceImg(QString(images[j]));
+            palub->setResourceImg(QString(images[j]));
         else
-        palub->setResourceImg(QString(images[0]));
+            palub->setResourceImg(QString(images[0]));
         m_palubs.push_back(palub);
     }
     m_framing = new Framing(this, this);
@@ -82,13 +82,23 @@ bool Ship::isPossiblePutInCell(int firstIndex)
     return res;
 }
 
-void Ship::fillIndexes( int firstIndex )
+bool Ship::fillIndexes( int firstIndex )
 {
+    bool res = false;
     //Если палубы расставлены, то сбрасываем себя из занятых полей
+
     if( !m_palubs.empty() ) {
         resetSelfToField();
         m_framing->resetSelfToField();
     }
+
+    qDebug() << "//***********";
+    qDebug() << "firstIndex = " << firstIndex;
+    for( auto m : m_palubs )
+        qDebug() << m->getCurrentIndexOfModel();
+    qDebug() << "//***********";
+
+
     //если клетки вмещаются
     if( controlVmestimostiInField( firstIndex ) ) {
         //и место свободно
@@ -101,11 +111,13 @@ void Ship::fillIndexes( int firstIndex )
             }
             createFraming();
             setSelfToField( m_field );
+            res = true;
         }
     } else {
         //сброс обрамления
         m_framing->resetSelfToField();
     }
+    return res;
 }
 
 int Ship::getAngle() const
@@ -151,6 +163,9 @@ void Ship::resetAll()
 {
     m_framing->resetAll();
     resetSelfToField();
+    //???????
+//    for(auto palub : m_palubs)
+//        palub->setCurrentIndexOfModel(-1);
 }
 
 void Ship::createFraming()
@@ -162,6 +177,9 @@ void Ship::resetSelfToField()
 {
     for(auto idx : m_indexesPalubs)
         m_field->getFieldElementCell(idx)->resetToBaseState();
+    //???????
+//    for(auto palub : m_palubs)
+//        palub->setCurrentIndexOfModel(-1);
 }
 
 int Ship::getRotateAngleFigure()

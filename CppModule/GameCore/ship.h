@@ -21,7 +21,8 @@ public:
     void setAngle( int angle );
     const std::vector<int> getIndexesPalubs() const;
     //главный метод размещения
-    void fillIndexes(int firstIndex);
+    bool fillIndexes(int firstIndex);
+    //void fillIndexes(int firstIndex);
 
     // AbstractGameFigure interface
 public:

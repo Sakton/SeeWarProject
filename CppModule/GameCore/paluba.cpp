@@ -51,4 +51,9 @@ void Paluba::setResourceImg(const QString &image)
     m_resourceImg = image;
 }
 
+int Paluba::getNumberPalub() const
+{
+    return m_numberPalub;
+}
+
 

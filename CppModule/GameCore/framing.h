@@ -43,7 +43,7 @@ private:
 private:
     Ship *m_ship;
     std::vector<ForbiddenCell *> m_forbiddenCell;
-    std::vector<int> m_forbiddenIndexes;
+    std::vector<int> m_forbiddenIndexes; //вспомогательная структура
     AbstractField *m_field;
 
 };

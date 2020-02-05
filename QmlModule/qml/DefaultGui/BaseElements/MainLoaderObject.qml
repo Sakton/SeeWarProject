@@ -39,7 +39,8 @@ QtObject {
             createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
-            console.log("Call AoutoAligment Function")
+            Setting.modelFlot.resetAll();
+            Setting.modelFlot.autoArragement();
             break;
         case Setting.MyEnumButton.BUTTON_REPEAT:
             console.log("Press Button Repeat")
