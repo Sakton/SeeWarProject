@@ -56,4 +56,9 @@ int Paluba::getNumberPalub() const
     return m_numberPalub;
 }
 
+void Paluba::setColor(const QColor &color)
+{
+    m_color = color;
+}
+
 

@@ -6,9 +6,10 @@ int FieldElement::countFieldElements = 0;
 
 FieldElement::FieldElement(AbstractGameFigure *baseSelfEmptyFigure, QObject *parent)
     : AbstractFieldElement(parent),
-      m_figure{baseSelfEmptyFigure},
-      m_BaseSelfEmptyFigure{new EmptyCell(this)},
-      m_index{ countFieldElements++ }
+    m_figure{baseSelfEmptyFigure},
+    m_BaseSelfEmptyFigure{new EmptyCell(this)},
+    m_index{ countFieldElements++ },
+    m_color{}
 {
 
 }

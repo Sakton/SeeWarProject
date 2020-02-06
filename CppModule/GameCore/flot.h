@@ -36,6 +36,8 @@ private:
     std::vector<Ship *> m_ships;
     AbstractField *m_field;
     QHash<int, QByteArray> m_flotRoles;
+    //*****
+    static QColor colorsForTest[10];
 };
 
 #endif // FLOT_H

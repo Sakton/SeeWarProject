@@ -39,7 +39,7 @@ QtObject {
             createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
-            Setting.modelFlot.resetAll();
+            createObject(Setting.window_ARRAGEMENT)
             Setting.modelFlot.autoArragement();
             break;
         case Setting.MyEnumButton.BUTTON_REPEAT:

@@ -23,6 +23,8 @@ public:
     //главный метод размещения
     bool fillIndexes(int firstIndex);
     //void fillIndexes(int firstIndex);
+    void setColor(const QColor &color);
+
 
     // AbstractGameFigure interface
 public:
@@ -31,6 +33,8 @@ public:
     void setSelfToField( AbstractField *field ) override;
     void resetSelfToField() override;
     int getRotateAngleFigure() override;
+    Framing *getFraming() const;
+
 
     AbstractField *getField() const;
     void setField( AbstractField *field );
@@ -47,10 +51,6 @@ public:
     //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу
     bool controlVmestimostiInField(int firstIndex);
 
-signals:
-    void angleChanged();
-    void indexesPalubsChanged();
-
 private:
     static const char* images[];
     int m_countLifePalub;
@@ -64,7 +64,7 @@ private:
     int oldIndex;
     int oldAngle;
     Framing *m_framing;
-
+    QColor m_color;
 };
 
 #endif // SHIP_H

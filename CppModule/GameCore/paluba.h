@@ -24,6 +24,8 @@ public:
     void setCurrentIndexOfModel(int currentIndexOfModel);
     void setResourceImg(const QString &image);
     int getNumberPalub() const;
+    void setColor(const QColor &color);
+
 
     private:
     Ship *m_ship;

@@ -13,6 +13,9 @@ class Framing : public AbstractGameFigure
 public:
     Framing( Ship *ship, QObject *parent = nullptr );
 
+    std::vector<int> getForbiddenIndexes() const;
+
+
     // AbstractGameFigure interface
 public:
     QColor getColor() override;
@@ -28,7 +31,7 @@ public:
     //возврат к первоначальному состоянию
     void resetAll();
 
-private:
+    private:
     //можно ли поставить в клетку при условиях для установки
     bool emptyCellField (int index);
     void appointIndexesToForbiddenCell();

@@ -29,6 +29,7 @@ void Framing::resetSelfToField()
     for( auto obj : m_forbiddenCell )
         obj->clear();
     for( int idx : m_forbiddenIndexes )
+        //TODO тут!!! в массиве есть лишние элеменнты которые и сносят???
         if(idx >= 0) // !!!!!!!!!!!!!!!!!
             m_field->getFieldElementCell( idx )->resetToBaseState();
     m_forbiddenIndexes.clear();
@@ -73,6 +74,11 @@ void Framing::setIndexesVertically(int index, int len)
 {
     for (int i = index; i < index + len * Config::NUM_COL; i += Config::NUM_COL)
         m_forbiddenIndexes.push_back(i);
+}
+
+std::vector<int> Framing::getForbiddenIndexes() const
+{
+    return m_forbiddenIndexes;
 }
 
 void Framing::createFraming()

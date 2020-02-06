@@ -34,7 +34,8 @@ public slots:
 
 private:
     QHash<int, QByteArray> roleHash;
-    std::vector<AbstractFieldElement *> m_field;
+//    std::vector<AbstractFieldElement *> m_field;
+    std::vector<FieldElement *> m_field;
     int m_state;
 };
 

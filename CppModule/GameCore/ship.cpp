@@ -18,7 +18,8 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     m_field{nullptr},
     oldIndex{-1},
     oldAngle{-1},
-    m_framing{nullptr}
+    m_framing{nullptr},
+    m_color{"#00000000"}
 {
     for(int i = 1, j = 4 - countPalub; i <= countPalub; ++i, ++j ) {
         auto palub = new Paluba(this, i, this);
@@ -57,6 +58,18 @@ bool Ship::controlVmestimostiInField(int firstIndex)
     return (endRowCell < Config::NUM_ROW && endColCell < Config::NUM_COL);
 }
 
+void Ship::setColor(const QColor &color)
+{
+    m_color = color;
+    for(auto el : m_palubs)
+        el->setColor(m_color);
+}
+
+Framing *Ship::getFraming() const
+{
+    return m_framing;
+}
+
 const std::vector<int> Ship::getIndexesPalubs() const
 {
     return m_indexesPalubs;
@@ -64,22 +77,16 @@ const std::vector<int> Ship::getIndexesPalubs() const
 
 bool Ship::isPossiblePutInCell(int firstIndex)
 {
-    if(firstIndex > Config::COUNT_CELL - m_countPalub) {
-        return false;
-    }
+    if(firstIndex > Config::COUNT_CELL - m_countPalub) return false;
     int k = (m_angle == 90) ? Config::NUM_COL : 1;
-    bool res = true;
     for(int i = firstIndex, j = 0; j < m_countPalub; i += k, ++j) {
         //фигура на клетке - не пустая клетка
         bool p1 = ( dynamic_cast<EmptyCell*>( m_field->getFieldElementCell(i)->figure() ) == nullptr );
         //родитель установленной фигуры - не своя обводка (обводка другого корабля)
         bool p2 = ( m_field->getFieldElementCell(i)->figure()->parent() != m_framing );
-        if( p2 && p1 ) {
-            res = false;
-            break;
-        }
+        if( p2 && p1 ) return false;
     }
-    return res;
+    return true;
 }
 
 bool Ship::fillIndexes( int firstIndex )
@@ -96,7 +103,6 @@ bool Ship::fillIndexes( int firstIndex )
     qDebug() << "firstIndex = " << firstIndex;
     for( auto m : m_palubs )
         qDebug() << m->getCurrentIndexOfModel();
-    qDebug() << "//***********";
 
 
     //если клетки вмещаются
@@ -163,9 +169,7 @@ void Ship::resetAll()
 {
     m_framing->resetAll();
     resetSelfToField();
-    //???????
-//    for(auto palub : m_palubs)
-//        palub->setCurrentIndexOfModel(-1);
+    m_angle = 0;
 }
 
 void Ship::createFraming()
@@ -177,9 +181,8 @@ void Ship::resetSelfToField()
 {
     for(auto idx : m_indexesPalubs)
         m_field->getFieldElementCell(idx)->resetToBaseState();
-    //???????
-//    for(auto palub : m_palubs)
-//        palub->setCurrentIndexOfModel(-1);
+    for(auto palub : m_palubs)
+        palub->setCurrentIndexOfModel(-1);
 }
 
 int Ship::getRotateAngleFigure()

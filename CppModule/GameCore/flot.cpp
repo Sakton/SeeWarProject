@@ -2,12 +2,28 @@
 #include "../Model/config.h"
 #include <QDebug>
 #include <QRandomGenerator>
+#include <iostream>
+
+QColor Flot::colorsForTest[10] {
+    QColor("violet"),
+    QColor("turquoise"),
+    QColor("tomato"),
+    QColor("thistle"),
+    QColor("teal"),
+    QColor("tan"),
+    QColor("steelblue"),
+    QColor("springgreen"),
+    QColor("rosybrown"),
+    QColor("plum")
+};
 
 Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}
 {
+    int colorIdx = 0;
     for(int i = 1; i <= 4; i++) {
         for(int j = i; j <= 4; ++j) {
             Ship *t = new Ship(i, 0, this);
+            t->setColor(colorsForTest[colorIdx++]);
             t->setResourceImg(Config::imgShips.at(i - 1));
             t->setField(field);
             m_ships.push_back(t);
@@ -80,30 +96,25 @@ void Flot::resetAll()
 
 void Flot::autoArragement()
 {
-//    resetAll();
-    //std::vector<int> probes(81, 0);
-    QVector<quint32> vector;
-    QRandomGenerator gen;
-    vector.resize(81);
-    gen.fillRange(vector.data(), vector.size());
-    for(auto a : vector)
-        qDebug() << a % 81;
-    //    QRandomGenerator *random = new QRandomGenerator;
-//    for(int i = Config::COUNT_SHIPS - 1; i >= 0; --i) {
-//        bool res = false;
-//        do {
-//            auto ind = QRandomGenerator::global()->generate() % 81;
-//            if(1 == probes[ind]) continue;
-//            else {
-//                res = m_ships[i]->fillIndexes(ind);
-//                if(!res) {
-//                    m_ships[i]->setAngle(90);
-//                    res = m_ships[i]->fillIndexes(ind);
-//                }
-//                probes[ind] = 1;
-//            }
-//        } while (!res);
-//    }
-    //delete random;
+    resetAll();
+    std::vector<int> probes(81, 0);
+    for(int i = Config::COUNT_SHIPS - 1; i >= 0; --i) {
+        bool res = false;
+        do {
+            auto ind = QRandomGenerator::global()->generate() % 81;
+            if(0 == probes[ind]) {
+                int angle = (ind % 2 == 0) ? 0 : 90;
+                m_ships[i]->setAngle(angle);
+                res = m_ships[i]->fillIndexes(ind);
+                if(res) {
+                    for(auto idx : m_ships[i]->getIndexesPalubs())
+                        probes[idx] = 1;
+                    for(auto idx_framing : m_ships[i]->getFraming()->getForbiddenIndexes())
+                        if(idx_framing >= 0)
+                            probes[idx_framing] = 1;
+                }
+            }
+        } while (!res);
+    }
 }
 

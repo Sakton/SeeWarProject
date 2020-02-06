@@ -57,7 +57,6 @@ AbstractFieldElement *Field::getFieldElementCell(int index)
 
 void Field::figureChangedSlot(int index)
 {
-//    qDebug() << "dataChanged index  = " << index;
     auto ind = QAbstractItemModel::createIndex(index, 0);
     emit dataChanged(ind, ind);
 }
@@ -67,7 +66,7 @@ void Field::initField()
     for(int i = 0; i < Config::COUNT_CELL; ++i) {
         auto el = new FieldElement(nullptr, this);
         connect(el, static_cast<void (FieldElement::*)(int)>(&FieldElement::figureChanged),
-                this, static_cast<void(Field::*)(int)>(&Field::figureChangedSlot));
+            this, static_cast<void(Field::*)(int)>(&Field::figureChangedSlot));
         m_field.push_back(el);
     }
 }
