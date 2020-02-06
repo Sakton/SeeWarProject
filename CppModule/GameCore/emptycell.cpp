@@ -1,6 +1,6 @@
 #include "emptycell.h"
 
-EmptyCell::EmptyCell(QObject *parent) : AbstractGameFigure(parent), m_color{"#fffc00"}, m_img{}
+EmptyCell::EmptyCell(QObject *parent) : AbstractGameFigure(parent), m_color{"#00000000"}, m_img{}
 {
 // "#00000000" - черный прозрачный
 }
