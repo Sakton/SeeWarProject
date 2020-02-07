@@ -121,7 +121,7 @@ bool Ship::fillIndexes( int firstIndex )
         }
     } else {
         //сброс обрамления
-        m_framing->resetSelfToField();
+        //m_framing->resetSelfToField();
     }
     return res;
 }
@@ -183,6 +183,7 @@ void Ship::resetSelfToField()
         m_field->getFieldElementCell(idx)->resetToBaseState();
     for(auto palub : m_palubs)
         palub->setCurrentIndexOfModel(-1);
+    m_indexesPalubs.clear();
 }
 
 int Ship::getRotateAngleFigure()
