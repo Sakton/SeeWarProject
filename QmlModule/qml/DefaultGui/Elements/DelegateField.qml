@@ -31,10 +31,11 @@ Item {
         }
     }
 
-    Rectangle {
-        anchors.fill: parent
-        color: colorCell
-    }
+// for tests
+//    Rectangle {
+//        anchors.fill: parent
+//        color: colorCell
+//    }
 
     Text {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -44,14 +45,14 @@ Item {
         text: indexElement
     }
 
-//    Image {
-//        //anchors.fill: parent
-//        cache: true
-//        width: parent.width - parent.width / 10
-//        height: parent.height - parent.height / 10
-//        source: imageResource
-//        anchors.horizontalCenter: parent.horizontalCenter
-//        anchors.verticalCenter: parent.verticalCenter
-//        rotation: rotateAngle
-//    }
+    Image {
+        //anchors.fill: parent
+        cache: true
+        width: parent.width - parent.width / 10
+        height: parent.height - parent.height / 10
+        source: imageResource
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        rotation: rotateAngle
+    }
 }
