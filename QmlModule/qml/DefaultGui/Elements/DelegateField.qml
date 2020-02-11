@@ -14,7 +14,7 @@ Item {
     property int rotateAngle: 0
 
     onColorCellChanged: {
-        //TODO баловство, но может потом
+        //NOTE баловство, но может потом
         _mycanvas.requestPaint()
     }
 

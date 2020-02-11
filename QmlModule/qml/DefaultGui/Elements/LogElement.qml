@@ -58,7 +58,7 @@ Item {
                 text: text
                 readOnly: true
                 onTextChanged: {
-                    //FIXME
+                    //NOTE
                     //Это влияет на поведение скроллбара скроллвиева, чтоб курсор оставался в 0, тогда
                     //полоса прокрутки стоит на месте
                     cursorPosition = 0

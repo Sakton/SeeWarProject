@@ -33,6 +33,7 @@ SOURCES += \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
+	NetModule/abstractquery.cpp \
 	NetModule/gametcpclient.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
@@ -69,6 +70,7 @@ DISTFILES += \
 	android/gradlew \
 	android/gradlew.bat \
 	android/res/values/libs.xml \
+	protocolToExchangeServer \
 	trrttr
 
 HEADERS += \
@@ -85,6 +87,7 @@ HEADERS += \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \
+	NetModule/abstractquery.h \
 	NetModule/gametcpclient.h \
 	QmlModule/cpp/guiloader.h
 

@@ -17,6 +17,9 @@ namespace Config {
         "qrc:/QmlModule/qml/DefaultGui/img/3xb1.png",
         "qrc:/QmlModule/qml/DefaultGui/img/4xb1.png"
     };
+
+    const QString GAME_SERVER_HOST{"127.0.0.1"};
+    const quint16 GAME_SERVER_PORT{2323};
 }
 
 

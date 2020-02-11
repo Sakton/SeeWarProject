@@ -92,7 +92,6 @@ InterfaceWindowSignals {
                         visible: false
 
                         onButtonOK: {
-                            //TODO подтверждение выбора
                             if(_stopka.currentItem.selfIndex === 0)
                                 _stopka.clear()
                             _stopka.pop()

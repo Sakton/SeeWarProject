@@ -99,12 +99,6 @@ bool Ship::fillIndexes( int firstIndex )
         m_framing->resetSelfToField();
     }
 
-    qDebug() << "//***********";
-    qDebug() << "firstIndex = " << firstIndex;
-    for( auto m : m_palubs )
-        qDebug() << m->getCurrentIndexOfModel();
-
-
     //если клетки вмещаются
     if( controlVmestimostiInField( firstIndex ) ) {
         //и место свободно
@@ -119,9 +113,6 @@ bool Ship::fillIndexes( int firstIndex )
             setSelfToField( m_field );
             res = true;
         }
-    } else {
-        //сброс обрамления
-        //m_framing->resetSelfToField();
     }
     return res;
 }

@@ -22,7 +22,6 @@ public:
     const std::vector<int> getIndexesPalubs() const;
     //главный метод размещения
     bool fillIndexes(int firstIndex);
-    //void fillIndexes(int firstIndex);
     void setColor(const QColor &color);
 
 
