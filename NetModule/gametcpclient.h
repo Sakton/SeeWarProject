@@ -2,7 +2,7 @@
 #define GAMETCPCLIENT_H
 #include <QTcpSocket>
 #include <QObject>
-#include "abstractquery.h"
+#include "myabstractquery.h"
 
 
 class GameTcpClient : public QObject

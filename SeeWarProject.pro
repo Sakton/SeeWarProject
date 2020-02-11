@@ -33,8 +33,8 @@ SOURCES += \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
-	NetModule/abstractquery.cpp \
 	NetModule/gametcpclient.cpp \
+	NetModule/myabstractquery.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -87,8 +87,8 @@ HEADERS += \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \
-	NetModule/abstractquery.h \
 	NetModule/gametcpclient.h \
+	NetModule/myabstractquery.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
