@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "CppModule/Model/field.h"
 #include "NetModule/gametcpclient.h"
+#include "NetModule/gameudpclient.h"
 #include "CppModule/Model/config.h"
 
 #else
@@ -18,7 +19,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     //TODO GameLogik();
-    GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
+    //GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
+    GameUdpClient("127.0.0.1", 2424, &app);
+
 
     QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
     QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };

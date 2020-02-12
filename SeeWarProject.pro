@@ -34,6 +34,7 @@ SOURCES += \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
 	NetModule/gametcpclient.cpp \
+	NetModule/gameudpclient.cpp \
 	NetModule/myabstractquery.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
@@ -88,6 +89,7 @@ HEADERS += \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \
 	NetModule/gametcpclient.h \
+	NetModule/gameudpclient.h \
 	NetModule/myabstractquery.h \
 	QmlModule/cpp/guiloader.h
 

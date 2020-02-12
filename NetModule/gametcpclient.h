@@ -2,6 +2,8 @@
 #define GAMETCPCLIENT_H
 #include <QTcpSocket>
 #include <QObject>
+//#include <QNetworkAccessManager>
+
 #include "myabstractquery.h"
 
 
@@ -23,6 +25,7 @@ private:
     quint16 m_sizeData;
     quint16 m_port;
     QTcpSocket *m_tcpSocket;
+ //   QNetworkAccessManager *m_manager;
 };
 
 #endif // GAMETCPCLIENT_H

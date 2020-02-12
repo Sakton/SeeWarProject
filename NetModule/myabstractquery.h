@@ -8,7 +8,6 @@ class MyAbstractQuery
 public:
     virtual ~MyAbstractQuery();
     virtual QString toQstring() = 0;
-
 };
 
 #endif // ABSTRACTQUERY_H
