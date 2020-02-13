@@ -15,6 +15,7 @@ public slots:
 
 private:
     QUdpSocket *m_udpSocket;
+
 };
 
 #endif // GAMEUDPCLIENT_H

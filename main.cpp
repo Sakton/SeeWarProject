@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     //TODO GameLogik();
     //GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
-    GameUdpClient("127.0.0.1", 2424, &app);
+    GameUdpClient("127.0.0.1", 50081, &app);
 
 
     QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
