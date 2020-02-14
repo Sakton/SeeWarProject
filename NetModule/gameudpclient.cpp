@@ -2,13 +2,13 @@
 #include <QDataStream>
 #include <QByteArray>
 #include <QNetworkDatagram>
-#include <QtWidgets/QMessageBox>
+#include <QTimer>
 
 GameUdpClient::GameUdpClient(const QString &host, int port, QObject *parent)
-    :QObject{parent}/*, m_udpSocket{new QUdpSocket{this}}, m_readySocket{new QUdpSocket{this}}*/
+    :QObject(parent)/*, m_udpSocket{new QUdpSocket{this}}, m_readySocket{new QUdpSocket{this}}*/
 {
 
-    qDebug() << "GameUdpClient start";
+ //   qDebug() << "GameUdpClient start";
 //    m_udpSocket->bind(QHostAddress::Any, 50081);
 //    m_readySocket->bind(QHostAddress::Any, 50083);
 //    connect(m_readySocket, static_cast<void(QUdpSocket::*)()>(&QUdpSocket::readyRead),
@@ -16,9 +16,9 @@ GameUdpClient::GameUdpClient(const QString &host, int port, QObject *parent)
 
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &GameUdpClient::timerCh);
-    timer->start(2000);
+    timer->start(500);
 
-    if(timer->isActive()) qDebug() << "Active";
+//    if(timer->isActive()) qDebug() << "Active";
 
 //    sendDatagramm();
 }

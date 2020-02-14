@@ -36,6 +36,7 @@ SOURCES += \
 	NetModule/gametcpclient.cpp \
 	NetModule/gameudpclient.cpp \
 	NetModule/myabstractquery.cpp \
+	NetModule/testtimer.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
 
@@ -91,6 +92,7 @@ HEADERS += \
 	NetModule/gametcpclient.h \
 	NetModule/gameudpclient.h \
 	NetModule/myabstractquery.h \
+	NetModule/testtimer.h \
 	QmlModule/cpp/guiloader.h
 
 contains(ANDROID_TARGET_ARCH,armeabi-v7a) {

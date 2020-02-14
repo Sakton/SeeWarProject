@@ -8,7 +8,9 @@
 #include "CppModule/Model/field.h"
 #include "NetModule/gametcpclient.h"
 #include "NetModule/gameudpclient.h"
+#include "NetModule/testtimer.h"
 #include "CppModule/Model/config.h"
+
 
 #else
 #endif
@@ -18,7 +20,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    GameUdpClient("127.0.0.1", 50081, &app);
+//    TestTimer t;
+
+    GameUdpClient gk("127.0.0.1", 50081, &app);
 
     //TODO GameLogik();
     //GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
