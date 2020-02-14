@@ -18,14 +18,15 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
-    //TODO GameLogik();
-    //GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
     GameUdpClient("127.0.0.1", 50081, &app);
 
+    //TODO GameLogik();
+    //GameTcpClient client(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, &app);
 
-    QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
-    QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };
+//    QUrl testGui { QStringLiteral("file:/E:/CPP/MyProects/SeeWarProject/SeeWarProject/QmlModule/qml/TestOtherGui/main.qml") };
+//    QUrl defaultGui { QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml") };
 
-    GuiLoader::init(defaultGui, &app, &app);
+//    GuiLoader::init(defaultGui, &app, &app);
+
     return app.exec();
 }

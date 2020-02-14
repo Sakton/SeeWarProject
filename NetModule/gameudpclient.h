@@ -2,6 +2,7 @@
 #define GAMEUDPCLIENT_H
 #include <QObject>
 #include <QUdpSocket>
+#include <QTimer>
 
 class GameUdpClient : public QObject
 {
@@ -12,10 +13,11 @@ public:
 public slots:
     void onReadyRead();
     void sendDatagramm();
+    void timerCh();
 
 private:
     QUdpSocket *m_udpSocket;
-
+    QUdpSocket *m_readySocket;
 };
 
 #endif // GAMEUDPCLIENT_H
