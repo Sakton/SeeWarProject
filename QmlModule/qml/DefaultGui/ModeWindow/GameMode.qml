@@ -41,8 +41,9 @@ InterfaceWindowSignals {
                     id: _f
                     Layout.minimumHeight: _root.width
                     Layout.fillWidth: true
-                    model: Setting.modelField
-
+                    model: Setting.modelField //TODO таже модель что и в расстановке
+                    //WARNING модель своего поля!!!
+                    //этот делегат просто скрывает истинное положение дел
                     delegate: DelegatFieldGameMode {
                         width: _f.cellWidth
                         index: model.indexElement

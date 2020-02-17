@@ -19,7 +19,7 @@ namespace Config {
     };
 
     const QString GAME_SERVER_HOST{"127.0.0.1"};
-    const quint16 GAME_SERVER_PORT{2323};
+    const quint16 GAME_SERVER_PORT{50081};
 }
 
 

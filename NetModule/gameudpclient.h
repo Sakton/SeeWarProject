@@ -12,6 +12,7 @@ public:
 public slots:
     void onReadyRead();
     void sendDatagramm();
+    void sendMessage(const QString &s);
 
 private:
     QUdpSocket *m_udpSocket;
