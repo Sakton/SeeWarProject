@@ -13,12 +13,8 @@ public slots:
     void onReadyRead();
     void sendDatagramm();
 
-private slots:
-    void timerCh();
-
 private:
     QUdpSocket *m_udpSocket;
-    QUdpSocket *m_readySocket;
 };
 
 #endif // GAMEUDPCLIENT_H
