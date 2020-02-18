@@ -1,9 +1,9 @@
 #include "guiloader.h"
 #include <QDebug>
-#include <algorithm>
 #include <QQmlContext>
 #include "CppModule/GameCore/flot.h"
 #include "CppModule/Model/field.h"
+#include "../../CppModule/User/baseuser.h"
 
 GuiLoader* GuiLoader::m_self { nullptr };
 
@@ -11,14 +11,16 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject
     m_app { app },
     m_url { url }
 {
-    m_engine = new QQmlApplicationEngine;
+    m_engine = new QQmlApplicationEngine(this);
     auto context = m_engine->rootContext();
 
-    Field *field = new Field(app);
-    Flot *flot = new Flot(field, field);
+     BaseUser *user = new BaseUser(context, this);
 
-    context->setContextProperty("Field", field);
-    context->setContextProperty("Flot", flot);
+//    Field *field = new Field(app);
+//    Flot *flot = new Flot(field, field);
+
+//    context->setContextProperty("Field", field);
+//    context->setContextProperty("Flot", flot);
 
     QObject::connect (
         m_engine, &QQmlApplicationEngine::objectCreated,
@@ -40,6 +42,6 @@ void GuiLoader::addImportStyleModuleGui(QUrl& url)
 GuiLoader &GuiLoader::init(QUrl& url, QGuiApplication* app, QObject *parent)
 {
     if (nullptr == m_self)
-        m_self = new GuiLoader(url,app, app);
+        m_self = new GuiLoader(url, app, app);
     return *m_self;
 }

@@ -11,6 +11,8 @@ namespace Config {
     constexpr int MAX_COUNT_PALUBS = 4;
     constexpr int COUNT_SHIPS = 10;
 
+    const QString PATH_OF_GUI_QML{QStringLiteral("qrc:/QmlModule/qml/DefaultGui/")};
+
     static std::vector<QString> imgShips{
         "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png",
         "qrc:/QmlModule/qml/DefaultGui/img/2xb1.png",
@@ -19,7 +21,7 @@ namespace Config {
     };
 
     const QString GAME_SERVER_HOST{"127.0.0.1"};
-    const quint16 GAME_SERVER_PORT{50081};
+    constexpr quint16 GAME_SERVER_PORT{50081};
 }
 
 

@@ -30,7 +30,7 @@ private:
     QGuiApplication* m_app;
     QQmlApplicationEngine* m_engine;
     QUrl m_url;
-    QAbstractListModel *m_model;
+//    QAbstractListModel *m_model;
     static GuiLoader *m_self;
 };
 

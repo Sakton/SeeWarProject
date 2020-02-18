@@ -56,10 +56,11 @@ QtObject {
     readonly property real hintButtonBottomMargins: 3
 
     //models
-    //    property var modelField: TestModelGridView {}
-    property var modelField: Field
-    //    property var modelField: ArragementModel{}
-    property var modelFlot: Flot //TestModelShipView {}
+    property var modelField: OwnField //1
+    property var enemyModelField: EnemyField //2
+    property var modelFlot: Flot // 1
+    //    property var modelField: OwnField
+    //    property var enemyModelField: EnemyField
 
     //colors sheme
     readonly property color styleApplicationColor: "#1c1c1c" //"#0d1e49"//"#0b193c"

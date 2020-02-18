@@ -33,6 +33,10 @@ SOURCES += \
 	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/fieldelement.cpp \
+	CppModule/User/baseuser.cpp \
+	CppModule/User/enemyuser.cpp \
+	CppModule/User/ownuser.cpp \
+	CppModule/gameblackwater.cpp \
 	NetModule/gametcpclient.cpp \
 	NetModule/gameudpclient.cpp \
 	NetModule/myabstractquery.cpp \
@@ -72,6 +76,7 @@ DISTFILES += \
 	android/gradlew \
 	android/gradlew.bat \
 	android/res/values/libs.xml \
+	plan \
 	protocolToExchangeServer \
 	trrttr
 
@@ -89,6 +94,10 @@ HEADERS += \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/fieldelement.h \
+	CppModule/User/baseuser.h \
+	CppModule/User/enemyuser.h \
+	CppModule/User/ownuser.h \
+	CppModule/gameblackwater.h \
 	NetModule/gametcpclient.h \
 	NetModule/gameudpclient.h \
 	NetModule/myabstractquery.h \
