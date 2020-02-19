@@ -5,9 +5,10 @@
 //#include <QNetworkAccessManager>
 
 #include "myabstractquery.h"
+#include "gamenetclient.h"
 
 
-class GameTcpClient : public QObject
+class GameTcpClient : public GameNetClient
 {
 public:
     explicit GameTcpClient(const QString &host, quint16 port, QObject *parent = nullptr);

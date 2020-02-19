@@ -1,5 +1,6 @@
 import QtQuick 2.0
-import Settings 1.0
+import "../Settings/"
+//import Settings 1.0
 
 Rectangle {
     width: 100

@@ -59,6 +59,7 @@ QtObject {
     property var modelField: OwnField //1
     property var enemyModelField: EnemyField //2
     property var modelFlot: Flot // 1
+    //************************************************************
     //    property var modelField: OwnField
     //    property var enemyModelField: EnemyField
 

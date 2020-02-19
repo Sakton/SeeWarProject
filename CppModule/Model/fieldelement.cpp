@@ -8,7 +8,7 @@ FieldElement::FieldElement(AbstractGameFigure *baseSelfEmptyFigure, QObject *par
     : AbstractFieldElement(parent),
     m_figure{baseSelfEmptyFigure},
     m_BaseSelfEmptyFigure{new EmptyCell(this)},
-    m_index{ countFieldElements++ },
+    m_index{ (countFieldElements++) % 81 },
     m_color{}
 {
 

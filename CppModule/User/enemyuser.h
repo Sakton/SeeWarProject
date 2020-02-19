@@ -6,7 +6,7 @@ class EnemyUser : public BaseUser
 {
     Q_OBJECT
 public:
-    explicit EnemyUser(QQmlContext *context, QObject *parent = nullptr);
+    explicit EnemyUser(QObject *parent = nullptr);
 };
 
 #endif // ENEMYUSER_H

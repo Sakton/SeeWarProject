@@ -32,6 +32,7 @@ private:
     QUrl m_url;
 //    QAbstractListModel *m_model;
     static GuiLoader *m_self;
+
 };
 
 #endif // GUILOADER_H

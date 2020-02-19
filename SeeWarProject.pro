@@ -37,6 +37,7 @@ SOURCES += \
 	CppModule/User/enemyuser.cpp \
 	CppModule/User/ownuser.cpp \
 	CppModule/gameblackwater.cpp \
+	NetModule/gamenetclient.cpp \
 	NetModule/gametcpclient.cpp \
 	NetModule/gameudpclient.cpp \
 	NetModule/myabstractquery.cpp \
@@ -47,7 +48,6 @@ SOURCES += \
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-#TODO тут плохо!!!
 QML_IMPORT_PATH = $$PWD/QmlModule/qml/DefaultGui/
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
@@ -98,6 +98,7 @@ HEADERS += \
 	CppModule/User/enemyuser.h \
 	CppModule/User/ownuser.h \
 	CppModule/gameblackwater.h \
+	NetModule/gamenetclient.h \
 	NetModule/gametcpclient.h \
 	NetModule/gameudpclient.h \
 	NetModule/myabstractquery.h \

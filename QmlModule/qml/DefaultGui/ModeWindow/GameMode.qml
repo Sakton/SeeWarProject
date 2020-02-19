@@ -41,16 +41,14 @@ InterfaceWindowSignals {
                     id: _f
                     Layout.minimumHeight: _root.width
                     Layout.fillWidth: true
-                    model: Setting.enemyModelField //TODO таже модель что и в расстановке
-                    //WARNING модель своего поля!!!
-                    //этот делегат просто скрывает истинное положение дел
-//                    delegate: DelegatFieldGameMode {
-//                        width: _f.cellWidth
-//                        index: model.indexElement
-//                        onClicedIndex: {
-//                            _topElement.clickIndex = model.indexElement
-//                        }
-//                    }
+                    model: Setting.enemyModelField
+                    delegate: DelegatFieldGameMode {
+                        width: _f.cellWidth
+                        index: model.indexElement
+                        onClicedIndex: {
+                            _topElement.clickIndex = model.indexElement
+                        }
+                    }
                 }
 
                 Item {

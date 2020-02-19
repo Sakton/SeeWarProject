@@ -3,7 +3,7 @@
 #include <QNetworkRequest>
 
 GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
-    : QObject(parent), m_sizeData{}, m_port{port}, m_tcpSocket{new QTcpSocket(this)}//, m_manager{new QNetworkAccessManager(this)}
+    : GameNetClient(parent), m_sizeData{}, m_port{port}, m_tcpSocket{new QTcpSocket(this)}//, m_manager{new QNetworkAccessManager(this)}
 {
     m_tcpSocket->connectToHost(host, port);
     connect(m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::connected),

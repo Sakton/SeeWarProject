@@ -11,7 +11,7 @@ namespace Config {
     constexpr int MAX_COUNT_PALUBS = 4;
     constexpr int COUNT_SHIPS = 10;
 
-    const QString PATH_OF_GUI_QML{QStringLiteral("qrc:/QmlModule/qml/DefaultGui/")};
+    const QString PATH_OF_GUI_QML{QStringLiteral("qrc:/QmlModule/qml/DefaultGui/main.qml")};
 
     static std::vector<QString> imgShips{
         "qrc:/QmlModule/qml/DefaultGui/img/1xb1.png",

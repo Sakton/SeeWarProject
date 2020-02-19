@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "../Settings"
 import Settings 1.0
 //Все Главные окна с элементами меню должны наследовать этот класс
 

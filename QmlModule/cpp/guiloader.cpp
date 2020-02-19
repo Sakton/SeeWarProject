@@ -14,7 +14,7 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject
     m_engine = new QQmlApplicationEngine(this);
     auto context = m_engine->rootContext();
 
-     BaseUser *user = new BaseUser(context, this);
+//     BaseUser *user = new BaseUser(context, this);
 
 //    Field *field = new Field(app);
 //    Flot *flot = new Flot(field, field);
