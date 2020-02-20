@@ -14,6 +14,7 @@ LogElement {
     Connections {
         target: _loader.item
         onTextOnChat : {
+            Setting.userObject.onMessageChat(txt)
             _root.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + txt + "<br>"
         }
     }

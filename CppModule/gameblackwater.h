@@ -9,7 +9,8 @@ class OwnUser;
 class EnemyUser;
 class AbstractField;
 class QGuiApplication;
-class
+class GameUdpClient;
+
 
 class GameBlackWater : public QObject
 {
@@ -17,12 +18,15 @@ class GameBlackWater : public QObject
 public:
     explicit GameBlackWater(const QUrl &pathOfGUI, QObject *parent = nullptr);
 
+public slots:
+
+
 private:
     QUrl m_pathOfGUI;
     QQmlApplicationEngine *m_engine;
     OwnUser *m_ownUser;
     AbstractField *m_field;
-
+    GameUdpClient *m_udpNetSocket;
 };
 
 #endif // GAMEBLAKWATER_H

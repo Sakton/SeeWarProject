@@ -3,6 +3,7 @@
 #include "baseuser.h"
 
 class Flot;
+class Field;
 class AbstractField;
 class QQmlContext;
 
@@ -12,11 +13,20 @@ class OwnUser : public BaseUser
 public:
     explicit OwnUser(QQmlContext *cotext, QObject *parent = nullptr);
 
+public slots:
+    void onClickToCell(int indexCell);
+    void onMessageChat(const QString &mes);
+
+signals:
+    void clickedToCell(int indexCell);
+    void sendMessage(const QString &mes);
+
+
 private:
     QQmlContext *m_context;
+    Field *m_ownField;
+    Field *m_enemyField;
     Flot *m_flot;
-    AbstractField *m_ownField;
-    AbstractField *m_enemyField;
 };
 
 #endif // OWNUSER_H

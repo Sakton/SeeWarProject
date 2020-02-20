@@ -14,7 +14,6 @@ public:
         ColorRole,
         ImageResourceRole,
         AngleRotationFigure
-
     };
 
     explicit Field(QObject *parent = nullptr);
@@ -38,5 +37,8 @@ private:
     std::vector<FieldElement *> m_field;
     int m_state;
 };
+
+//Q_DECLARE_METATYPE(Field)
+Q_DECLARE_OPAQUE_POINTER(Field*)
 
 #endif // FIELD_H

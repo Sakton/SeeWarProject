@@ -40,4 +40,7 @@ private:
     static QColor colorsForTest[10];
 };
 
+//Q_DECLARE_METATYPE(Flot)
+//Q_DECLARE_OPAQUE_POINTER(Flot)
+
 #endif // FLOT_H

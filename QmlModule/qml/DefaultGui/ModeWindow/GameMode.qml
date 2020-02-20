@@ -47,6 +47,7 @@ InterfaceWindowSignals {
                         index: model.indexElement
                         onClicedIndex: {
                             _topElement.clickIndex = model.indexElement
+                            Setting.userObject.onClickToCell(model.indexElement)
                         }
                     }
                 }

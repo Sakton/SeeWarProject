@@ -55,10 +55,21 @@ QtObject {
     readonly property int countsCells: 9
     readonly property real hintButtonBottomMargins: 3
 
+    //GamePersona
+    //тот для кого вообще все это сделано - пользователь
+    //обьект имитирующий пользователя
+    //содержит все нужные модели
+    property var userObject: ObjectUser
+
     //models
+
     property var modelField: OwnField //1
     property var enemyModelField: EnemyField //2
-    property var modelFlot: Flot // 1
+    property var modelFlot: Flot //1
+
+//    property var modelField: OwnField //1
+//    property var enemyModelField: EnemyField //2
+//    property var modelFlot: Flot // 1
     //************************************************************
     //    property var modelField: OwnField
     //    property var enemyModelField: EnemyField

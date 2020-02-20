@@ -5,7 +5,7 @@
 #include <QTimer>
 
 GameUdpClient::GameUdpClient(const QString &host, int port, QObject *parent)
-    :QObject(parent), m_udpSocket{new QUdpSocket{this}}
+    :GameNetClient(parent), m_udpSocket{new QUdpSocket{this}}
 {
     connect(m_udpSocket, static_cast<void(QUdpSocket::*)()>(&QUdpSocket::readyRead),
         this, static_cast<void(GameUdpClient::*)()>(&GameUdpClient::onReadyRead));
@@ -24,6 +24,21 @@ void GameUdpClient::onReadyRead()
     QString mes;
     in >> mes;
     qDebug() << "echo mes = " << mes;
+}
+
+void GameUdpClient::onError()
+{
+
+}
+
+void GameUdpClient::onSendDatagramMessage(const QString &mes)
+{
+    qDebug() << "GameUdpClient::onSendDatagramMessage = " << mes;
+}
+
+void GameUdpClient::onSentDatagrammClickedIndex(int indexClickedCell)
+{
+    qDebug() << "GameUdpClient::onSentDatagrammClickedIndex = " << indexClickedCell;
 }
 
 void GameUdpClient::sendDatagramm()

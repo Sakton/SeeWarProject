@@ -9,11 +9,13 @@ class GameNetClient : public QObject
 public:
     explicit GameNetClient(QObject *parent = nullptr);
     virtual ~GameNetClient(){}
+    virtual void sendMessage(const QString &mes) = 0;
+   // virtual
 
-public slots:
-    virtual void onReadyRead() = 0;
-    virtual void onError() = 0;
-    virtual void onConnected() = 0;
+
+//public slots:
+//    virtual void onReadyRead() = 0;
+//    virtual void onError() = 0;
 };
 
 #endif // GAMENETCLIENT_H
