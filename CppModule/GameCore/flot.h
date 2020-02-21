@@ -32,6 +32,10 @@ public slots:
     void resetAll();
     void autoArragement();
 
+signals:
+    //сигнал для блокировки ручного размещения в qml(коннект в Arragement.qml)
+    void autoArragementMode();
+
 private:
     std::vector<Ship *> m_ships;
     AbstractField *m_field;

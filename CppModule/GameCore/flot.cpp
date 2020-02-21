@@ -116,5 +116,6 @@ void Flot::autoArragement()
             }
         } while (!res);
     }
+    emit autoArragementMode();
 }
 

@@ -18,10 +18,6 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
 
 }
 
-void GameTcpClient::sendQuery(const MyAbstractQuery &query)
-{
-
-}
 
 void GameTcpClient::sendToServsrTest(const QString &s)
 {

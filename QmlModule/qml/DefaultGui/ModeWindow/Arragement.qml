@@ -62,6 +62,14 @@ InterfaceWindowSignals {
                         }
 
                         Connections {
+                            target: Setting.modelFlot
+                            onAutoArragementMode: {
+                                _stopka.enabled = false
+                                _stopka.clear()
+                            }
+                        }
+
+                        Connections {
                             target: _popup
                             onButtonRotate: {
                                 var element = _da.currentSourceDropElement.parent.parent.parent

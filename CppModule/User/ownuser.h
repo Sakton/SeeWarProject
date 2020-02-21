@@ -24,8 +24,8 @@ signals:
 
 private:
     QQmlContext *m_context;
-    Field *m_ownField;
-    Field *m_enemyField;
+    AbstractField *m_ownField;
+    AbstractField *m_enemyField;
     Flot *m_flot;
 };
 

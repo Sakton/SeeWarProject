@@ -37,10 +37,11 @@ SOURCES += \
 	CppModule/User/enemyuser.cpp \
 	CppModule/User/ownuser.cpp \
 	CppModule/gameblackwater.cpp \
+	NetModule/gamehttpnetclient.cpp \
 	NetModule/gamenetclient.cpp \
 	NetModule/gametcpclient.cpp \
 	NetModule/gameudpclient.cpp \
-	NetModule/myabstractquery.cpp \
+	NetModule/myjsonobjects.cpp \
 	NetModule/testtimer.cpp \
 	QmlModule/cpp/guiloader.cpp \
 	main.cpp
@@ -98,10 +99,11 @@ HEADERS += \
 	CppModule/User/enemyuser.h \
 	CppModule/User/ownuser.h \
 	CppModule/gameblackwater.h \
+	NetModule/gamehttpnetclient.h \
 	NetModule/gamenetclient.h \
 	NetModule/gametcpclient.h \
 	NetModule/gameudpclient.h \
-	NetModule/myabstractquery.h \
+	NetModule/myjsonobjects.h \
 	NetModule/testtimer.h \
 	QmlModule/cpp/guiloader.h
 
