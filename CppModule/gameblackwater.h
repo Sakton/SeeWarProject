@@ -10,6 +10,7 @@ class EnemyUser;
 class AbstractField;
 class QGuiApplication;
 class GameUdpClient;
+class GameTcpClient;
 
 
 class GameBlackWater : public QObject
@@ -27,6 +28,7 @@ private:
     OwnUser *m_ownUser;
     AbstractField *m_field;
     GameUdpClient *m_udpNetSocket;
+    GameTcpClient *m_tcpNetClient;
 };
 
 #endif // GAMEBLAKWATER_H

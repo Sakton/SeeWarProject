@@ -24,3 +24,8 @@ void GameHttpNetClient::onDisconnected()
 {
     qDebug() << "GameHttpNetClient::onDisconnected()";
 }
+
+void GameHttpNetClient::sendMessage(const QString &mes)
+{
+
+}

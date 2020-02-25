@@ -13,6 +13,8 @@ public:
     explicit GameTcpClient(const QString &host, quint16 port, QObject *parent = nullptr);
 
     void sendToServsrTest(const QString &s);
+    // GameNetClient interface
+    void sendMessage(const QString &mes) override;
 
 
 private slots:
@@ -24,7 +26,7 @@ private:
     quint16 m_sizeData;
     quint16 m_port;
     QTcpSocket *m_tcpSocket;
- //   QNetworkAccessManager *m_manager;
+
 };
 
 #endif // GAMETCPCLIENT_H
