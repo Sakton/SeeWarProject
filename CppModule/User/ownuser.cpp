@@ -3,6 +3,7 @@
 #include "../GameCore/flot.h"
 #include "../Model/field.h"
 #include <QDebug>
+#include <QString>
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     : BaseUser(parent), m_context{cotext}, m_ownField{}, m_enemyField{}, m_flot{}
@@ -26,4 +27,10 @@ void OwnUser::onMessageChat(const QString &mes)
 {
     qDebug() << "OwnUser::onMessageChat = " << mes;
     emit sendMessage(mes);
+}
+
+void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
+{
+    qDebug() << "OwnUser::onAnswerMessageToEnemyUser(const QString &mes) = " << mes;
+    emit answerMessageToEnemyUserToQml(mes);
 }

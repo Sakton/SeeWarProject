@@ -42,4 +42,6 @@ private:
     QString message;
 };
 
+
+
 #endif // MYJSONOBJECTS_H

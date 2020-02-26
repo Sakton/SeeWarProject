@@ -19,6 +19,13 @@ LogElement {
         }
     }
 
+    Connections {
+        target: Setting.userObject
+        onAnswerMessageToEnemyUserToQml: {
+            _root.textLog = "<b><font color = " + Setting.styleLogHiColor + ">" + Setting.textAppealHi + ": </b>" + mes + "<br>"
+        }
+    }
+
     MouseArea {
         id: _mouse
         anchors.fill: parent

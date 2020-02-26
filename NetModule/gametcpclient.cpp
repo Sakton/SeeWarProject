@@ -2,6 +2,7 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include "myjsonobjects.h"
+#include <QString>
 
 GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
     : GameNetClient(parent), m_sizeData{}, m_port{port}, m_tcpSocket{new QTcpSocket(this)}//, m_manager{new QNetworkAccessManager(this)}
@@ -18,12 +19,23 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
 
 void GameTcpClient::sendToServsrTest(const QString &s)
 {
-    m_tcpSocket->write(s.toLatin1());
+    qDebug() << "GameTcpClient::sendToServsrTest = " << s;
+    QJsonObject obj;
+    obj.insert("gameId", -1);
+    obj.insert("chatMessage", s);
+//    m_tcpSocket->write(s.toLatin1());
+    QByteArray t = QJsonDocument(obj).toJson();
+    m_tcpSocket->write(t);
 }
 
 void GameTcpClient::sendMessage(const QString &mes)
 {
     sendToServsrTest(mes);
+}
+
+void GameTcpClient::sendFireIndex(int index)
+{
+    m_tcpSocket->write(QString("fireIndex : %1").arg(index).toLatin1());
 }
 
 void GameTcpClient::slotConnectedToServer()
@@ -35,8 +47,13 @@ void GameTcpClient::slotConnectedToServer()
 void GameTcpClient::onReadyRead()
 {
     qDebug() << "GAME CLIENT ONREADYREAD";
-    QString answer(m_tcpSocket->readAll());
-    qDebug() << "answer << ==== " << answer;
+    //QString answer(m_tcpSocket->readAll());
+    QJsonDocument doc = QJsonDocument::fromJson(m_tcpSocket->readAll());
+    //qDebug() << "answer << ==== " << answer;
+    QJsonObject obj = doc.object();
+    QString answer = obj.value("chatMessage").toString();
+    qDebug() << "answer serwer = " << answer;
+    emit answerMessageFromServer(answer);
 }
 
 void GameTcpClient::onError()

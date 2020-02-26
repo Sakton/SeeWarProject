@@ -14,18 +14,34 @@ QJsonObject JsonGameObject::toJsonObject()
     return obj;
 }
 
+JsonGameObject::~JsonGameObject()
+{
+
+}
+
 //*****
 FireJson::FireJson(const QJsonObject &jObj) : JsonGameObject(jObj)
 {
 
 }
 
+FireJson::~FireJson()
+{
+
+}
+
 QJsonObject FireJson::toJsonObject()
 {
+
     return {};
 }
 
 MessageJson::MessageJson(const QJsonObject &jObj) : JsonGameObject(jObj)
+{
+
+}
+
+MessageJson::~MessageJson()
 {
 
 }

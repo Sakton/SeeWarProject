@@ -6,11 +6,16 @@ import Settings 1.0
 Item {
     id: _root
     property int clickIndex: 0
+    property string chatEnemyUser: ""
     width: 300
     height: 100
 
     onClickIndexChanged: {
         _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + clickIndex + "<br>"
+    }
+
+    onChatEnemyUserChanged: {
+
     }
 
     RowLayout {

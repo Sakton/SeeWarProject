@@ -16,10 +16,12 @@ public:
 public slots:
     void onClickToCell(int indexCell);
     void onMessageChat(const QString &mes);
+    void onAnswerMessageToEnemyUser(const QString &mes);
 
 signals:
     void clickedToCell(int indexCell);
     void sendMessage(const QString &mes);
+    void answerMessageToEnemyUserToQml(const QString &mes);
 
 
 private:

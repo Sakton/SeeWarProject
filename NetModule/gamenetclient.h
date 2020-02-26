@@ -10,6 +10,7 @@ public:
     explicit GameNetClient(QObject *parent = nullptr);
     virtual ~GameNetClient(){}
     virtual void sendMessage(const QString &mes) = 0;
+    virtual void sendFireIndex(int index) = 0;
    // virtual
 
 
