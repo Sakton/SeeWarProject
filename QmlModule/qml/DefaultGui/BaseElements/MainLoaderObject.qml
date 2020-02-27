@@ -27,6 +27,7 @@ QtObject {
             createObject(Setting.window_GAME)
             break;
         case Setting.MyEnumButton.BUTTON_CUSTOMIZATION:
+            console.log("BUTTON_CUSTOMIZATION")
             break;
         case Setting.MyEnumButton.BUTTON_GAME:
             createObject(Setting.window_GAME)
@@ -47,6 +48,12 @@ QtObject {
             break;
         case Setting.MyEnumButton.BUTTON_BACK:
             createObject(Setting.window_STARTMENU)
+            break;
+        case Setting.MyEnumButton.BUTTON_AGAIN:
+            console.log("BUTTON_AGAIN")
+            //TODO для теста
+            Setting.userObject.damag = (Setting.userObject.damag === 0) ? 1 : 0;
+
             break;
         }
     }

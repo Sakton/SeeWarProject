@@ -9,9 +9,30 @@ InterfaceWindowSignals {
     width: Setting.mainWidth
     height: Setting.mainHeight
 
+    Popup {
+        id: _popup
+        x: _root.width / 2 - width / 2
+        y: _root.height / 2 - height / 2
+        width: _root.width * 3 / 4
+        height: _root.height / 10
+        visible: true
+
+        PropertyAnimation {
+            duration: 2000
+            property: "opacity"
+            to: 0
+        }
+
+        Text {
+            id: name
+            text: qsTr("Ход соперника")
+        }
+    }
+
     Rectangle {
         id: _root
         anchors.fill: parent
+
 
         property string txt: ""
 
@@ -43,14 +64,23 @@ InterfaceWindowSignals {
                     Layout.fillWidth: true
                     model: Setting.enemyModelField
                     delegate: DelegatFieldGameMode {
+                        id: _delegate
                         width: _f.cellWidth
                         index: model.indexElement
                         onClicedIndex: {
-                            _topElement.clickIndex = model.indexElement
-                            Setting.userObject.onClickToCell(model.indexElement)
+                            //TODO проверка состояния
+                            if(Setting.userObject.countMoves === 0) {
+                                _popup.open()
+                            } else {
+                                _topElement.clickIndex = model.indexElement
+                                Setting.userObject.onClickToCell(model.indexElement)
+                                --Setting.userObject.countMoves
+                            }
                         }
                     }
                 }
+
+
 
                 Item {
                     Layout.fillWidth: true

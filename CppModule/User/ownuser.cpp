@@ -15,6 +15,7 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_context->setContextProperty("OwnField", m_ownField);
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
+
 }
 
 void OwnUser::onClickToCell(int indexCell)
