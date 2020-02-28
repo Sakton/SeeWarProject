@@ -9,7 +9,7 @@ class OwnUser;
 class EnemyUser;
 class AbstractField;
 class QGuiApplication;
-class GameUdpClient;
+//class GameUdpClient;
 class GameTcpClient;
 
 
@@ -20,6 +20,13 @@ public:
     explicit GameBlackWater(const QUrl &pathOfGUI, QObject *parent = nullptr);
 
 public slots:
+
+private slots:
+//    void onClickedToCell(int indexCell);
+//    void onSendMessage(const QString &mes);
+
+signals:
+    void sendJsonDocument(const QByteArray &object);
 
 private:
     QUrl m_pathOfGUI;

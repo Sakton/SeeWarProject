@@ -20,6 +20,13 @@ namespace Config {
         "qrc:/QmlModule/qml/DefaultGui/img/4xb1.png"
     };
 
+    static std::vector<std::pair<QString, QString>> imgShip_Normal_Damage{
+        {"qrc:/QmlModule/qml/DefaultGui/img/1xb1.png",""},
+        {"qrc:/QmlModule/qml/DefaultGui/img/2xb1.png",""},
+        {"qrc:/QmlModule/qml/DefaultGui/img/3xb1.png",""},
+        {"qrc:/QmlModule/qml/DefaultGui/img/4xb1.png",""}
+    };
+
     const QString GAME_SERVER_HOST{"127.0.0.1"};
     constexpr quint16 GAME_SERVER_PORT{50080};
 }

@@ -15,23 +15,19 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_context->setContextProperty("OwnField", m_ownField);
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
-
 }
 
 void OwnUser::onClickToCell(int indexCell)
 {
-    qDebug() << "OwnUser::onClickToCell = " << indexCell;
     emit clickedToCell(indexCell);
 }
 
 void OwnUser::onMessageChat(const QString &mes)
 {
-    qDebug() << "OwnUser::onMessageChat = " << mes;
     emit sendMessage(mes);
 }
 
 void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
 {
-    qDebug() << "OwnUser::onAnswerMessageToEnemyUser(const QString &mes) = " << mes;
     emit answerMessageToEnemyUserToQml(mes);
 }

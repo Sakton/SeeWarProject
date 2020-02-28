@@ -2,22 +2,20 @@
 #define GAMETCPCLIENT_H
 #include <QTcpSocket>
 #include <QObject>
-//#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 #include "gamenetclient.h"
 
 
-class GameTcpClient : public GameNetClient
+class GameTcpClient : public QObject
 {
     Q_OBJECT
 public:
     explicit GameTcpClient(const QString &host, quint16 port, QObject *parent = nullptr);
 
-    void sendToServsrTest(const QString &s);
-    // GameNetClient interface
+
 public slots:
-    void sendMessage(const QString &mes) override;
-    void sendFireIndex(int index) override;
+
 
 private slots:
     void slotConnectedToServer();
@@ -25,8 +23,7 @@ private slots:
     void onError();
 
 signals:
-    void answerMessageFromServer(const QString &mes);
-    void answerFireIndex(int index);
+    void readyJsonDocument(QJsonDocument doc);
 
 private:
     quint16 m_sizeData;

@@ -17,6 +17,7 @@ InterfaceWindowSignals {
         height: _root.height / 10
         visible: true
 
+
         PropertyAnimation {
             duration: 2000
             property: "opacity"
@@ -32,7 +33,6 @@ InterfaceWindowSignals {
     Rectangle {
         id: _root
         anchors.fill: parent
-
 
         property string txt: ""
 
@@ -68,7 +68,7 @@ InterfaceWindowSignals {
                         width: _f.cellWidth
                         index: model.indexElement
                         onClicedIndex: {
-                            //TODO проверка состояния
+                            //TODO проверка состояния и количетва ходов
                             if(Setting.userObject.countMoves === 0) {
                                 _popup.open()
                             } else {

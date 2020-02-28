@@ -33,7 +33,6 @@ public:
     QColor m_color;
     QString m_resourceImg;
     int m_currentIndexOfModel;
-
 };
 
 #endif // PALUBA_H

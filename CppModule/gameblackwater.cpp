@@ -21,8 +21,4 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
 
     m_tcpNetClient = new GameTcpClient(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, this);
 
-    connect(m_ownUser, &OwnUser::sendMessage, m_tcpNetClient, &GameTcpClient::sendMessage);
-    connect(m_ownUser, &OwnUser::clickedToCell, m_tcpNetClient, &GameTcpClient::sendFireIndex);
-    connect(m_tcpNetClient, &GameTcpClient::answerMessageFromServer, m_ownUser, &OwnUser::onAnswerMessageToEnemyUser);
-
 }
