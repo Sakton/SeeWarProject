@@ -13,7 +13,12 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
     connect(m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::readyRead),
         this, static_cast<void(GameTcpClient::*)()>(&GameTcpClient::onReadyRead));
     connect(m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::disconnected),
-        m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::deleteLater));
+    m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::deleteLater));
+}
+
+void GameTcpClient::sendJsonDocument(QJsonDocument &doc)
+{
+    m_tcpSocket->write(doc.toJson());
 }
 
 
@@ -24,7 +29,8 @@ void GameTcpClient::slotConnectedToServer()
 
 void GameTcpClient::onReadyRead()
 {
-
+    QByteArray *read = new QByteArray(m_tcpSocket->readAll());
+    emit readyJsonDocument(read);
 }
 
 void GameTcpClient::onError()

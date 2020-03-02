@@ -19,15 +19,18 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
 
 void OwnUser::onClickToCell(int indexCell)
 {
+    qDebug() << "clickedToCell(indexCell);";
     emit clickedToCell(indexCell);
 }
 
 void OwnUser::onMessageChat(const QString &mes)
 {
+    qDebug() << "emit sendMessage(mes);";
     emit sendMessage(mes);
 }
 
 void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
 {
+    qDebug() << "emit answerMessageToEnemyUserToQml(mes);";
     emit answerMessageToEnemyUserToQml(mes);
 }

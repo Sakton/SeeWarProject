@@ -30,7 +30,6 @@ private:
     QColor m_color/*{"red"}*/;
     QString m_img/*{""}*/;
 
-
 };
 
 #endif // EMPTYCELL_H

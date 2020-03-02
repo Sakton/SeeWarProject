@@ -17,10 +17,14 @@ public:
     StateMovesUser stateMovesUser() const;
     int countMoves() const;
 
-public slots:
+    QString name() const;
+    void setName(const QString &name);
+
+    public slots:
     void setCountMoves(int countMoves);
 
-protected:
+
+    protected:
     StateMovesUser m_stateMovesUser;
     int m_countMoves;
     QString m_name;

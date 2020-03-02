@@ -29,6 +29,14 @@ namespace Config {
 
     const QString GAME_SERVER_HOST{"127.0.0.1"};
     constexpr quint16 GAME_SERVER_PORT{50080};
+
+    //имена полей для JSON
+    const QString Name_User = "nameUser";
+    const QString Id_Game = "idGame";
+    const QString Fire_To_Cell = "fireCell";
+    const QString Message = "message";
+    const QString State_Game = "stateGame";
+
 }
 
 
