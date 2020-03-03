@@ -14,7 +14,7 @@
 #include <QJsonValue>
 
 GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
-    : QObject(parent), m_pathOfGUI{pathOfGUI}, m_engine{new QQmlApplicationEngine(this)}, m_ownUser{}, m_tcpNetClient{}, gameId{-1}
+    : QObject(parent), m_pathOfGUI{pathOfGUI}, m_engine{new QQmlApplicationEngine(this)}, m_ownUser{}, m_tcpNetClient{}, gameId{-1}, m_doc{new QJsonDocument}, m_obj{new QJsonObject}
 {
     QObject::connect ( m_engine, &QQmlApplicationEngine::objectCreated,
         static_cast<QGuiApplication*>(parent), [pathOfGUI](QObject* obj, const QUrl& objUrl) { if (!obj && pathOfGUI == objUrl) QCoreApplication::exit(-1); }, Qt::QueuedConnection);
@@ -30,30 +30,43 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     connect(m_ownUser, &OwnUser::sendMessage, this, &GameBlackWater::onSendMessage);
 }
 
+GameBlackWater::~GameBlackWater()
+{
+    delete m_doc;
+    delete m_obj;
+}
+
 void GameBlackWater::onClickedToCell(int indexCell)
 {
- //   mapData.insert( std::make_pair( Config::Fire_To_Cell, QVariant(indexCell) ) );
-    QJsonDocument t = createJsonDocument();
+    QJsonObject obj;
+    obj.insert(Config::Name_User, m_ownUser->name());
+    obj.insert(Config::Id_Game, gameId);
+    obj.insert(Config::Fire_To_Cell, indexCell);
+
+    m_doc->setObject(obj);
     sendJsonDocument();
 }
 
 void GameBlackWater::onSendMessage(const QString &mes)
 {
-  //  mapData.insert( std::make_pair( Config::Message, QVariant(mes) ) );
+    QJsonObject obj;
+    obj.insert(Config::Name_User, m_ownUser->name());
+    obj.insert(Config::Id_Game, gameId);
+    obj.insert(Config::Message, mes);
+    m_doc->setObject(obj);
+    sendJsonDocument();
 }
 
 void GameBlackWater::sendJsonDocument()
 {
-    QJsonDocument t = createJsonDocument();
-    m_tcpNetClient->sendJsonDocument(t);
+    m_tcpNetClient->sendJsonDocument(m_doc);
 }
 
-QJsonDocument GameBlackWater::createJsonDocument()
+void GameBlackWater::createJsonDocument()
 {
     QJsonObject obj;
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
-
-    return QJsonDocument(obj);
+    m_doc->setObject(obj);
 }
 

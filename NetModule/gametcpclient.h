@@ -13,7 +13,7 @@ class GameTcpClient : public QObject
 public:
     explicit GameTcpClient(const QString &host, quint16 port, QObject *parent = nullptr);
 
-    void sendJsonDocument(QJsonDocument &doc);
+    void sendJsonDocument(QJsonDocument *doc);
     QJsonDocument readJsonDocument();
 
 public slots:

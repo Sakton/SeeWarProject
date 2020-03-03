@@ -16,11 +16,10 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
     m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::deleteLater));
 }
 
-void GameTcpClient::sendJsonDocument(QJsonDocument &doc)
+void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
 {
-    m_tcpSocket->write(doc.toJson());
+    m_tcpSocket->write(doc->toJson());
 }
-
 
 void GameTcpClient::slotConnectedToServer()
 {

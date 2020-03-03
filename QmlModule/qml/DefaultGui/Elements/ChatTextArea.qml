@@ -65,6 +65,7 @@ Popup {
                     repeat: true
                     running: true
                     onTriggered: {
+                        //TODO разобраться что тут понаписал
                         if(left === -lenth || right ===lenth) {
                             left = 0
                             right = 0

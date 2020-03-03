@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QUrl>
 #include <map>
+#include <memory>
 
 
 class QQmlApplicationEngine;
@@ -20,6 +21,7 @@ class GameBlackWater : public QObject
     Q_OBJECT
 public:
     explicit GameBlackWater(const QUrl &pathOfGUI, QObject *parent = nullptr);
+    ~GameBlackWater();
 
 private slots:
     void onClickedToCell(int indexCell);
@@ -27,7 +29,7 @@ private slots:
     void sendJsonDocument();
 
 private:
-    QJsonDocument createJsonDocument();
+    void createJsonDocument();
 
 private:
     QUrl m_pathOfGUI;
@@ -36,7 +38,8 @@ private:
     AbstractField *m_field;
     GameTcpClient *m_tcpNetClient;
     int gameId;
-    QJsonObject *m_jobj;
+    QJsonDocument *m_doc;
+    QJsonObject *m_obj;
 };
 
 #endif // GAMEBLAKWATER_H
