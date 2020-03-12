@@ -21,13 +21,16 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     //Добавляет путь в качестве каталога, в котором механизм ищет установленные модули в структуре каталогов на основе URL.
     m_engine->addImportPath(pathOfGUI.toString().remove("main.qml"));
     m_ownUser = new OwnUser(m_engine->rootContext(), this);
+    //TODO установка всего юзера в КУМЛЬ ***
     m_engine->rootContext()->setContextProperty("ObjectUser", m_ownUser);
     m_engine->load(pathOfGUI);
+    //****
 
     m_tcpNetClient = new GameTcpClient(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, this);
 
     connect(m_ownUser, &OwnUser::clickedToCell, this, &GameBlackWater::onClickedToCell);
     connect(m_ownUser, &OwnUser::sendMessage, this, &GameBlackWater::onSendMessage);
+    connect(m_tcpNetClient, &GameTcpClient::readyJsonDocument, this, &GameBlackWater::readJsonDocument);
 }
 
 GameBlackWater::~GameBlackWater()
@@ -60,6 +63,18 @@ void GameBlackWater::onSendMessage(const QString &mes)
 void GameBlackWater::sendJsonDocument()
 {
     m_tcpNetClient->sendJsonDocument(m_doc);
+}
+
+void GameBlackWater::readJsonDocument(const QByteArray *answer)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(*answer);
+    QJsonValue name = doc[Config::Name_User];
+    QJsonValue messsage = doc[Config::Message];
+    QJsonValue indexFire = doc[Config::Fire_To_Cell];
+    if(!messsage.isUndefined())
+        m_ownUser->onAnswerMessageToEnemyUser(messsage.toString());
+    if(!indexFire.isUndefined())
+        m_ownUser->onFireToCellToQml(indexFire.toInt());
 }
 
 void GameBlackWater::createJsonDocument()

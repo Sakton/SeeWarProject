@@ -27,6 +27,7 @@ private slots:
     void onClickedToCell(int indexCell);
     void onSendMessage(const QString &mes);
     void sendJsonDocument();
+    void readJsonDocument(const QByteArray *answer);
 
 private:
     void createJsonDocument();

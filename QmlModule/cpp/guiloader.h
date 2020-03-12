@@ -6,6 +6,7 @@
 #include <QtQml/QQmlApplicationEngine>
 #include <QAbstractListModel>
 //Singleton
+//WARNING уже не нужен наверно
 
 class GuiLoader : public QObject
 {

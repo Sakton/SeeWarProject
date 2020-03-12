@@ -18,7 +18,6 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
 
 void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
 {
-//    qDebug() << "send doc = " << *doc;
     m_tcpSocket->write(doc->toJson());
 }
 
@@ -30,8 +29,8 @@ void GameTcpClient::slotConnectedToServer()
 void GameTcpClient::onReadyRead()
 {
     QByteArray *read = new QByteArray(m_tcpSocket->readAll());
+    //отправляю указатель на прочитанное сообщение
     emit readyJsonDocument(read);
-    qDebug() << "READ " << *read;
 }
 
 void GameTcpClient::onError()

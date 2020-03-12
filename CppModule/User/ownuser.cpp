@@ -4,6 +4,7 @@
 #include "../Model/field.h"
 #include <QDebug>
 #include <QString>
+#include <QJsonDocument>
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     : BaseUser(parent), m_context{cotext}, m_ownField{}, m_enemyField{}, m_flot{}
@@ -11,7 +12,7 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_ownField = new Field(this);
     m_enemyField = new Field(this);
     m_flot = new Flot(m_ownField, this);
-
+    //TODO создание классов в QML
     m_context->setContextProperty("OwnField", m_ownField);
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
@@ -19,18 +20,20 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
 
 void OwnUser::onClickToCell(int indexCell)
 {
-    qDebug() << "clickedToCell(indexCell);";
     emit clickedToCell(indexCell);
 }
 
 void OwnUser::onMessageChat(const QString &mes)
 {
-    qDebug() << "emit sendMessage(mes);";
     emit sendMessage(mes);
 }
 
 void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
 {
-    qDebug() << "emit answerMessageToEnemyUserToQml(mes);";
     emit answerMessageToEnemyUserToQml(mes);
+}
+
+void OwnUser::onFireToCellToQml(int index)
+{
+    emit answerFireToCell(index);
 }

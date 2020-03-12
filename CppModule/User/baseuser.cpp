@@ -3,7 +3,9 @@
 #include "../GameCore/flot.h"
 #include "../Model/field.h"
 
-BaseUser::BaseUser(QObject *parent) : QObject(parent), m_stateMovesUser{StateMovesUser::MISS}, m_countMoves{StateMovesUser::MISS}, m_name{}
+//TODO Число ходов тут
+BaseUser::BaseUser(QObject *parent) : QObject(parent),
+    m_stateMovesUser{StateMovesUser::MISS}, m_countMoves{StateMovesUser::TEST}, m_name{}
 {
 }
 

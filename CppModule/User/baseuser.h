@@ -10,7 +10,7 @@ class BaseUser : public QObject
 
 public:
     enum StateMovesUser { //Результат сделанного хода //
-        DAMAGE = 0, MISS, HIT
+        DAMAGE = 0, MISS, HIT, TEST = 100
     };
     explicit BaseUser(QObject *parent = nullptr);
 

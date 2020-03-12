@@ -14,8 +14,11 @@ Item {
         _logElement.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + clickIndex + "<br>"
     }
 
-    onChatEnemyUserChanged: {
-
+    Connections {
+        target: Setting.userObject
+        onAnswerFireToCell: {
+            _logElement.textLog = "<b><font color = " + Setting.styleLogHiColor + ">" + Setting.textAppealHi + ": </b>" + index + "<br>"
+        }
     }
 
     RowLayout {
