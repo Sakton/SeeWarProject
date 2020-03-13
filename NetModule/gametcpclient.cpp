@@ -30,7 +30,9 @@ void GameTcpClient::onReadyRead()
 {
     QByteArray *read = new QByteArray(m_tcpSocket->readAll());
     //отправляю указатель на прочитанное сообщение
+    qDebug() << "mes = " << *read;
     emit readyJsonDocument(read);
+    //FIXME утечка
 }
 
 void GameTcpClient::onError()

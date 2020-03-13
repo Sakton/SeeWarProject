@@ -41,6 +41,7 @@ SOURCES += \
 	NetModule/gamenetclient.cpp \
 	NetModule/gametcpclient.cpp \
 	NetModule/gameudpclient.cpp \
+	NetModule/myjsonclientandserver.cpp \
 	NetModule/myjsonobjects.cpp \
 	NetModule/testtimer.cpp \
 	QmlModule/cpp/guiloader.cpp \
@@ -103,6 +104,7 @@ HEADERS += \
 	NetModule/gamenetclient.h \
 	NetModule/gametcpclient.h \
 	NetModule/gameudpclient.h \
+	NetModule/myjsonclientandserver.h \
 	NetModule/myjsonobjects.h \
 	NetModule/testtimer.h \
 	QmlModule/cpp/guiloader.h
