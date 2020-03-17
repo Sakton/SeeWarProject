@@ -20,6 +20,10 @@ public:
     QString name() const;
     void setName(const QString &name);
 
+    void setDamageState();
+    void setMissState();
+    void setHitState();
+
     public slots:
     void setCountMoves(int countMoves);
 

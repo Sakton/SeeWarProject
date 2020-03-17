@@ -29,10 +29,24 @@ void BaseUser::setName(const QString &name)
     m_name = name;
 }
 
-//void BaseUser::setDamag(StateMovesUser damag)
-//{
-//    // m_damag = (damag == 0) ? ResultMakeMove::YES : ResultMakeMove::NO;
-//}
+void BaseUser::setDamageState()
+{
+    m_stateMovesUser = StateMovesUser::DAMAGE;
+    //TODO плохо тут подумать
+    m_countMoves = 0;
+}
+
+void BaseUser::setMissState()
+{
+    m_stateMovesUser = StateMovesUser::MISS;
+    m_countMoves = 1;
+}
+
+void BaseUser::setHitState()
+{
+    m_stateMovesUser = StateMovesUser::HIT;
+    m_countMoves = 2;
+}
 
 void BaseUser::setCountMoves(int countMoves)
 {

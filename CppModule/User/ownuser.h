@@ -22,6 +22,7 @@ public slots:
     void onMessageChat(const QString &mes);
     //для QML
     void onAnswerMessageToEnemyUser(const QString &mes);
+    //от другого игрока
     void onFireToCellToQml(int index);
 
 
@@ -30,6 +31,9 @@ signals:
     void sendMessage(const QString &mes);
     void answerMessageToEnemyUserToQml(const QString &mes);
     void answerFireToCell(int index);
+
+private:
+    void resultFireToThis(int);
 
 private:
     QQmlContext *m_context;

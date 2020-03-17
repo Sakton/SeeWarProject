@@ -26,6 +26,7 @@ public:
     // AbstractField interface
     AbstractFieldElement *getFieldElementCell(int index) override;
 
+
     void initField();
 
 public slots:

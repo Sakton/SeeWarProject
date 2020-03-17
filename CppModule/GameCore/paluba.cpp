@@ -7,7 +7,8 @@ Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
     m_numberPalub{numberPalub},
     m_color{"#fffc00"},
     m_resourceImg{},
-    m_currentIndexOfModel{-1}
+    m_currentIndexOfModel{-1},
+    m_stateDamage{StatePalubs::NO_DAMAG}
 {
 
 }
@@ -29,6 +30,7 @@ void Paluba::setSelfToField(AbstractField *field)
 
 void Paluba::resetSelfToField()
 {
+
 }
 
 int Paluba::getRotateAngleFigure()
@@ -49,6 +51,7 @@ void Paluba::setCurrentIndexOfModel(int currentIndexOfModel)
 void Paluba::setResourceImg(const QString &image)
 {
     m_resourceImg = image;
+    emit imgChanged(m_resourceImg);
 }
 
 int Paluba::getNumberPalub() const
@@ -59,6 +62,11 @@ int Paluba::getNumberPalub() const
 void Paluba::setColor(const QColor &color)
 {
     m_color = color;
+}
+
+Ship *Paluba::getShip() const
+{
+    return m_ship;
 }
 
 

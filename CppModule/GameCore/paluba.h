@@ -10,6 +10,12 @@ class Paluba : public AbstractGameFigure
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
+    enum StatePalubs {
+        DAMAG = 0, NO_DAMAG
+    };
+//    Q_PROPERTY(QColor color READ getColor NOTIFY getColorChanged)
+    Q_PROPERTY(QString img READ getResourceImg WRITE setResourceImg NOTIFY imgChanged)
+
 public:
     explicit Paluba(Ship *ship, int numberPalub, QObject *parent = nullptr);
     // AbstractGameFigure interface
@@ -25,7 +31,12 @@ public:
     void setResourceImg(const QString &image);
     int getNumberPalub() const;
     void setColor(const QColor &color);
+    void setStateDamage();
 
+    Ship *getShip() const;
+
+signals:
+    void imgChanged(QString img);
 
     private:
     Ship *m_ship;
@@ -33,6 +44,7 @@ public:
     QColor m_color;
     QString m_resourceImg;
     int m_currentIndexOfModel;
+    StatePalubs m_stateDamage;
 };
 
 #endif // PALUBA_H

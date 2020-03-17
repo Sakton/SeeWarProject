@@ -35,5 +35,22 @@ void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
 
 void OwnUser::onFireToCellToQml(int index)
 {
+    //огбработка индекса выстрела
+    resultFireToThis(index);
+    //в кумль в чат
     emit answerFireToCell(index);
+}
+
+void OwnUser::resultFireToThis(int index)
+{
+    auto *fieldElement = m_ownField->getFieldElementCell(index);
+    auto *gameFigure = fieldElement->figure();
+    Paluba *ptr = nullptr;
+    if( ( ptr = qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
+        auto ship = ptr->getShip();
+        ship->damage(index);
+        setDamageState();
+    } else {
+        setMissState();
+    }
 }

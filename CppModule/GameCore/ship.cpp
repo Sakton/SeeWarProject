@@ -3,6 +3,7 @@
 #include <iostream>
 #include "emptycell.h"
 
+//TODO это не красиво наборы картинок вынести в отдельный класс
 const char* Ship::images[]{
     "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png",
     "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png",
@@ -63,6 +64,12 @@ void Ship::setColor(const QColor &color)
     m_color = color;
     for(auto el : m_palubs)
         el->setColor(m_color);
+}
+
+void Ship::damage(int index)
+{
+    qDebug() << "void Ship::damage(int index)";
+    //TODO тут обработка индекса хода
 }
 
 Framing *Ship::getFraming() const

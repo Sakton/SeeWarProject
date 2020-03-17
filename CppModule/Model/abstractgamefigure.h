@@ -7,6 +7,7 @@ class AbstractField;
 
 class AbstractGameFigure : public QObject
 {
+    Q_OBJECT
 public:
     AbstractGameFigure(QObject *parent = nullptr);
     virtual ~AbstractGameFigure();

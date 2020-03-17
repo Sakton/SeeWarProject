@@ -9,6 +9,7 @@
 #include "NetModule/gametcpclient.h"
 #include "Model/config.h"
 #include <map>
+#include "NetModule/myjsonclientandserver.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
@@ -45,6 +46,8 @@ void GameBlackWater::onClickedToCell(int indexCell)
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
     obj.insert(Config::Fire_To_Cell, indexCell);
+
+    //MyJsonClientAndServer obj(gameId, indexCell, );
 
     m_doc->setObject(obj);
     sendJsonDocument();

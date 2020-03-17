@@ -13,11 +13,6 @@ Item {
     property string imageResource: ""
     property int rotateAngle: 0
 
-    onColorCellChanged: {
-        //NOTE баловство, но может потом
-        _mycanvas.requestPaint()
-    }
-
     Canvas {
         id: _mycanvas
         anchors.fill: parent
@@ -31,12 +26,6 @@ Item {
         }
     }
 
-// for tests
-//    Rectangle {
-//        anchors.fill: parent
-//        color: colorCell
-//    }
-
     Text {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -45,8 +34,8 @@ Item {
         text: indexElement
     }
 
-    Image {
-        //anchors.fill: parent
+    AnimatedImage {
+        onStatusChanged: playing = (status == AnimatedImage.Ready)
         cache: true
         width: parent.width - parent.width / 10
         height: parent.height - parent.height / 10

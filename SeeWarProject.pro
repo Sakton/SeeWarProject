@@ -21,6 +21,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	CppModule/GameCore/damageemptycell.cpp \
+	CppModule/GameCore/damageshipcell.cpp \
 	CppModule/GameCore/emptycell.cpp \
 	CppModule/GameCore/flot.cpp \
 	CppModule/GameCore/forbiddencell.cpp \
@@ -83,6 +85,8 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
+	CppModule/GameCore/damageemptycell.h \
+	CppModule/GameCore/damageshipcell.h \
 	CppModule/GameCore/emptycell.h \
 	CppModule/GameCore/flot.h \
 	CppModule/GameCore/forbiddencell.h \

@@ -61,5 +61,7 @@
         <file>QmlModule/qml/DefaultGui/Elements/DelegatesField/EmptyFieldDelegate.qml</file>
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png</file>
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png</file>
+        <file>QmlModule/qml/DefaultGui/img/cherep.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/krest.gif</file>
     </qresource>
 </RCC>

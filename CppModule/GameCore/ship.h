@@ -23,6 +23,8 @@ public:
     //главный метод размещения
     bool fillIndexes(int firstIndex);
     void setColor(const QColor &color);
+    //дамаг
+    void damage(int index);
 
 
     // AbstractGameFigure interface
