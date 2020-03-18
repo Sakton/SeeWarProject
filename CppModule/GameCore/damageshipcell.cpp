@@ -1,10 +1,10 @@
 #include "damageshipcell.h"
 
-DamageShipCell::DamageShipCell(int index, QObject *parent)
-    : AbstractGameFigure(parent),
+DamageShipCell::DamageShipCell(Ship *ship, int numberPalub, QObject *parent)
+    : Paluba(ship, numberPalub, parent),
     m_color{"red"},
     m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/cherep.gif"},
-    m_index{index}
+    m_index{numberPalub}
 {
 }
 
@@ -25,7 +25,7 @@ int DamageShipCell::getRotateAngleFigure()
 
 void DamageShipCell::setSelfToField(AbstractField *field)
 {
-    Q_UNUSED(field)
+    field->getFieldElementCell(getCurrentIndexOfModel())->setFigure(this);
 }
 
 void DamageShipCell::resetSelfToField()

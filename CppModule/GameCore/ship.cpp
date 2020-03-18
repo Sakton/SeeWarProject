@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <iostream>
 #include "emptycell.h"
+#include "damageshipcell.h"
 
 //TODO это не красиво наборы картинок вынести в отдельный класс
 const char* Ship::images[]{
@@ -66,10 +67,19 @@ void Ship::setColor(const QColor &color)
         el->setColor(m_color);
 }
 
-void Ship::damage(int index)
+void Ship::damage(Paluba *pal)
 {
+    //FIXME деЛАть ТуТ
     qDebug() << "void Ship::damage(int index)";
     //TODO тут обработка индекса хода
+    auto t = std::find(m_palubs.begin(), m_palubs.end(), pal);
+    auto p = new DamageShipCell(this, pal->getNumberPalub(), this);
+//    delete *t;
+    *t = p;
+    --m_countPalub;
+    emit damageShip();
+    if(!m_countPalub)
+        emit deadShip();
 }
 
 Framing *Ship::getFraming() const

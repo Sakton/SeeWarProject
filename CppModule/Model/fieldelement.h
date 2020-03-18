@@ -23,6 +23,7 @@ public:
     void resetToBaseState() override;
     int getRow() override;
     int getCol() override;
+    void sendSignalToChange(int index);
 
 signals:
     void figureChanged(int index);

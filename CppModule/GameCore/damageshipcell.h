@@ -1,13 +1,14 @@
 #ifndef DAMAGESHIPCELL_H
 #define DAMAGESHIPCELL_H
 #include "../Model/abstractgamefigure.h"
+#include "paluba.h"
 
-class DamageShipCell : public AbstractGameFigure
+class DamageShipCell : public Paluba
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
 public:
-    explicit DamageShipCell(int index, QObject *parent = nullptr);
+    explicit DamageShipCell(Ship *ship, int numberPalub, QObject *parent = nullptr);
 
     // AbstractGameFigure interface
     public:

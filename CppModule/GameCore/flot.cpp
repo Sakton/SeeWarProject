@@ -17,7 +17,7 @@ QColor Flot::colorsForTest[10] {
     QColor("plum")
 };
 
-Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}
+Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}, m_countShips{Config::COUNT_SHIPS}
 {
     int colorIdx = 0;
     for(int i = 1; i <= 4; i++) {
@@ -27,6 +27,8 @@ Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_
             t->setResourceImg(Config::imgShips.at(i - 1));
             t->setField(field);
             m_ships.push_back(t);
+            connect(t, &Ship::deadShip, this, &Flot::onDeadShip);
+            connect(t, &Ship::damageShip, this, &Flot::onDamageShip);
         }
     }
     m_flotRoles[FlotRole::CountPalubRole] = "countPalub";
@@ -117,5 +119,18 @@ void Flot::autoArragement()
         } while (!res);
     }
     emit autoArragementMode();
+}
+
+void Flot::onDeadShip()
+{
+    qDebug() << "DEAD SHIP";
+    --m_countShips;
+    if(!m_countShips)
+        qDebug() << "GAME OVER";
+}
+
+void Flot::onDamageShip()
+{
+    qDebug() << "DAMAGE SHIP FLOT";
 }
 

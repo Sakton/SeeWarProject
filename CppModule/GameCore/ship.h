@@ -6,6 +6,7 @@
 #include "../Model/abstractfield.h"
 #include "framing.h"
 
+class DamageShipCell;
 class Paluba;
 class Framing;
 
@@ -24,7 +25,7 @@ public:
     bool fillIndexes(int firstIndex);
     void setColor(const QColor &color);
     //дамаг
-    void damage(int index);
+    void damage(Paluba *pal);
 
 
     // AbstractGameFigure interface
@@ -51,6 +52,10 @@ public:
     bool isPossiblePutInCell(int firstIndex);
     //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу
     bool controlVmestimostiInField(int firstIndex);
+
+signals:
+    void deadShip();
+    void damageShip();
 
 private:
     static const char* images[];

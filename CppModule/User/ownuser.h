@@ -27,8 +27,10 @@ public slots:
 
 
 signals:
+    //отправка
     void clickedToCell(int indexCell);
     void sendMessage(const QString &mes);
+    //прием и отправка в qml
     void answerMessageToEnemyUserToQml(const QString &mes);
     void answerFireToCell(int index);
 

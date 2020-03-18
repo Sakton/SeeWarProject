@@ -35,6 +35,13 @@ int FieldElement::getCol()
     return m_index % Config::NUM_COL;
 }
 
+void FieldElement::sendSignalToChange(int index)
+{
+    qDebug() << "emitSignalToRafresh";
+    emit figureChanged(index);
+}
+
+
 AbstractGameFigure *FieldElement::figure() const
 {
     if(m_figure != nullptr)
@@ -44,6 +51,7 @@ AbstractGameFigure *FieldElement::figure() const
 
 void FieldElement::setFigure(AbstractGameFigure *figure)
 {
+    if(m_figure) delete m_figure;
     m_figure = figure;
     emit figureChanged(m_index);
 }

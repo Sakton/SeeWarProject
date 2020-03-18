@@ -31,6 +31,8 @@ public slots:
     //возврат к первоначальному состоянию
     void resetAll();
     void autoArragement();
+    void onDeadShip();
+    void onDamageShip();
 
 signals:
     //сигнал для блокировки ручного размещения в qml(коннект в Arragement.qml)
@@ -42,6 +44,7 @@ private:
     QHash<int, QByteArray> m_flotRoles;
     //*****
     static QColor colorsForTest[10];
+    int m_countShips;
 };
 
 //Q_DECLARE_METATYPE(Flot)
