@@ -3,6 +3,8 @@
 #include <iostream>
 #include "emptycell.h"
 #include "damageshipcell.h"
+#include "../Model/fieldelement.h"
+#include "../GameCore/damageshipcell.h"
 
 //TODO это не красиво наборы картинок вынести в отдельный класс
 const char* Ship::images[]{
@@ -67,15 +69,9 @@ void Ship::setColor(const QColor &color)
         el->setColor(m_color);
 }
 
-void Ship::damage(Paluba *pal)
+void Ship::damage()
 {
     //FIXME деЛАть ТуТ
-    qDebug() << "void Ship::damage(int index)";
-    //TODO тут обработка индекса хода
-    auto t = std::find(m_palubs.begin(), m_palubs.end(), pal);
-    auto p = new DamageShipCell(this, pal->getNumberPalub(), this);
-//    delete *t;
-    *t = p;
     --m_countPalub;
     emit damageShip();
     if(!m_countPalub)
@@ -91,6 +87,7 @@ const std::vector<int> Ship::getIndexesPalubs() const
 {
     return m_indexesPalubs;
 }
+
 
 bool Ship::isPossiblePutInCell(int firstIndex)
 {

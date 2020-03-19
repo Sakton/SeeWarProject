@@ -78,6 +78,9 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
         m_ownUser->onAnswerMessageToEnemyUser(messsage.toString());
     if(!indexFire.isUndefined())
         m_ownUser->onFireToCellToQml(indexFire.toInt());
+
+    //FIXME делать тут, надо оправить ответ
+
 }
 
 void GameBlackWater::createJsonDocument()

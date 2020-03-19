@@ -46,19 +46,15 @@ void OwnUser::onFireToCellToQml(int index)
 
 void OwnUser::resultFireToThis(int index)
 {
-    //FIXME деЛАть ТуТ
-    //TODO xeim
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
     auto *gameFigure = fieldElement->figure();
     Paluba *ptr = nullptr;
     if( ( ptr = qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
-        auto deadPalub = new DamageShipCell(ptr->getShip(), ptr->getNumberPalub(), ptr->getShip());
-        //TODO тут сам корабль должен утавить себе говнопалубу
-        fieldElement->setFigure(deadPalub);
-        ptr->getShip()->damage(ptr);
-//        setDamageState();
-//        fieldElement->sendSignalToChange(index);
+        ptr->setResourceImg("qrc:/QmlModule/qml/DefaultGui/img/cherep.gif");
+        fieldElement->sendSignalToChange(index);
+        ptr->getShip()->damage();
+        setDamageState();
     } else {
-//        setMissState();
+        setMissState();
     }
 }
