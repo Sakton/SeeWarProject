@@ -23,6 +23,7 @@ public:
     void setDamageState();
     void setMissState();
     void setHitState();
+    void setOwnStateFromEnemyState(StateMovesUser enemyState); //Состояние от выстрела по противнику (ответ от противника попал или нет)
 
     public slots:
     void setCountMoves(int countMoves);

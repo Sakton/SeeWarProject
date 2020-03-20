@@ -48,6 +48,18 @@ void BaseUser::setHitState()
     m_countMoves = 2;
 }
 
+void BaseUser::setOwnStateFromEnemyState(BaseUser::StateMovesUser enemyState)
+{
+    switch (enemyState) {
+    case BaseUser::StateMovesUser::DAMAGE:
+        setHitState();
+    case BaseUser::StateMovesUser::MISS:
+        setMissState();
+    case BaseUser::StateMovesUser::HIT:
+        setDamageState();
+    }
+}
+
 void BaseUser::setCountMoves(int countMoves)
 {
     qDebug() << "countMoves = " << countMoves;

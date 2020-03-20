@@ -4,6 +4,7 @@
 #include <QString>
 #include <QJsonObject>
 #include <QMap>
+#include <QPointer>
 class QByteArray;
 
 //FIXME делать тут реализовать JSON
@@ -11,15 +12,19 @@ class QByteArray;
 enum TypeJsomMessage {
     FIRE_MESSAGE = 0,
     RESULT_FIRE,
-    CHAT_MESSAGE
+    CHAT_MESSAGE,
+    BASE_MESSAGE
 };
 
 const char* TYPE_JSON = "typeJsonObject";
 const char* ID_GAME = "idGame";
 const char* INDEX_FIRE_TO_CELL = "indexFireCell";
 const char* STATE_ENEMY_USER = "stateEnemyUser";
+const char* STATE_OWN_USER = "stateOwnUser";
+const char* STATE_USER = "stateUser";
 const char* RESULT_FIRE_USER = "stateOwnUser";
 const char* MESSAGE = "message";
+const char* OBJECT_JSON = "objectJson";
 
 class CreaterJson {
     explicit CreaterJson(TypeJsomMessage type, const QMap<QString, QString> *keyVal);
@@ -29,40 +34,57 @@ private:
 
 class BaseJsonObject {
 public:
-    BaseJsonObject(int id, int state, int typeJson);
+    BaseJsonObject(int typeJson, int id, int state);
     explicit BaseJsonObject(const QJsonObject &mes);
+    virtual QPointer<QByteArray> toByteArray();
+    virtual ~BaseJsonObject();
+
+
+    int idGame() const;
+    int stateGame() const;
+
+    protected:
+    virtual QJsonObject object();
 
 protected:
-    virtual QJsonObject & object();
-
-private:
+    QPointer<QByteArray> m_pBytearray;
+    QJsonObject *jObj;
     int m_idGame;
     int m_stateGame;
-//    TypeJsomMessage m_type;
+    TypeJsomMessage m_type;
 };
 
 class ChatMessageJson : public BaseJsonObject {
 public:
-    ChatMessageJson(int id, int state, int typeJson, const QString &mes);
+    ChatMessageJson(int typeJson, int id, int state, const QString &mes);
     ChatMessageJson(const QJsonObject &mes);
+    ~ChatMessageJson() override;
+    QPointer<QByteArray> toByteArray() override;
 
     // BaseJsonObject interface
-protected:
-    QJsonObject &object() override;
+    QString message() const;
+
+    protected:
+    QJsonObject object() override;
 
 private:
     QString m_message;
-
 };
+
+//FIXME ДЕЛАТЬ ТУТ
 
 class FireCellJson : public BaseJsonObject {
 public:
-    FireCellJson(int id, int state, int typeJson, int index);
+    FireCellJson(int typeJson, int id, int state, int index);
     FireCellJson(const QJsonObject &mes);
+    ~FireCellJson() override;
+    QPointer<QByteArray> toByteArray() override;
 
     // BaseJsonObject interface
-protected:
-    QJsonObject &object() override;
+    int indexFire() const;
+
+    protected:
+    QJsonObject object() override;
 
 private:
     int m_indexFire;
@@ -70,51 +92,15 @@ private:
 
 class ResultFireJson : public BaseJsonObject {
 public:
-    ResultFireJson(int id, int state, int typeJson);
+    ResultFireJson(int typeJson, int id, int state);
     ResultFireJson(const QJsonObject &mes);
+    ~ResultFireJson() override;
+    QPointer<QByteArray> toByteArray() override;
 
 protected:
-    QJsonObject &object() override;
+    QJsonObject object() override;
 };
 
-//class MyJsonClientAndServer
-//{
 
-//public:
-//    MyJsonClientAndServer();
-//    explicit MyJsonClientAndServer(const QByteArray &arr);
-//    explicit MyJsonClientAndServer(int id, int idxFireToCell = -1, int stateEnemyUser = -1, int resultEnemyFire = -1, const QString &mes = "");
-//    ~MyJsonClientAndServer();
-
-
-//    QByteArray &toByteArray();
-
-//    int idGame() const;
-//    void setIdGame(int idGame);
-
-//    int indexFireToCell() const;
-//    void setIndexFireToCell(int indexFireToCell);
-
-//    int stateEnemyUser() const;
-//    void setStateEnemyUser(int stateEnemyUser);
-
-//    int resultEnemyFire() const;
-//    void setResultEnemyFire(int resultEnemyFire);
-
-//    QString message() const;
-//    void setMessage(const QString &message);
-
-//private:
-//    void createQByteArray();
-
-//private:
-//    QByteArray *m_pByteArray;
-//    int m_idGame;
-//    int m_indexFireToCell;
-//    int m_stateEnemyUser;
-//    int m_resultEnemyFire;
-//    QString m_message;
-//    //    QString m_nameUser;
-//};
 
 #endif // MYJSONCLIENTANDSERVER_H
