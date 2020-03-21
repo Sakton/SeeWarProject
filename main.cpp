@@ -7,8 +7,6 @@
 #include <QDebug>
 #include "CppModule/Model/field.h"
 #include "NetModule/gametcpclient.h"
-#include "NetModule/gameudpclient.h"
-#include "NetModule/testtimer.h"
 //***
 #include "CppModule/Model/config.h"
 #include "CppModule/gameblackwater.h"

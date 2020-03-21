@@ -21,9 +21,9 @@ void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
     m_tcpSocket->write(doc->toJson());
 }
 
-void GameTcpClient::send(QPointer<QByteArray> pByteArray)
+void GameTcpClient::send(QByteArray *pByteArray)
 {
-    m_tcpSocket->write(*pByteArray.data());
+    m_tcpSocket->write(*pByteArray);
 }
 
 void GameTcpClient::slotConnectedToServer()
@@ -34,7 +34,7 @@ void GameTcpClient::slotConnectedToServer()
 void GameTcpClient::onReadyRead()
 {
 //    QByteArray *read = new QByteArray(m_tcpSocket->readAll());
-    QPointer<QByteArray> read = new QByteArray(m_tcpSocket->readAll());
+    QByteArray* read = new QByteArray(m_tcpSocket->readAll());
     //отправляю указатель на прочитанное сообщение
     qDebug() << "mes = " << *read;
     //FIXME передача владения в другой объект

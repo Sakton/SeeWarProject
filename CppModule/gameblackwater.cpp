@@ -5,11 +5,9 @@
 #include "User/enemyuser.h"
 #include <QDebug>
 #include <QQmlContext>
-#include "NetModule/gameudpclient.h"
 #include "NetModule/gametcpclient.h"
 #include "Model/config.h"
 #include <map>
-#include "NetModule/myjsonclientandserver.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
@@ -32,9 +30,8 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
 
     connect(m_ownUser, &OwnUser::clickedToCell, this, &GameBlackWater::onClickedToCell);
     connect(m_ownUser, &OwnUser::sendMessage, this, &GameBlackWater::onSendMessage);
-//    connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
+    connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
 
-    connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(QPointer<QByteArray>)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(QPointer<QByteArray>)>(&GameBlackWater::readJsonDocument) );
 }
 
 GameBlackWater::~GameBlackWater()
@@ -50,14 +47,14 @@ void GameBlackWater::onClickedToCell(int indexCell)
     obj.insert(Config::Id_Game, gameId);
     obj.insert(Config::Fire_To_Cell, indexCell);
 
-    FireCellJson fireJson( TypeJsomMessage::RESULT_FIRE, gameId, static_cast<int>(m_ownUser->stateMovesUser()), indexCell );
+//    FireCellJson fireJson( TypeJsomMessage::RESULT_FIRE, gameId, static_cast<int>(m_ownUser->stateMovesUser()), indexCell );
 
     //MyJsonClientAndServer obj(gameId, indexCell, );
 
-    //m_doc->setObject(obj);
+    m_doc->setObject(obj);
 
 
-    send(fireJson.toByteArray());
+    //send(fireJson.toByteArray());
     sendJsonDocument();
 }
 
@@ -94,34 +91,34 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     //FIXME делать тут, надо оправить ответ
 }
 
-void GameBlackWater::readJsonDocument(QPointer<QByteArray> answer)
-{
-    qDebug() << "NEW METHOD";
-    QJsonDocument doc = QJsonDocument::fromJson(*answer);
-    QJsonObject obj1 = doc.object();
-    TypeJsomMessage tmes = TypeJsomMessage (obj1[TYPE_JSON].toInt());
-    switch (tmes) {
-    case TypeJsomMessage::BASE_MESSAGE: {
-        break;
-    }
-    case TypeJsomMessage::FIRE_MESSAGE: {
-        FireCellJson fcObj (obj1[OBJECT_JSON].toObject());
-        m_ownUser->onFireToCellToQml(fcObj.indexFire());
-        break;
-    }
-    case TypeJsomMessage::RESULT_FIRE: {
-        ResultFireJson rfObj (obj1[OBJECT_JSON].toObject());
-        m_ownUser->setOwnStateFromEnemyState( OwnUser::StateMovesUser( rfObj.stateGame() ) );
-        break;
-    }
-    case TypeJsomMessage::CHAT_MESSAGE: {
-        ChatMessageJson cmObj(obj1[OBJECT_JSON].toObject());
-        m_ownUser->onAnswerMessageToEnemyUser(cmObj.message());
-        break;
-    }
+//void GameBlackWater::readJsonDocument(QPointer<QByteArray> answer)
+//{
+//    qDebug() << "NEW METHOD";
+//    QJsonDocument doc = QJsonDocument::fromJson(*answer);
+//    QJsonObject obj1 = doc.object();
+//    TypeJsomMessage tmes = TypeJsomMessage (obj1[TYPE_JSON].toInt());
+//    switch (tmes) {
+//    case TypeJsomMessage::BASE_MESSAGE: {
+//        break;
+//    }
+//    case TypeJsomMessage::FIRE_MESSAGE: {
+//        FireCellJson fcObj (obj1[OBJECT_JSON].toObject());
+//        m_ownUser->onFireToCellToQml(fcObj.indexFire());
+//        break;
+//    }
+//    case TypeJsomMessage::RESULT_FIRE: {
+//        ResultFireJson rfObj (obj1[OBJECT_JSON].toObject());
+//        m_ownUser->setOwnStateFromEnemyState( OwnUser::StateMovesUser( rfObj.stateGame() ) );
+//        break;
+//    }
+//    case TypeJsomMessage::CHAT_MESSAGE: {
+//        ChatMessageJson cmObj(obj1[OBJECT_JSON].toObject());
+//        m_ownUser->onAnswerMessageToEnemyUser(cmObj.message());
+//        break;
+//    }
 
-    }
-}
+//    }
+//}
 
 void GameBlackWater::createJsonDocument()
 {
@@ -131,7 +128,7 @@ void GameBlackWater::createJsonDocument()
     m_doc->setObject(obj);
 }
 
-void GameBlackWater::send(QPointer<QByteArray> pByteArray)
+void GameBlackWater::send(QByteArray *pByteArray)
 {
     m_tcpNetClient->send(pByteArray);
 }

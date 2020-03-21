@@ -5,8 +5,6 @@
 #include <QJsonDocument>
 #include <QPointer>
 
-#include "gamenetclient.h"
-
 
 class GameTcpClient : public QObject
 {
@@ -16,7 +14,7 @@ public:
 
     void sendJsonDocument(QJsonDocument *doc);
     QJsonDocument readJsonDocument();
-    void send(QPointer<QByteArray> pByteArray);
+    void send(QByteArray* pByteArray);
 public slots:
 
 
@@ -26,7 +24,7 @@ private slots:
     void onError();
 
 signals:
-    void readyJsonDocument(QPointer<QByteArray>);
+    void readyJsonDocument(const QByteArray*);
 
 private:
     quint16 m_sizeData;

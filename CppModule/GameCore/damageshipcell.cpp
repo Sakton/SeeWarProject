@@ -20,7 +20,7 @@ QString DamageShipCell::getResourceImg()
 
 int DamageShipCell::getRotateAngleFigure()
 {
-    return 0;
+    return 90;
 }
 
 void DamageShipCell::setSelfToField(AbstractField *field)
