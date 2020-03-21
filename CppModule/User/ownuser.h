@@ -16,6 +16,9 @@ public:
     //???
     void isDamage();
 
+    bool getHod() const;
+    void setHod(bool value);
+
 public slots:
     //из QML
     void onClickToCell(int indexCell);
@@ -42,6 +45,7 @@ private:
     AbstractField *m_ownField;
     AbstractField *m_enemyField;
     Flot *m_flot;
+    bool hod;
 };
 
 #endif // OWNUSER_H

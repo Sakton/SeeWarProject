@@ -17,7 +17,6 @@ InterfaceWindowSignals {
         height: _root.height / 10
         visible: true
 
-
         PropertyAnimation {
             duration: 2000
             property: "opacity"
@@ -68,19 +67,20 @@ InterfaceWindowSignals {
                         width: _f.cellWidth
                         index: model.indexElement
                         onClicedIndex: {
+                            console.debug("Setting.userObject.countMoves = "
+                                          + Setting.userObject.countMoves)
                             //TODO проверка состояния и количетва ходов
-                            if(Setting.userObject.countMoves === 0) {
+                            if (Setting.userObject.countMoves === 0) {
                                 _popup.open()
                             } else {
                                 _topElement.clickIndex = model.indexElement
-                                Setting.userObject.onClickToCell(model.indexElement)
-                                --Setting.userObject.countMoves
+                                Setting.userObject.onClickToCell(
+                                            model.indexElement)
+                                //--Setting.userObject.countMoves
                             }
                         }
                     }
                 }
-
-
 
                 Item {
                     Layout.fillWidth: true

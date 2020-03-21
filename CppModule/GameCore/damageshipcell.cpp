@@ -3,7 +3,7 @@
 DamageShipCell::DamageShipCell(Ship *ship, int numberPalub, QObject *parent)
     : Paluba(ship, numberPalub, parent),
     m_color{"red"},
-    m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/cherep.gif"},
+    m_resourceImg{"qrc:/QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif"},
     m_index{numberPalub}
 {
 }

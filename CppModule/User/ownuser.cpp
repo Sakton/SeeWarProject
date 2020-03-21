@@ -50,11 +50,22 @@ void OwnUser::resultFireToThis(int index)
     auto *gameFigure = fieldElement->figure();
     Paluba *ptr = nullptr;
     if( ( ptr = qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
-        ptr->setResourceImg("qrc:/QmlModule/qml/DefaultGui/img/cherep.gif");
+        //FIXME ТАК!?
+        ptr->setResourceImg("qrc:/QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif");
         fieldElement->sendSignalToChange(index);
         ptr->getShip()->damage();
         setDamageState();
     } else {
         setMissState();
     }
+}
+
+bool OwnUser::getHod() const
+{
+    return hod;
+}
+
+void OwnUser::setHod(bool value)
+{
+    hod = value;
 }

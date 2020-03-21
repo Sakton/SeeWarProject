@@ -28,7 +28,6 @@ private slots:
     void onSendMessage(const QString &mes);
     void sendJsonDocument();
     void readJsonDocument(const QByteArray *answer);
-//    void readJsonDocument(QPointer<QByteArray> answer);
 
 private:
     void createJsonDocument();

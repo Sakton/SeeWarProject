@@ -47,14 +47,7 @@ void GameBlackWater::onClickedToCell(int indexCell)
     obj.insert(Config::Id_Game, gameId);
     obj.insert(Config::Fire_To_Cell, indexCell);
 
-//    FireCellJson fireJson( TypeJsomMessage::RESULT_FIRE, gameId, static_cast<int>(m_ownUser->stateMovesUser()), indexCell );
-
-    //MyJsonClientAndServer obj(gameId, indexCell, );
-
     m_doc->setObject(obj);
-
-
-    //send(fireJson.toByteArray());
     sendJsonDocument();
 }
 
@@ -64,8 +57,6 @@ void GameBlackWater::onSendMessage(const QString &mes)
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
     obj.insert(Config::Message, mes);
-
-   // ChatMessageJson mesJson();
 
     m_doc->setObject(obj);
     sendJsonDocument();
@@ -82,43 +73,33 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue name = doc[Config::Name_User];
     QJsonValue messsage = doc[Config::Message];
     QJsonValue indexFire = doc[Config::Fire_To_Cell];
+    QJsonValue answerStateEnemy = doc[Config::State_Game];
+    QJsonValue pravoHoda  = doc[Config::Hod];
 
+    //FIXME делать тут, право первого хода
+    if (!pravoHoda.isUndefined()) {
+        qDebug() << "Hod = " << pravoHoda.toInt();
+        m_ownUser->setHod(pravoHoda.toInt());
+    }
     if(!messsage.isUndefined())
         m_ownUser->onAnswerMessageToEnemyUser(messsage.toString());
-    if(!indexFire.isUndefined())
+    if(!indexFire.isUndefined()) {
         m_ownUser->onFireToCellToQml(indexFire.toInt());
+        QJsonObject ans;
+        ans.insert( Config::State_Game, static_cast<int>(m_ownUser->stateMovesUser()) );
+        QJsonDocument dc;
+        dc.setObject(ans);
+        m_tcpNetClient->sendJsonDocument(&dc);
+    }
+    if(!answerStateEnemy.isUndefined()) {
+        m_ownUser->setOwnStateFromEnemyState(BaseUser::StateMovesUser(answerStateEnemy.toInt()));
+        qDebug() << "State answer = " << BaseUser::StateMovesUser(answerStateEnemy.toInt());
+    }
 
-    //FIXME делать тут, надо оправить ответ
+
+
+
 }
-
-//void GameBlackWater::readJsonDocument(QPointer<QByteArray> answer)
-//{
-//    qDebug() << "NEW METHOD";
-//    QJsonDocument doc = QJsonDocument::fromJson(*answer);
-//    QJsonObject obj1 = doc.object();
-//    TypeJsomMessage tmes = TypeJsomMessage (obj1[TYPE_JSON].toInt());
-//    switch (tmes) {
-//    case TypeJsomMessage::BASE_MESSAGE: {
-//        break;
-//    }
-//    case TypeJsomMessage::FIRE_MESSAGE: {
-//        FireCellJson fcObj (obj1[OBJECT_JSON].toObject());
-//        m_ownUser->onFireToCellToQml(fcObj.indexFire());
-//        break;
-//    }
-//    case TypeJsomMessage::RESULT_FIRE: {
-//        ResultFireJson rfObj (obj1[OBJECT_JSON].toObject());
-//        m_ownUser->setOwnStateFromEnemyState( OwnUser::StateMovesUser( rfObj.stateGame() ) );
-//        break;
-//    }
-//    case TypeJsomMessage::CHAT_MESSAGE: {
-//        ChatMessageJson cmObj(obj1[OBJECT_JSON].toObject());
-//        m_ownUser->onAnswerMessageToEnemyUser(cmObj.message());
-//        break;
-//    }
-
-//    }
-//}
 
 void GameBlackWater::createJsonDocument()
 {

@@ -63,5 +63,6 @@
         <file>QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png</file>
         <file>QmlModule/qml/DefaultGui/img/cherep.gif</file>
         <file>QmlModule/qml/DefaultGui/img/krest.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif</file>
     </qresource>
 </RCC>

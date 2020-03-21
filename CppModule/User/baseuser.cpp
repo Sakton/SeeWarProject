@@ -5,7 +5,7 @@
 
 //TODO Число ходов тут
 BaseUser::BaseUser(QObject *parent) : QObject(parent),
-    m_stateMovesUser{StateMovesUser::MISS}, m_countMoves{StateMovesUser::TEST}, m_name{}
+    m_stateMovesUser{StateMovesUser::MISS}, m_countMoves{int(StateMovesUser::MISS)}, m_name{}
 {
 }
 
@@ -32,36 +32,44 @@ void BaseUser::setName(const QString &name)
 void BaseUser::setDamageState()
 {
     m_stateMovesUser = StateMovesUser::DAMAGE;
-    //TODO плохо тут подумать
-    m_countMoves = 0;
+//    m_countMoves = 0;
+    qDebug() << "BaseUser::setDamageState()";
 }
 
 void BaseUser::setMissState()
 {
     m_stateMovesUser = StateMovesUser::MISS;
-    m_countMoves = 1;
+//    m_countMoves = 1;
+    qDebug() << "BaseUser::setMissState()";
 }
 
 void BaseUser::setHitState()
 {
     m_stateMovesUser = StateMovesUser::HIT;
-    m_countMoves = 2;
+//    m_countMoves = 2;
+    qDebug() << "BaseUser::setHitState()";
 }
 
 void BaseUser::setOwnStateFromEnemyState(BaseUser::StateMovesUser enemyState)
 {
+    qDebug() << "BaseUser EnemyState = " << enemyState;
     switch (enemyState) {
-    case BaseUser::StateMovesUser::DAMAGE:
+    case BaseUser::StateMovesUser::DAMAGE: {
         setHitState();
-    case BaseUser::StateMovesUser::MISS:
+        break;
+    }
+    case BaseUser::StateMovesUser::MISS: {
         setMissState();
-    case BaseUser::StateMovesUser::HIT:
-        setDamageState();
+        break;
+    }
+    case BaseUser::StateMovesUser::HIT: {
+        //setDamageState();
+        break;
+    }
     }
 }
 
 void BaseUser::setCountMoves(int countMoves)
 {
-    qDebug() << "countMoves = " << countMoves;
     m_countMoves = countMoves;
 }

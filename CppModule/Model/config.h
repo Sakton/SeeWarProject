@@ -36,6 +36,7 @@ namespace Config {
     const QString Fire_To_Cell = "fireCell";
     const QString Message = "message";
     const QString State_Game = "stateGame";
+    const QString Hod = "hod";
 
 }
 
