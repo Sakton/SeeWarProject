@@ -1,8 +1,8 @@
 #ifndef FORBIDDENCELL_H
 #define FORBIDDENCELL_H
-#include "../Model/abstractgamefigure.h"
-#include "framing.h"
-#include "ship.h"
+#include "abstractgamefigure.h"
+#include "../Figure/framing.h"
+#include "../Figure/ship.h"
 
 class Framing;
 

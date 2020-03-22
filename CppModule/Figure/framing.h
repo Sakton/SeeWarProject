@@ -1,7 +1,7 @@
 #ifndef FRAMING_H
 #define FRAMING_H
-#include "../Model/abstractgamefigure.h"
-#include "forbiddencell.h"
+#include "../Elements/abstractgamefigure.h"
+#include "../Elements/forbiddencell.h"
 
 class ForbiddenCell;
 class Ship;

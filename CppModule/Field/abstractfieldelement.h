@@ -2,7 +2,7 @@
 #define ABSTRACTFIELDELEMENT_H
 
 #include <QObject>
-#include "abstractgamefigure.h"
+#include "../Elements/abstractgamefigure.h"
 
 class AbstractGameFigure;
 

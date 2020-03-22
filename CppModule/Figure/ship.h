@@ -1,9 +1,9 @@
 #ifndef SHIP_H
 #define SHIP_H
-#include "paluba.h"
-#include "../Model/config.h"
 #include <vector>
-#include "../Model/abstractfield.h"
+#include "../Elements/paluba.h"
+#include "../Model/config.h"
+#include "../Field/abstractfield.h"
 #include "framing.h"
 
 class DamageShipCell;

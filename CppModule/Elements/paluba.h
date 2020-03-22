@@ -1,8 +1,8 @@
 #ifndef PALUBA_H
 #define PALUBA_H
-#include "../Model/abstractgamefigure.h"
-#include "ship.h"
 #include <QImage>
+#include "abstractgamefigure.h"
+#include "../Figure/ship.h"
 
 class Ship;
 

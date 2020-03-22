@@ -1,7 +1,7 @@
 #include "guiloader.h"
 #include <QDebug>
 #include <QQmlContext>
-#include "CppModule/GameCore/flot.h"
+#include "CppModule/Model/flot.h"
 #include "CppModule/Model/field.h"
 #include "../../CppModule/User/baseuser.h"
 
@@ -12,7 +12,7 @@ GuiLoader::GuiLoader(QUrl &url, QGuiApplication* app, QObject *parent) : QObject
     m_url { url }
 {
     m_engine = new QQmlApplicationEngine(this);
-    auto context = m_engine->rootContext();
+//    auto context = m_engine->rootContext();
 
 //     BaseUser *user = new BaseUser(context, this);
 

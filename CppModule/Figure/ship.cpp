@@ -1,10 +1,10 @@
 #include "ship.h"
 #include <QDebug>
 #include <iostream>
-#include "emptycell.h"
-#include "damageshipcell.h"
-#include "../Model/fieldelement.h"
-#include "../GameCore/damageshipcell.h"
+#include "../Elements/emptycell.h"
+#include "../Elements/damageshipcell.h"
+#include "../Field/fieldelement.h"
+#include "../Elements/damageshipcell.h"
 
 //TODO это не красиво наборы картинок вынести в отдельный класс
 const char* Ship::images[]{

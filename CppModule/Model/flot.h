@@ -1,10 +1,10 @@
 #ifndef FLOT_H
 #define FLOT_H
-#include "vector"
-#include "../Model/abstractfield.h"
-#include "ship.h"
+#include <vector>
 #include <QAbstractListModel>
-#include "../Model/abstractgamefigure.h"
+#include "../Field/abstractfield.h"
+#include "../Figure/ship.h"
+#include "../Elements/abstractgamefigure.h"
 
 class Flot : public QAbstractListModel
 {

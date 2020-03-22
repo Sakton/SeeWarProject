@@ -1,6 +1,6 @@
 #include "baseuser.h"
 #include <QQmlContext>
-#include "../GameCore/flot.h"
+#include "../Model/flot.h"
 #include "../Model/field.h"
 
 //TODO Число ходов тут

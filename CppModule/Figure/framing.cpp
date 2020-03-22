@@ -1,7 +1,7 @@
 #include "framing.h"
 #include <QDebug>
 #include "../Model/config.h"
-#include "emptycell.h"
+#include "../Elements/emptycell.h"
 
 Framing::Framing(Ship *ship, QObject *parent) : AbstractGameFigure(parent), m_ship{ship}, m_field{nullptr}
 {

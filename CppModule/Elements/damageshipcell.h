@@ -1,20 +1,21 @@
-#ifndef DAMAGEEMPTYCELL_H
-#define DAMAGEEMPTYCELL_H
-#include "../Model/abstractgamefigure.h"
+#ifndef DAMAGESHIPCELL_H
+#define DAMAGESHIPCELL_H
+#include "abstractgamefigure.h"
+#include "paluba.h"
 
-class DamageEmptyCell : public AbstractGameFigure
+class DamageShipCell : public Paluba
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
 public:
-    explicit DamageEmptyCell(int index, QObject *parent = nullptr);
+    explicit DamageShipCell(Ship *ship, int numberPalub, QObject *parent = nullptr);
 
     // AbstractGameFigure interface
     public:
     QColor getColor() override;
     QString getResourceImg() override;
     int getRotateAngleFigure() override;
-    void setSelfToField( AbstractField *field ) override;
+    void setSelfToField(AbstractField *field) override;
     void resetSelfToField() override;
 
 private:
@@ -23,4 +24,4 @@ private:
     int m_index;
 };
 
-#endif // DAMAGEEMPTYCELL_H
+#endif // DAMAGESHIPCELL_H

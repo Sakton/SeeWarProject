@@ -1,9 +1,9 @@
 #ifndef FIELDELEMENT_H
 #define FIELDELEMENT_H
-#include "abstractgamefigure.h"
+#include "../Elements/abstractgamefigure.h"
 #include "abstractfieldelement.h"
 //*****
-#include "../GameCore/emptycell.h"
+#include "../Elements/emptycell.h"
 //*****
 #include <QObject>
 

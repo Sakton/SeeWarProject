@@ -1,6 +1,6 @@
 #include "fieldelement.h"
-#include "config.h"
 #include <QDebug>
+#include "../Model/config.h"
 
 int FieldElement::countFieldElements = 0;
 

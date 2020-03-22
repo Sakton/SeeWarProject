@@ -1,8 +1,8 @@
 #include "flot.h"
-#include "../Model/config.h"
 #include <QDebug>
 #include <QRandomGenerator>
 #include <iostream>
+#include "../Model/config.h"
 
 QColor Flot::colorsForTest[10] {
     QColor("violet"),

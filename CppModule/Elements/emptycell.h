@@ -1,6 +1,6 @@
 #ifndef EMPTYCELL_H
 #define EMPTYCELL_H
-#include "../Model/abstractgamefigure.h"
+#include "abstractgamefigure.h"
 
 class EmptyCell : public AbstractGameFigure
 {

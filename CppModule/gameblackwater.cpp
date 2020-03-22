@@ -7,7 +7,6 @@
 #include <QQmlContext>
 #include "NetModule/gametcpclient.h"
 #include "Model/config.h"
-#include <map>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>

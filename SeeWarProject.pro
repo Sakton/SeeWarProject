@@ -21,20 +21,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-	CppModule/GameCore/damageemptycell.cpp \
-	CppModule/GameCore/damageshipcell.cpp \
-	CppModule/GameCore/emptycell.cpp \
-	CppModule/GameCore/flot.cpp \
-	CppModule/GameCore/forbiddencell.cpp \
-	CppModule/GameCore/framing.cpp \
+	CppModule/Elements/abstractgamefigure.cpp \
+	CppModule/Elements/damageemptycell.cpp \
+	CppModule/Elements/damageshipcell.cpp \
+	CppModule/Elements/emptycell.cpp \
+	CppModule/Elements/forbiddencell.cpp \
+	CppModule/Elements/paluba.cpp \
+	CppModule/Field/abstractfield.cpp \
+	CppModule/Field/abstractfieldelement.cpp \
+	CppModule/Field/fieldelement.cpp \
+	CppModule/Figure/framing.cpp \
+	CppModule/Figure/ship.cpp \
 	CppModule/GameCore/gamelogik.cpp \
-	CppModule/GameCore/paluba.cpp \
-	CppModule/GameCore/ship.cpp \
-	CppModule/Model/abstractfield.cpp \
-	CppModule/Model/abstractfieldelement.cpp \
-	CppModule/Model/abstractgamefigure.cpp \
 	CppModule/Model/field.cpp \
-	CppModule/Model/fieldelement.cpp \
+	CppModule/Model/flot.cpp \
 	CppModule/User/baseuser.cpp \
 	CppModule/User/enemyuser.cpp \
 	CppModule/User/ownuser.cpp \
@@ -80,21 +80,21 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
-	CppModule/GameCore/damageemptycell.h \
-	CppModule/GameCore/damageshipcell.h \
-	CppModule/GameCore/emptycell.h \
-	CppModule/GameCore/flot.h \
-	CppModule/GameCore/forbiddencell.h \
-	CppModule/GameCore/framing.h \
+	CppModule/Elements/abstractgamefigure.h \
+	CppModule/Elements/damageemptycell.h \
+	CppModule/Elements/damageshipcell.h \
+	CppModule/Elements/emptycell.h \
+	CppModule/Elements/forbiddencell.h \
+	CppModule/Elements/paluba.h \
+	CppModule/Field/abstractfield.h \
+	CppModule/Field/abstractfieldelement.h \
+	CppModule/Field/fieldelement.h \
+	CppModule/Figure/framing.h \
+	CppModule/Figure/ship.h \
 	CppModule/GameCore/gamelogik.h \
-	CppModule/GameCore/paluba.h \
-	CppModule/GameCore/ship.h \
-	CppModule/Model/abstractfield.h \
-	CppModule/Model/abstractfieldelement.h \
-	CppModule/Model/abstractgamefigure.h \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
-	CppModule/Model/fieldelement.h \
+	CppModule/Model/flot.h \
 	CppModule/User/baseuser.h \
 	CppModule/User/enemyuser.h \
 	CppModule/User/ownuser.h \

@@ -1,11 +1,11 @@
 #include "ownuser.h"
 #include <QQmlContext>
-#include "../GameCore/flot.h"
-#include "../Model/field.h"
 #include <QDebug>
 #include <QString>
 #include <QJsonDocument>
-#include "../GameCore/damageshipcell.h"
+#include "../Model/flot.h"
+#include "../Model/field.h"
+#include "../Elements/damageshipcell.h"
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     : BaseUser(parent), m_context{cotext}, m_ownField{}, m_enemyField{}, m_flot{}

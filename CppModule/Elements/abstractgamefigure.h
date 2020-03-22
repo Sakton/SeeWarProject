@@ -1,7 +1,8 @@
 #ifndef ABSTRACTGAMEFIGURE_H
 #define ABSTRACTGAMEFIGURE_H
 #include <QColor>
-#include "abstractfield.h"
+#include <QObject>
+#include "../Field/abstractfield.h"
 
 class AbstractField;
 
