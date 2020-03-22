@@ -27,12 +27,10 @@ SOURCES += \
 	CppModule/Elements/emptycell.cpp \
 	CppModule/Elements/forbiddencell.cpp \
 	CppModule/Elements/paluba.cpp \
-	CppModule/Field/abstractfield.cpp \
 	CppModule/Field/abstractfieldelement.cpp \
 	CppModule/Field/fieldelement.cpp \
 	CppModule/Figure/framing.cpp \
 	CppModule/Figure/ship.cpp \
-	CppModule/GameCore/gamelogik.cpp \
 	CppModule/Model/field.cpp \
 	CppModule/Model/flot.cpp \
 	CppModule/User/baseuser.cpp \
@@ -86,12 +84,10 @@ HEADERS += \
 	CppModule/Elements/emptycell.h \
 	CppModule/Elements/forbiddencell.h \
 	CppModule/Elements/paluba.h \
-	CppModule/Field/abstractfield.h \
 	CppModule/Field/abstractfieldelement.h \
 	CppModule/Field/fieldelement.h \
 	CppModule/Figure/framing.h \
 	CppModule/Figure/ship.h \
-	CppModule/GameCore/gamelogik.h \
 	CppModule/Model/config.h \
 	CppModule/Model/field.h \
 	CppModule/Model/flot.h \

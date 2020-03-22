@@ -3,12 +3,13 @@
 #include <vector>
 #include "../Elements/paluba.h"
 #include "../Model/config.h"
-#include "../Field/abstractfield.h"
+//#include "../Field/abstractfield.h"
 #include "framing.h"
 
 class DamageShipCell;
 class Paluba;
 class Framing;
+class Field;
 
 class Ship : public AbstractGameFigure
 {
@@ -32,14 +33,14 @@ public:
 public:
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField( AbstractField *field ) override;
+    void setSelfToField( Field *field ) override;
     void resetSelfToField() override;
     int getRotateAngleFigure() override;
     Framing *getFraming() const;
 
 
-    AbstractField *getField() const;
-    void setField( AbstractField *field );
+    Field *getField() const;
+    void setField( Field *field );
 
     //возврат к первоначальному состоянию
     void resetAll();
@@ -66,7 +67,7 @@ private:
     std::vector<Paluba *> m_palubs;
     //вспомогатеольная структура, индексы
     std::vector<int> m_indexesPalubs;
-    AbstractField *m_field;
+    Field *m_field;
     int oldIndex;
     int oldAngle;
     Framing *m_framing;

@@ -5,6 +5,7 @@
 #include "../Figure/ship.h"
 
 class Framing;
+class Field;
 
 class ForbiddenCell : public AbstractGameFigure
 {
@@ -17,7 +18,7 @@ public:
 public:
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField( AbstractField *field ) override;
+    void setSelfToField( Field *field ) override;
     void resetSelfToField() override;
     int getRotateAngleFigure() override;
 

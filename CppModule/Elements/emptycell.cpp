@@ -20,7 +20,7 @@ QString EmptyCell::getResourceImg()
     return m_img;
 }
 
-void EmptyCell::setSelfToField(AbstractField *field)
+void EmptyCell::setSelfToField(Field *field)
 {
     Q_UNUSED(field)
 }

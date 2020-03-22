@@ -5,6 +5,7 @@
 
 class ForbiddenCell;
 class Ship;
+class Field;
 
 class Framing : public AbstractGameFigure
 {
@@ -20,12 +21,12 @@ public:
 public:
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField ( AbstractField *field ) override;
+    void setSelfToField ( Field *field ) override;
     void resetSelfToField() override;
     int getRotateAngleFigure() override;
 
-    AbstractField *getField() const;
-    void setField(AbstractField *field);
+    Field *getField() const;
+    void setField(Field *field);
     void createFraming();
 
     //возврат к первоначальному состоянию
@@ -47,7 +48,7 @@ private:
     Ship *m_ship;
     std::vector<ForbiddenCell *> m_forbiddenCell;
     std::vector<int> m_forbiddenIndexes; //вспомогательная структура
-    AbstractField *m_field;
+    Field *m_field;
 
 };
 

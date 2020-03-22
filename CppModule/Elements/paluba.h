@@ -5,6 +5,7 @@
 #include "../Figure/ship.h"
 
 class Ship;
+class Field;
 
 class Paluba : public AbstractGameFigure
 {
@@ -21,7 +22,7 @@ public:
     // AbstractGameFigure interface
     QColor getColor() override;
     QString getResourceImg() override;
-    void setSelfToField(AbstractField *field) override;
+    void setSelfToField(Field *field) override;
     void resetSelfToField() override;
     int getRotateAngleFigure() override;
 

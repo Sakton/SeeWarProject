@@ -1,11 +1,12 @@
 #ifndef FIELD_H
 #define FIELD_H
 #include <vector>
-#include "../Field/abstractfield.h"
+//#include "../Field/abstractfield.h"
+#include <QAbstractListModel>
 #include "../Field/fieldelement.h"
 
 
-class Field : public AbstractField
+class Field : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -24,7 +25,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     // AbstractField interface
-    AbstractFieldElement *getFieldElementCell(int index) override;
+    AbstractFieldElement *getFieldElementCell(int index);
 
 
     void initField();

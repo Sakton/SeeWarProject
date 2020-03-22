@@ -1,5 +1,6 @@
 #include "paluba.h"
 #include <QDebug>
+#include "../Model/field.h"
 
 Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
     : AbstractGameFigure(parent),
@@ -23,7 +24,7 @@ QString Paluba::getResourceImg()
     return m_resourceImg;
 }
 
-void Paluba::setSelfToField(AbstractField *field)
+void Paluba::setSelfToField(Field *field)
 {
     field->getFieldElementCell(getCurrentIndexOfModel())->setFigure(this);
 }

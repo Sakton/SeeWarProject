@@ -3,6 +3,7 @@
 #include <QRandomGenerator>
 #include <iostream>
 #include "../Model/config.h"
+#include "../Model/field.h"
 
 QColor Flot::colorsForTest[10] {
     QColor("violet"),
@@ -17,7 +18,7 @@ QColor Flot::colorsForTest[10] {
     QColor("plum")
 };
 
-Flot::Flot(AbstractField *field, QObject *parent):QAbstractListModel(parent), m_field{field}, m_countShips{Config::COUNT_SHIPS}
+Flot::Flot(Field *field, QObject *parent):QAbstractListModel(parent), m_field{field}, m_countShips{Config::COUNT_SHIPS}
 {
     int colorIdx = 0;
     for(int i = 1; i <= 4; i++) {
@@ -80,12 +81,12 @@ bool Flot::setData(const QModelIndex &index, const QVariant &value, int role)
     return false;
 }
 
-void Flot::setSelfToField(AbstractField *field)
+void Flot::setSelfToField(Field *field)
 {
     Q_UNUSED(field)
 }
 
-void Flot::setSelfToFieldAuto(AbstractField *field)
+void Flot::setSelfToFieldAuto(Field *field)
 {
     Q_UNUSED(field)
 }

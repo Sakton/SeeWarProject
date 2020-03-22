@@ -3,7 +3,7 @@
 #include <QDebug>
 
 
-Field::Field(QObject *parent):AbstractField(parent)
+Field::Field(QObject *parent):QAbstractListModel(parent)
 {
     initField();
     roleHash[CellRoles::IndexElementRole] = "indexElement";

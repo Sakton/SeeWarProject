@@ -1,5 +1,6 @@
 #include "forbiddencell.h"
 #include <QDebug>
+#include "../Model/field.h"
 
 ForbiddenCell::ForbiddenCell(Framing *framing, QObject *parent) : AbstractGameFigure(parent),
     m_selfIndex{-1},
@@ -20,7 +21,7 @@ QString ForbiddenCell::getResourceImg()
     return m_img;
 }
 
-void ForbiddenCell::setSelfToField(AbstractField *field)
+void ForbiddenCell::setSelfToField(Field *field)
 {
     if( m_selfIndex >= 0 )
         field->getFieldElementCell(m_selfIndex)->setFigure(this);

@@ -2,9 +2,12 @@
 #define ABSTRACTGAMEFIGURE_H
 #include <QColor>
 #include <QObject>
-#include "../Field/abstractfield.h"
+//#include "../Field/abstractfield.h"
+//#include "../Model/field.h"
 
-class AbstractField;
+class Field;
+
+//class AbstractField;
 
 class AbstractGameFigure : public QObject
 {
@@ -15,7 +18,7 @@ public:
     virtual QColor getColor() = 0;
     virtual QString getResourceImg() = 0;
     virtual int getRotateAngleFigure() = 0; //TODO нужен ли этот метод тут
-    virtual void setSelfToField(AbstractField *field) = 0;
+    virtual void setSelfToField(Field *field) = 0;
     virtual void resetSelfToField() = 0;
 };
 

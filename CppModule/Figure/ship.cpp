@@ -5,6 +5,7 @@
 #include "../Elements/damageshipcell.h"
 #include "../Field/fieldelement.h"
 #include "../Elements/damageshipcell.h"
+#include "../Model/field.h"
 
 //TODO это не красиво наборы картинок вынести в отдельный класс
 const char* Ship::images[]{
@@ -153,18 +154,18 @@ QString Ship::getResourceImg()
     return resourceImg;
 }
 
-void Ship::setSelfToField(AbstractField *field)
+void Ship::setSelfToField(Field *field)
 {
     for(auto palub : m_palubs)
         palub->setSelfToField(field);
 }
 
-AbstractField *Ship::getField() const
+Field *Ship::getField() const
 {
     return m_field;
 }
 
-void Ship::setField(AbstractField *field)
+void Ship::setField(Field *field)
 {
     m_field = field;
     m_framing->setField(field);

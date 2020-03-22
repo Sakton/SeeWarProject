@@ -2,6 +2,7 @@
 #include <QDebug>
 #include "../Model/config.h"
 #include "../Elements/emptycell.h"
+#include "../Model/field.h"
 
 Framing::Framing(Ship *ship, QObject *parent) : AbstractGameFigure(parent), m_ship{ship}, m_field{nullptr}
 {
@@ -18,7 +19,7 @@ QString Framing::getResourceImg()
     return {};
 }
 
-void Framing::setSelfToField(AbstractField *field)
+void Framing::setSelfToField(Field *field)
 {
     for(auto el : m_forbiddenCell)
         el->setSelfToField (field);
@@ -41,12 +42,12 @@ int Framing::getRotateAngleFigure()
     return m_ship->getRotateAngleFigure();
 }
 
-AbstractField *Framing::getField() const
+Field *Framing::getField() const
 {
     return m_field;
 }
 
-void Framing::setField(AbstractField *field)
+void Framing::setField(Field *field)
 {
     m_field = field;
 }

@@ -1,4 +1,5 @@
 #include "damageshipcell.h"
+#include "../Model/field.h"
 
 DamageShipCell::DamageShipCell(Ship *ship, int numberPalub, QObject *parent)
     : Paluba(ship, numberPalub, parent),
@@ -23,7 +24,7 @@ int DamageShipCell::getRotateAngleFigure()
     return 90;
 }
 
-void DamageShipCell::setSelfToField(AbstractField *field)
+void DamageShipCell::setSelfToField(Field *field)
 {
     field->getFieldElementCell(getCurrentIndexOfModel())->setFigure(this);
 }

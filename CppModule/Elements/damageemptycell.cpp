@@ -23,7 +23,7 @@ int DamageEmptyCell::getRotateAngleFigure()
     return 0;
 }
 
-void DamageEmptyCell::setSelfToField(AbstractField *field)
+void DamageEmptyCell::setSelfToField(Field *field)
 {
     //field->getFieldElementCell(m_index);
     Q_UNUSED(field)

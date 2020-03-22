@@ -42,8 +42,8 @@ private:
 
 private:
     QQmlContext *m_context;
-    AbstractField *m_ownField;
-    AbstractField *m_enemyField;
+    Field *m_ownField;
+    Field *m_enemyField;
     Flot *m_flot;
     bool hod;
 };

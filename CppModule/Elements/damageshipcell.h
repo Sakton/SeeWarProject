@@ -15,7 +15,7 @@ public:
     QColor getColor() override;
     QString getResourceImg() override;
     int getRotateAngleFigure() override;
-    void setSelfToField(AbstractField *field) override;
+    void setSelfToField(Field *field) override;
     void resetSelfToField() override;
 
 private:

@@ -2,9 +2,11 @@
 #define FLOT_H
 #include <vector>
 #include <QAbstractListModel>
-#include "../Field/abstractfield.h"
+//#include "../Field/abstractfield.h"
 #include "../Figure/ship.h"
 #include "../Elements/abstractgamefigure.h"
+
+class Field;
 
 class Flot : public QAbstractListModel
 {
@@ -17,15 +19,15 @@ public:
         AngleRole
     };
 
-    explicit Flot(AbstractField *field = nullptr, QObject *parent = nullptr);
+    explicit Flot(Field *field = nullptr, QObject *parent = nullptr);
     // QAbstractItemModel interface
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 public:
-    void setSelfToField(AbstractField *field);
-    void setSelfToFieldAuto(AbstractField *field);
+    void setSelfToField(Field *field);
+    void setSelfToFieldAuto(Field *field);
 
 public slots:
     //возврат к первоначальному состоянию
@@ -40,7 +42,7 @@ signals:
 
 private:
     std::vector<Ship *> m_ships;
-    AbstractField *m_field;
+    Field *m_field;
     QHash<int, QByteArray> m_flotRoles;
     //*****
     static QColor colorsForTest[10];
