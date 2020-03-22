@@ -18,16 +18,13 @@ public:
     };
 
     explicit Field(QObject *parent = nullptr);
-    // QAbstractItemModel interface
+    // QAbstractListModel interface
     int rowCount(const QModelIndex &) const override;
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    // AbstractField interface
     AbstractFieldElement *getFieldElementCell(int index);
-
-
     void initField();
 
 public slots:
@@ -35,7 +32,6 @@ public slots:
 
 private:
     QHash<int, QByteArray> roleHash;
-//    std::vector<AbstractFieldElement *> m_field;
     std::vector<FieldElement *> m_field;
     int m_state;
 };

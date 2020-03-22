@@ -13,9 +13,7 @@ class Framing : public AbstractGameFigure
     Q_INTERFACES(AbstractGameFigure)
 public:
     Framing( Ship *ship, QObject *parent = nullptr );
-
     std::vector<int> getForbiddenIndexes() const;
-
 
     // AbstractGameFigure interface
 public:
@@ -49,7 +47,6 @@ private:
     std::vector<ForbiddenCell *> m_forbiddenCell;
     std::vector<int> m_forbiddenIndexes; //вспомогательная структура
     Field *m_field;
-
 };
 
 #endif // FRAMING_H

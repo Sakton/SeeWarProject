@@ -122,13 +122,6 @@ void Framing::appointIndexesToForbiddenCell()
         else
             m_forbiddenIndexes.at( i ) = -1;
     }
-
-//    QString s;
-//    for(auto el : m_forbiddenIndexes) {
-//        s.push_back(QString::number(el));
-//        s.push_back(" ");
-//    }
-//    qDebug() << "end string = " << s;
 }
 
 void Framing::createForbiddemCellElements( int countpalubs )
