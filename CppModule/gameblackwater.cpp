@@ -29,6 +29,7 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
 
     connect(m_ownUser, &OwnUser::clickedToCell, this, &GameBlackWater::onClickedToCell);
     connect(m_ownUser, &OwnUser::sendMessage, this, &GameBlackWater::onSendMessage);
+    connect(m_ownUser, &OwnUser::answerFireEnemyUserToNet, this, &GameBlackWater::onAnswerFireEnemyUserToNet);
     connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
 
 }
@@ -75,8 +76,6 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue answerStateEnemy = doc[Config::State_Game];
     QJsonValue pravoHoda  = doc[Config::Hod];
 
-    //FIXME делать тут, право первого хода
-    //FIXME делать тут, прием проверки ход от др игрока
     if (!pravoHoda.isUndefined()) {
         qDebug() << "Hod = " << pravoHoda.toInt();
         m_ownUser->setHod(pravoHoda.toInt());
@@ -85,20 +84,30 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
         m_ownUser->onAnswerMessageToEnemyUser(messsage.toString());
     if(!indexFire.isUndefined()) {
         m_ownUser->onFireToCellToQml(indexFire.toInt());
-        QJsonObject ans;
-        ans.insert( Config::State_Game, static_cast<int>(m_ownUser->stateMovesUser()) );
-        QJsonDocument dc;
-        dc.setObject(ans);
-        m_tcpNetClient->sendJsonDocument(&dc);
+        //ответ
+//        QJsonObject ans;
+//        ans.insert( Config::State_Game, static_cast<int>(m_ownUser->stateMovesUser()) );
+//        QJsonDocument dc;
+//        dc.setObject(ans);
+//        m_tcpNetClient->sendJsonDocument(&dc);
     }
-    if(!answerStateEnemy.isUndefined()) {
-        m_ownUser->setOwnStateFromEnemyState(BaseUser::StateMovesUser(answerStateEnemy.toInt()));
-        qDebug() << "State answer = " << BaseUser::StateMovesUser(answerStateEnemy.toInt());
+    if( !answerStateEnemy.isUndefined() ) {
+    qDebug() << "State answer = " << BaseUser::StateMovesUser( answerStateEnemy.toInt() );
+        m_ownUser->setOwnStateFromEnemyState(BaseUser::StateMovesUser( answerStateEnemy.toInt()) );
+        //отправить на установку
+
     }
+}
 
+void GameBlackWater::onAnswerFireEnemyUserToNet(int state)
+{
+    QJsonObject obj;
+    obj.insert(Config::State_Game, state);
 
+    QJsonDocument doc;
+    doc.setObject(obj);
 
-
+    m_tcpNetClient->sendJsonDocument(&doc);
 }
 
 void GameBlackWater::createJsonDocument()

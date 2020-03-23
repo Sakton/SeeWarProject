@@ -20,7 +20,6 @@ Paluba::Paluba(Ship *ship, int numberPalub, bool onePalub, QObject *parent)
 {
     if(onePalub)
         m_resourceImg = images[3];
-    qDebug() << numberPalub;
     m_resourceImg = images[numberPalub];
 }
 

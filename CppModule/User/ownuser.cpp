@@ -19,26 +19,31 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
 }
-
+//FIXME РАЗДЕЛИТЬ ПРИЕМ ПЕРЕДАЧУ ДАННЫХ ПУТАННИЦА
 // отправка
 void OwnUser::onClickToCell(int indexCell)
 {
+    qDebug() << "OwnUser::onClickToCell(int indexCell)";
+    m_currentFireIndex = indexCell;
     emit clickedToCell(indexCell);
 }
 
 void OwnUser::onMessageChat(const QString &mes)
 {
+    qDebug() << "OwnUser::onMessageChat(const QString &mes)";
     emit sendMessage(mes);
 }
 
 //прием
 void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
 {
+    qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
     emit answerMessageToEnemyUserToQml(mes);
 }
 
 void OwnUser::onFireToCellToQml(int index)
 {
+    qDebug() << "void OwnUser::onFireToCellToQml(int index)";
     //огбработка индекса выстрела
     resultFireToThis(index);
     //в кумль в чат
@@ -47,6 +52,7 @@ void OwnUser::onFireToCellToQml(int index)
 
 void OwnUser::resultFireToThis(int index)
 {
+    qDebug() << "void OwnUser::resultFireToThis(int index)";
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
     auto *fieldElementEnemy = m_enemyField->getFieldElementCell(index);
     auto *gameFigure = fieldElement->figure();
@@ -57,11 +63,11 @@ void OwnUser::resultFireToThis(int index)
         TestPalubNew *tp = new TestPalubNew();
         fieldElementEnemy->setFigure(tp);
         //дать ответ результата хода в сеть
-
+        setDamageState();
     } else {
         setMissState();
     }
-
+    emit answerFireEnemyUserToNet( stateMovesUser() );
 }
 
 bool OwnUser::getHod() const

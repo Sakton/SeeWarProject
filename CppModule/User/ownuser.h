@@ -36,6 +36,8 @@ signals:
     //прием и отправка в qml
     void answerMessageToEnemyUserToQml(const QString &mes);
     void answerFireToCell(int index);
+    //ответ результата хода для отправки в сеть
+    void answerFireEnemyUserToNet(int);
 
 private:
     void resultFireToThis(int);
@@ -46,6 +48,7 @@ private:
     Field *m_enemyField;
     Flot *m_flot;
     bool hod;
+    int m_currentFireIndex;
 };
 
 #endif // OWNUSER_H

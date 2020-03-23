@@ -61,7 +61,6 @@ void Ship::setColor(const QColor &color)
 
 void Ship::damage()
 {
-    //FIXME деЛАть ТуТ
     --m_countPalub;
     emit damageShip();
     if(!m_countPalub)
