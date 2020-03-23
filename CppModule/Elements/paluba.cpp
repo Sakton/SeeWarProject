@@ -2,7 +2,14 @@
 #include <QDebug>
 #include "../Model/field.h"
 
-Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
+const char* images[]{
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png",
+    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"
+};
+
+Paluba::Paluba(Ship *ship, int numberPalub, bool onePalub, QObject *parent)
     : AbstractGameFigure(parent),
     m_ship{ship},
     m_numberPalub{numberPalub},
@@ -11,7 +18,10 @@ Paluba::Paluba(Ship *ship, int numberPalub, QObject *parent)
     m_currentIndexOfModel{-1},
     m_stateDamage{StatePalubs::NO_DAMAG}
 {
-
+    if(onePalub)
+        m_resourceImg = images[3];
+    qDebug() << numberPalub;
+    m_resourceImg = images[numberPalub];
 }
 
 QColor Paluba::getColor()

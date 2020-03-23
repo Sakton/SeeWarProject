@@ -3,7 +3,6 @@
 #include <vector>
 #include "../Elements/paluba.h"
 #include "../Model/config.h"
-//#include "../Field/abstractfield.h"
 #include "framing.h"
 
 class DamageShipCell;

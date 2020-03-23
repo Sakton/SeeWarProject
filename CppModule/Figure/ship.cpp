@@ -7,13 +7,6 @@
 #include "../Elements/damageshipcell.h"
 #include "../Model/field.h"
 
-//TODO это не красиво наборы картинок вынести в отдельный класс
-const char* Ship::images[]{
-    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_01.png",
-    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_02.png",
-    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_03.png",
-    "qrc:/QmlModule/qml/DefaultGui/img/Palybs/types1/types1_04.png"
-};
 
 Ship::Ship(int countPalub, int angle, QObject *parent)
     : AbstractGameFigure(parent),
@@ -27,11 +20,7 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     m_color{"#00000000"}
 {
     for(int i = 1, j = 4 - countPalub; i <= countPalub; ++i, ++j ) {
-        auto palub = new Paluba(this, i, this);
-        if(countPalub != 1)
-            palub->setResourceImg(QString(images[j]));
-        else
-            palub->setResourceImg(QString(images[0]));
+        auto palub = new Paluba(this, j, bool(j - 1), this);
         m_palubs.push_back(palub);
     }
     m_framing = new Framing(this, this);

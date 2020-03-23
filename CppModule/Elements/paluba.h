@@ -7,6 +7,8 @@
 class Ship;
 class Field;
 
+
+
 class Paluba : public AbstractGameFigure
 {
     Q_OBJECT
@@ -18,7 +20,7 @@ class Paluba : public AbstractGameFigure
     Q_PROPERTY(QString img READ getResourceImg WRITE setResourceImg NOTIFY imgChanged)
 
 public:
-    explicit Paluba(Ship *ship, int numberPalub, QObject *parent = nullptr);
+    explicit Paluba(Ship *ship, int numberPalub, bool onePalub, QObject *parent = nullptr);
     // AbstractGameFigure interface
     QColor getColor() override;
     QString getResourceImg() override;

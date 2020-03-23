@@ -2,9 +2,7 @@
 #define FIELDELEMENT_H
 #include "../Elements/abstractgamefigure.h"
 #include "abstractfieldelement.h"
-//*****
 #include "../Elements/emptycell.h"
-//*****
 #include <QObject>
 
 class FieldElement : public AbstractFieldElement
