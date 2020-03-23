@@ -27,6 +27,8 @@ SOURCES += \
 	CppModule/Elements/emptycell.cpp \
 	CppModule/Elements/forbiddencell.cpp \
 	CppModule/Elements/paluba.cpp \
+	CppModule/Elements/testabstractgamefigure.cpp \
+	CppModule/Elements/testpalubnew.cpp \
 	CppModule/Field/abstractfieldelement.cpp \
 	CppModule/Field/fieldelement.cpp \
 	CppModule/Figure/framing.cpp \
@@ -84,6 +86,8 @@ HEADERS += \
 	CppModule/Elements/emptycell.h \
 	CppModule/Elements/forbiddencell.h \
 	CppModule/Elements/paluba.h \
+	CppModule/Elements/testabstractgamefigure.h \
+	CppModule/Elements/testpalubnew.h \
 	CppModule/Field/abstractfieldelement.h \
 	CppModule/Field/fieldelement.h \
 	CppModule/Figure/framing.h \

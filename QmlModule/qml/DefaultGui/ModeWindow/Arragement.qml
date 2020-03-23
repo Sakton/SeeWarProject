@@ -34,7 +34,6 @@ InterfaceWindowSignals {
                     Layout.fillWidth: true
                     Layout.minimumHeight: _root.width
                     model: Setting.modelField
-                    //model: Setting.ownModelField
 
                     DropArea {
                         id: _da

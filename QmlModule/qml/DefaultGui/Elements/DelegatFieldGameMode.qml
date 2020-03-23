@@ -6,6 +6,9 @@ Item {
     id: _root
     signal clicedIndex(int indexClick)
     property int index: 0
+    property string imageResource: ""
+    property int rotateAngle: 0
+    property color colorCell: "black"
 
     //***
     width: 30
@@ -27,6 +30,17 @@ Item {
         onClicked: {
             clicedIndex(index)
         }
+    }
+
+    AnimatedImage {
+        onStatusChanged: playing = (status == AnimatedImage.Ready)
+        cache: true
+        width: parent.width - parent.width / 10
+        height: parent.height - parent.height / 10
+        source: imageResource
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        rotation: rotateAngle
     }
 
 }

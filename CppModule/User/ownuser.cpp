@@ -6,6 +6,7 @@
 #include "../Model/flot.h"
 #include "../Model/field.h"
 #include "../Elements/damageshipcell.h"
+#include "../Elements/testpalubnew.h"
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     : BaseUser(parent), m_context{cotext}, m_ownField{}, m_enemyField{}, m_flot{}
@@ -47,17 +48,20 @@ void OwnUser::onFireToCellToQml(int index)
 void OwnUser::resultFireToThis(int index)
 {
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
+    auto *fieldElementEnemy = m_enemyField->getFieldElementCell(index);
     auto *gameFigure = fieldElement->figure();
-    Paluba *ptr = nullptr;
-    if( ( ptr = qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
-        //FIXME ТАК!?
-        ptr->setResourceImg("qrc:/QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif");
-        fieldElement->sendSignalToChange(index);
-        ptr->getShip()->damage();
-        setDamageState();
+    if( ( qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
+        auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
+        fieldElement->setFigure(dpl);
+        //FIXME не тут!!!, обрабатывать ответ хода!!!!!
+        TestPalubNew *tp = new TestPalubNew();
+        fieldElementEnemy->setFigure(tp);
+        //дать ответ результата хода в сеть
+
     } else {
         setMissState();
     }
+
 }
 
 bool OwnUser::getHod() const

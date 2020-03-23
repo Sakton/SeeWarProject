@@ -7,8 +7,6 @@
 class Ship;
 class Field;
 
-
-
 class Paluba : public AbstractGameFigure
 {
     Q_OBJECT
@@ -16,11 +14,11 @@ class Paluba : public AbstractGameFigure
     enum StatePalubs {
         DAMAG = 0, NO_DAMAG
     };
-//    Q_PROPERTY(QColor color READ getColor NOTIFY getColorChanged)
     Q_PROPERTY(QString img READ getResourceImg WRITE setResourceImg NOTIFY imgChanged)
 
 public:
     explicit Paluba(Ship *ship, int numberPalub, bool onePalub, QObject *parent = nullptr);
+    explicit Paluba(const Paluba &pl);
     // AbstractGameFigure interface
     QColor getColor() override;
     QString getResourceImg() override;

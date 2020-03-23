@@ -76,6 +76,7 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue pravoHoda  = doc[Config::Hod];
 
     //FIXME делать тут, право первого хода
+    //FIXME делать тут, прием проверки ход от др игрока
     if (!pravoHoda.isUndefined()) {
         qDebug() << "Hod = " << pravoHoda.toInt();
         m_ownUser->setHod(pravoHoda.toInt());

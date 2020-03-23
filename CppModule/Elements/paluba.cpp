@@ -24,6 +24,17 @@ Paluba::Paluba(Ship *ship, int numberPalub, bool onePalub, QObject *parent)
     m_resourceImg = images[numberPalub];
 }
 
+Paluba::Paluba(const Paluba &pl)
+{
+    m_ship = pl.m_ship;
+    m_numberPalub = pl.m_numberPalub;
+    m_color = pl.m_color;
+    m_resourceImg = pl.m_resourceImg;
+    m_currentIndexOfModel = pl.m_currentIndexOfModel;
+    m_stateDamage = pl.m_stateDamage;
+}
+
+
 QColor Paluba::getColor()
 {
     return m_color;

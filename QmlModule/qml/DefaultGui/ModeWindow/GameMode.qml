@@ -66,6 +66,9 @@ InterfaceWindowSignals {
                         id: _delegate
                         width: _f.cellWidth
                         index: model.indexElement
+                        colorCell: model.colorElement
+                        imageResource: model.imageResourceCell
+                        rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
                             console.debug("Setting.userObject.countMoves = "
                                           + Setting.userObject.countMoves)
