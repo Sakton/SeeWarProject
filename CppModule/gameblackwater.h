@@ -24,13 +24,13 @@ public:
     ~GameBlackWater();
 
 private slots:
-    void onClickedToCell(int indexCell);
-    void onSendMessage(const QString &mes);
-    void sendJsonDocument();
-    void readJsonDocument(const QByteArray *answer);
-    void onAnswerFireEnemyUserToNet(int);
+    void slotFromOwnUser_onClickedToCell(int indexCell);
+    void slotFromOwnUser_onSendMessage(const QString &mes);
+    void slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int);
 
 private:
+    void sendJsonDocument();
+    void readJsonDocument(const QByteArray *answer);
     void createJsonDocument();
     void send(QByteArray* pByteArray);
 

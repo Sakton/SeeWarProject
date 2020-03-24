@@ -52,7 +52,6 @@ void BaseUser::setHitState()
 
 void BaseUser::setOwnStateFromEnemyState(BaseUser::StateMovesUser enemyState)
 {
-    qDebug() << "BaseUser EnemyState = " << enemyState;
     switch (enemyState) {
     case BaseUser::StateMovesUser::DAMAGE: {
         setHitState();

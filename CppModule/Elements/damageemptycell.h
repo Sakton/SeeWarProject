@@ -1,26 +1,13 @@
 #ifndef DAMAGEEMPTYCELL_H
 #define DAMAGEEMPTYCELL_H
-#include "abstractgamefigure.h"
+#include "emptycell.h"
 
-class DamageEmptyCell : public AbstractGameFigure
+class DamageEmptyCell : public EmptyCell
 {
     Q_OBJECT
     Q_INTERFACES(AbstractGameFigure)
 public:
-    explicit DamageEmptyCell(int index, QObject *parent = nullptr);
-
-    // AbstractGameFigure interface
-    public:
-    QColor getColor() override;
-    QString getResourceImg() override;
-    int getRotateAngleFigure() override;
-    void setSelfToField( Field *field ) override;
-    void resetSelfToField() override;
-
-private:
-    QColor m_color;
-    QString m_resourceImg;
-    int m_index;
+    explicit DamageEmptyCell(QObject *parent = nullptr);
 };
 
 #endif // DAMAGEEMPTYCELL_H

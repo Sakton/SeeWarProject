@@ -27,9 +27,12 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
 
     m_tcpNetClient = new GameTcpClient(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, this);
 
-    connect(m_ownUser, &OwnUser::clickedToCell, this, &GameBlackWater::onClickedToCell);
-    connect(m_ownUser, &OwnUser::sendMessage, this, &GameBlackWater::onSendMessage);
-    connect(m_ownUser, &OwnUser::answerFireEnemyUserToNet, this, &GameBlackWater::onAnswerFireEnemyUserToNet);
+    connect(m_ownUser, &OwnUser::signalOwnUser_slotFromQml_clickedToCell, this, &GameBlackWater::slotFromOwnUser_onClickedToCell);
+
+    connect(m_ownUser, &OwnUser::signalOwnUser_sendMessage, this, &GameBlackWater::slotFromOwnUser_onSendMessage);
+
+    connect(m_ownUser, &OwnUser::signalOwnUser_answerToEnemyUserAboutFireCell, this, &GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell);
+
     connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
 
 }
@@ -40,8 +43,9 @@ GameBlackWater::~GameBlackWater()
     delete m_obj;
 }
 
-void GameBlackWater::onClickedToCell(int indexCell)
+void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
 {
+    qDebug() << "GameBlackWater::slotFromOwnUser_onClickedToCell отпришло от OwnUser";
     QJsonObject obj;
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
@@ -51,8 +55,9 @@ void GameBlackWater::onClickedToCell(int indexCell)
     sendJsonDocument();
 }
 
-void GameBlackWater::onSendMessage(const QString &mes)
+void GameBlackWater::slotFromOwnUser_onSendMessage(const QString &mes)
 {
+    qDebug() << "GameBlackWater::onSendMessage(const QString &mes)";
     QJsonObject obj;
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
@@ -76,30 +81,18 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue answerStateEnemy = doc[Config::State_Game];
     QJsonValue pravoHoda  = doc[Config::Hod];
 
-    if (!pravoHoda.isUndefined()) {
-        qDebug() << "Hod = " << pravoHoda.toInt();
-        m_ownUser->setHod(pravoHoda.toInt());
-    }
+    if (!pravoHoda.isUndefined())
+	m_ownUser->setHod(pravoHoda.toInt());
     if(!messsage.isUndefined())
-        m_ownUser->onAnswerMessageToEnemyUser(messsage.toString());
-    if(!indexFire.isUndefined()) {
-        m_ownUser->onFireToCellToQml(indexFire.toInt());
-        //ответ
-//        QJsonObject ans;
-//        ans.insert( Config::State_Game, static_cast<int>(m_ownUser->stateMovesUser()) );
-//        QJsonDocument dc;
-//        dc.setObject(ans);
-//        m_tcpNetClient->sendJsonDocument(&dc);
-    }
+	m_ownUser->slotFromEnemyUser_onMessageToChatToQml(messsage.toString());
+    if(!indexFire.isUndefined())
+	m_ownUser->slotFromEnemyUser_onFireToCellToQml(indexFire.toInt());
     if( !answerStateEnemy.isUndefined() ) {
-    qDebug() << "State answer = " << BaseUser::StateMovesUser( answerStateEnemy.toInt() );
-        m_ownUser->setOwnStateFromEnemyState(BaseUser::StateMovesUser( answerStateEnemy.toInt()) );
-        //отправить на установку
-
+	m_ownUser->setElementResultFireToEnemyField( OwnUser::StateMovesUser(answerStateEnemy.toInt()) );
     }
 }
 
-void GameBlackWater::onAnswerFireEnemyUserToNet(int state)
+void GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int state)
 {
     QJsonObject obj;
     obj.insert(Config::State_Game, state);

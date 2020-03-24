@@ -16,7 +16,7 @@ Item {
 
     Connections {
         target: Setting.userObject
-        onAnswerFireToCell: {
+        onSignalToQml_answerFireToCell: {
             _logElement.textLog = "<b><font color = " + Setting.styleLogHiColor + ">" + Setting.textAppealHi + ": </b>" + index + "<br>"
         }
     }

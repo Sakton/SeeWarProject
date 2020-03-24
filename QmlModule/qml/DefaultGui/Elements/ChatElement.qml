@@ -14,14 +14,15 @@ LogElement {
     Connections {
         target: _loader.item
         onTextOnChat : {
-            Setting.userObject.onMessageChat(txt)
+            Setting.userObject.slotFromQml_MessageChat(txt)
             _root.textLog = "<b><font color = " + Setting.styleLogYourColor + ">" + Setting.textAppealYou + ": </b>" + txt + "<br>"
         }
     }
 
     Connections {
         target: Setting.userObject
-        onAnswerMessageToEnemyUserToQml: {
+        //TODO ТУТ ПОПРАВКА СИГНАЛА
+        onSignalToQml_answerMessageEnemyUser: {
             _root.textLog = "<b><font color = " + Setting.styleLogHiColor + ">" + Setting.textAppealHi + ": </b>" + mes + "<br>"
         }
     }

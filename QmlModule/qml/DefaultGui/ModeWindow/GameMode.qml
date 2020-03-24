@@ -70,20 +70,19 @@ InterfaceWindowSignals {
                         imageResource: model.imageResourceCell
                         rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
-                            console.debug("Setting.userObject.countMoves = "
-                                          + Setting.userObject.countMoves)
+//                            console.debug("Setting.userObject.countMoves = "
+//                                          + Setting.userObject.countMoves)
                             //TODO проверка состояния и количетва ходов
                             if (Setting.userObject.countMoves === 0) {
                                 _popup.open()
                             } else {
                                 _topElement.clickIndex = model.indexElement
-                                Setting.userObject.onClickToCell(
-                                            model.indexElement)
+                                Setting.userObject.slotFromQml_ClickToCell( model.indexElement )
                                 //--Setting.userObject.countMoves
                             }
                         }
                     }
-                }
+                } //Field
 
                 Item {
                     Layout.fillWidth: true

@@ -7,6 +7,7 @@
 #include "../Model/field.h"
 #include "../Elements/damageshipcell.h"
 #include "../Elements/testpalubnew.h"
+#include "../Elements/damageemptycell.h"
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     : BaseUser(parent), m_context{cotext}, m_ownField{}, m_enemyField{}, m_flot{}
@@ -21,33 +22,44 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
 }
 //FIXME РАЗДЕЛИТЬ ПРИЕМ ПЕРЕДАЧУ ДАННЫХ ПУТАННИЦА
 // отправка
-void OwnUser::onClickToCell(int indexCell)
+void OwnUser::slotFromQml_ClickToCell(int indexCell)
 {
-    qDebug() << "OwnUser::onClickToCell(int indexCell)";
+    //Пришло с кумль
+    qDebug() << "OwnUser::slotFromQml_ClickToCell Пришло из QML слоя";
+    //текущий
     m_currentFireIndex = indexCell;
-    emit clickedToCell(indexCell);
+    emit signalOwnUser_slotFromQml_clickedToCell(indexCell);
 }
 
-void OwnUser::onMessageChat(const QString &mes)
+void OwnUser::slotFromQml_MessageChat(const QString &mes)
 {
     qDebug() << "OwnUser::onMessageChat(const QString &mes)";
-    emit sendMessage(mes);
+    emit signalOwnUser_sendMessage(mes);
 }
 
 //прием
-void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
+//void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
+//{
+//    qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
+//    emit signalToQml_answerMessageEnemyUser(mes);
+//}
+
+void OwnUser::slotFromEnemyUser_onFireToCellToQml(int index)
 {
-    qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
-    emit answerMessageToEnemyUserToQml(mes);
+    //пришло из сети
+    qDebug() << "выстрел от другого игрока " << index;
+    //огбработка индекса выстрела и изменение в модели
+    resultFireToThis(index);
+    //отослать ответ
+    emit signalOwnUser_answerToEnemyUserAboutFireCell( stateMovesUser() );
+    //в кумль в чат
+    emit signalToQml_answerFireToCell(index);
 }
 
-void OwnUser::onFireToCellToQml(int index)
+void OwnUser::slotFromEnemyUser_onMessageToChatToQml(const QString &mes)
 {
-    qDebug() << "void OwnUser::onFireToCellToQml(int index)";
-    //огбработка индекса выстрела
-    resultFireToThis(index);
-    //в кумль в чат
-    emit answerFireToCell(index);
+        qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
+        emit signalToQml_answerMessageEnemyUser(mes);
 }
 
 void OwnUser::resultFireToThis(int index)
@@ -62,12 +74,10 @@ void OwnUser::resultFireToThis(int index)
         //FIXME не тут!!!, обрабатывать ответ хода!!!!!
         TestPalubNew *tp = new TestPalubNew();
         fieldElementEnemy->setFigure(tp);
-        //дать ответ результата хода в сеть
         setDamageState();
     } else {
         setMissState();
     }
-    emit answerFireEnemyUserToNet( stateMovesUser() );
 }
 
 bool OwnUser::getHod() const
@@ -78,4 +88,23 @@ bool OwnUser::getHod() const
 void OwnUser::setHod(bool value)
 {
     hod = value;
+}
+
+void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
+{
+    switch(state) {
+    case StateMovesUser::MISS: {
+	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
+	DamageEmptyCell *damEmptyCell = new DamageEmptyCell();
+	fieldElement->setFigure(damEmptyCell);
+	break;
+    }
+    case StateMovesUser::DAMAGE: {
+	//поправить тут
+	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
+	DamageEmptyCell *damEmptyCell = new DamageEmptyCell();
+	fieldElement->setFigure(damEmptyCell);
+	break;
+    }
+    }
 }

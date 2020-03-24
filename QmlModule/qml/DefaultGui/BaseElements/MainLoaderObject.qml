@@ -1,5 +1,4 @@
 import QtQuick 2.0
-//import Settings 1.0
 import "../Settings/"
 
 QtObject {
@@ -8,17 +7,21 @@ QtObject {
 
     function createObject(resourceObject) {
         var component = Qt.createComponent(resourceObject);
-        if(component.status === Component.Ready){
+        console.log("component = " + component)
+        if(component.status === Component.Ready) {
             if(currentObject !== null)
                 currentObject.destroy()
             currentObject = component.createObject(_root, {"width":_root.width, "height":_root.height})
+            //сединение сигнала buttonMenuClicked кнопок с слотом loaderWindow
             currentObject.buttonMenuClicked.connect(loaderWindow)
         }
+        if(component.status === Component.Error)
+            //Ошибки создания компонентов
+            console.debug("component.errorString = " + component.errorString())
         return currentObject
     }
 
     function loaderWindow(indexWindow) {
-        var fileLoad = null;
         switch(indexWindow) {
         case Setting.MyEnumButton.BUTTON_ANDROID:
             createObject(Setting.window_ARRAGEMENT)
@@ -36,11 +39,13 @@ QtObject {
             console.log("Load Editing_Window")
             break;
         case Setting.MyEnumButton.BUTTON_DISCHARGE:
+            //WARNING ПЛОХО ТУТ СИДИТ СИГНАЛ (МЕТОД)
             Setting.modelFlot.resetAll();
             createObject(Setting.window_ARRAGEMENT)
             break;
         case Setting.MyEnumButton.BUTTON_AUTOALIGMENT:
             createObject(Setting.window_ARRAGEMENT)
+            //WARNING ПЛОХО ТУТ СИДИТ СИГНАЛ (МЕТОД)
             Setting.modelFlot.autoArragement();
             break;
         case Setting.MyEnumButton.BUTTON_REPEAT:
@@ -53,7 +58,6 @@ QtObject {
             console.log("BUTTON_AGAIN")
             //TODO для теста
             Setting.userObject.damag = (Setting.userObject.damag === 0) ? 1 : 0;
-
             break;
         }
     }

@@ -16,12 +16,14 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
     m_tcpSocket, static_cast<void(QTcpSocket::*)()>(&QTcpSocket::deleteLater));
 }
 
+//FIXME тут передачи указателей смотрим на очищение памяти
+
 void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
 {
     m_tcpSocket->write(doc->toJson());
 }
 
-void GameTcpClient::send(QByteArray *pByteArray)
+void GameTcpClient::send(const QByteArray *pByteArray)
 {
     m_tcpSocket->write(*pByteArray);
 }

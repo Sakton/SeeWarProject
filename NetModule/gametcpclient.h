@@ -14,7 +14,7 @@ public:
 
     void sendJsonDocument(QJsonDocument *doc);
     QJsonDocument readJsonDocument();
-    void send(QByteArray* pByteArray);
+    void send(const QByteArray* pByteArray);
 public slots:
 
 

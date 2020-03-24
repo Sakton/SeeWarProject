@@ -27,9 +27,8 @@ public slots:
     void setImg(QString img);
 
 private:
-    QColor m_color/*{"red"}*/;
-    QString m_img/*{""}*/;
-
+    QColor m_color;
+    QString m_img;
 };
 
 #endif // EMPTYCELL_H
