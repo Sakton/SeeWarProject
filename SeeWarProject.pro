@@ -21,14 +21,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+	CppModule/Elements/DamageEnemyShipCell.cpp \
 	CppModule/Elements/abstractgamefigure.cpp \
 	CppModule/Elements/damageemptycell.cpp \
 	CppModule/Elements/damageshipcell.cpp \
 	CppModule/Elements/emptycell.cpp \
 	CppModule/Elements/forbiddencell.cpp \
 	CppModule/Elements/paluba.cpp \
-	CppModule/Elements/testabstractgamefigure.cpp \
-	CppModule/Elements/testpalubnew.cpp \
 	CppModule/Field/abstractfieldelement.cpp \
 	CppModule/Field/fieldelement.cpp \
 	CppModule/Figure/framing.cpp \
@@ -80,14 +79,13 @@ DISTFILES += \
 	trrttr
 
 HEADERS += \
+	CppModule/Elements/DamageEnemyShipCell.h \
 	CppModule/Elements/abstractgamefigure.h \
 	CppModule/Elements/damageemptycell.h \
 	CppModule/Elements/damageshipcell.h \
 	CppModule/Elements/emptycell.h \
 	CppModule/Elements/forbiddencell.h \
 	CppModule/Elements/paluba.h \
-	CppModule/Elements/testabstractgamefigure.h \
-	CppModule/Elements/testpalubnew.h \
 	CppModule/Field/abstractfieldelement.h \
 	CppModule/Field/fieldelement.h \
 	CppModule/Figure/framing.h \

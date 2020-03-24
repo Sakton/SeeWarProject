@@ -6,7 +6,7 @@
 #include "../Model/flot.h"
 #include "../Model/field.h"
 #include "../Elements/damageshipcell.h"
-#include "../Elements/testpalubnew.h"
+#include "../Elements/DamageEnemyShipCell.h"
 #include "../Elements/damageemptycell.h"
 
 OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
@@ -25,7 +25,6 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
 void OwnUser::slotFromQml_ClickToCell(int indexCell)
 {
     //Пришло с кумль
-    qDebug() << "OwnUser::slotFromQml_ClickToCell Пришло из QML слоя";
     //текущий
     m_currentFireIndex = indexCell;
     emit signalOwnUser_slotFromQml_clickedToCell(indexCell);
@@ -33,21 +32,12 @@ void OwnUser::slotFromQml_ClickToCell(int indexCell)
 
 void OwnUser::slotFromQml_MessageChat(const QString &mes)
 {
-    qDebug() << "OwnUser::onMessageChat(const QString &mes)";
     emit signalOwnUser_sendMessage(mes);
 }
-
-//прием
-//void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)
-//{
-//    qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
-//    emit signalToQml_answerMessageEnemyUser(mes);
-//}
 
 void OwnUser::slotFromEnemyUser_onFireToCellToQml(int index)
 {
     //пришло из сети
-    qDebug() << "выстрел от другого игрока " << index;
     //огбработка индекса выстрела и изменение в модели
     resultFireToThis(index);
     //отослать ответ
@@ -58,25 +48,19 @@ void OwnUser::slotFromEnemyUser_onFireToCellToQml(int index)
 
 void OwnUser::slotFromEnemyUser_onMessageToChatToQml(const QString &mes)
 {
-        qDebug() << "void OwnUser::onAnswerMessageToEnemyUser(const QString &mes)";
-        emit signalToQml_answerMessageEnemyUser(mes);
+    emit signalToQml_answerMessageEnemyUser(mes);
 }
 
 void OwnUser::resultFireToThis(int index)
 {
-    qDebug() << "void OwnUser::resultFireToThis(int index)";
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
-    auto *fieldElementEnemy = m_enemyField->getFieldElementCell(index);
     auto *gameFigure = fieldElement->figure();
     if( ( qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
-        auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
-        fieldElement->setFigure(dpl);
-        //FIXME не тут!!!, обрабатывать ответ хода!!!!!
-        TestPalubNew *tp = new TestPalubNew();
-        fieldElementEnemy->setFigure(tp);
-        setDamageState();
+	auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
+	fieldElement->setFigure(dpl);
+	setDamageState();
     } else {
-        setMissState();
+	setMissState();
     }
 }
 
@@ -100,11 +84,13 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 	break;
     }
     case StateMovesUser::DAMAGE: {
-	//поправить тут
 	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
-	DamageEmptyCell *damEmptyCell = new DamageEmptyCell();
-	fieldElement->setFigure(damEmptyCell);
+	DamageEnemyShipCell *damShipCell = new DamageEnemyShipCell();
+	fieldElement->setFigure(damShipCell);
 	break;
     }
+    case StateMovesUser::HIT:
+    case StateMovesUser::TEST:
+	break;
     }
 }

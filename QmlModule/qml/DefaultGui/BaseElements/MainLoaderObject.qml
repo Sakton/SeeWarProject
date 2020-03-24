@@ -57,7 +57,7 @@ QtObject {
         case Setting.MyEnumButton.BUTTON_AGAIN:
             console.log("BUTTON_AGAIN")
             //TODO для теста
-            Setting.userObject.damag = (Setting.userObject.damag === 0) ? 1 : 0;
+            //Setting.userObject.damag = (Setting.userObject.damag === 0) ? 1 : 0;
             break;
         }
     }

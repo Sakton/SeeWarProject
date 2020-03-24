@@ -26,13 +26,9 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     //****
 
     m_tcpNetClient = new GameTcpClient(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, this);
-
     connect(m_ownUser, &OwnUser::signalOwnUser_slotFromQml_clickedToCell, this, &GameBlackWater::slotFromOwnUser_onClickedToCell);
-
     connect(m_ownUser, &OwnUser::signalOwnUser_sendMessage, this, &GameBlackWater::slotFromOwnUser_onSendMessage);
-
     connect(m_ownUser, &OwnUser::signalOwnUser_answerToEnemyUserAboutFireCell, this, &GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell);
-
     connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
 
 }

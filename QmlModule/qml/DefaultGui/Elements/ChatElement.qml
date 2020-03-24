@@ -21,7 +21,6 @@ LogElement {
 
     Connections {
         target: Setting.userObject
-        //TODO ТУТ ПОПРАВКА СИГНАЛА
         onSignalToQml_answerMessageEnemyUser: {
             _root.textLog = "<b><font color = " + Setting.styleLogHiColor + ">" + Setting.textAppealHi + ": </b>" + mes + "<br>"
         }

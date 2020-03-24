@@ -2,11 +2,11 @@
 #define TESTPALUBNEW_H
 #include "abstractgamefigure.h"
 
-class TestPalubNew : public AbstractGameFigure
+class DamageEnemyShipCell : public AbstractGameFigure
 {
     Q_OBJECT
 public:
-    TestPalubNew(QObject *parent = nullptr);
+    DamageEnemyShipCell(QObject *parent = nullptr);
     // AbstractGameFigure interface
     public:
     QColor getColor() override;
