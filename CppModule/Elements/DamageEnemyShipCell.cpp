@@ -1,7 +1,8 @@
 #include "DamageEnemyShipCell.h"
+#include "../Model/config.h"
 
 DamageEnemyShipCell::DamageEnemyShipCell(QObject *parent)
-    : AbstractGameFigure(parent), testRes{"qrc:/QmlModule/qml/DefaultGui/img/cherep.gif"}
+    : AbstractGameFigure(parent), testRes{Config::DAMAGE_PALUBA_QURL}
 {
 }
 

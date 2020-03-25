@@ -64,5 +64,10 @@
         <file>QmlModule/qml/DefaultGui/img/cherep.gif</file>
         <file>QmlModule/qml/DefaultGui/img/krest.gif</file>
         <file>QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif</file>
+        <file>QmlModule/qml/DefaultGui/img/DamagePalub.png</file>
+        <file>QmlModule/qml/DefaultGui/img/skull_PNG75.png</file>
+        <file>QmlModule/qml/DefaultGui/img/pirat1.png</file>
+        <file>QmlModule/qml/DefaultGui/img/galka.png</file>
+        <file>QmlModule/qml/DefaultGui/img/redKrest.png</file>
     </qresource>
 </RCC>

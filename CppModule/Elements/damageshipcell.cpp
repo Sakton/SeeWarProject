@@ -1,8 +1,14 @@
 #include "damageshipcell.h"
-#include "../Model/field.h"
+#include "../Model/config.h"
+
 
 DamageShipCell::DamageShipCell(Paluba &paluba)
 : Paluba(paluba)
 {
-    setResourceImg("qrc:/QmlModule/qml/DefaultGui/img/cherep-v-krasnom-svete.gif");
+    setResourceImg(Config::DAMAGE_PALUBA_QURL);
+}
+
+int DamageShipCell::getRotateAngleFigure()
+{
+    return 0;
 }

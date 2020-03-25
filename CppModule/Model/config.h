@@ -27,6 +27,10 @@ namespace Config {
         {"qrc:/QmlModule/qml/DefaultGui/img/4xb1.png",""}
     };
 
+    //const QString DAMAGE_PALUBA_QURL = "qrc:/QmlModule/qml/DefaultGui/img/pirat1.png";
+    const QString DAMAGE_PALUBA_QURL = "qrc:/QmlModule/qml/DefaultGui/img/galka.png";
+    const QString MISS_QURL = "qrc:/QmlModule/qml/DefaultGui/img/redKrest.png";
+
     const QString GAME_SERVER_HOST{"127.0.0.1"};
     constexpr quint16 GAME_SERVER_PORT{50080};
 

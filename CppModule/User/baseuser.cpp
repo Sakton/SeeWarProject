@@ -32,21 +32,21 @@ void BaseUser::setName(const QString &name)
 void BaseUser::setDamageState()
 {
     m_stateMovesUser = StateMovesUser::DAMAGE;
-//    m_countMoves = 0;
+    m_countMoves = 0;
     qDebug() << "BaseUser::setDamageState()";
 }
 
 void BaseUser::setMissState()
 {
     m_stateMovesUser = StateMovesUser::MISS;
-//    m_countMoves = 1;
+    m_countMoves = 1;
     qDebug() << "BaseUser::setMissState()";
 }
 
 void BaseUser::setHitState()
 {
     m_stateMovesUser = StateMovesUser::HIT;
-//    m_countMoves = 2;
+    m_countMoves = 2;
     qDebug() << "BaseUser::setHitState()";
 }
 
@@ -65,6 +65,7 @@ void BaseUser::setOwnStateFromEnemyState(BaseUser::StateMovesUser enemyState)
         //setDamageState();
         break;
     }
+
     }
 }
 

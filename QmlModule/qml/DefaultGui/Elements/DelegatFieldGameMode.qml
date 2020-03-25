@@ -34,7 +34,7 @@ Item {
 
     AnimatedImage {
         onStatusChanged: playing = (status == AnimatedImage.Ready)
-        cache: true
+        cache: false
         width: parent.width - parent.width / 10
         height: parent.height - parent.height / 10
         source: imageResource

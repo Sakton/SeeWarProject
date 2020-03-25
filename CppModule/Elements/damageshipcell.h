@@ -9,6 +9,10 @@ class DamageShipCell : public Paluba
     Q_INTERFACES(AbstractGameFigure)
 public:
     explicit DamageShipCell(Paluba & paluba);
+
+	// AbstractGameFigure interface
+    public:
+	int getRotateAngleFigure() override;
 };
 
 #endif // DAMAGESHIPCELL_H

@@ -1,7 +1,8 @@
 #include "damageemptycell.h"
+#include "../Model/config.h"
 
 DamageEmptyCell::DamageEmptyCell(QObject *parent)
     : EmptyCell(parent)
 {
-    setImg("qrc:/QmlModule/qml/DefaultGui/img/krest.gif");
+    setImg(Config::MISS_QURL);
 }

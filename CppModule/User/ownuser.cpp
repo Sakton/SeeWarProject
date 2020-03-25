@@ -60,6 +60,8 @@ void OwnUser::resultFireToThis(int index)
 	fieldElement->setFigure(dpl);
 	setDamageState();
     } else {
+	auto miss = new DamageEmptyCell;
+	fieldElement->setFigure(miss);
 	setMissState();
     }
 }
@@ -90,7 +92,7 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 	break;
     }
     case StateMovesUser::HIT:
-    case StateMovesUser::TEST:
+//    case StateMovesUser::TEST:
 	break;
     }
 }

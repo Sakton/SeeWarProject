@@ -21,6 +21,7 @@ InterfaceWindowSignals {
         AnimatedImage {
             anchors.fill: parent
             source: Setting.urlBackgroundBlackWater
+
             onStatusChanged: {
                 playing = AnimatedImage.Ready
             }

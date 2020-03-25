@@ -51,7 +51,7 @@ void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
     sendJsonDocument();
 }
 
-void GameBlackWater::slotFromOwnUser_onSendMessage(const QString &mes)
+void GameBlackWater::slotFromOwnUser_onSendMessage( const QString &mes )
 {
     qDebug() << "GameBlackWater::onSendMessage(const QString &mes)";
     QJsonObject obj;
@@ -77,15 +77,14 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue answerStateEnemy = doc[Config::State_Game];
     QJsonValue pravoHoda  = doc[Config::Hod];
 
-    if (!pravoHoda.isUndefined())
+    if( !pravoHoda.isUndefined() )
 	m_ownUser->setHod(pravoHoda.toInt());
-    if(!messsage.isUndefined())
+    if( !messsage.isUndefined() )
 	m_ownUser->slotFromEnemyUser_onMessageToChatToQml(messsage.toString());
-    if(!indexFire.isUndefined())
+    if( !indexFire.isUndefined() )
 	m_ownUser->slotFromEnemyUser_onFireToCellToQml(indexFire.toInt());
-    if( !answerStateEnemy.isUndefined() ) {
+    if( !answerStateEnemy.isUndefined() )
 	m_ownUser->setElementResultFireToEnemyField( OwnUser::StateMovesUser(answerStateEnemy.toInt()) );
-    }
 }
 
 void GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int state)
