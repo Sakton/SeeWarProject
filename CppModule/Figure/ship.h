@@ -58,19 +58,18 @@ signals:
     void damageShip();
 
 private:
-    static const char* images[];
-    int m_countLifePalub;
-    QString resourceImg;
-    int m_countPalub;
-    int m_angle;
-    std::vector<Paluba *> m_palubs;
+    int m_countLifePalub; //хранит количество живых палуб
+ //   QString resourceImg;
+    int m_countPalub; //общее количество палуб
+    int m_angle; //угол (горизонталь или вертикаль ???)
+    std::vector<Paluba *> m_palubs; //указатели обьекты палуб
     //вспомогатеольная структура, индексы
-    std::vector<int> m_indexesPalubs;
-    Field *m_field;
-    int oldIndex;
-    int oldAngle;
-    Framing *m_framing;
-    QColor m_color;
+    std::vector<int> m_indexesPalubs; //индексы палуб
+    Field *m_field; //указатель на поле
+    int oldIndex; //старый индекс до перестановки, для очищения ???
+    int oldAngle; //старый угол до перестановки, для очищения ???
+    Framing *m_framing; //указатель на оконтовку (рамку (запрещенные клетки))
+    QColor m_color; //цвет для тестов
 };
 
 #endif // SHIP_H

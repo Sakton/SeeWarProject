@@ -59,6 +59,8 @@ void OwnUser::resultFireToThis(int index)
     auto *gameFigure = fieldElement->figure();
     if( ( qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
 	auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
+        //TODO кораблю надо поправить палубы, указатель на не сущ обьект
+        //auto ship = qobject_cast<Paluba*>(gameFigure)->getShip();
 	fieldElement->setFigure(dpl);
 	setDamageState();
     } else {

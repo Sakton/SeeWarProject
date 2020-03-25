@@ -33,7 +33,8 @@ int Ship::getCountPalub() const
 
 void Ship::setResourceImg(const QString &value)
 {
-    resourceImg = value;
+   // resourceImg = value;
+   Q_UNUSED(value)
 }
 
 bool Ship::controlVmestimostiInField(int firstIndex)
@@ -139,7 +140,8 @@ QColor Ship::getColor()
 
 QString Ship::getResourceImg()
 {
-    return resourceImg;
+    //return resourceImg;
+    return {};
 }
 
 void Ship::setSelfToField(Field *field)
