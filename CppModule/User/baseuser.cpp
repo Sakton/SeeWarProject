@@ -46,7 +46,7 @@ void BaseUser::setMissState()
 void BaseUser::setHitState()
 {
     m_stateMovesUser = StateMovesUser::HIT;
-    m_countMoves = 2;
+    m_countMoves = 1;
     qDebug() << "BaseUser::setHitState()";
 }
 

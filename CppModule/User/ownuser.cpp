@@ -27,6 +27,8 @@ void OwnUser::slotFromQml_ClickToCell(int indexCell)
     //Пришло с кумль
     //текущий
     m_currentFireIndex = indexCell;
+    //уменьшаем количество доступных ходов
+    --m_countMoves;
     emit signalOwnUser_slotFromQml_clickedToCell(indexCell);
 }
 
@@ -89,6 +91,7 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
 	DamageEnemyShipCell *damShipCell = new DamageEnemyShipCell();
 	fieldElement->setFigure(damShipCell);
+	setHitState();
 	break;
     }
     case StateMovesUser::HIT:

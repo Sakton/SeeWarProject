@@ -17,16 +17,18 @@ InterfaceWindowSignals {
         height: _root.height / 10
         visible: true
 
-        PropertyAnimation {
-            duration: 2000
-            property: "opacity"
-            to: 0
-        }
-
         Text {
             id: name
             text: qsTr("Ход соперника")
         }
+    }
+
+    PropertyAnimation {
+        id: _anime
+        target: _popup
+        duration: 2000
+        property: "opacity"
+        to: 0
     }
 
     Rectangle {
@@ -74,12 +76,17 @@ InterfaceWindowSignals {
 //                            console.debug("Setting.userObject.countMoves = "
 //                                          + Setting.userObject.countMoves)
                             //TODO проверка состояния и количетва ходов
+
+                            //FIXME ДЕЛАТЬ ТУТ ОКОШКО ПРО ХОДЫ
+
                             if (Setting.userObject.countMoves === 0) {
+                                console.debug("Setting.userObject.countMoves = " + Setting.userObject.countMoves)
                                 _popup.open()
+                                _anime.start()
                             } else {
                                 _topElement.clickIndex = model.indexElement
                                 Setting.userObject.slotFromQml_ClickToCell( model.indexElement )
-                                //--Setting.userObject.countMoves
+
                             }
                         }
                     }
