@@ -15,7 +15,16 @@ InterfaceWindowSignals {
         y: _root.height / 2 - height / 2
         width: _root.width * 3 / 4
         height: _root.height / 10
-        visible: true
+        visible: false
+
+        enter: Transition {
+            NumberAnimation {
+                property: "opacity";
+                duration: 2000
+                from: 1.0;
+                to: 0.0;
+            }
+        }
 
         Text {
             id: name
@@ -23,13 +32,6 @@ InterfaceWindowSignals {
         }
     }
 
-    PropertyAnimation {
-        id: _anime
-        target: _popup
-        duration: 2000
-        property: "opacity"
-        to: 0
-    }
 
     Rectangle {
         id: _root
@@ -73,20 +75,15 @@ InterfaceWindowSignals {
                         imageResource: model.imageResourceCell
                         rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
-//                            console.debug("Setting.userObject.countMoves = "
-//                                          + Setting.userObject.countMoves)
                             //TODO проверка состояния и количетва ходов
 
                             //FIXME ДЕЛАТЬ ТУТ ОКОШКО ПРО ХОДЫ
 
                             if (Setting.userObject.countMoves === 0) {
-                                console.debug("Setting.userObject.countMoves = " + Setting.userObject.countMoves)
                                 _popup.open()
-                                _anime.start()
                             } else {
                                 _topElement.clickIndex = model.indexElement
                                 Setting.userObject.slotFromQml_ClickToCell( model.indexElement )
-
                             }
                         }
                     }

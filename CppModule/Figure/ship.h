@@ -25,7 +25,7 @@ public:
     bool fillIndexes(int firstIndex);
     void setColor(const QColor &color);
     //дамаг
-    void damage();
+    void damage(Paluba *p);
 
 
     // AbstractGameFigure interface

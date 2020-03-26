@@ -20,7 +20,7 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
 }
-//FIXME РАЗДЕЛИТЬ ПРИЕМ ПЕРЕДАЧУ ДАННЫХ ПУТАННИЦА
+
 // отправка
 void OwnUser::slotFromQml_ClickToCell(int indexCell)
 {
@@ -57,11 +57,15 @@ void OwnUser::resultFireToThis(int index)
 {
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
     auto *gameFigure = fieldElement->figure();
-    if( ( qobject_cast<Paluba*>(gameFigure) ) != nullptr ) {
-	auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
+    auto paluba = qobject_cast<Paluba*>(gameFigure);
+    if( paluba != nullptr ) {
+	//auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
         //TODO кораблю надо поправить палубы, указатель на не сущ обьект
-        //auto ship = qobject_cast<Paluba*>(gameFigure)->getShip();
-	fieldElement->setFigure(dpl);
+	//fieldElement->setFigure(dpl);
+	//setDamageState();
+	//****
+	auto ship = paluba->getShip();
+	ship->damage(paluba);
 	setDamageState();
     } else {
 	auto miss = new DamageEmptyCell;

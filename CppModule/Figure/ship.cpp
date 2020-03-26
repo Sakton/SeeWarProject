@@ -60,8 +60,15 @@ void Ship::setColor(const QColor &color)
         el->setColor(m_color);
 }
 
-void Ship::damage()
+void Ship::damage(Paluba *p)
 {
+    auto it = std::find(m_palubs.begin(), m_palubs.end(), p);
+    if( it != m_palubs.end() ) {
+	auto dpl = new DamageShipCell(*p);
+	*it = dpl;
+	dpl->setSelfToField(m_field);
+    }
+
     --m_countPalub;
     emit damageShip();
     if(!m_countPalub)
