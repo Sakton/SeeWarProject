@@ -10,28 +10,46 @@ InterfaceWindowSignals {
     height: Setting.mainHeight
 
     Popup {
+        property string popupText: qsTr("Ход соперника")
+
         id: _popup
         x: _root.width / 2 - width / 2
         y: _root.height / 2 - height / 2
         width: _root.width * 3 / 4
-        height: _root.height / 10
+        height: _root.height / 20
         visible: false
+        background: Rectangle {
+            anchors.fill: parent
+            color: "black"
+            radius: _popup.height / 2
+        }
 
         enter: Transition {
             NumberAnimation {
-                property: "opacity";
-                duration: 2000
-                from: 1.0;
-                to: 0.0;
+                property: "opacity"
+                duration: 2500
+                from: 1.0
+                to: 0.0
+
+                onStopped: {
+                    _popup.destroy()
+                }
             }
         }
 
-        Text {
-            id: name
-            text: qsTr("Ход соперника")
+        Column {
+            anchors.centerIn: parent
+            Text {
+                id: _text
+                text: _popup.popupText
+                font.bold: true
+                styleColor: "#eadb00"
+                font.pointSize: _popup.height / 2
+                style: Text.Outline
+                anchors.centerIn: parent.Center
+            }
         }
     }
-
 
     Rectangle {
         id: _root
@@ -75,15 +93,14 @@ InterfaceWindowSignals {
                         imageResource: model.imageResourceCell
                         rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
+
                             //TODO проверка состояния и количетва ходов
-
-                            //FIXME ДЕЛАТЬ ТУТ ОКОШКО ПРО ХОДЫ
-
                             if (Setting.userObject.countMoves === 0) {
                                 _popup.open()
                             } else {
                                 _topElement.clickIndex = model.indexElement
-                                Setting.userObject.slotFromQml_ClickToCell( model.indexElement )
+                                Setting.userObject.slotFromQml_ClickToCell(
+                                            model.indexElement)
                             }
                         }
                     }
