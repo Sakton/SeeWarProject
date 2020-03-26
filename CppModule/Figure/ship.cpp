@@ -17,7 +17,8 @@ Ship::Ship(int countPalub, int angle, QObject *parent)
     oldIndex{-1},
     oldAngle{-1},
     m_framing{nullptr},
-    m_color{"#00000000"}
+    m_color{"#00000000"},
+    m_resourceImg{}
 {
     for(int i = 1, j = 4 - countPalub; i <= countPalub; ++i, ++j ) {
         auto palub = new Paluba(this, j, bool(j - 1), this);
@@ -33,8 +34,7 @@ int Ship::getCountPalub() const
 
 void Ship::setResourceImg(const QString &value)
 {
-   // resourceImg = value;
-   Q_UNUSED(value)
+   m_resourceImg = value;
 }
 
 bool Ship::controlVmestimostiInField(int firstIndex)
@@ -77,7 +77,6 @@ const std::vector<int> Ship::getIndexesPalubs() const
 {
     return m_indexesPalubs;
 }
-
 
 bool Ship::isPossiblePutInCell(int firstIndex)
 {
@@ -140,8 +139,7 @@ QColor Ship::getColor()
 
 QString Ship::getResourceImg()
 {
-    //return resourceImg;
-    return {};
+    return m_resourceImg;
 }
 
 void Ship::setSelfToField(Field *field)

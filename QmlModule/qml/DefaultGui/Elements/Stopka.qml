@@ -12,7 +12,6 @@ StackView {
     implicitWidth: Setting.mainWidth
     implicitHeight: Setting.mainHeight / 4
 
-    //    Component.onCompleted: create()
     signal selectElementType(int typeElement)
 
     //********
