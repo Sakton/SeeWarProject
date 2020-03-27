@@ -28,6 +28,9 @@ private slots:
     void slotFromOwnUser_onSendMessage(const QString &mes);
     void slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int);
 
+signals:
+    void signalMoyHod();
+
 private:
     void sendJsonDocument();
     void readJsonDocument(const QByteArray *answer);

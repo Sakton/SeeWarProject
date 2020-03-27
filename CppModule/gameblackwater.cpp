@@ -76,9 +76,8 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
     QJsonValue indexFire = doc[Config::Fire_To_Cell];
     QJsonValue answerStateEnemy = doc[Config::State_Game];
     QJsonValue pravoHoda  = doc[Config::Hod];
+    //право хода решил отменить пусть сами решают или кто первый
 
-    if( !pravoHoda.isUndefined() )
-	m_ownUser->setHod(pravoHoda.toInt());
     if( !messsage.isUndefined() )
 	m_ownUser->slotFromEnemyUser_onMessageToChatToQml(messsage.toString());
     if( !indexFire.isUndefined() )

@@ -74,16 +74,6 @@ void OwnUser::resultFireToThis(int index)
     }
 }
 
-bool OwnUser::getHod() const
-{
-    return hod;
-}
-
-void OwnUser::setHod(bool value)
-{
-    hod = value;
-}
-
 void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 {
     switch(state) {
@@ -105,3 +95,4 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 	break;
     }
 }
+

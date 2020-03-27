@@ -29,6 +29,8 @@ Item {
         anchors.fill: parent
         onClicked: {
             clicedIndex(index)
+            //TODO подумать про запрет клика при результативном ходе
+            //_mouseArea.enabled = false
         }
     }
 
@@ -42,5 +44,4 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         rotation: rotateAngle
     }
-
 }

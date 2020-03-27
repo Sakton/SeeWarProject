@@ -10,21 +10,23 @@ InterfaceWindowSignals {
     width: Setting.mainWidth
     height: Setting.mainHeight
 
+    //TODO выводить попапы при смерти корабля и проигрыше выигрыше
+
     Popup {
-        property string popupText: qsTr("Ход соперника")
         id: _popup
         x: _root.width / 2 - width / 2
         y: _root.height / 2 - height / 2
-        implicitWidth: _text.width //_root.width * 3 / 4
+        implicitWidth: _text.width
         implicitHeight: _root.height / 20
         visible: false
+
         background: Rectangle {
             anchors.fill: parent
             color: "black"
             radius: _popup.height / 2
             opacity: 0
         }
-        enabled: false
+        property string popupText: qsTr("Ход соперника")
 
         onOpened: {
             _popup.close()
@@ -37,10 +39,6 @@ InterfaceWindowSignals {
                 duration: 2000
                 from: 1.0
                 to: 0.0
-
-                onStopped: {
-                    console.log("onStopped")
-                }
             }
         }
 
@@ -100,13 +98,10 @@ InterfaceWindowSignals {
                         imageResource: model.imageResourceCell
                         rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
-
                             //TODO проверка состояния и количетва ходов
                             if (Setting.userObject.countMoves === 0) {
-                                //_popup.enabled = true;
                                 _popup.open()
                             } else {
-                                //_popup.enabled = false;
                                 _topElement.clickIndex = model.indexElement
                                 Setting.userObject.slotFromQml_ClickToCell(
                                             model.indexElement)

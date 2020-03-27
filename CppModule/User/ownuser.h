@@ -10,17 +10,17 @@ class QQmlContext;
 class OwnUser : public BaseUser
 {
     Q_OBJECT
+
 public:
     explicit OwnUser(QQmlContext *cotext, QObject *parent = nullptr);
 
     //???
     void isDamage();
-
-    bool getHod() const;
-    void setHod(bool value);
     void setElementResultFireToEnemyField( StateMovesUser state );
+    //право хода
+    int pravoHoda() const;
 
-public slots:
+    public slots:
     //из QML
     void slotFromQml_ClickToCell(int indexCell);
     void slotFromQml_MessageChat(const QString &mes);
@@ -29,7 +29,7 @@ public slots:
     void slotFromEnemyUser_onFireToCellToQml(int index);
     void slotFromEnemyUser_onMessageToChatToQml(const QString &mes);
 
-signals:
+    signals:
     //отправка
     void signalOwnUser_slotFromQml_clickedToCell( int indexCell );
     void signalOwnUser_sendMessage( const QString &mes );
@@ -38,6 +38,7 @@ signals:
     void signalToQml_answerFireToCell( int index );
     //ответ результата хода для отправки в сеть
     void signalOwnUser_answerToEnemyUserAboutFireCell( int );
+
 
 private:
     //метод проверки выстрела и установки состояния
@@ -48,7 +49,6 @@ private:
     Field *m_ownField;
     Field *m_enemyField;
     Flot *m_flot;
-    bool hod;
     int m_currentFireIndex;
 };
 
