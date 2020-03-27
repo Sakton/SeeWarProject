@@ -6,38 +6,45 @@ import "../Elements"
 import "../BaseElements"
 
 InterfaceWindowSignals {
+    id: _root
     width: Setting.mainWidth
     height: Setting.mainHeight
 
     Popup {
         property string popupText: qsTr("Ход соперника")
-
         id: _popup
         x: _root.width / 2 - width / 2
         y: _root.height / 2 - height / 2
-        width: _root.width * 3 / 4
-        height: _root.height / 20
+        implicitWidth: _text.width //_root.width * 3 / 4
+        implicitHeight: _root.height / 20
         visible: false
         background: Rectangle {
             anchors.fill: parent
             color: "black"
             radius: _popup.height / 2
+            opacity: 0
+        }
+        enabled: false
+
+        onOpened: {
+            _popup.close()
         }
 
         enter: Transition {
             NumberAnimation {
+                loops: 1
                 property: "opacity"
-                duration: 2500
+                duration: 2000
                 from: 1.0
                 to: 0.0
 
                 onStopped: {
-                    _popup.destroy()
+                    console.log("onStopped")
                 }
             }
         }
 
-        Column {
+        ColumnLayout  {
             anchors.centerIn: parent
             Text {
                 id: _text
@@ -49,10 +56,10 @@ InterfaceWindowSignals {
                 anchors.centerIn: parent.Center
             }
         }
-    }
+    } //Popup
 
     Rectangle {
-        id: _root
+        id: _rect
         anchors.fill: parent
 
         property string txt: ""
@@ -96,8 +103,10 @@ InterfaceWindowSignals {
 
                             //TODO проверка состояния и количетва ходов
                             if (Setting.userObject.countMoves === 0) {
+                                //_popup.enabled = true;
                                 _popup.open()
                             } else {
+                                //_popup.enabled = false;
                                 _topElement.clickIndex = model.indexElement
                                 Setting.userObject.slotFromQml_ClickToCell(
                                             model.indexElement)
@@ -107,6 +116,7 @@ InterfaceWindowSignals {
                 } //Field
 
                 Item {
+                    id: _btnBlock
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     ButtonBlockGameMode {
