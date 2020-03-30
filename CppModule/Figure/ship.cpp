@@ -70,9 +70,9 @@ void Ship::damage(Paluba *p)
     }
 
     --m_countPalub;
-    emit damageShip();
+    emit signalFromShip_DamageShip();
     if(!m_countPalub)
-        emit deadShip();
+        emit signalFromShip_DeadShip();
 }
 
 Framing *Ship::getFraming() const

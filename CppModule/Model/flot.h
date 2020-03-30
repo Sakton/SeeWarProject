@@ -33,12 +33,15 @@ public slots:
     //возврат к первоначальному состоянию
     void resetAll();
     void autoArragement();
-    void onDeadShip();
-    void onDamageShip();
+    void slotFlot_onDeadShip();
+    void slotFlot_onDamageShip();
 
 signals:
     //сигнал для блокировки ручного размещения в qml(коннект в Arragement.qml)
     void autoArragementMode();
+    void signalFlot_DamageShip();
+    void signalFlot_DeadShip();
+    void signalFlot_FlotDead();
 
 private:
     std::vector<Ship *> m_ships;

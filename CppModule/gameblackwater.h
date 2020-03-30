@@ -27,6 +27,10 @@ private slots:
     void slotFromOwnUser_onClickedToCell(int indexCell);
     void slotFromOwnUser_onSendMessage(const QString &mes);
     void slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int);
+    //
+    void slotFromOwnuser_DamageShip();
+    void slotFromOwnuser_DeadShip();
+    void slotFromOwnuser_DeadFlot();
 
 signals:
     void signalMoyHod();

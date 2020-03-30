@@ -19,6 +19,12 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_context->setContextProperty("OwnField", m_ownField);
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
+    //сигналы от флота
+    connect(m_flot, &Flot::signalFlot_FlotDead, this, &OwnUser::slotFromFlot_DeadFlot);
+    //продвижение сигналов
+    connect(m_flot, &Flot::signalFlot_DamageShip, this, &OwnUser::signalOwnUser_DamageShip);
+    connect(m_flot, &Flot::signalFlot_DeadShip, this, &OwnUser::signalOwnUser_DeadShip);
+    connect(m_flot, &Flot::signalFlot_FlotDead, this, &OwnUser::signalOwnUser_DeadFlot);
 }
 
 // отправка
@@ -53,17 +59,17 @@ void OwnUser::slotFromEnemyUser_onMessageToChatToQml(const QString &mes)
     emit signalToQml_answerMessageEnemyUser(mes);
 }
 
+void OwnUser::slotFromFlot_DeadFlot()
+{
+    qDebug() << "SLOT OWNUSER FLOT DEAD";
+}
+
 void OwnUser::resultFireToThis(int index)
 {
     auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
     auto *gameFigure = fieldElement->figure();
     auto paluba = qobject_cast<Paluba*>(gameFigure);
     if( paluba != nullptr ) {
-	//auto dpl = new DamageShipCell(*qobject_cast<Paluba*>(gameFigure));
-        //TODO кораблю надо поправить палубы, указатель на не сущ обьект
-	//fieldElement->setFigure(dpl);
-	//setDamageState();
-	//****
 	auto ship = paluba->getShip();
 	ship->damage(paluba);
 	setDamageState();
@@ -91,7 +97,6 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 	break;
     }
     case StateMovesUser::HIT:
-//    case StateMovesUser::TEST:
 	break;
     }
 }

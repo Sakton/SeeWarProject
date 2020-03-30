@@ -28,8 +28,11 @@ Flot::Flot(Field *field, QObject *parent):QAbstractListModel(parent), m_field{fi
             t->setResourceImg(Config::imgShips.at(i - 1));
             t->setField(field);
             m_ships.push_back(t);
-            connect(t, &Ship::deadShip, this, &Flot::onDeadShip);
-            connect(t, &Ship::damageShip, this, &Flot::onDamageShip);
+            connect(t, &Ship::signalFromShip_DamageShip, this, &Flot::slotFlot_onDamageShip);
+            connect(t, &Ship::signalFromShip_DeadShip, this, &Flot::slotFlot_onDeadShip);
+            //продвижение сигналов
+            connect(t, &Ship::signalFromShip_DamageShip, this, &Flot::signalFlot_DamageShip);
+            connect(t, &Ship::signalFromShip_DeadShip, this, &Flot::signalFlot_DeadShip);
         }
     }
     m_flotRoles[FlotRole::CountPalubRole] = "countPalub";
@@ -122,16 +125,15 @@ void Flot::autoArragement()
     emit autoArragementMode();
 }
 
-void Flot::onDeadShip()
+void Flot::slotFlot_onDeadShip()
 {
-    qDebug() << "DEAD SHIP";
     --m_countShips;
-    if(!m_countShips)
-        qDebug() << "GAME OVER";
+    if(!m_countShips) {
+        emit signalFlot_FlotDead();
+    }
 }
 
-void Flot::onDamageShip()
+void Flot::slotFlot_onDamageShip()
 {
-    qDebug() << "DAMAGE SHIP FLOT";
 }
 

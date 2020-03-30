@@ -20,7 +20,7 @@ public:
     //право хода
     int pravoHoda() const;
 
-    public slots:
+public slots:
     //из QML
     void slotFromQml_ClickToCell(int indexCell);
     void slotFromQml_MessageChat(const QString &mes);
@@ -28,8 +28,13 @@ public:
     //от другого игрока
     void slotFromEnemyUser_onFireToCellToQml(int index);
     void slotFromEnemyUser_onMessageToChatToQml(const QString &mes);
+    void slotFromFlot_DeadFlot();
+    //слоты от флот
+//    void slotFromShip_onDamageShip();
+//    void slotFromShip_onDeadShip();
+//    void slotFromShip_onDeadFlot();
 
-    signals:
+signals:
     //отправка
     void signalOwnUser_slotFromQml_clickedToCell( int indexCell );
     void signalOwnUser_sendMessage( const QString &mes );
@@ -38,6 +43,10 @@ public:
     void signalToQml_answerFireToCell( int index );
     //ответ результата хода для отправки в сеть
     void signalOwnUser_answerToEnemyUserAboutFireCell( int );
+    //продвижение сигналов
+    void signalOwnUser_DamageShip();
+    void signalOwnUser_DeadShip();
+    void signalOwnUser_DeadFlot();
 
 
 private:

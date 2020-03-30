@@ -30,7 +30,10 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     connect(m_ownUser, &OwnUser::signalOwnUser_sendMessage, this, &GameBlackWater::slotFromOwnUser_onSendMessage);
     connect(m_ownUser, &OwnUser::signalOwnUser_answerToEnemyUserAboutFireCell, this, &GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell);
     connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
-
+    //сигналы по кораблям от юзера
+    connect(m_ownUser, &OwnUser::signalOwnUser_DamageShip, this, &GameBlackWater::slotFromOwnuser_DamageShip);
+    connect(m_ownUser, &OwnUser::signalOwnUser_DeadShip, this, &GameBlackWater::slotFromOwnuser_DeadShip);
+    connect(m_ownUser, &OwnUser::signalOwnUser_DeadFlot, this, &GameBlackWater::slotFromOwnuser_DeadFlot);
 }
 
 GameBlackWater::~GameBlackWater()
@@ -41,7 +44,6 @@ GameBlackWater::~GameBlackWater()
 
 void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
 {
-    qDebug() << "GameBlackWater::slotFromOwnUser_onClickedToCell отпришло от OwnUser";
     QJsonObject obj;
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
@@ -53,7 +55,6 @@ void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
 
 void GameBlackWater::slotFromOwnUser_onSendMessage( const QString &mes )
 {
-    qDebug() << "GameBlackWater::onSendMessage(const QString &mes)";
     QJsonObject obj;
     obj.insert(Config::Name_User, m_ownUser->name());
     obj.insert(Config::Id_Game, gameId);
@@ -95,6 +96,23 @@ void GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int state)
     doc.setObject(obj);
 
     m_tcpNetClient->sendJsonDocument(&doc);
+}
+
+//TODO ДЕЛАТЬ ТУТ
+//тодошки поубирать потом
+void GameBlackWater::slotFromOwnuser_DamageShip()
+{
+    qDebug() << "OBJ_GAMEBLACKWATER DAMAGE SHIP";
+}
+
+void GameBlackWater::slotFromOwnuser_DeadShip()
+{
+    qDebug() << "OBJ_GAMEBLACKWATER DEAD SHIP";
+}
+
+void GameBlackWater::slotFromOwnuser_DeadFlot()
+{
+    qDebug() << "OBJ_GAMEBLACKWATER FLOT DEAD";
 }
 
 void GameBlackWater::createJsonDocument()

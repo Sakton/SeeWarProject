@@ -47,19 +47,19 @@ public:
     //создает объект обрамления запрещенными клетками для запрета расположения других кораблей вплотную
     void createFraming();
 
-    private:
+signals:
+    void signalFromShip_DamageShip();
+    void signalFromShip_DeadShip();
+
+private:
     //кораблик интересуется у поля можно ли ему занять эти клетки
     bool isPossiblePutInCell(int firstIndex);
     //кораблик сам проверяет себя влезет ли он в размещение по указанному первому индексу
     bool controlVmestimostiInField(int firstIndex);
 
-signals:
-    void deadShip();
-    void damageShip();
-
 private:
     int m_countLifePalub; //хранит количество живых палуб
- //   QString resourceImg;
+    //   QString resourceImg;
     int m_countPalub; //общее количество палуб
     int m_angle; //угол (горизонталь или вертикаль ???)
     std::vector<Paluba *> m_palubs; //указатели обьекты палуб

@@ -37,7 +37,6 @@ int FieldElement::getCol()
 
 void FieldElement::sendSignalToChange(int index)
 {
-    qDebug() << "emitSignalToRafresh";
     emit figureChanged(index);
 }
 
