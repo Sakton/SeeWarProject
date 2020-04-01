@@ -30,9 +30,9 @@ public slots:
     void slotFromEnemyUser_onMessageToChatToQml(const QString &mes);
     void slotFromFlot_DeadFlot();
     //слоты от флот
-//    void slotFromShip_onDamageShip();
-//    void slotFromShip_onDeadShip();
-//    void slotFromShip_onDeadFlot();
+    //    void slotFromShip_onDamageShip();
+    //    void slotFromShip_onDeadShip();
+    //    void slotFromShip_onDeadFlot();
 
 signals:
     //отправка
@@ -47,11 +47,13 @@ signals:
     void signalOwnUser_DamageShip();
     void signalOwnUser_DeadShip();
     void signalOwnUser_DeadFlot();
+    void signalOwnUser_Miss();
 
 
 private:
     //метод проверки выстрела и установки состояния
     void resultFireToThis(int);
+
 
 private:
     QQmlContext *m_context;
@@ -59,6 +61,7 @@ private:
     Field *m_enemyField;
     Flot *m_flot;
     int m_currentFireIndex;
+
 };
 
 #endif // OWNUSER_H

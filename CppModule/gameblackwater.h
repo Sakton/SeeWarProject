@@ -26,11 +26,10 @@ public:
 private slots:
     void slotFromOwnUser_onClickedToCell(int indexCell);
     void slotFromOwnUser_onSendMessage(const QString &mes);
-    void slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int);
-    //
     void slotFromOwnuser_DamageShip();
     void slotFromOwnuser_DeadShip();
     void slotFromOwnuser_DeadFlot();
+    void slotFromOwnuser_Miss();
 
 signals:
     void signalMoyHod();
@@ -38,8 +37,7 @@ signals:
 private:
     void sendJsonDocument();
     void readJsonDocument(const QByteArray *answer);
-    void createJsonDocument();
-    void send(QByteArray* pByteArray);
+    void sender(const QString &key, int value);
 
 private:
     QUrl m_pathOfGUI;
@@ -50,6 +48,7 @@ private:
     int gameId;
     QJsonDocument *m_doc;
     QJsonObject *m_obj;
+    void sender();
 };
 
 #endif // GAMEBLAKWATER_H

@@ -11,7 +11,6 @@ InterfaceWindowSignals {
     height: Setting.mainHeight
 
     //TODO выводить попапы при смерти корабля и проигрыше выигрыше
-
     Popup {
         id: _popup
         x: _root.width / 2 - width / 2
@@ -42,7 +41,7 @@ InterfaceWindowSignals {
             }
         }
 
-        ColumnLayout  {
+        ColumnLayout {
             anchors.centerIn: parent
             Text {
                 id: _text
@@ -98,7 +97,7 @@ InterfaceWindowSignals {
                         imageResource: model.imageResourceCell
                         rotateAngle: model.angleRotationFigure
                         onClicedIndex: {
-                            //TODO проверка состояния и количетва ходов
+                            //проверка состояния и количетва ходов
                             if (Setting.userObject.countMoves === 0) {
                                 _popup.open()
                             } else {

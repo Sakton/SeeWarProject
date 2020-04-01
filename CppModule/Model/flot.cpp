@@ -128,9 +128,8 @@ void Flot::autoArragement()
 void Flot::slotFlot_onDeadShip()
 {
     --m_countShips;
-    if(!m_countShips) {
+    if(!m_countShips)
         emit signalFlot_FlotDead();
-    }
 }
 
 void Flot::slotFlot_onDamageShip()

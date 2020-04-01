@@ -68,11 +68,11 @@ void Ship::damage(Paluba *p)
 	*it = dpl;
 	dpl->setSelfToField(m_field);
     }
-
     --m_countPalub;
-    emit signalFromShip_DamageShip();
     if(!m_countPalub)
         emit signalFromShip_DeadShip();
+    else
+        emit signalFromShip_DamageShip();
 }
 
 Framing *Ship::getFraming() const

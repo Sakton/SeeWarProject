@@ -27,7 +27,7 @@ Item {
             text: qsTr("<h3><b><i>" + nameLog + "</i></b></h3>")
         }
 
-        ScrollView  {
+        ScrollView {
             id: _scrollLog
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -58,7 +58,6 @@ Item {
                 text: text
                 readOnly: true
                 onTextChanged: {
-                    //NOTE
                     //Это влияет на поведение скроллбара скроллвиева, чтоб курсор оставался в 0, тогда
                     //полоса прокрутки стоит на месте
                     cursorPosition = 0

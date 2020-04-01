@@ -10,8 +10,9 @@ class BaseUser : public QObject
 
 public:
     enum StateMovesUser { //Результат сделанного хода //
-        DAMAGE = 0, MISS, HIT/*, TEST = 100*/
+        MISS = 0, SHIP_DAMAGE ,SHIP_DEAD, FLOT_DEAD/* HIT, TEST = 100 */
     };
+
     explicit BaseUser(QObject *parent = nullptr);
 
     StateMovesUser stateMovesUser() const;
@@ -22,8 +23,7 @@ public:
 
     void setDamageState();
     void setMissState();
-    void setHitState();
-    void setOwnStateFromEnemyState(StateMovesUser enemyState); //Состояние от выстрела по противнику (ответ от противника попал или нет)
+//    void setHitState();
 
     public slots:
     void setCountMoves(int countMoves);

@@ -17,15 +17,21 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
 }
 
 //FIXME тут передачи указателей смотрим на очищение памяти
-
+//TODO ДЕЛАТЬ ТУТ
 void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
 {
-    m_tcpSocket->write(doc->toJson());
+    qDebug() << "send: " << *doc;
+    auto wr = m_tcpSocket->write(doc->toJson());
+    qDebug() << "write byte: " << wr;
+    auto res = m_tcpSocket->flush();
+    qDebug() << "res flush: " << res;
+    m_tcpSocket->waitForBytesWritten();
 }
 
 void GameTcpClient::send(const QByteArray *pByteArray)
 {
     m_tcpSocket->write(*pByteArray);
+    m_tcpSocket->flush();
 }
 
 void GameTcpClient::slotConnectedToServer()
@@ -33,9 +39,9 @@ void GameTcpClient::slotConnectedToServer()
     qDebug() << "connected";
 }
 
+
 void GameTcpClient::onReadyRead()
 {
-//    QByteArray *read = new QByteArray(m_tcpSocket->readAll());
     QByteArray* read = new QByteArray(m_tcpSocket->readAll());
     //отправляю указатель на прочитанное сообщение
     qDebug() << "mes = " << *read;

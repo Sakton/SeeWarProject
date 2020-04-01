@@ -15,7 +15,7 @@ OwnUser::OwnUser(QQmlContext *cotext, QObject *parent)
     m_ownField = new Field(this);
     m_enemyField = new Field(this);
     m_flot = new Flot(m_ownField, this);
-    //TODO создание классов в QML
+    //создание классов в QML
     m_context->setContextProperty("OwnField", m_ownField);
     m_context->setContextProperty("EnemyField", m_enemyField);
     m_context->setContextProperty("Flot", m_flot);
@@ -48,9 +48,6 @@ void OwnUser::slotFromEnemyUser_onFireToCellToQml(int index)
     //пришло из сети
     //огбработка индекса выстрела и изменение в модели
     resultFireToThis(index);
-    //отослать ответ
-    emit signalOwnUser_answerToEnemyUserAboutFireCell( stateMovesUser() );
-    //в кумль в чат
     emit signalToQml_answerFireToCell(index);
 }
 
@@ -66,8 +63,8 @@ void OwnUser::slotFromFlot_DeadFlot()
 
 void OwnUser::resultFireToThis(int index)
 {
-    auto *fieldElement = qobject_cast<FieldElement*>(m_ownField->getFieldElementCell(index));
-    auto *gameFigure = fieldElement->figure();
+    auto ownFieldElement = m_ownField->getFieldElementCell(index);
+    auto *gameFigure = ownFieldElement->figure();
     auto paluba = qobject_cast<Paluba*>(gameFigure);
     if( paluba != nullptr ) {
 	auto ship = paluba->getShip();
@@ -75,8 +72,9 @@ void OwnUser::resultFireToThis(int index)
 	setDamageState();
     } else {
 	auto miss = new DamageEmptyCell;
-	fieldElement->setFigure(miss);
+        ownFieldElement->setFigure(miss);
 	setMissState();
+        emit signalOwnUser_Miss();
     }
 }
 
@@ -84,20 +82,24 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
 {
     switch(state) {
     case StateMovesUser::MISS: {
-	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
+        auto enemyFieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
 	DamageEmptyCell *damEmptyCell = new DamageEmptyCell();
-	fieldElement->setFigure(damEmptyCell);
+        enemyFieldElement->setFigure(damEmptyCell);
 	break;
     }
-    case StateMovesUser::DAMAGE: {
-	auto fieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
+
+    case StateMovesUser::SHIP_DEAD:
+    case StateMovesUser::SHIP_DAMAGE: {
+        auto enemyFieldElement = m_enemyField->getFieldElementCell(m_currentFireIndex);
 	DamageEnemyShipCell *damShipCell = new DamageEnemyShipCell();
-	fieldElement->setFigure(damShipCell);
-	setHitState();
+        enemyFieldElement->setFigure(damShipCell);
+        setMissState();
 	break;
     }
-    case StateMovesUser::HIT:
-	break;
+    case StateMovesUser::FLOT_DEAD: {
+
+        break;
+    }
     }
 }
 

@@ -2,7 +2,6 @@
 #define FLOT_H
 #include <vector>
 #include <QAbstractListModel>
-//#include "../Field/abstractfield.h"
 #include "../Figure/ship.h"
 #include "../Elements/abstractgamefigure.h"
 

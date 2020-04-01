@@ -20,7 +20,7 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     //Добавляет путь в качестве каталога, в котором механизм ищет установленные модули в структуре каталогов на основе URL.
     m_engine->addImportPath(pathOfGUI.toString().remove("main.qml"));
     m_ownUser = new OwnUser(m_engine->rootContext(), this);
-    //TODO установка всего юзера в КУМЛЬ ***
+    //установка всего юзера в КУМЛЬ ***
     m_engine->rootContext()->setContextProperty("ObjectUser", m_ownUser);
     m_engine->load(pathOfGUI);
     //****
@@ -28,12 +28,13 @@ GameBlackWater::GameBlackWater( const QUrl &pathOfGUI, QObject *parent )
     m_tcpNetClient = new GameTcpClient(Config::GAME_SERVER_HOST, Config::GAME_SERVER_PORT, this);
     connect(m_ownUser, &OwnUser::signalOwnUser_slotFromQml_clickedToCell, this, &GameBlackWater::slotFromOwnUser_onClickedToCell);
     connect(m_ownUser, &OwnUser::signalOwnUser_sendMessage, this, &GameBlackWater::slotFromOwnUser_onSendMessage);
-    connect(m_ownUser, &OwnUser::signalOwnUser_answerToEnemyUserAboutFireCell, this, &GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell);
+
     connect(m_tcpNetClient, static_cast<void(GameTcpClient::*)(const QByteArray*)>(&GameTcpClient::readyJsonDocument) , this, static_cast<void(GameBlackWater::*)(const QByteArray*)>(&GameBlackWater::readJsonDocument) );
     //сигналы по кораблям от юзера
     connect(m_ownUser, &OwnUser::signalOwnUser_DamageShip, this, &GameBlackWater::slotFromOwnuser_DamageShip);
     connect(m_ownUser, &OwnUser::signalOwnUser_DeadShip, this, &GameBlackWater::slotFromOwnuser_DeadShip);
     connect(m_ownUser, &OwnUser::signalOwnUser_DeadFlot, this, &GameBlackWater::slotFromOwnuser_DeadFlot);
+    connect(m_ownUser, &OwnUser::signalOwnUser_Miss, this, &GameBlackWater::slotFromOwnuser_Miss);
 }
 
 GameBlackWater::~GameBlackWater()
@@ -44,24 +45,17 @@ GameBlackWater::~GameBlackWater()
 
 void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
 {
-    QJsonObject obj;
-    obj.insert(Config::Name_User, m_ownUser->name());
-    obj.insert(Config::Id_Game, gameId);
-    obj.insert(Config::Fire_To_Cell, indexCell);
-
-    m_doc->setObject(obj);
-    sendJsonDocument();
+    qDebug() << "click index = " << indexCell;
+    sender(Config::Fire_To_Cell, indexCell);
 }
 
 void GameBlackWater::slotFromOwnUser_onSendMessage( const QString &mes )
 {
     QJsonObject obj;
-    obj.insert(Config::Name_User, m_ownUser->name());
-    obj.insert(Config::Id_Game, gameId);
     obj.insert(Config::Message, mes);
-
-    m_doc->setObject(obj);
-    sendJsonDocument();
+    QJsonDocument doc;
+    doc.setObject(obj);
+    m_tcpNetClient->sendJsonDocument(&doc);
 }
 
 void GameBlackWater::sendJsonDocument()
@@ -69,62 +63,60 @@ void GameBlackWater::sendJsonDocument()
     m_tcpNetClient->sendJsonDocument(m_doc);
 }
 
+//надо формировать единый обьект
 void GameBlackWater::readJsonDocument(const QByteArray *answer)
 {
+    qDebug() << "answer = " << *answer;
     QJsonDocument doc = QJsonDocument::fromJson(*answer);
+    QJsonObject obj = doc.object();
+    qDebug() << "obj = " << obj.isEmpty();
     QJsonValue name = doc[Config::Name_User];
     QJsonValue messsage = doc[Config::Message];
     QJsonValue indexFire = doc[Config::Fire_To_Cell];
     QJsonValue answerStateEnemy = doc[Config::State_Game];
     QJsonValue pravoHoda  = doc[Config::Hod];
-    //право хода решил отменить пусть сами решают или кто первый
 
     if( !messsage.isUndefined() )
 	m_ownUser->slotFromEnemyUser_onMessageToChatToQml(messsage.toString());
+
     if( !indexFire.isUndefined() )
 	m_ownUser->slotFromEnemyUser_onFireToCellToQml(indexFire.toInt());
+
     if( !answerStateEnemy.isUndefined() )
 	m_ownUser->setElementResultFireToEnemyField( OwnUser::StateMovesUser(answerStateEnemy.toInt()) );
 }
 
-void GameBlackWater::slotFromOwnuser_onAnswerToEnemyUserAboutFireCell(int state)
-{
-    QJsonObject obj;
-    obj.insert(Config::State_Game, state);
-
-    QJsonDocument doc;
-    doc.setObject(obj);
-
-    m_tcpNetClient->sendJsonDocument(&doc);
-}
-
-//TODO ДЕЛАТЬ ТУТ
-//тодошки поубирать потом
 void GameBlackWater::slotFromOwnuser_DamageShip()
 {
     qDebug() << "OBJ_GAMEBLACKWATER DAMAGE SHIP";
+    sender(Config::State_Game, OwnUser::StateMovesUser::SHIP_DAMAGE);
 }
 
 void GameBlackWater::slotFromOwnuser_DeadShip()
 {
     qDebug() << "OBJ_GAMEBLACKWATER DEAD SHIP";
+    sender(Config::State_Game, OwnUser::StateMovesUser::SHIP_DEAD);
 }
 
 void GameBlackWater::slotFromOwnuser_DeadFlot()
 {
     qDebug() << "OBJ_GAMEBLACKWATER FLOT DEAD";
+    sender(Config::State_Game, OwnUser::StateMovesUser::FLOT_DEAD);
 }
 
-void GameBlackWater::createJsonDocument()
+void GameBlackWater::slotFromOwnuser_Miss()
+{
+    qDebug() << "OBJ_GAMEBLACKWATER MISS";
+    sender(Config::State_Game, OwnUser::StateMovesUser::MISS);
+}
+
+
+void GameBlackWater::sender(const QString &key, int value)
 {
     QJsonObject obj;
-    obj.insert(Config::Name_User, m_ownUser->name());
-    obj.insert(Config::Id_Game, gameId);
-    m_doc->setObject(obj);
-}
-
-void GameBlackWater::send(QByteArray *pByteArray)
-{
-    m_tcpNetClient->send(pByteArray);
+    obj.insert(key, value);
+    QJsonDocument doc;
+    doc.setObject(obj);
+    m_tcpNetClient->sendJsonDocument(&doc);
 }
 
