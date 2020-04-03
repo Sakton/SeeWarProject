@@ -41,6 +41,7 @@ signals:
     //прием и отправка в qml
     void signalToQml_answerMessageEnemyUser( const QString &mes );
     void signalToQml_answerFireToCell( int index );
+    void signalToQml_answerStateEmemyUser( int st);
     //ответ результата хода для отправки в сеть
     void signalOwnUser_answerToEnemyUserAboutFireCell( int );
     //продвижение сигналов

@@ -10,6 +10,34 @@ InterfaceWindowSignals {
     width: Setting.mainWidth
     height: Setting.mainHeight
 
+    Connections {
+        target: Setting.userObject
+        onSignalToQml_answerStateEmemyUser: {
+            console.debug("state = " + st)
+            switch (st) {
+            case 0:
+                _popup.popupText = "ПРОМАХ"
+                _popup.open()
+                break
+            case 1:
+                _popup.popupText = "ПОПАЛ"
+                _text.color = "green"
+                _popup.open()
+                break
+            case 2:
+                _popup.popupText = "УБИТ"
+                _text.color = "red"
+                _popup.open()
+                break
+            case 3:
+                _popup.popupText = "ВСЕ!!!"
+                _text.color = "red"
+                _popup.open()
+                break
+            }
+        }
+    }
+
     //TODO выводить попапы при смерти корабля и проигрыше выигрыше
     Popup {
         id: _popup
@@ -29,6 +57,8 @@ InterfaceWindowSignals {
 
         onOpened: {
             _popup.close()
+            popupText = qsTr("Ход соперника")
+            _text.color = "#eadb00"
         }
 
         enter: Transition {
@@ -47,9 +77,8 @@ InterfaceWindowSignals {
                 id: _text
                 text: _popup.popupText
                 font.bold: true
-                styleColor: "#eadb00"
+                color: "#eadb00"
                 font.pointSize: _popup.height / 2
-                style: Text.Outline
                 anchors.centerIn: parent.Center
             }
         }

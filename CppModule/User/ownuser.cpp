@@ -101,5 +101,8 @@ void OwnUser::setElementResultFireToEnemyField(StateMovesUser state)
         break;
     }
     }
+
+    //отправляем сигнал в QML
+    emit signalToQml_answerStateEmemyUser(state);
 }
 

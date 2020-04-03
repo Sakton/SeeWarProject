@@ -45,7 +45,6 @@ GameBlackWater::~GameBlackWater()
 
 void GameBlackWater::slotFromOwnUser_onClickedToCell(int indexCell)
 {
-    qDebug() << "click index = " << indexCell;
     sender(Config::Fire_To_Cell, indexCell);
 }
 
@@ -66,10 +65,8 @@ void GameBlackWater::sendJsonDocument()
 //надо формировать единый обьект
 void GameBlackWater::readJsonDocument(const QByteArray *answer)
 {
-    qDebug() << "answer = " << *answer;
     QJsonDocument doc = QJsonDocument::fromJson(*answer);
     QJsonObject obj = doc.object();
-    qDebug() << "obj = " << obj.isEmpty();
     QJsonValue name = doc[Config::Name_User];
     QJsonValue messsage = doc[Config::Message];
     QJsonValue indexFire = doc[Config::Fire_To_Cell];
@@ -88,25 +85,21 @@ void GameBlackWater::readJsonDocument(const QByteArray *answer)
 
 void GameBlackWater::slotFromOwnuser_DamageShip()
 {
-    qDebug() << "OBJ_GAMEBLACKWATER DAMAGE SHIP";
     sender(Config::State_Game, OwnUser::StateMovesUser::SHIP_DAMAGE);
 }
 
 void GameBlackWater::slotFromOwnuser_DeadShip()
 {
-    qDebug() << "OBJ_GAMEBLACKWATER DEAD SHIP";
     sender(Config::State_Game, OwnUser::StateMovesUser::SHIP_DEAD);
 }
 
 void GameBlackWater::slotFromOwnuser_DeadFlot()
 {
-    qDebug() << "OBJ_GAMEBLACKWATER FLOT DEAD";
     sender(Config::State_Game, OwnUser::StateMovesUser::FLOT_DEAD);
 }
 
 void GameBlackWater::slotFromOwnuser_Miss()
 {
-    qDebug() << "OBJ_GAMEBLACKWATER MISS";
     sender(Config::State_Game, OwnUser::StateMovesUser::MISS);
 }
 

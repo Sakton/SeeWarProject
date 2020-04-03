@@ -20,12 +20,9 @@ GameTcpClient::GameTcpClient(const QString &host, quint16 port, QObject *parent)
 //TODO ДЕЛАТЬ ТУТ
 void GameTcpClient::sendJsonDocument(QJsonDocument *doc)
 {
-    qDebug() << "send: " << *doc;
-    auto wr = m_tcpSocket->write(doc->toJson());
-    qDebug() << "write byte: " << wr;
-    auto res = m_tcpSocket->flush();
-    qDebug() << "res flush: " << res;
-    m_tcpSocket->waitForBytesWritten();
+    m_tcpSocket->write(doc->toJson());
+//    m_tcpSocket->flush();
+//    m_tcpSocket->waitForBytesWritten();
 }
 
 void GameTcpClient::send(const QByteArray *pByteArray)
