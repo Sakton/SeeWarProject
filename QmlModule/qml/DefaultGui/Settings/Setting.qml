@@ -62,14 +62,13 @@ QtObject {
     property var userObject: ObjectUser
 
     //models
-
     property var modelField: OwnField //1
     property var enemyModelField: EnemyField //2
     property var modelFlot: Flot //1
 
-//    property var modelField: OwnField //1
-//    property var enemyModelField: EnemyField //2
-//    property var modelFlot: Flot // 1
+    //    property var modelField: OwnField //1
+    //    property var enemyModelField: EnemyField //2
+    //    property var modelFlot: Flot // 1
     //************************************************************
     //    property var modelField: OwnField
     //    property var enemyModelField: EnemyField
@@ -115,7 +114,7 @@ QtObject {
     readonly property int kRadius: 20
 
     //names Buttons
-    readonly property string buttonName_ANDROID: qsTr("Андроид")
+    readonly property string buttonName_ANDROID: qsTr("ИГРАТЬ")
     readonly property string buttonName_NETWORK: qsTr("По Сети")
     readonly property string buttonName_SETTINGS: qsTr("Настройки")
     readonly property string buttonName_GAME: qsTr("Играть")
